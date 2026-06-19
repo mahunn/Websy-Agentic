@@ -132,7 +132,7 @@ export default function Home() {
                 Absolute overlapping stack with fixed height so it has room to breathe.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden w-auto sm:w-full -mx-4 sm:mx-auto sm:max-w-[440px] mt-4 mb-2"
+              className="order-2 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-4 mb-2"
               aria-hidden="true"
             >
               <div className="relative h-[290px] px-0 sm:px-4">
