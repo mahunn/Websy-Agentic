@@ -39,12 +39,12 @@ export default function Navbar() {
   return (
     <header
       role="banner"
-      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 ${borderClass} ${
+      className={`fixed top-0 left-0 right-0 z-50 border-b transition-all duration-300 pointer-events-none ${borderClass} ${
         scrolled ? bgScrolled : bgTransparent
       }`}
     >
       <nav
-        className="max-w-7xl mx-auto px-6 md:px-8 h-[72px] flex items-center justify-between"
+        className="pointer-events-auto max-w-7xl mx-auto px-6 md:px-8 h-[72px] flex items-center justify-between"
         aria-label="Primary navigation"
       >
         {/* Brand Logo */}
@@ -122,7 +122,7 @@ export default function Navbar() {
 
         {/* Hamburger — Mobile */}
         <button
-          className={`flex md:hidden flex-col justify-center items-center gap-[5px] w-10 h-10 p-2 cursor-pointer relative z-[60] focus:outline-none ${
+          className={`flex md:hidden flex-col justify-center items-center gap-[5px] w-12 h-12 p-2 cursor-pointer relative z-[60] focus:outline-none ${
             isOpen ? 'text-white' : textClass
           }`}
           onClick={() => setIsOpen(!isOpen)}
@@ -153,7 +153,7 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         className={`fixed inset-0 h-screen w-full z-50 flex flex-col justify-center items-center gap-10 px-6 transition-all duration-300 md:hidden bg-[#000000] ${
-          isOpen ? 'opacity-100 translate-y-0 visible' : 'opacity-0 -translate-y-3 invisible pointer-events-none'
+          isOpen ? 'opacity-100 translate-y-0 visible pointer-events-auto' : 'opacity-0 -translate-y-3 invisible pointer-events-none'
         }`}
         aria-hidden={!isOpen}
       >
