@@ -122,9 +122,7 @@ export default function Navbar() {
 
         {/* Hamburger — Mobile */}
         <button
-          className={`flex md:hidden flex-col justify-center items-center gap-[5px] w-12 h-12 p-2 cursor-pointer relative z-[60] focus:outline-none ${
-            isOpen ? 'text-white' : textClass
-          }`}
+          className={`flex md:hidden flex-col justify-center items-center gap-[5px] w-12 h-12 p-2 cursor-pointer relative z-[60] focus:outline-none ${textClass}`}
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
@@ -152,7 +150,9 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         id="mobile-menu"
-        className={`fixed inset-0 h-screen w-full z-50 flex flex-col justify-center items-center gap-10 px-6 transition-all duration-300 md:hidden bg-[#000000] ${
+        className={`fixed inset-0 h-screen w-full z-50 flex flex-col justify-center items-center gap-10 px-6 transition-all duration-300 md:hidden ${
+          isLightPage ? 'bg-white' : 'bg-[#000000]'
+        } ${
           isOpen ? 'opacity-100 translate-y-0 visible pointer-events-auto' : 'opacity-0 -translate-y-3 invisible pointer-events-none'
         }`}
         aria-hidden={!isOpen}
@@ -164,8 +164,10 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`display-xl text-white transition-opacity duration-200 ${
-                    isActive ? 'opacity-100' : 'opacity-40 hover:opacity-80'
+                  className={`display-xl transition-all duration-200 ${
+                    isLightPage ? 'text-gray-900' : 'text-white'
+                  } ${
+                    isActive ? 'opacity-100 font-normal' : 'opacity-50 hover:opacity-90'
                   }`}
                   style={{ fontSize: 'clamp(32px, 8vw, 56px)', fontWeight: 300 }}
                   onClick={() => setIsOpen(false)}
@@ -179,7 +181,9 @@ export default function Navbar() {
         <div className="flex flex-col items-center gap-3 w-full max-w-[280px] mt-2">
           <Link
             href="/contact"
-            className="btn-outline-dark w-full text-center text-sm py-3"
+            className={`${
+              isLightPage ? 'btn-primary' : 'btn-outline-dark'
+            } w-full text-center text-sm py-3`}
             onClick={() => setIsOpen(false)}
           >
             Get a Website
