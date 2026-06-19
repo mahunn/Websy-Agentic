@@ -55,13 +55,11 @@ export default function Navbar() {
           aria-label="Websy — go to homepage"
         >
           <Image
-            src="/logo-dark.svg"
+            src={isLightPage ? "/logo-dark.svg" : "/logo.svg"}
             alt="Websy logo"
             width={120}
             height={36}
-            className={`block h-9 w-auto transition-all duration-300 ${
-              isLightPage ? '' : 'brightness-0 invert'
-            }`}
+            className="block h-9 w-auto transition-all duration-300"
             priority
           />
         </Link>

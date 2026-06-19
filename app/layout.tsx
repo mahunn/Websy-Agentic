@@ -39,11 +39,11 @@ export default function RootLayout({
             <div>
               <Link href="/" className="inline-flex mb-5" aria-label="Websy — go to homepage">
                 <Image
-                  src="/logo-dark.svg"
+                  src="/logo.svg"
                   alt="Websy logo"
                   width={120}
                   height={36}
-                  className="block h-9 w-auto brightness-0 invert"
+                  className="block h-9 w-auto"
                 />
               </Link>
               <p className="text-[14px] leading-[1.49] tracking-[0.28px] text-[#9dabad] max-w-[28ch]">
