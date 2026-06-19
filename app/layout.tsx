@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`h-full antialiased scroll-smooth ${inter.variable}`}>
-      <body className="min-h-full flex flex-col bg-white text-gray-900 pt-[72px]">
+      <body className="min-h-full flex flex-col bg-white text-gray-900 pt-[48px] sm:pt-[56px] md:pt-[60px]">
         <Navbar />
         <div className="flex-grow">{children}</div>
 

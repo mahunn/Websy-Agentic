@@ -78,9 +78,10 @@ export default function Navbar() {
     };
   }, [pathname]);
 
+  // Active transparent rose/red pill design
   const pillBg = isLightPage
-    ? 'bg-white shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-gray-200/20'
-    : 'bg-[#E11D48] shadow-[0_0_12px_rgba(225,29,72,0.4)]';
+    ? 'bg-gradient-to-b from-[#E11D48]/6 to-[#E11D48]/12 border border-[#E11D48]/18 shadow-[0_2px_8px_rgba(225,29,72,0.08)]'
+    : 'bg-gradient-to-b from-[#E11D48]/18 to-[#E11D48]/28 border border-[#E11D48]/35 backdrop-blur-[4px] shadow-[0_4px_12px_rgba(225,29,72,0.24)]';
 
   return (
     <header
@@ -90,43 +91,46 @@ export default function Navbar() {
       }`}
     >
       <nav
-        className="pointer-events-auto max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-[72px] flex items-center justify-between gap-4"
+        className="pointer-events-auto max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-[48px] sm:h-[56px] md:h-[60px] flex items-center justify-start md:justify-between gap-4 sm:gap-6 md:gap-4"
         aria-label="Primary navigation"
       >
-        {/* Brand Logo */}
-        <Link
-          href="/"
-          className="flex-shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity"
-          aria-label="Websy — go to homepage"
-        >
-          <Image
-            src={isLightPage ? "/logo-dark.svg" : "/logo.svg"}
-            alt="Websy logo"
-            width={120}
-            height={36}
-            className="block h-7 sm:h-8 md:h-9 w-auto transition-all duration-300"
-            priority
-          />
-        </Link>
+        {/* Brand Logo Column */}
+        <div className="flex-none md:flex-1 flex items-center justify-start">
+          <Link
+            href="/"
+            className="flex-shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity"
+            aria-label="Websy — go to homepage"
+          >
+            <Image
+              src={isLightPage ? "/logo-dark.svg" : "/logo.svg"}
+              alt="Websy logo"
+              width={120}
+              height={36}
+              className="block h-[28px] sm:h-[34px] md:h-[42px] w-auto transition-all duration-300"
+              priority
+            />
+          </Link>
+        </div>
 
-        {/* Segmented Capsule Nav Links */}
-        <div className="flex-grow flex justify-end md:justify-center overflow-hidden">
+        {/* Segmented Capsule Nav Links Column */}
+        <div className="flex-none md:flex-initial flex justify-start md:justify-center overflow-hidden">
           <ul
-            className={`relative flex items-center p-1 rounded-full border transition-all duration-300 overflow-x-auto scrollbar-none flex-nowrap whitespace-nowrap max-w-full ${
+            className={`relative flex items-center h-[36px] sm:h-[42px] md:h-[46px] p-1 rounded-full border transition-all duration-300 overflow-x-auto scrollbar-none flex-nowrap whitespace-nowrap max-w-full ${
               isLightPage
-                ? 'bg-gray-100/60 border-gray-200/60'
-                : 'bg-white/5 border-white/10 backdrop-blur-md'
+                ? 'bg-gray-100/50 border-gray-200/50 backdrop-blur-sm'
+                : 'bg-white/[0.03] border-white/[0.08] backdrop-blur-md'
             }`}
             role="list"
           >
             {/* Sliding Background Pill */}
             <span
-              className={`absolute top-0 left-0 rounded-full transition-all duration-300 ease-out z-0 pointer-events-none ${pillBg}`}
+              className={`absolute top-0 left-0 rounded-full z-0 pointer-events-none ${pillBg}`}
               style={{
                 transform: `translate3d(${indicatorStyle.left}px, ${indicatorStyle.top}px, 0)`,
                 width: `${indicatorStyle.width}px`,
                 height: `${indicatorStyle.height}px`,
                 opacity: indicatorStyle.opacity,
+                transition: 'transform 380ms cubic-bezier(0.16, 1, 0.3, 1), width 380ms cubic-bezier(0.16, 1, 0.3, 1), height 380ms cubic-bezier(0.16, 1, 0.3, 1), opacity 250ms ease',
               }}
             />
 
@@ -137,11 +141,11 @@ export default function Navbar() {
                   <Link
                     href={link.href}
                     data-nav-link={link.href}
-                    className={`text-[11px] sm:text-[13.5px] md:text-[15px] font-[450] md:font-[420] transition-colors duration-300 py-1.5 px-3 sm:px-4 md:py-2 md:px-5 block rounded-full select-none ${
+                    className={`h-[28px] w-[65px] min-[375px]:w-[70px] sm:h-[34px] sm:w-[90px] md:h-[38px] md:w-[110px] text-[11px] min-[375px]:text-[12px] sm:text-[13.5px] md:text-[15px] font-medium tracking-wide transition-colors duration-250 flex items-center justify-center rounded-full select-none ${
                       isActive
                         ? isLightPage
-                          ? 'text-gray-900 font-semibold'
-                          : 'text-white font-semibold'
+                          ? 'text-[#E11D48]'
+                          : 'text-white'
                         : isLightPage
                         ? 'text-gray-500 hover:text-gray-900'
                         : 'text-white/60 hover:text-white'
@@ -155,8 +159,8 @@ export default function Navbar() {
           </ul>
         </div>
 
-        {/* Desktop CTAs (hidden on mobile, visible on desktop md+) */}
-        <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+        {/* Desktop CTAs Column (hidden on mobile, visible on desktop md+) */}
+        <div className="flex-1 hidden md:flex items-center justify-end gap-3 flex-shrink-0">
           {isLightPage ? (
             <>
               <Link href="/contact" className="btn-outline-light text-sm py-2.5 px-5">
