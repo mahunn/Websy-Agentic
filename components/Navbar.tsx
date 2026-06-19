@@ -27,6 +27,7 @@ export default function Navbar() {
     pathname === '/' ||
     pathname === '/services' ||
     pathname === '/work' ||
+    pathname === '/about' ||
     pathname === '/contact';
 
   const textClass     = isLightPage ? 'text-[#000000]' : 'text-white';
