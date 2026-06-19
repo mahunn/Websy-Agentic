@@ -132,15 +132,15 @@ export default function Home() {
                 Full-bleed with -mx-6; cards stagger vertically for legibility.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden w-full max-w-[450px] mx-auto mt-4 mb-2"
+              className="order-2 lg:hidden w-full max-w-[420px] mx-auto mt-4 mb-2"
               aria-hidden="true"
             >
-              <div className="relative h-[320px] px-4">
+              <div className="relative h-[290px] px-4">
 
-                {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (top left) */}
+                {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (back left) */}
                 <div
-                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '0%', left: '4%', transform: 'rotate(-6deg)', zIndex: 1 }}
+                  className="absolute w-[58%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
+                  style={{ top: '4%', left: '0%', transform: 'rotate(-4deg)', zIndex: 1 }}
                 >
                   <Image
                     src="/glamora-mockup.png"
@@ -149,16 +149,16 @@ export default function Home() {
                     height={400}
                     className="w-full h-auto object-cover"
                   />
-                  <div className="absolute top-2.5 left-2.5 flex items-center gap-1 bg-white border border-gray-200 rounded-full px-2 py-0.5 shadow-md">
-                    <span className="text-[9px] font-semibold text-gray-900">E-commerce</span>
-                    <span className="text-[8px] text-emerald-600 bg-emerald-50 rounded-full px-1.5 py-0.2 font-bold">↑ 38% CVR</span>
+                  <div className="absolute top-2 left-2 flex items-center gap-1 bg-white border border-gray-200 rounded-full px-1.5 py-0.5 shadow-md">
+                    <span className="text-[8px] font-semibold text-gray-900">E-commerce</span>
+                    <span className="text-[7px] text-emerald-600 bg-emerald-50 rounded-full px-1 py-0.2 font-bold">↑ 38% CVR</span>
                   </div>
                 </div>
 
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
-                  className="absolute w-[70%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '20%', right: '4%', transform: 'rotate(4deg)', zIndex: 10 }}
+                  className="absolute w-[58%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
+                  style={{ top: '14%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
                 >
                   <Image
                     src="/mahin-mockup.png"
@@ -167,16 +167,16 @@ export default function Home() {
                     height={400}
                     className="w-full h-auto object-cover"
                   />
-                  <div className="absolute top-2.5 right-2.5 flex items-center gap-1 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-2 py-0.5 text-[9px] font-semibold text-gray-700 shadow-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_6px_#E11D48]" />
+                  <div className="absolute top-2 right-2 flex items-center gap-1 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-1.5 py-0.5 text-[8px] font-semibold text-gray-700 shadow-sm">
+                    <span className="w-1 h-1 rounded-full bg-primary animate-pulse shadow-[0_0_6px_#E11D48]" />
                     Live
                   </div>
                 </div>
 
-                {/* Mobile Card 3 — Henley e-commerce · Performance badge (bottom left, forefront) */}
+                {/* Mobile Card 3 — Henley e-commerce · Performance badge (front center) */}
                 <div
-                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_24px_48px_-10px_rgba(0,0,0,0.22)] border border-gray-100/80"
-                  style={{ bottom: '0%', left: '12%', transform: 'rotate(-2deg)', zIndex: 20 }}
+                  className="absolute w-[64%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80"
+                  style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 20 }}
                 >
                   <Image
                     src="/henley-mockup.png"
@@ -186,9 +186,9 @@ export default function Home() {
                     className="w-full h-auto object-cover"
                     priority
                   />
-                  <div className="absolute bottom-2.5 left-2.5 flex items-center gap-1 bg-white border border-gray-200 rounded-full px-2 py-0.5 shadow-md">
-                    <span className="text-[9px] font-semibold text-gray-900">Performance</span>
-                    <span className="text-[9px] text-emerald-600 font-bold">99/100 ⚡</span>
+                  <div className="absolute bottom-2 left-2 flex items-center gap-1 bg-white border border-gray-200 rounded-full px-1.5 py-0.5 shadow-md">
+                    <span className="text-[8px] font-semibold text-gray-900">Performance</span>
+                    <span className="text-[8px] text-emerald-600 font-bold">99/100 ⚡</span>
                   </div>
                 </div>
 
