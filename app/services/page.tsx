@@ -1,10 +1,14 @@
+import Link from 'next/link';
+import Image from 'next/image';
+import { SiNextdotjs, SiReact, SiTailwindcss, SiJavascript, SiNodedotjs, SiTypescript, SiGit } from "react-icons/si";
+
 export default function Services() {
   return (
     <main id="main-content" className="py-16 md:py-24 bg-[#050505]">
       <section className="max-w-7xl mx-auto px-6 md:px-8" aria-labelledby="services-headline">
         
         {/* Page Header */}
-        <header className="mb-16 max-w-2xl">
+        <header className="mb-16 text-center max-w-2xl mx-auto">
           <div className="mb-4">
             <span className="inline-flex items-center text-xs font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-4 py-1.5">
               What we do
@@ -26,68 +30,173 @@ export default function Services() {
           
           {/* Card 1: Landing Pages & Portfolios */}
           <article
-            className="group flex flex-col items-start bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl p-8 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-            role="listitem"
+            className="group flex flex-col bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl overflow-hidden hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+            aria-label="Landing Pages &amp; Portfolios service"
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-zinc-900 border border-zinc-800/60 mb-6 text-primary group-hover:scale-105 transition-transform duration-200">
-              <svg className="w-6 h-6" viewBox="0 0 48 48" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" strokeWidth="2" />
-                <path d="M14 20h20M14 26h14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                <path d="M24 34l4-4-4-4" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
+              <Image
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                src="/funnel-mockup.png"
+                alt="Optimized conversion funnel visualization inside a phone mockup"
+                width={800}
+                height={500}
+                priority
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/85 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-zinc-300 tracking-wider uppercase">
+                Starting at <span className="text-primary font-bold text-xs ml-0.5">৳3,999</span>
+              </div>
             </div>
-            <h2 className="text-xl font-semibold text-white mb-3">Landing Pages &amp; Portfolios</h2>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-6 flex-grow">
-              Built for rapid deployment and high conversion. Showcase your work, services, or personal brand with a stunning single-page layout or a polished portfolio designed to capture leads.
-            </p>
-            <div className="text-lg font-semibold text-primary mt-auto pt-4">
-              Starting at ৳3,999
+
+            <div className="p-8 flex flex-col flex-grow">
+              <div className="mb-4">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+                  High Conversion
+                </span>
+              </div>
+              <h2 className="text-xl font-semibold text-white mb-2">Landing Pages &amp; Portfolios</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow">
+                Built for rapid deployment and high conversion. Showcase your work, services, or personal brand with a stunning layout designed to capture leads, signups, or sales from ad traffic.
+              </p>
+
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-zinc-900">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  <SiNextdotjs className="text-white w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer" aria-label="Next.js" />
+                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer" aria-label="React" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
+                  <SiJavascript className="text-[#F7DF1E] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(247,223,30,0.45)] cursor-pointer" aria-label="JavaScript" />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
+                <Link
+                  href="/contact"
+                  className="text-xs font-semibold text-zinc-400 hover:text-primary transition-colors"
+                >
+                  Custom options ↗
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-4 rounded-full transition-colors duration-200"
+                >
+                  Get a Landing Page Proposal →
+                </Link>
+              </div>
             </div>
           </article>
 
           {/* Card 2: Custom E-Commerce */}
           <article
-            className="group flex flex-col items-start bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl p-8 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-            role="listitem"
+            className="group flex flex-col bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl overflow-hidden hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+            aria-label="Custom E-Commerce service"
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-zinc-900 border border-zinc-800/60 mb-6 text-primary group-hover:scale-105 transition-transform duration-200">
-              <svg className="w-6 h-6" viewBox="0 0 48 48" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <path d="M6 8h4l5.5 22h21l4.5-16H14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx="21" cy="36" r="2.5" stroke="currentColor" strokeWidth="2" />
-                <circle cx="34" cy="36" r="2.5" stroke="currentColor" strokeWidth="2" />
-              </svg>
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
+              <Image
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                src="/ecommerce-mockup.png"
+                alt="Product grid layout inside a laptop mockup"
+                width={800}
+                height={500}
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/85 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-zinc-300 tracking-wider uppercase">
+                Starting at <span className="text-primary font-bold text-xs ml-0.5">৳9,999</span>
+              </div>
             </div>
-            <h2 className="text-xl font-semibold text-white mb-3">Custom E-Commerce</h2>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-6 flex-grow">
-              Custom UI, fast load times, and a seamless checkout experience. We engineer high-converting digital storefronts tailored to sell your products and drive revenue growth.
-            </p>
-            <div className="text-lg font-semibold text-primary mt-auto pt-4">
-              Starting at ৳9,999
+
+            <div className="p-8 flex flex-col flex-grow">
+              <div className="mb-4">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+                  Full Storefront
+                </span>
+              </div>
+              <h2 className="text-xl font-semibold text-white mb-2">Custom E-Commerce</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow">
+                Custom UI, fast load times, and a seamless checkout experience. We build high-converting storefronts tailored to sell your products and drive revenue with lightning fast load speeds.
+              </p>
+
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-zinc-900">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  <SiNextdotjs className="text-white w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer" aria-label="Next.js" />
+                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer" aria-label="React" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
+                  <SiNodedotjs className="text-[#339933] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(51,153,51,0.45)] cursor-pointer" aria-label="Node.js" />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
+                <Link
+                  href="/contact"
+                  className="text-xs font-semibold text-zinc-400 hover:text-primary transition-colors"
+                >
+                  Custom options ↗
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-4 rounded-full transition-colors duration-200"
+                >
+                  Get an E-Commerce Proposal →
+                </Link>
+              </div>
             </div>
           </article>
 
           {/* Card 3: Advanced/Full-Stack Applications */}
           <article
-            className="group flex flex-col items-start bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl p-8 hover:border-primary/25 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
-            role="listitem"
+            className="group flex flex-col bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl overflow-hidden hover:border-primary/20 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
+            aria-label="Advanced Full-Stack service"
           >
-            <div className="w-12 h-12 rounded-xl flex items-center justify-center bg-zinc-900 border border-zinc-800/60 mb-6 text-primary group-hover:scale-105 transition-transform duration-200">
-              <svg className="w-6 h-6" viewBox="0 0 48 48" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="8" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="2" />
-                <rect x="6" y="30" width="36" height="10" rx="2" stroke="currentColor" strokeWidth="2" />
-                <circle cx="12" cy="13" r="1.5" fill="currentColor" />
-                <circle cx="12" cy="35" r="1.5" fill="currentColor" />
-                <circle cx="18" cy="13" r="1.5" fill="currentColor" />
-                <circle cx="18" cy="35" r="1.5" fill="currentColor" />
-                <path d="M6 21h36" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" />
-              </svg>
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
+              <Image
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                src="/database-mockup.png"
+                alt="Complex database architecture schema diagram"
+                width={800}
+                height={500}
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/85 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-zinc-300 tracking-wider uppercase">
+                Custom Pricing <span className="text-primary font-bold text-xs ml-0.5">৳49,999+</span>
+              </div>
             </div>
-            <h2 className="text-xl font-semibold text-white mb-3">Advanced Full-Stack</h2>
-            <p className="text-sm md:text-base text-zinc-400 leading-relaxed mb-6 flex-grow">
-              Complex backends, high security, and massive scale. Custom web applications, booking portals, and management platforms engineered for your specific business requirements.
-            </p>
-            <div className="text-lg font-semibold text-primary mt-auto pt-4">
-              Custom Pricing (Up to ৳50,000+)
+
+            <div className="p-8 flex flex-col flex-grow">
+              <div className="mb-4">
+                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
+                  Enterprise
+                </span>
+              </div>
+              <h2 className="text-xl font-semibold text-white mb-2">Advanced Full-Stack</h2>
+              <p className="text-zinc-400 text-sm leading-relaxed mb-6 flex-grow">
+                Complex backends, high security, and massive scale. We engineer custom portals, management systems, and web apps configured to solve your specific database and scaling requirements.
+              </p>
+
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-zinc-900">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  <SiNextdotjs className="text-white w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer" aria-label="Next.js" />
+                  <SiTypescript className="text-[#3178C6] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(49,120,198,0.45)] cursor-pointer" aria-label="TypeScript" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
+                  <SiGit className="text-[#F05032] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(240,80,50,0.45)] cursor-pointer" aria-label="Git" />
+                </div>
+              </div>
+
+              <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
+                <Link
+                  href="/contact"
+                  className="text-xs font-semibold text-zinc-400 hover:text-primary transition-colors"
+                >
+                  Custom options ↗
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-4 rounded-full transition-colors duration-200"
+                >
+                  Get a Full-Stack Proposal →
+                </Link>
+              </div>
             </div>
           </article>
 
