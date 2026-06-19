@@ -144,8 +144,8 @@ export default function Home() {
 
                 {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (back left) */}
                 <div
-                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80 transition-all duration-300 cursor-pointer"
-                  style={{ top: '0%', left: '0%', transform: 'rotate(-8deg)', zIndex: activeCard === 1 ? 20 : 1, opacity: activeCard === 1 ? 1 : 0.82 }}
+                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  style={{ top: '0%', left: '0%', transform: activeCard === 1 ? 'rotate(-8deg) scale(1.04)' : 'rotate(-8deg) scale(0.92)', zIndex: activeCard === 1 ? 20 : 1, opacity: activeCard === 1 ? 1 : 0.82 }}
                   onClick={() => setActiveCard(1)}
                 >
                   <Image
@@ -163,8 +163,8 @@ export default function Home() {
 
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
-                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80 transition-all duration-300 cursor-pointer"
-                  style={{ top: '9%', right: '0%', transform: 'rotate(8deg)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
+                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  style={{ top: '9%', right: '0%', transform: activeCard === 2 ? 'rotate(8deg) scale(1.04)' : 'rotate(8deg) scale(0.92)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
                   onClick={() => setActiveCard(2)}
                 >
                   <Image
@@ -182,8 +182,8 @@ export default function Home() {
 
                 {/* Mobile Card 3 — Henley e-commerce · Performance badge (front center) */}
                 <div
-                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80 transition-all duration-300 cursor-pointer"
-                  style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 20 : 10, opacity: activeCard === 3 ? 1 : 0.9 }}
+                  className={`absolute w-[72%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.04)' : 'translateX(-50%) rotate(-1deg) scale(0.92)', zIndex: activeCard === 3 ? 20 : 10, opacity: activeCard === 3 ? 1 : 0.9 }}
                   onClick={() => setActiveCard(3)}
                 >
                   <Image
@@ -212,8 +212,8 @@ export default function Home() {
             >
               {/* Card 1 — back, tilted left */}
               <div
-                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 transition-all duration-300 cursor-pointer"
-                style={{ top: '4%', left: '0%', transform: 'rotate(-4deg) scale(0.93)', zIndex: activeCard === 1 ? 3 : 1 }}
+                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
+                style={{ top: '4%', left: '0%', transform: activeCard === 1 ? 'rotate(-4deg) scale(1.02)' : 'rotate(-4deg) scale(0.91)', zIndex: activeCard === 1 ? 3 : 1 }}
                 onClick={() => setActiveCard(1)}
               >
                 <Image
@@ -227,8 +227,8 @@ export default function Home() {
 
               {/* Card 2 — middle, slight tilt */}
               <div
-                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 transition-all duration-300 cursor-pointer"
-                style={{ top: '11%', right: '0%', transform: 'rotate(4deg) scale(0.96)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
+                style={{ top: '11%', right: '0%', transform: activeCard === 2 ? 'rotate(4deg) scale(1.02)' : 'rotate(4deg) scale(0.91)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
                 onClick={() => setActiveCard(2)}
               >
                 <Image
@@ -242,8 +242,8 @@ export default function Home() {
 
               {/* Card 3 — front, centred, upright */}
               <div
-                className="absolute w-[68%] rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border border-gray-100 transition-all duration-300 cursor-pointer"
-                style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 3 : 2 }}
+                className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
+                style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.02)' : 'translateX(-50%) rotate(-1deg) scale(0.91)', zIndex: activeCard === 3 ? 3 : 2 }}
                 onClick={() => setActiveCard(3)}
               >
                 <Image
