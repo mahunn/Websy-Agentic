@@ -1,7 +1,12 @@
+"use client";
+
+import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 export default function Home() {
+  const [activeCard, setActiveCard] = useState(3);
+
   return (
     <main id="main-content" className="bg-white">
 
@@ -139,8 +144,9 @@ export default function Home() {
 
                 {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (back left) */}
                 <div
-                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '0%', left: '0%', transform: 'rotate(-8deg)', zIndex: 1, opacity: 0.82 }}
+                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80 transition-all duration-300 cursor-pointer"
+                  style={{ top: '0%', left: '0%', transform: 'rotate(-8deg)', zIndex: activeCard === 1 ? 20 : 1, opacity: activeCard === 1 ? 1 : 0.82 }}
+                  onClick={() => setActiveCard(1)}
                 >
                   <Image
                     src="/glamora-mockup.png"
@@ -157,8 +163,9 @@ export default function Home() {
 
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
-                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '12%', right: '0%', transform: 'rotate(6deg)', zIndex: 10, opacity: 0.85 }}
+                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80 transition-all duration-300 cursor-pointer"
+                  style={{ top: '12%', right: '0%', transform: 'rotate(6deg)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
+                  onClick={() => setActiveCard(2)}
                 >
                   <Image
                     src="/mahin-mockup.png"
@@ -175,11 +182,12 @@ export default function Home() {
 
                 {/* Mobile Card 3 — Henley e-commerce · Performance badge (front center) */}
                 <div
-                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80"
-                  style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 20 }}
+                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80 transition-all duration-300 cursor-pointer"
+                  style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 20 : 10, opacity: activeCard === 3 ? 1 : 0.9 }}
+                  onClick={() => setActiveCard(3)}
                 >
                   <Image
-                    src="/henley-mockup-1.png"
+                    src="/henley-mockup-1-cropped.png"
                     alt="Henley Zone e-commerce preview"
                     width={600}
                     height={400}
@@ -204,8 +212,9 @@ export default function Home() {
             >
               {/* Card 1 — back, tilted left */}
               <div
-                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100"
-                style={{ top: '4%', left: '0%', transform: 'rotate(-4deg) scale(0.93)', zIndex: 1 }}
+                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 transition-all duration-300 cursor-pointer"
+                style={{ top: '4%', left: '0%', transform: 'rotate(-4deg) scale(0.93)', zIndex: activeCard === 1 ? 3 : 1 }}
+                onClick={() => setActiveCard(1)}
               >
                 <Image
                   src="/glamora-mockup.png"
@@ -218,8 +227,9 @@ export default function Home() {
 
               {/* Card 2 — middle, slight tilt */}
               <div
-                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100"
-                style={{ top: '14%', right: '0%', transform: 'rotate(3deg) scale(0.96)', zIndex: 2 }}
+                className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 transition-all duration-300 cursor-pointer"
+                style={{ top: '14%', right: '0%', transform: 'rotate(3deg) scale(0.96)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                onClick={() => setActiveCard(2)}
               >
                 <Image
                   src="/mahin-mockup.png"
@@ -232,11 +242,12 @@ export default function Home() {
 
               {/* Card 3 — front, centred, upright */}
               <div
-                className="absolute w-[68%] rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border border-gray-100"
-                style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 3 }}
+                className="absolute w-[68%] rounded-2xl overflow-hidden shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border border-gray-100 transition-all duration-300 cursor-pointer"
+                style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 3 : 2 }}
+                onClick={() => setActiveCard(3)}
               >
                 <Image
-                  src="/henley-mockup-1.png"
+                  src="/henley-mockup-1-cropped.png"
                   alt="Henley Zone e-commerce preview"
                   width={600}
                   height={400}
