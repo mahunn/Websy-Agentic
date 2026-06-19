@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { SiNextdotjs, SiReact, SiTailwindcss, SiJavascript, SiNodedotjs, SiTypescript, SiGit } from "react-icons/si";
 
 export default function Services() {
@@ -33,15 +32,9 @@ export default function Services() {
             className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             aria-label="Landing Pages & Portfolios service"
           >
-            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
-              <Image
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                src="/funnel-mockup.png"
-                alt="Optimized conversion funnel visualization inside a phone mockup"
-                width={800}
-                height={500}
-                priority
-              />
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gradient-to-br from-rose-50/50 to-amber-50/30 flex items-center justify-center border-b border-gray-100">
+              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+              <SiReact className="w-14 h-14 text-rose-500/80 transition-transform duration-500 group-hover:scale-110 group-hover:rotate-[15deg]" />
               <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-600 tracking-wider uppercase shadow-sm">
                 Starting at <span className="text-primary font-bold text-xs ml-0.5">৳3,999</span>
               </div>
@@ -91,14 +84,9 @@ export default function Services() {
             className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             aria-label="Custom E-Commerce service"
           >
-            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
-              <Image
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                src="/ecommerce-mockup.png"
-                alt="Product grid layout inside a laptop mockup"
-                width={800}
-                height={500}
-              />
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gradient-to-br from-violet-50/50 to-fuchsia-50/30 flex items-center justify-center border-b border-gray-100">
+              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+              <SiNextdotjs className="w-14 h-14 text-gray-900/80 transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-600 tracking-wider uppercase shadow-sm">
                 Starting at <span className="text-primary font-bold text-xs ml-0.5">৳9,999</span>
               </div>
@@ -148,14 +136,9 @@ export default function Services() {
             className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
             aria-label="Advanced Full-Stack service"
           >
-            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
-              <Image
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                src="/database-mockup.png"
-                alt="Complex database architecture schema diagram"
-                width={800}
-                height={500}
-              />
+            <div className="relative w-full aspect-[16/10] overflow-hidden bg-gradient-to-br from-zinc-100/50 to-slate-50/30 flex items-center justify-center border-b border-gray-100">
+              <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(#000 1px, transparent 1px)', backgroundSize: '16px 16px' }} />
+              <SiTypescript className="w-14 h-14 text-[#3178C6]/80 transition-transform duration-500 group-hover:scale-110" />
               <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-600 tracking-wider uppercase shadow-sm">
                 Custom Pricing <span className="text-primary font-bold text-xs ml-0.5">৳49,999+</span>
               </div>
