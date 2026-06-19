@@ -132,7 +132,7 @@ export default function Home() {
                 Full-bleed with -mx-6; cards stagger vertically for legibility.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden w-full max-w-[420px] mx-auto mt-4 mb-2"
+              className="order-2 lg:hidden w-full max-w-[440px] mx-auto mt-4 mb-2"
               aria-hidden="true"
             >
               <div className="relative h-[290px] px-4">
@@ -158,7 +158,7 @@ export default function Home() {
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
                   className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '8%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
+                  style={{ top: '12%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
                 >
                   <Image
                     src="/mahin-mockup.png"
