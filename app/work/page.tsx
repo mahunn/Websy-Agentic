@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Work() {
   return (
     <main id="main-content" className="bg-[#050505] py-16 md:py-24">
@@ -29,15 +31,22 @@ export default function Work() {
             aria-label="Henley Zone — E-commerce project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
-              <img
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                src="https://placehold.co/800x500/0a0a0a/71717a?text=henleyzone.com"
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-10 group-hover:opacity-0 group-hover:scale-[1.03]"
+                src="/henley-mockup.png"
                 alt="Preview of Henley Zone e-commerce website"
                 width={800}
                 height={500}
-                loading="lazy"
+                priority
               />
-              <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 group-hover:scale-[1.03]"
+                src="/henley-mockup2.png"
+                alt="Secondary preview of Henley Zone"
+                width={800}
+                height={500}
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
                 Live
               </div>
@@ -82,15 +91,21 @@ export default function Work() {
             aria-label="Glamora Beige — Premium landing page project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
-              <img
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                src="https://placehold.co/800x500/f5f0eb/52525b?text=glamora-beige.vercel.app"
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-10 group-hover:opacity-0 group-hover:scale-[1.03]"
+                src="/glamora-mockup.png"
                 alt="Preview of Glamora Beige minimalist landing page"
                 width={800}
                 height={500}
-                loading="lazy"
               />
-              <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 group-hover:scale-[1.03]"
+                src="/glamora-mockup2.png"
+                alt="Secondary preview of Glamora Beige"
+                width={800}
+                height={500}
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
                 Live
               </div>
@@ -135,15 +150,21 @@ export default function Work() {
             aria-label="Mahin Ahmad — Professional digital portfolio project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-zinc-950">
-              <img
-                className="w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-500"
-                src="https://placehold.co/800x500/0a0a0a/71717a?text=mahinahmad.com"
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-10 group-hover:opacity-0 group-hover:scale-[1.03]"
+                src="/mahin-mockup.png"
                 alt="Preview of Mahin Ahmad personal portfolio website"
                 width={800}
                 height={500}
-                loading="lazy"
               />
-              <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
+              <Image
+                className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-0 opacity-0 group-hover:opacity-100 group-hover:scale-[1.03]"
+                src="/mahin-mockup2.png"
+                alt="Secondary preview of Mahin Ahmad"
+                width={800}
+                height={500}
+              />
+              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-black/80 backdrop-blur-sm border border-white/10 rounded-full px-3 py-1 text-[10px] font-semibold text-white tracking-wider uppercase">
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
                 Live
               </div>
