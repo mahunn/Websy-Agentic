@@ -129,7 +129,7 @@ export default function Home() {
 
             {/* ══ ZONE 2 — Mobile Mockup Stack (< lg only)
                 order-2: renders between copy and CTAs on mobile.
-                Full-bleed with -mx-6; cards stagger vertically for legibility.
+                Absolute overlapping stack with fixed height so it has room to breathe.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
               className="order-2 lg:hidden w-auto sm:w-full -mx-4 sm:mx-auto sm:max-w-[440px] mt-4 mb-2"
@@ -140,7 +140,7 @@ export default function Home() {
                 {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (back left) */}
                 <div
                   className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '0%', left: '0%', transform: 'rotate(-4deg)', zIndex: 1 }}
+                  style={{ top: '0%', left: '0%', transform: 'rotate(-8deg)', zIndex: 1, opacity: 0.82 }}
                 >
                   <Image
                     src="/glamora-mockup.png"
@@ -158,7 +158,7 @@ export default function Home() {
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
                   className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '12%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
+                  style={{ top: '12%', right: '0%', transform: 'rotate(6deg)', zIndex: 10, opacity: 0.85 }}
                 >
                   <Image
                     src="/mahin-mockup.png"
