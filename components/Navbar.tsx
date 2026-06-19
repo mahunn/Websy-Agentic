@@ -49,17 +49,19 @@ export default function Navbar() {
     const updateIndicator = () => {
       const activeEl = document.querySelector(`[data-nav-link="${pathname}"]`) as HTMLElement | null;
       if (activeEl) {
-        const parentEl = activeEl.offsetParent as HTMLElement | null;
+        const parentEl = activeEl.closest('ul') as HTMLElement | null;
         if (parentEl) {
           const activeRect = activeEl.getBoundingClientRect();
           const parentRect = parentEl.getBoundingClientRect();
           setIndicatorStyle({
-            left: activeRect.left - parentRect.left,
+            left: activeRect.left - parentRect.left + parentEl.scrollLeft,
             width: activeRect.width,
             top: activeRect.top - parentRect.top,
             height: activeRect.height,
             opacity: 1,
           });
+          // Scroll active element into view smoothly on narrow/touch screens
+          activeEl.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
         }
       } else {
         setIndicatorStyle((prev) => ({ ...prev, opacity: 0 }));
@@ -108,9 +110,9 @@ export default function Navbar() {
         </Link>
 
         {/* Segmented Capsule Nav Links */}
-        <div className="flex-grow flex justify-end md:justify-center">
+        <div className="flex-grow flex justify-end md:justify-center overflow-hidden">
           <ul
-            className={`relative flex items-center p-1 rounded-full border transition-all duration-300 ${
+            className={`relative flex items-center p-1 rounded-full border transition-all duration-300 overflow-x-auto scrollbar-none flex-nowrap whitespace-nowrap max-w-full ${
               isLightPage
                 ? 'bg-gray-100/60 border-gray-200/60'
                 : 'bg-white/5 border-white/10 backdrop-blur-md'
