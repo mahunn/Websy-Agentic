@@ -35,7 +35,7 @@ export default function Work() {
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
               <Image
                 className="w-full h-full object-cover transition-all duration-500 absolute inset-0 z-10 group-hover:opacity-0 group-hover:scale-[1.03]"
-                src="/henley-mockup-v2.png"
+                src="/henley-mockup-1.png"
                 alt="Preview of Henley Zone e-commerce website"
                 width={800}
                 height={500}
