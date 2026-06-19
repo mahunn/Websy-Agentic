@@ -8,6 +8,7 @@ export default function Contact() {
     name: '',
     email: '',
     projectType: '',
+    budget: '',
     message: '',
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -17,7 +18,7 @@ export default function Contact() {
     e.preventDefault();
     
     // Check validation
-    if (!formData.name || !formData.email || !formData.projectType) {
+    if (!formData.name || !formData.email || !formData.projectType || !formData.budget) {
       return;
     }
 
@@ -117,6 +118,34 @@ export default function Contact() {
                 </div>
               </div>
 
+              {/* Project Budget Select */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="field-budget" className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
+                  Project Budget
+                </label>
+                <div className="relative">
+                  <select
+                    id="field-budget"
+                    required
+                    value={formData.budget}
+                    onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
+                    className="w-full bg-[#050505] text-white border border-zinc-800/60 rounded-xl px-4 py-3 min-h-[46px] appearance-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                  >
+                    <option value="" disabled>Select a budget tier…</option>
+                    <option value="under-5k">Less than ৳5,000 (Landing Pages)</option>
+                    <option value="10k-20k">৳10,000 - ৳20,000 (Standard E-Commerce)</option>
+                    <option value="20k-50k">৳20,000 - ৳50,000 (Advanced E-Commerce)</option>
+                    <option value="50k-plus">৳50,000+ (Enterprise Custom)</option>
+                  </select>
+                  {/* Select arrow indicator */}
+                  <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-500" aria-hidden="true">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+
               {/* Message Field */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="field-message" className="text-xs font-semibold uppercase tracking-wider text-zinc-300">
@@ -158,7 +187,7 @@ export default function Contact() {
               </p>
               <button
                 onClick={() => {
-                  setFormData({ name: '', email: '', projectType: '', message: '' });
+                  setFormData({ name: '', email: '', projectType: '', budget: '', message: '' });
                   setIsSuccess(false);
                 }}
                 className="inline-flex items-center justify-center bg-transparent hover:bg-white/5 border border-zinc-800 text-white text-xs font-semibold py-2.5 px-6 rounded-full transition-colors duration-200"
