@@ -179,7 +179,7 @@ export default function Home() {
                   style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 20 }}
                 >
                   <Image
-                    src="/henley-mockup.png"
+                    src="/henley-mockup-v2.png"
                     alt="Henley Zone e-commerce preview"
                     width={600}
                     height={400}
@@ -236,7 +236,7 @@ export default function Home() {
                 style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 3 }}
               >
                 <Image
-                  src="/henley-mockup.png"
+                  src="/henley-mockup-v2.png"
                   alt="Henley Zone e-commerce preview"
                   width={600}
                   height={400}
