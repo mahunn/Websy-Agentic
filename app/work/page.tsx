@@ -64,6 +64,59 @@ export default function Work() {
                 Built for speed, mobile-first, and optimised to convert
                 visitors into customers.
               </p>
+              
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  {/* Next.js */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Next.js"
+                  >
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.75 18.25l-5.69-7.25h-1.06v5h1.25v-3.75l4.31 5.5c-.38.16-.78.29-1.2.38l-4.36-5.56V16h-1.25V8h2.09l5.37 6.84V8h1.25v10.25z" />
+                  </svg>
+                  {/* React */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    aria-label="React"
+                  >
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(0 12 12)" />
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)" />
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)" />
+                    <circle cx="12" cy="12" r="2" fill="currentColor" />
+                  </svg>
+                  {/* Tailwind CSS */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Tailwind CSS"
+                  >
+                    <path d="M12 6.00002C9.40003 6.00002 7.80003 7.30002 7.20003 9.90002C8.10003 8.60002 9.20003 8.10002 10.5 8.40002C11.242 8.61202 11.7709 9.15573 12.3554 9.75716C13.308 10.7371 14.4429 11.9054 17.1 11.9054C19.7 11.9054 21.3 10.6054 21.9 8.00542C21 9.30542 19.9 9.80542 18.6 9.50542C17.858 9.29342 17.3291 8.74971 16.7446 8.14828C15.792 7.16831 14.6571 6.00002 12 6.00002ZM7.20003 11.9054C4.60003 11.9054 3.00003 13.2054 2.40003 15.8054C3.30003 14.5054 4.40003 14.0054 5.70003 14.3054C6.44203 14.5174 6.97092 15.0611 7.55543 15.6626C8.50803 15.6626 9.64293 17.8108 12.3 17.8108C14.9 17.8108 16.5 16.5108 17.1 13.9108C16.2 15.2108 15.1 15.7108 13.8 15.4108C13.058 15.1988 12.5291 14.6551 11.9446 14.0537C10.992 13.0737 9.85713 11.9054 7.20003 11.9054Z" />
+                  </svg>
+                  {/* Shopify */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-label="Shopify"
+                  >
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4zM3 6h18M16 10a4 4 0 01-8 0" />
+                  </svg>
+                </div>
+              </div>
+
               <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
                 <a
                   href="https://henleyzone.com"
@@ -123,6 +176,55 @@ export default function Work() {
                 lifestyle brand. Restrained, editorial, and built for
                 one purpose — driving sign-ups.
               </p>
+
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  {/* React */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    aria-label="React"
+                  >
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(0 12 12)" />
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(60 12 12)" />
+                    <ellipse rx="10" ry="4.5" cx="12" cy="12" transform="rotate(120 12 12)" />
+                    <circle cx="12" cy="12" r="2" fill="currentColor" />
+                  </svg>
+                  {/* Tailwind CSS */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Tailwind CSS"
+                  >
+                    <path d="M12 6.00002C9.40003 6.00002 7.80003 7.30002 7.20003 9.90002C8.10003 8.60002 9.20003 8.10002 10.5 8.40002C11.242 8.61202 11.7709 9.15573 12.3554 9.75716C13.308 10.7371 14.4429 11.9054 17.1 11.9054C19.7 11.9054 21.3 10.6054 21.9 8.00542C21 9.30542 19.9 9.80542 18.6 9.50542C17.858 9.29342 17.3291 8.74971 16.7446 8.14828C15.792 7.16831 14.6571 6.00002 12 6.00002ZM7.20003 11.9054C4.60003 11.9054 3.00003 13.2054 2.40003 15.8054C3.30003 14.5054 4.40003 14.0054 5.70003 14.3054C6.44203 14.5174 6.97092 15.0611 7.55543 15.6626C8.50803 15.6626 9.64293 17.8108 12.3 17.8108C14.9 17.8108 16.5 16.5108 17.1 13.9108C16.2 15.2108 15.1 15.7108 13.8 15.4108C13.058 15.1988 12.5291 14.6551 11.9446 14.0537C10.992 13.0737 9.85713 11.9054 7.20003 11.9054Z" />
+                  </svg>
+                  {/* TypeScript */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="TypeScript"
+                  >
+                    <path d="M2 2h20v20H2V2zm9.143 11.597h-2.22V18h-1.63v-4.403H5.07V12.23h6.073v1.367zm6.757 3.328c0 1.258-1.002 1.637-2.738 1.637-1.417 0-2.482-.477-2.673-1.396h1.593c.11.458.62.68 1.157.68.572 0 .973-.25.973-.668 0-.422-.38-.59-1.222-.859-1.272-.397-2.28-.847-2.28-2.138 0-1.127.91-1.666 2.457-1.666 1.34 0 2.222.428 2.408 1.22h-1.57c-.11-.383-.483-.564-1-.564-.52 0-.853.227-.853.6 0 .385.344.53 1.164.792 1.472.463 2.169.96 2.169 2.36z" />
+                  </svg>
+                  {/* Vercel */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Vercel"
+                  >
+                    <path d="M24 22.525H0L12 1.748l12 20.777z" />
+                  </svg>
+                </div>
+              </div>
+
               <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
                 <a
                   href="https://glamora-beige.vercel.app"
@@ -182,6 +284,50 @@ export default function Work() {
                 Designed to showcase technical projects with editorial precision
                 and interactive depth.
               </p>
+
+              {/* Tech Stack Row */}
+              <div className="flex items-center gap-3 mt-4 mb-5">
+                <span className="text-[10px] tracking-widest text-zinc-500 uppercase font-semibold">STACK:</span>
+                <div className="flex items-center gap-2.5">
+                  {/* Next.js */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Next.js"
+                  >
+                    <path d="M12 0c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm6.75 18.25l-5.69-7.25h-1.06v5h1.25v-3.75l4.31 5.5c-.38.16-.78.29-1.2.38l-4.36-5.56V16h-1.25V8h2.09l5.37 6.84V8h1.25v10.25z" />
+                  </svg>
+                  {/* TypeScript */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="TypeScript"
+                  >
+                    <path d="M2 2h20v20H2V2zm9.143 11.597h-2.22V18h-1.63v-4.403H5.07V12.23h6.073v1.367zm6.757 3.328c0 1.258-1.002 1.637-2.738 1.637-1.417 0-2.482-.477-2.673-1.396h1.593c.11.458.62.68 1.157.68.572 0 .973-.25.973-.668 0-.422-.38-.59-1.222-.859-1.272-.397-2.28-.847-2.28-2.138 0-1.127.91-1.666 2.457-1.666 1.34 0 2.222.428 2.408 1.22h-1.57c-.11-.383-.483-.564-1-.564-.52 0-.853.227-.853.6 0 .385.344.53 1.164.792 1.472.463 2.169.96 2.169 2.36z" />
+                  </svg>
+                  {/* Tailwind CSS */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Tailwind CSS"
+                  >
+                    <path d="M12 6.00002C9.40003 6.00002 7.80003 7.30002 7.20003 9.90002C8.10003 8.60002 9.20003 8.10002 10.5 8.40002C11.242 8.61202 11.7709 9.15573 12.3554 9.75716C13.308 10.7371 14.4429 11.9054 17.1 11.9054C19.7 11.9054 21.3 10.6054 21.9 8.00542C21 9.30542 19.9 9.80542 18.6 9.50542C17.858 9.29342 17.3291 8.74971 16.7446 8.14828C15.792 7.16831 14.6571 6.00002 12 6.00002ZM7.20003 11.9054C4.60003 11.9054 3.00003 13.2054 2.40003 15.8054C3.30003 14.5054 4.40003 14.0054 5.70003 14.3054C6.44203 14.5174 6.97092 15.0611 7.55543 15.6626C8.50803 15.6626 9.64293 17.8108 12.3 17.8108C14.9 17.8108 16.5 16.5108 17.1 13.9108C16.2 15.2108 15.1 15.7108 13.8 15.4108C13.058 15.1988 12.5291 14.6551 11.9446 14.0537C10.992 13.0737 9.85713 11.9054 7.20003 11.9054Z" />
+                  </svg>
+                  {/* Vercel */}
+                  <svg
+                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-label="Vercel"
+                  >
+                    <path d="M24 22.525H0L12 1.748l12 20.777z" />
+                  </svg>
+                </div>
+              </div>
+
               <div className="flex items-center justify-between gap-4 pt-4 border-t border-zinc-800/40">
                 <a
                   href="https://mahinahmad.com"
