@@ -62,7 +62,7 @@ export default function RootLayout({
                     href="/services"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Our Services
+                    Services
                   </Link>
                 </li>
                 <li>
@@ -70,7 +70,7 @@ export default function RootLayout({
                     href="/work"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Our Work
+                    Projects
                   </Link>
                 </li>
               </ul>
