@@ -1,22 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
 
+/* ─── Google Fonts ─────────────────────────────────────────────────── */
+
+/* ─── Tailwind Theme Tokens ─────────────────────────────────────────── */
 @theme {
-  --color-background: #050505;
-  --color-surface: #0f0f0f;
-  --color-primary: #E11D48;
+  /* Canvas */
+  --color-canvas-night:          #000000;
+  --color-canvas-night-elevated: #0a0a0a;
+  --color-surface-dark:          #1e2c31;
+  --color-canvas-light:          #ffffff;
+  --color-canvas-cream:          #fbfbf5;
+
+  /* Brand ink */
+  --color-ink:       #000000;
+  --color-on-dark:   #ffffff;
+
+  /* Accents */
+  --color-aloe:      #c1fbd4;
+  --color-pistachio: #d4f9e0;
+
+  /* Shade ladder */
+  --color-shade-30: #d4d4d8;
+  --color-shade-40: #a1a1aa;
+  --color-shade-50: #71717a;
+  --color-shade-60: #52525b;
+  --color-shade-70: #3f3f46;
+
+  /* Hairlines */
+  --color-hairline-light: #e4e4e7;
+  --color-hairline-dark:  #1e2c31;
+
+  /* Cool link tones (dark pages) */
+  --color-link-cool-1: #9dabad;
+  --color-link-cool-2: #9797a2;
+  --color-link-cool-3: #bdbdca;
+  --color-link-mint:   #99b3ad;
+
+  /* Legacy compat – red brand accent on light pages */
+  --color-primary:       #E11D48;
   --color-primary-hover: #BE123C;
-  --color-zinc-800: #27272a;
-  --color-zinc-700: #3f3f46;
-  --color-zinc-600: #52525b;
-  --color-zinc-500: #71717a;
-  --color-zinc-400: #a1a1aa;
 }
 
+/* ─── CSS Custom Properties (raw values for inline use) ─────────────── */
 :root {
-  --background: #050505;
-  --foreground: #ffffff;
+  --canvas-night:          #000000;
+  --canvas-night-elevated: #0a0a0a;
+  --surface-dark:          #1e2c31;
+  --canvas-light:          #ffffff;
+  --canvas-cream:          #fbfbf5;
+  --ink:                   #000000;
+  --on-dark:               #ffffff;
+  --aloe:                  #c1fbd4;
+  --pistachio:             #d4f9e0;
+  --shade-30:              #d4d4d8;
+  --shade-40:              #a1a1aa;
+  --shade-50:              #71717a;
+  --shade-60:              #52525b;
+  --shade-70:              #3f3f46;
+  --hairline-light:        #e4e4e7;
+  --hairline-dark:         #1e2c31;
+  --link-cool-1:           #9dabad;
+  --link-cool-2:           #9797a2;
+  --link-mint:             #99b3ad;
+
+  /* Elevation shadows */
+  --shadow-1: 0 1px 2px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.04);
+  --shadow-2: 0 0 0 1px rgba(255,255,255,0.08), 0 1px 3px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.2);
+  --shadow-3: 0 8px 8px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.08);
+  --shadow-4: 0 25px 50px -12px rgba(0,0,0,0.25);
 }
 
+/* ─── Base ──────────────────────────────────────────────────────────── */
 html {
   font-feature-settings: "ss03";
   scroll-behavior: smooth;
@@ -24,14 +79,203 @@ html {
 }
 
 body {
-  background-color: #050505;
-  color: #ffffff;
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
   font-feature-settings: "ss03";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--canvas-night);
+  color: var(--on-dark);
 }
 
-/* Reveal Scroll Animations */
+/* ─── Typography helpers ────────────────────────────────────────────── */
+
+/* Display sizes — thin weight (330 simulated via 300) */
+.display-xxl {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: 0.025em;
+  font-feature-settings: "ss03";
+}
+.display-xl {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: clamp(44px, 5.5vw, 70px);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+}
+.display-lg {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: clamp(36px, 4.5vw, 55px);
+  font-weight: 300;
+  line-height: 1.16;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+}
+.display-md {
+  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 300;
+  line-height: 1.14;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+}
+
+/* Eyebrow caps */
+.eyebrow-cap {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-feature-settings: "ss03";
+}
+
+/* ─── Button System ─────────────────────────────────────────────────── */
+
+/* button-outline-on-dark: cinematic hero CTA */
+.btn-outline-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #ffffff;
+  border: 1.5px solid #ffffff;
+  border-radius: 9999px;
+  padding: 12px 26px;
+  font-size: 16px;
+  font-weight: 420;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+  transition: background 200ms ease, color 200ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-outline-dark:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* button-primary-pill: solid black on light surfaces */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 420;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+  transition: background 200ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-primary:hover {
+  background: var(--shade-70);
+}
+
+/* button-aloe-pill: featured CTA (transactional) */
+.btn-aloe {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--aloe);
+  color: #000000;
+  border: none;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 420;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+  transition: filter 200ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-aloe:hover {
+  filter: brightness(0.94);
+}
+
+/* button-outline-on-light */
+.btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #000000;
+  border: 1px solid #000000;
+  border-radius: 9999px;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 420;
+  line-height: 1.5;
+  letter-spacing: 0;
+  font-feature-settings: "ss03";
+  transition: background 200ms ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.btn-outline-light:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+/* ─── Pills / Tags ──────────────────────────────────────────────────── */
+.pill-mint {
+  display: inline-flex;
+  align-items: center;
+  background: var(--aloe);
+  color: #000000;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-feature-settings: "ss03";
+}
+.pill-shade {
+  display: inline-flex;
+  align-items: center;
+  background: var(--shade-30);
+  color: #000000;
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-feature-settings: "ss03";
+}
+.pill-dark {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255,255,255,0.08);
+  color: rgba(255,255,255,0.65);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 9999px;
+  padding: 4px 12px;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-feature-settings: "ss03";
+}
+
+/* ─── Elevation Utilities ────────────────────────────────────────────── */
+.elevation-1 { box-shadow: var(--shadow-1); }
+.elevation-2 { box-shadow: var(--shadow-2); }
+.elevation-3 { box-shadow: var(--shadow-3); }
+.elevation-4 { box-shadow: var(--shadow-4); }
+
+/* ─── Reveal Scroll Animations ───────────────────────────────────────── */
 .reveal {
   opacity: 0;
   transform: translateY(28px);
@@ -39,13 +283,35 @@ body {
     opacity 480ms cubic-bezier(0.16, 1, 0.3, 1),
     transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
 }
-
 .reveal.is-visible {
   opacity: 1;
   transform: translateY(0);
 }
-
 .reveal--delay-1 { transition-delay: 80ms; }
 .reveal--delay-2 { transition-delay: 160ms; }
 .reveal--delay-3 { transition-delay: 240ms; }
 .reveal--delay-4 { transition-delay: 320ms; }
+
+/* ─── Dark-track hairlines / surfaces ──────────────────────────────── */
+.surface-night {
+  background: var(--canvas-night);
+  color: var(--on-dark);
+}
+.surface-night-elevated {
+  background: var(--canvas-night-elevated);
+  color: var(--on-dark);
+}
+.surface-dark-teal {
+  background: var(--surface-dark);
+  color: var(--on-dark);
+}
+
+/* ─── Light-track surfaces ──────────────────────────────────────────── */
+.surface-cream {
+  background: var(--canvas-cream);
+  color: var(--ink);
+}
+.surface-pistachio {
+  background: var(--pistachio);
+  color: var(--ink);
+}
