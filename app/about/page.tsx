@@ -1,34 +1,29 @@
 export default function About() {
   const team = [
     {
-      name: 'Sarah Jenkins',
-      role: 'CEO & Founder',
-      desc: 'Obsessed with retail UX and scaling small business revenues.',
-      initials: 'SJ',
+      name: "Mahin Ahmad",
+      role: "Founder & Full-Stack Developer",
+      desc: "The one building the code and steering the ship. Mahin focuses on custom full-stack development and making sure every project actually drives real business results.",
     },
     {
-      name: 'Alex Mercer',
-      role: 'Lead Developer',
-      desc: 'Next.js specialist crafting lightning-fast, pixel-perfect code.',
-      initials: 'AM',
+      name: "Kamrul Hasan",
+      role: "Backend & Security Lead",
+      desc: "The guardian of the servers. Kamrul builds the complex backend systems and keeps our clients' websites and data completely locked down and secure.",
     },
     {
-      name: 'Chloe Chen',
-      role: 'UI/UX Designer',
-      desc: 'Creating high-fidelity, premium layouts that command attention.',
-      initials: 'CC',
+      name: "Nokib Al Hasan",
+      role: "Brand & Content Manager",
+      desc: "The creative mind behind how things look and feel. Nokib crafts the brand identities and digital content that make our clients stand out from the crowd.",
     },
     {
-      name: 'Marcus Vance',
-      role: 'E-commerce Strategist',
-      desc: 'Optimizing checkout friction and checkout conversions.',
-      initials: 'MV',
+      name: "Tania Akter",
+      role: "Lead Copywriter",
+      desc: "Words matter. Tania writes the clear, punchy website copy that actually gets visitors to click, sign up, and buy.",
     },
     {
-      name: 'Elena Rostova',
-      role: 'Lead Copywriter',
-      desc: 'Engineering persuasive brand copy that triggers action.',
-      initials: 'ER',
+      name: "Samin Ahmed",
+      role: "Quality Assurance (QA)",
+      desc: "Nothing goes live without Samin's approval. He hunts down bugs and tests every single feature to make sure your site works flawlessly on every device.",
     },
   ];
 
@@ -64,12 +59,9 @@ export default function About() {
               className="group flex flex-col bg-[#0f0f0f] border border-zinc-800/40 rounded-2xl p-6 hover:border-primary/20 hover:shadow-md hover:shadow-primary/5 transition-all duration-300"
               role="listitem"
             >
-              {/* Profile placeholder using inline SVG avatar */}
+              {/* Profile placeholder using empty avatar container */}
               <div className="relative w-full aspect-square rounded-xl bg-zinc-950 flex items-center justify-center border border-zinc-800/60 mb-6 group-hover:border-primary/20 transition-colors duration-300 overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                <span className="text-3xl font-light text-zinc-600 group-hover:text-primary transition-colors duration-300 select-none">
-                  {member.initials}
-                </span>
               </div>
 
               <h2 className="text-base font-semibold text-white mb-1 group-hover:text-primary transition-colors duration-300">
