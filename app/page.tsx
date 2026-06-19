@@ -164,7 +164,7 @@ export default function Home() {
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
                   className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80 transition-all duration-300 cursor-pointer"
-                  style={{ top: '12%', right: '0%', transform: 'rotate(6deg)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
+                  style={{ top: '9%', right: '0%', transform: 'rotate(8deg)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
                   onClick={() => setActiveCard(2)}
                 >
                   <Image
@@ -228,7 +228,7 @@ export default function Home() {
               {/* Card 2 — middle, slight tilt */}
               <div
                 className="absolute w-[62%] rounded-2xl overflow-hidden shadow-2xl border border-gray-100 transition-all duration-300 cursor-pointer"
-                style={{ top: '14%', right: '0%', transform: 'rotate(3deg) scale(0.96)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                style={{ top: '11%', right: '0%', transform: 'rotate(4deg) scale(0.96)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
                 onClick={() => setActiveCard(2)}
               >
                 <Image
