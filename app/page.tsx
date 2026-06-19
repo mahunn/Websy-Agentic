@@ -176,7 +176,14 @@ export default function Home() {
                 {/* Mobile Card 3 — Henley e-commerce · Performance badge (front center) */}
                 <div
                   className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80"
-                  style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 20 }}
+                  style={{
+                    bottom: '2%',
+                    left: '50%',
+                    transform: 'translateX(-50%) rotate(-1deg)',
+                    zIndex: 20,
+                    maskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.25) 100%)',
+                    WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 70%, rgba(0,0,0,0.25) 100%)'
+                  }}
                 >
                   <Image
                     src="/henley-mockup.png"
