@@ -122,7 +122,9 @@ export default function Navbar() {
 
         {/* Hamburger — Mobile */}
         <button
-          className={`flex md:hidden flex-col justify-center gap-[5px] w-10 h-10 p-2 cursor-pointer relative z-[60] focus:outline-none ${textClass}`}
+          className={`flex md:hidden flex-col justify-center items-center gap-[5px] w-10 h-10 p-2 cursor-pointer relative z-[60] focus:outline-none ${
+            isOpen ? 'text-white' : textClass
+          }`}
           onClick={() => setIsOpen(!isOpen)}
           aria-expanded={isOpen}
           aria-controls="mobile-menu"
