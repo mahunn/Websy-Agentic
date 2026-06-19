@@ -139,8 +139,8 @@ export default function Home() {
 
                 {/* Mobile Card 1 — Glamora · E-commerce + CVR badge (back left) */}
                 <div
-                  className="absolute w-[58%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '4%', left: '0%', transform: 'rotate(-4deg)', zIndex: 1 }}
+                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
+                  style={{ top: '0%', left: '0%', transform: 'rotate(-4deg)', zIndex: 1 }}
                 >
                   <Image
                     src="/glamora-mockup.png"
@@ -157,8 +157,8 @@ export default function Home() {
 
                 {/* Mobile Card 2 — Mahin portfolio · Live badge (middle right) */}
                 <div
-                  className="absolute w-[58%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
-                  style={{ top: '14%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
+                  className="absolute w-[65%] rounded-2xl overflow-hidden shadow-xl border border-gray-100/80"
+                  style={{ top: '8%', right: '0%', transform: 'rotate(3deg)', zIndex: 10 }}
                 >
                   <Image
                     src="/mahin-mockup.png"
@@ -175,7 +175,7 @@ export default function Home() {
 
                 {/* Mobile Card 3 — Henley e-commerce · Performance badge (front center) */}
                 <div
-                  className="absolute w-[64%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80"
+                  className="absolute w-[72%] rounded-2xl overflow-hidden shadow-[0_20px_40px_-8px_rgba(0,0,0,0.2)] border border-gray-100/80"
                   style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: 20 }}
                 >
                   <Image
