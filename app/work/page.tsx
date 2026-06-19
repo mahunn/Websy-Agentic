@@ -71,7 +71,7 @@ export default function Work() {
                 <div className="flex items-center gap-2.5">
                   {/* Next.js */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Next.js"
@@ -80,7 +80,7 @@ export default function Work() {
                   </svg>
                   {/* React */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#61DAFB] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -94,7 +94,7 @@ export default function Work() {
                   </svg>
                   {/* Tailwind CSS */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#38BDF8] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Tailwind CSS"
@@ -103,7 +103,7 @@ export default function Work() {
                   </svg>
                   {/* Shopify */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#95BF47] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(149,191,71,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -183,7 +183,7 @@ export default function Work() {
                 <div className="flex items-center gap-2.5">
                   {/* React */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#61DAFB] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
@@ -197,7 +197,7 @@ export default function Work() {
                   </svg>
                   {/* Tailwind CSS */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#38BDF8] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Tailwind CSS"
@@ -206,7 +206,7 @@ export default function Work() {
                   </svg>
                   {/* TypeScript */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#3178C6] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(49,120,198,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="TypeScript"
@@ -215,7 +215,7 @@ export default function Work() {
                   </svg>
                   {/* Vercel */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Vercel"
@@ -291,7 +291,7 @@ export default function Work() {
                 <div className="flex items-center gap-2.5">
                   {/* Next.js */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Next.js"
@@ -300,7 +300,7 @@ export default function Work() {
                   </svg>
                   {/* TypeScript */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#3178C6] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(49,120,198,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="TypeScript"
@@ -309,7 +309,7 @@ export default function Work() {
                   </svg>
                   {/* Tailwind CSS */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-[#38BDF8] transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(56,189,248,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Tailwind CSS"
@@ -318,7 +318,7 @@ export default function Work() {
                   </svg>
                   {/* Vercel */}
                   <svg
-                    className="w-4.5 h-4.5 text-zinc-400 opacity-50 hover:text-[#E11D48] hover:opacity-100 hover:scale-110 transition-all duration-200 cursor-pointer"
+                    className="w-4.5 h-4.5 text-white transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.45)] cursor-pointer"
                     viewBox="0 0 24 24"
                     fill="currentColor"
                     aria-label="Vercel"
