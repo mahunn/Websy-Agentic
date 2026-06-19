@@ -132,7 +132,7 @@ export default function Home() {
                 Full-bleed with -mx-6; cards stagger vertically for legibility.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden -mx-6 mt-4 mb-2"
+              className="order-2 lg:hidden w-full max-w-[450px] mx-auto mt-4 mb-2"
               aria-hidden="true"
             >
               <div className="relative h-[320px] px-4">
