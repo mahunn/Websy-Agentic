@@ -12,7 +12,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Websy — Premium Web Development for E-commerce & Beyond",
+  title: "Websy — Premium Websites for E-commerce & Beyond",
   description:
     "Websy builds premium websites for small e-commerce businesses, high-converting landing pages, and professional portfolio sites.",
 };
@@ -24,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`h-full antialiased scroll-smooth ${inter.variable}`}>
-      <body className="min-h-full flex flex-col bg-white text-gray-900 pt-[48px] sm:pt-[56px] md:pt-[60px]">
+      <body className="min-h-full flex flex-col bg-white text-gray-900 pt-[56px] sm:pt-[60px] md:pt-[64px]">
         <Navbar />
         <div className="flex-grow">{children}</div>
 
@@ -47,7 +47,7 @@ export default function RootLayout({
                 />
               </Link>
               <p className="text-[14px] leading-[1.49] tracking-[0.28px] text-[#9dabad] max-w-[28ch]">
-                Premium web development for small businesses that want to compete with the big ones.
+                Premium websites for small businesses that want to compete with the big ones.
               </p>
             </div>
 
