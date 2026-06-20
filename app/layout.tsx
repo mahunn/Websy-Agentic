@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -11,10 +11,21 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+export const viewport: Viewport = {
+  themeColor: "#111111",
+};
+
 export const metadata: Metadata = {
   title: "Websy — Premium Websites for E-commerce & Beyond",
   description:
     "Websy builds premium websites for small e-commerce businesses, high-converting landing pages, and professional portfolio sites.",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    apple: "/favicon.svg",
+  },
+  manifest: "/manifest.json",
 };
 
 export default function RootLayout({

@@ -17,7 +17,7 @@ export default function Work() {
             id="work-headline"
             className="text-4xl md:text-5xl font-light tracking-tight text-gray-900 mb-4 leading-tight"
           >
-            Three live projects.<br />Real results.
+            Selected live work.<br />Real results.
           </h1>
           <p className="text-sm md:text-base text-gray-500 font-normal leading-relaxed">
             Every site below is live and driving real business outcomes.

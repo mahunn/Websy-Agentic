@@ -65,7 +65,7 @@ export default function Home() {
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-10 pb-10 sm:py-20 lg:py-28">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-6 pb-10 sm:py-20 lg:py-28">
 
           {/*
             Layout strategy:
@@ -180,15 +180,19 @@ export default function Home() {
                 </div>
 
                 {/* Social proof */}
-                <div className="flex items-center justify-center lg:justify-start gap-2 mt-4 md:mt-8">
+                <div className="flex items-center justify-center lg:justify-start gap-3 mt-4 md:mt-8">
+                  <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-400">
+                    Trusted by
+                  </span>
+                  <div className="w-px h-3 bg-gray-200 flex-shrink-0" />
                   <div className="flex -space-x-2">
                     <HenleyLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 3 }} />
                     <GlamoraLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 2 }} />
                     <MahinLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 1 }} />
                   </div>
-                  <p className="text-[11px] sm:text-[13px] text-gray-400 font-medium">
-                    3 live projects shipped &amp; growing
-                  </p>
+                  <span className="text-[11px] sm:text-[12px] text-gray-300 font-normal italic select-none">
+                    & more
+                  </span>
                 </div>
               </div>
 
@@ -199,7 +203,7 @@ export default function Home() {
                 Absolute overlapping stack with fixed height so it has room to breathe.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-8 mb-4"
+              className="order-2 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-4 mb-4"
               aria-hidden="true"
             >
               <div className="relative h-[290px] px-0 sm:px-4">
@@ -364,9 +368,9 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-wrap justify-around gap-y-8 gap-x-12">
 
           {[
-            { value: '3+', suffix: '', label: 'Live Projects' },
+            { value: '99', suffix: '+', label: 'Performance Score' },
             { value: '100', suffix: '%', label: 'Satisfaction' },
-            { value: '48', suffix: 'h', label: 'Response Time' },
+            { value: '48', suffix: 'h', label: 'Delivery Time' },
             { value: '3', suffix: '', label: 'Service Types' },
           ].map((stat, i, arr) => (
             <div key={stat.label} className="flex items-center gap-12">

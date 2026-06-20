@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- Dark background -->
+  <rect width="32" height="32" rx="7" fill="#111111"/>
+  <!-- W mark (scaled & centred from logo: original path centred around ~10,14 in a 22-wide space) -->
+  <!-- Original W: M-0.5 11.2 L4.8 22 L10.5 13.5 L16.2 22 L21.5 6.0 — spans x:-0.5→21.5, y:6→22 -->
+  <!-- Scale to fit ~22px wide, centred in 32px canvas. scale=22/22=1, shift x+5.25, y+1 -->
+  <path d="M4.75 12.2 L10.05 23 L15.75 14.5 L21.45 23 L26.75 7.0"
+        stroke="#FFFFFF" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Red dot at tip of W -->
+  <circle cx="26.75" cy="7.0" r="2.4" fill="#E11D48"/>
+</svg>
