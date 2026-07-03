@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiGit } from 'react-icons/si';
 
 // ── Custom SVGs/Images for Client Logos ─────────────────────────────
 interface LogoProps {
@@ -90,7 +91,7 @@ export default function Home() {
               {/* ══ ZONE 1 — Badge · Headline · Paragraph
                   Mobile order-1: renders first
                   Desktop: first child in left flex-col                  */}
-              <div className="order-1 flex flex-col items-center lg:items-start">
+              <div className="hidden lg:flex lg:flex-col lg:items-start lg:order-none">
                 {/* Headline — desktop only (lg+) */}
                 <h1
                   id="hero-headline"
@@ -121,14 +122,11 @@ export default function Home() {
                 </h1>
               </div>
 
-              {/* ══ ZONE 3 — CTA Buttons · Social Proof
-                  Mobile order-3: renders after the cards
-                  Desktop: second child in left flex-col, below copy     */}
-              <div className="order-3 mt-6 lg:mt-0">
-                {/* Headline — on mobile appears after cards */}
+              {/* Mobile Headline — on mobile appears after cards (order-2) */}
+              <div className="order-2 lg:hidden mt-6 flex flex-col items-center">
                 <h1
                   id="hero-headline"
-                  className="lg:hidden text-center text-gray-900 mb-5 md:mb-7 text-[32px] sm:text-[44px] tracking-tight leading-[1.1]"
+                  className="text-center text-gray-900 mb-5 md:mb-7 text-[32px] sm:text-[44px] tracking-tight leading-[1.1]"
                   style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontFeatureSettings: '"ss03"' }}
                 >
                   We build websites<br />
@@ -158,6 +156,10 @@ export default function Home() {
                     </span>
                   </span>
                 </h1>
+              </div>
+
+              {/* ══ ZONE 3 — CTA Buttons · Social Proof (order-3 on mobile) */}
+              <div className="order-3 lg:order-none mt-6 lg:mt-0 flex flex-col items-center lg:items-start">
                 {/* CTA row */}
                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
                   <Link
@@ -199,39 +201,20 @@ export default function Home() {
             </div>{/* /left desktop column */}
 
             {/* ══ ZONE 2 — Mobile Mockup Stack (< lg only)
-                order-2: renders between copy and CTAs on mobile.
+                order-1: renders at the top on mobile.
                 Absolute overlapping stack with fixed height so it has room to breathe.
                 lg:hidden hides it on desktop (desktop stack below handles it). */}
             <div
-              className="order-2 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-4 mb-4"
+              className="order-1 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-4 mb-4"
               aria-hidden="true"
             >
               <div className="relative h-[290px] px-0 sm:px-4">
 
-                {/* Mobile Card 1 — Glamora · Landing Page badge (back left) */}
+                {/* Mobile Card 1 — Mahin portfolio (back left) */}
                 <div
                   className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
-                  style={{ top: '0%', left: '0%', transform: activeCard === 1 ? 'rotate(-8deg) scale(1.04)' : 'rotate(-8deg) scale(0.92)', zIndex: activeCard === 1 ? 20 : 1, opacity: activeCard === 1 ? 1 : 0.82 }}
+                  style={{ top: '0%', left: '0%', transform: activeCard === 1 ? 'rotate(-8deg) scale(1.04)' : 'rotate(-8deg) scale(0.92)', zIndex: activeCard === 1 ? 20 : 1, opacity: 1 }}
                   onClick={() => setActiveCard(1)}
-                >
-                  <Image
-                    src="/glamora-mockup.png"
-                    alt="Glamora Beige landing page preview"
-                    width={600}
-                    height={400}
-                    className="w-full h-auto object-cover"
-                  />
-                  <div className="absolute top-2 left-2 flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-1.5 py-0.5 shadow-md">
-                    <span className="text-[8px] font-semibold text-gray-900">Landing Page</span>
-                    <span className="text-[7px] text-emerald-600 bg-emerald-50 rounded-full px-1 py-0.2 font-bold">↑ 38%</span>
-                  </div>
-                </div>
-
-                {/* Mobile Card 2 — Mahin portfolio · Portfolio badge (middle right) */}
-                <div
-                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
-                  style={{ top: '9%', right: '0%', transform: activeCard === 2 ? 'rotate(8deg) scale(1.04)' : 'rotate(8deg) scale(0.92)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: activeCard === 2 ? 1 : 0.85 }}
-                  onClick={() => setActiveCard(2)}
                 >
                   <Image
                     src="/mahin-mockup.png"
@@ -239,21 +222,15 @@ export default function Home() {
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
+                    sizes="(max-width: 640px) 100vw, 600px"
                   />
-                  <div className="absolute top-2 right-2 flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-1.5 py-0.5 shadow-md">
-                    <span className="text-[8px] font-semibold text-gray-900">Portfolio</span>
-                    <span className="text-[7px] text-red-600 bg-red-50 rounded-full px-1 py-0.2 font-bold flex items-center gap-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                      Live
-                    </span>
-                  </div>
                 </div>
 
-                {/* Mobile Card 3 — Henley e-commerce · E-commerce badge (front center) */}
+                {/* Mobile Card 2 — Henley e-commerce (middle right) */}
                 <div
-                  className={`absolute w-[72%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
-                  style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.04)' : 'translateX(-50%) rotate(-1deg) scale(0.92)', zIndex: activeCard === 3 ? 20 : 10, opacity: activeCard === 3 ? 1 : 0.9 }}
-                  onClick={() => setActiveCard(3)}
+                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  style={{ top: '9%', right: '0%', transform: activeCard === 2 ? 'rotate(8deg) scale(1.04)' : 'rotate(8deg) scale(0.92)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: 1 }}
+                  onClick={() => setActiveCard(2)}
                 >
                   <Image
                     src="/henley-mockup-1-cropped.png"
@@ -261,12 +238,25 @@ export default function Home() {
                     width={600}
                     height={400}
                     className="w-full h-auto object-cover"
+                    sizes="(max-width: 640px) 100vw, 600px"
+                  />
+                </div>
+
+                {/* Mobile Card 3 — Glamora · Landing Page (front center) */}
+                <div
+                  className={`absolute w-[72%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.04)' : 'translateX(-50%) rotate(-1deg) scale(0.92)', zIndex: activeCard === 3 ? 20 : 10, opacity: 1 }}
+                  onClick={() => setActiveCard(3)}
+                >
+                  <Image
+                    src="/glamora-mockup.png"
+                    alt="Glamora Beige landing page preview"
+                    width={600}
+                    height={400}
+                    className="w-full h-auto object-cover"
+                    sizes="(max-width: 640px) 100vw, 600px"
                     priority
                   />
-                  <div className="absolute bottom-2 left-2 flex items-center gap-1.5 bg-white border border-gray-200 rounded-full px-1.5 py-0.5 shadow-md">
-                    <span className="text-[8px] font-semibold text-gray-900">E-commerce</span>
-                    <span className="text-[7px] text-amber-600 bg-amber-50 rounded-full px-1 py-0.2 font-bold">99/100 ⚡</span>
-                  </div>
                 </div>
 
               </div>
@@ -279,30 +269,11 @@ export default function Home() {
               className="hidden lg:flex w-full relative items-center justify-center h-[520px] xl:h-[580px]"
               aria-hidden="true"
             >
-              {/* Card 1 — back, tilted left */}
+              {/* Card 1 — Mahin portfolio (back, tilted left) */}
               <div
                 className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
                 style={{ top: '4%', left: '0%', transform: activeCard === 1 ? 'rotate(-4deg) scale(1.02)' : 'rotate(-4deg) scale(0.91)', zIndex: activeCard === 1 ? 3 : 1 }}
                 onClick={() => setActiveCard(1)}
-              >
-                <Image
-                  src="/glamora-mockup.png"
-                  alt="Glamora Beige landing page preview"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto object-cover"
-                />
-                <div className="absolute top-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-full px-2.5 py-1 shadow-md">
-                  <span className="text-[11px] font-semibold text-gray-900">Landing Page</span>
-                  <span className="text-[10px] text-emerald-600 bg-emerald-50 rounded-full px-1.5 py-0.5 font-bold">↑ 38%</span>
-                </div>
-              </div>
-
-              {/* Card 2 — middle, slight tilt */}
-              <div
-                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
-                style={{ top: '11%', right: '0%', transform: activeCard === 2 ? 'rotate(4deg) scale(1.02)' : 'rotate(4deg) scale(0.91)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
-                onClick={() => setActiveCard(2)}
               >
                 <Image
                   src="/mahin-mockup.png"
@@ -311,20 +282,13 @@ export default function Home() {
                   height={400}
                   className="w-full h-auto object-cover"
                 />
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-full px-2.5 py-1 shadow-md">
-                  <span className="text-[11px] font-semibold text-gray-900">Portfolio</span>
-                  <div className="flex items-center gap-1 text-[10px] text-red-600 bg-red-50 rounded-full px-1.5 py-0.5 font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse shadow-[0_0_6px_rgba(239,68,68,0.5)]" />
-                    Live
-                  </div>
-                </div>
               </div>
 
-              {/* Card 3 — front, centred, upright */}
+              {/* Card 2 — Henley e-commerce (middle right, slight tilt) */}
               <div
-                className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
-                style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.02)' : 'translateX(-50%) rotate(-1deg) scale(0.91)', zIndex: activeCard === 3 ? 3 : 2 }}
-                onClick={() => setActiveCard(3)}
+                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
+                style={{ top: '11%', right: '0%', transform: activeCard === 2 ? 'rotate(4deg) scale(1.02)' : 'rotate(4deg) scale(0.91)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                onClick={() => setActiveCard(2)}
               >
                 <Image
                   src="/henley-mockup-1-cropped.png"
@@ -332,12 +296,23 @@ export default function Home() {
                   width={600}
                   height={400}
                   className="w-full h-auto object-cover"
+                />
+              </div>
+
+              {/* Card 3 — Glamora landing page (front, centred, upright) */}
+              <div
+                className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
+                style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.02)' : 'translateX(-50%) rotate(-1deg) scale(0.91)', zIndex: activeCard === 3 ? 3 : 2 }}
+                onClick={() => setActiveCard(3)}
+              >
+                <Image
+                  src="/glamora-mockup.png"
+                  alt="Glamora Beige landing page preview"
+                  width={600}
+                  height={400}
+                  className="w-full h-auto object-cover"
                   priority
                 />
-                <div className="absolute bottom-3 left-3 flex items-center gap-1.5 bg-white/95 backdrop-blur-sm border border-gray-200/80 rounded-full px-2.5 py-1 shadow-md">
-                  <span className="text-[11px] font-semibold text-gray-900">E-commerce</span>
-                  <span className="text-[10px] text-amber-600 bg-amber-50 rounded-full px-1.5 py-0.5 font-bold">99/100 ⚡</span>
-                </div>
               </div>
 
               {/* Ambient glow */}
@@ -359,45 +334,199 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── Stats Band ─────────────────────────────────────────────── */}
+      {/* ── Visual Bridge — Tech · Values · Transition ──────────────── */}
       <section
-        className="border-y border-gray-100 py-16 px-6 md:px-8"
-        style={{ background: 'rgba(249,250,251,1)' }}
-        aria-label="Key statistics"
+        className="relative overflow-hidden border-y border-gray-100"
+        aria-label="Our technology and values"
       >
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-around gap-y-8 gap-x-12">
 
-          {[
-            { value: '99', suffix: '+', label: 'Performance Score' },
-            { value: '100', suffix: '%', label: 'Satisfaction' },
-            { value: '48', suffix: 'h', label: 'Delivery Time' },
-            { value: '3', suffix: '', label: 'Service Types' },
-          ].map((stat, i, arr) => (
-            <div key={stat.label} className="flex items-center gap-12">
-              <div className="text-center min-w-[100px]">
-                <div
-                  className="text-gray-900 mb-1"
-                  style={{
-                    fontSize: 'clamp(36px, 4vw, 52px)',
-                    fontWeight: 300,
-                    lineHeight: 1,
-                    fontFeatureSettings: '"ss03"',
-                  }}
-                >
-                  {stat.value}
-                  <span className="text-primary" style={{ fontWeight: 400 }}>{stat.suffix}</span>
+        {/* ▸ Row 1 — Infinite Tech Logo Marquee ──────────────────────── */}
+        <div className="py-10 md:py-14 border-b border-gray-100 bg-white">
+          <div className="max-w-7xl mx-auto px-6 md:px-8 mb-8 md:mb-10 text-center">
+            <h2
+              className="text-[22px] sm:text-[28px] md:text-[34px] text-gray-900 tracking-tight"
+              style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 700 }}
+            >
+              Tech Stacks We Use
+            </h2>
+          </div>
+
+          {/* Marquee track — forward */}
+          <div className="relative w-full overflow-hidden" aria-hidden="true">
+            {/* Edge fades */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, white, transparent)' }} />
+            <div className="absolute right-0 top-0 bottom-0 w-20 md:w-32 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, white, transparent)' }} />
+
+            <div className="flex animate-marquee whitespace-nowrap">
+              {[...Array(2)].map((_, dupeIdx) => (
+                <div key={dupeIdx} className="flex items-center gap-10 md:gap-16 px-5 md:px-8 shrink-0">
+                  {/* Next.js */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiNextdotjs className="w-7 h-7 md:w-9 md:h-9 text-black" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">Next.js</span>
+                  </div>
+                  {/* React */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiReact className="w-7 h-7 md:w-9 md:h-9 text-[#61DAFB]" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">React</span>
+                  </div>
+                  {/* TypeScript */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiTypescript className="w-7 h-7 md:w-9 md:h-9 text-[#3178C6]" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">TypeScript</span>
+                  </div>
+                  {/* Tailwind CSS */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiTailwindcss className="w-7 h-7 md:w-9 md:h-9 text-[#06B6D4]" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">Tailwind</span>
+                  </div>
+                  {/* Node.js */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiNodedotjs className="w-7 h-7 md:w-9 md:h-9 text-[#339933]" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">Node.js</span>
+                  </div>
+                  {/* Git */}
+                  <div className="flex items-center gap-2.5 select-none">
+                    <SiGit className="w-7 h-7 md:w-9 md:h-9 text-[#F05032]" />
+                    <span className="text-[13px] md:text-[15px] font-semibold text-gray-900 tracking-tight">Git</span>
+                  </div>
                 </div>
-                <div className="text-[12px] font-semibold uppercase tracking-[0.72px] text-gray-400">
-                  {stat.label}
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* ▸ Row 2 — Three Value Pillars ──────────────────────────────── */}
+        {/* ▸ Row 2 — Capability Bento Grid ──────────────────────────────── */}
+        <div className="py-16 md:py-24 bg-[#fafafa]">
+          <div className="max-w-7xl mx-auto px-6 md:px-8">
+            
+            {/* Grid container */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+
+              {/* Bento Card 1: E-Commerce (spans 2 columns on desktop) */}
+              <div className="group md:col-span-2 flex flex-col bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative min-h-[380px] justify-between">
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                    E-Commerce Storefronts
+                  </h3>
+                  <p className="text-gray-500 text-sm max-w-md leading-relaxed">
+                    Custom checkout flows and conversion-optimized shop interfaces designed to scale your business with zero load lag.
+                  </p>
+                </div>
+
+                {/* Interactive Visual: Mini shop card with real bag image */}
+                <div className="relative mt-8 md:mt-0 flex justify-center md:justify-end md:absolute md:bottom-6 md:right-8 w-full md:w-auto">
+                  <div className="bg-white border border-gray-100 rounded-2xl p-4 shadow-lg max-w-[280px] w-full transition-transform duration-300 group-hover:-translate-y-2">
+                    {/* Real product photo */}
+                    <div className="w-full aspect-[4/3] rounded-2xl bg-gray-50 flex items-center justify-center relative overflow-hidden mb-4 border border-gray-100">
+                      <Image
+                        src="/bag.jpg"
+                        alt="Premium Leather Bag"
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-105"
+                        sizes="280px"
+                      />
+                    </div>
+                    {/* Details */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <p className="text-xs font-semibold text-gray-800">Premium Leather Bag</p>
+                        <p className="text-[10px] text-gray-400">Limited Collection</p>
+                      </div>
+                      <span className="text-xs font-bold text-gray-900">৳3,999</span>
+                    </div>
+                    {/* Add Button */}
+                    <button className="w-full py-2 bg-gray-900 hover:bg-gray-800 text-white text-[10px] font-semibold rounded-lg transition-colors flex items-center justify-center gap-1.5 shadow-sm">
+                      <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                      </svg>
+                      Add to Cart
+                    </button>
+                  </div>
                 </div>
               </div>
-              {i < arr.length - 1 && (
-                <div className="hidden md:block w-px h-10 bg-gray-200 flex-shrink-0" role="separator" />
-              )}
-            </div>
-          ))}
 
+              {/* Bento Card 2: Speed (spans 1 column) */}
+              <div className="group flex flex-col bg-white border border-gray-150 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 justify-between min-h-[380px]">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    PageSpeed Insights
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    We optimize every asset and server response to achieve near-perfect green scores on Google PageSpeed.
+                  </p>
+                </div>
+
+                {/* Interactive Visual: Google PageSpeed Logo */}
+                <div className="flex justify-center py-2">
+                  <div className="relative w-full aspect-[1.5] max-w-[280px] rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                    <Image
+                      src="/pagespeed.png"
+                      alt="Google PageSpeed Insights"
+                      width={280}
+                      height={186}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bento Card 3: SEO (spans 1 column) */}
+              <div className="group flex flex-col bg-white border border-gray-100 rounded-3xl p-8 shadow-sm hover:shadow-md transition-shadow duration-300 justify-between min-h-[380px]">
+                <div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    Search Optimization
+                  </h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">
+                    Built with semantic code structures and custom schema markup to guarantee your brand climbs search rankings.
+                  </p>
+                </div>
+
+                {/* Interactive Visual: Google SEO Graphic */}
+                <div className="flex justify-center py-2">
+                  <div className="relative w-full aspect-[1.5] max-w-[280px] rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-105 flex items-center justify-center">
+                    <Image
+                      src="/seo-chart.png"
+                      alt="Google Search Engine Optimization"
+                      width={280}
+                      height={186}
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Bento Card 4: Clean Code (spans 2 columns on desktop) */}
+              <div className="group md:col-span-2 flex flex-col bg-white border border-gray-100 rounded-3xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden relative min-h-[380px] justify-between">
+                <div>
+                  <h3 className="text-xl md:text-2xl font-semibold text-gray-900 mb-2">
+                    Full Code Ownership
+                  </h3>
+                  <p className="text-gray-500 text-sm max-w-md leading-relaxed">
+                    Zero builder bloat. Complete freedom to customize, migrate, or extend your codebase at any time with total ownership.
+                  </p>
+                </div>
+
+                {/* Interactive Visual: Handover Image representing project handoff */}
+                <div className="relative mt-8 md:mt-0 flex justify-center md:justify-end md:absolute md:bottom-6 md:right-8 w-full md:w-auto">
+                  <div className="border border-gray-150 rounded-2xl overflow-hidden shadow-lg max-w-[280px] w-full aspect-[4/3] relative bg-[#fafafa] transition-transform duration-300 group-hover:-translate-y-2">
+                    <Image
+                      src="/handover.jpg"
+                      alt="Code handover and ownership transfer"
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="280px"
+                    />
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
+
       </section>
 
     </main>

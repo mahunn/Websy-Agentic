@@ -55,11 +55,6 @@ export default function Work() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
-                  E-commerce
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Henley Zone</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A full-featured online store for a premium fashion brand.
@@ -126,11 +121,6 @@ export default function Work() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
-                  Landing Page
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Glamora Beige</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A minimalist, high-converting landing page for a luxury
@@ -197,11 +187,6 @@ export default function Work() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-gray-500 bg-gray-100 border border-gray-200 rounded-full px-3 py-1">
-                  Portfolio
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Mahin Ahmad</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A clean, minimal personal portfolio for a full-stack developer.

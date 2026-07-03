@@ -28,6 +28,15 @@ export default function Contact() {
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
+
+      // Track lead conversion event for Meta (Facebook) Pixel
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track', 'Lead', {
+          content_name: formData.projectType,
+          value: formData.budget === 'under-5k' ? 3999 : (formData.budget === '10k-20k' ? 9999 : 25000),
+          currency: 'BDT'
+        });
+      }
     }, 1200);
   };
 

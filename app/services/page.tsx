@@ -41,11 +41,6 @@ export default function Services() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
-                  High Conversion
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Landing Pages &amp; Portfolios</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 Built for rapid deployment and high conversion. Showcase your work, services, or personal brand with a stunning layout designed to capture leads, signups, or sales from ad traffic.
@@ -93,11 +88,6 @@ export default function Services() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
-                  Full Storefront
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Custom E-Commerce</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 Custom UI, fast load times, and a seamless checkout experience. We build high-converting storefronts tailored to sell your products and drive revenue with lightning fast load speeds.
@@ -145,11 +135,6 @@ export default function Services() {
             </div>
 
             <div className="p-8 flex flex-col flex-grow">
-              <div className="mb-4">
-                <span className="text-[10px] font-semibold uppercase tracking-wider text-primary bg-primary/5 border border-primary/10 rounded-full px-3 py-1">
-                  Enterprise
-                </span>
-              </div>
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Advanced Full-Stack</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 Complex backends, high security, and massive scale. We engineer custom portals, management systems, and web apps configured to solve your specific database and scaling requirements.
