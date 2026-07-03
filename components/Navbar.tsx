@@ -50,6 +50,12 @@ export default function Navbar() {
         <div className="flex-none md:flex-1 flex items-center justify-start">
           <Link
             href="/"
+            onClick={(e) => {
+              if (pathname === '/') {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }
+            }}
             className="flex-shrink-0 flex items-center gap-2 hover:opacity-80 transition-opacity"
             aria-label="Websy — go to homepage"
           >
