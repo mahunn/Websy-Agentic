@@ -41,7 +41,7 @@ export default function Contact() {
   };
 
   return (
-    <main id="main-content" className="bg-[#050505] py-16 md:py-24">
+    <main id="main-content" className="bg-[#050505] pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24">
       <section className="max-w-2xl mx-auto px-6" aria-labelledby="contact-headline">
         
         {/* Section Header */}

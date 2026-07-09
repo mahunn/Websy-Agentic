@@ -4,7 +4,7 @@ import { SiNextdotjs, SiReact, SiTailwindcss, SiNodedotjs, SiTypescript, SiJavas
 
 export default function Work() {
   return (
-    <main id="main-content" className="bg-white py-16 md:py-24">
+    <main id="main-content" className="bg-white pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24">
       {/* Portfolio Grid */}
       <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24 md:mb-32" aria-labelledby="work-headline">
         <header className="mb-16 text-center max-w-2xl mx-auto">
@@ -28,8 +28,11 @@ export default function Work() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           
           {/* Card 1: Henley Zone */}
-          <article
-            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+          <a
+            href="https://henleyzone.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
             aria-label="Henley Zone — E-commerce project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
@@ -48,13 +51,10 @@ export default function Work() {
                 width={800}
                 height={500}
               />
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 tracking-wider uppercase shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
-                Live
-              </div>
+
             </div>
 
-            <div className="p-8 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col flex-grow bg-[#fafaf9]">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Henley Zone</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A full-featured online store for a premium fashion brand.
@@ -66,37 +66,27 @@ export default function Work() {
               <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">STACK:</span>
                 <div className="flex items-center gap-2.5">
-                  <SiNextdotjs className="text-gray-900 w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.3)] cursor-pointer" aria-label="Next.js" />
-                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer" aria-label="React" />
-                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
-                  <SiNodedotjs className="text-[#339933] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(51,153,51,0.45)] cursor-pointer" aria-label="Node.js" />
+                  <SiNextdotjs className="text-gray-900 w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" aria-label="Next.js" />
+                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)]" aria-label="React" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)]" aria-label="Tailwind CSS" />
+                  <SiNodedotjs className="text-[#339933] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(51,153,51,0.45)]" aria-label="Node.js" />
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-4 pt-4 border-t border-gray-100">
-                <a
-                  href="https://henleyzone.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-semibold text-gray-400 hover:text-primary transition-colors"
-                >
+              <div className="flex items-center justify-center pt-4 border-t border-gray-100">
+                <span className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-6 rounded-full transition-colors duration-200 shadow-sm">
                   henleyzone.com ↗
-                </a>
-                <a
-                  href="https://henleyzone.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 px-4 rounded-full transition-colors duration-200"
-                >
-                  View Live Site →
-                </a>
+                </span>
               </div>
             </div>
-          </article>
+          </a>
 
           {/* Card 2: Glamora Beige */}
-          <article
-            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+          <a
+            href="https://glamora-beige.vercel.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
             aria-label="Glamora Beige — Premium landing page project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
@@ -114,55 +104,41 @@ export default function Work() {
                 width={800}
                 height={500}
               />
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 tracking-wider uppercase shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
-                Live
-              </div>
+
             </div>
 
-            <div className="p-8 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col flex-grow bg-[#fafaf9]">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Glamora Beige</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A minimalist, high-converting landing page for a luxury
-                lifestyle brand. Restrained, editorial, and built for
-                one purpose — driving sign-ups.
+                lifestyle brand. Built for one purpose — driving business sales.
               </p>
 
               {/* Tech Stack Row */}
               <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">STACK:</span>
                 <div className="flex items-center gap-2.5">
-                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)] cursor-pointer" aria-label="React" />
-                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
-                  <SiJavascript className="text-[#F7DF1E] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(247,223,30,0.45)] cursor-pointer" aria-label="JavaScript" />
-                  <SiGit className="text-[#F05032] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(240,80,50,0.45)] cursor-pointer" aria-label="Git" />
+                  <SiReact className="text-[#61DAFB] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(97,218,251,0.45)]" aria-label="React" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)]" aria-label="Tailwind CSS" />
+                  <SiJavascript className="text-[#F7DF1E] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(247,223,30,0.45)]" aria-label="JavaScript" />
+                  <SiGit className="text-[#F05032] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(240,80,50,0.45)]" aria-label="Git" />
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-4 pt-4 border-t border-gray-100">
-                <a
-                  href="https://glamora-beige.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-semibold text-gray-400 hover:text-primary transition-colors"
-                >
+              <div className="flex items-center justify-center pt-4 border-t border-gray-100">
+                <span className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-6 rounded-full transition-colors duration-200 shadow-sm">
                   glamora-beige.vercel.app ↗
-                </a>
-                <a
-                  href="https://glamora-beige.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 px-4 rounded-full transition-colors duration-200"
-                >
-                  View Live Site →
-                </a>
+                </span>
               </div>
             </div>
-          </article>
+          </a>
 
           {/* Card 3: Mahin Ahmad */}
-          <article
-            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300"
+          <a
+            href="https://mahinahmad.netlify.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5 transition-all duration-300 cursor-pointer"
             aria-label="Mahin Ahmad — Professional digital portfolio project"
           >
             <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-50">
@@ -180,13 +156,10 @@ export default function Work() {
                 width={800}
                 height={500}
               />
-              <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 bg-white/90 backdrop-blur-sm border border-gray-200 rounded-full px-3 py-1 text-[10px] font-semibold text-gray-700 tracking-wider uppercase shadow-sm">
-                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse shadow-[0_0_8px_#E11D48]" />
-                Live
-              </div>
+
             </div>
 
-            <div className="p-8 flex flex-col flex-grow">
+            <div className="p-8 flex flex-col flex-grow bg-[#fafaf9]">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">Mahin Ahmad</h2>
               <p className="text-gray-500 text-sm leading-relaxed mb-6 flex-grow">
                 A clean, minimal personal portfolio for a full-stack developer.
@@ -198,33 +171,20 @@ export default function Work() {
               <div className="flex items-center gap-3 mt-4 mb-5 pt-4 border-t border-gray-100">
                 <span className="text-[10px] tracking-widest text-gray-400 uppercase font-semibold">STACK:</span>
                 <div className="flex items-center gap-2.5">
-                  <SiNextdotjs className="text-gray-900 w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.3)] cursor-pointer" aria-label="Next.js" />
-                  <SiTypescript className="text-[#3178C6] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(49,120,198,0.45)] cursor-pointer" aria-label="TypeScript" />
-                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)] cursor-pointer" aria-label="Tailwind CSS" />
-                  <SiGit className="text-[#F05032] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(240,80,50,0.45)] cursor-pointer" aria-label="Git" />
+                  <SiNextdotjs className="text-gray-900 w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(0,0,0,0.3)]" aria-label="Next.js" />
+                  <SiTypescript className="text-[#3178C6] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(49,120,198,0.45)]" aria-label="TypeScript" />
+                  <SiTailwindcss className="text-[#06B6D4] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(6,182,212,0.45)]" aria-label="Tailwind CSS" />
+                  <SiGit className="text-[#F05032] w-5 h-5 transition-all duration-200 hover:-translate-y-1 hover:drop-shadow-[0_0_8px_rgba(240,80,50,0.45)]" aria-label="Git" />
                 </div>
               </div>
 
-              <div className="flex items-center justify-between gap-4 pt-4 border-t border-gray-100">
-                <a
-                  href="https://mahinahmad.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-xs font-semibold text-gray-400 hover:text-primary transition-colors"
-                >
+              <div className="flex items-center justify-center pt-4 border-t border-gray-100">
+                <span className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2.5 px-6 rounded-full transition-colors duration-200 shadow-sm">
                   mahinahmad.com ↗
-                </a>
-                <a
-                  href="https://mahinahmad.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white text-xs font-semibold py-2 px-4 rounded-full transition-colors duration-200"
-                >
-                  View Live Site →
-                </a>
+                </span>
               </div>
             </div>
-          </article>
+          </a>
 
         </div>
       </section>

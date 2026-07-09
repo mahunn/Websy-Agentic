@@ -3,7 +3,7 @@ import { SiNextdotjs, SiReact, SiTailwindcss, SiJavascript, SiNodedotjs, SiTypes
 
 export default function Services() {
   return (
-    <main id="main-content" className="py-16 md:py-24 bg-white">
+    <main id="main-content" className="pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24 bg-white">
       <section className="max-w-7xl mx-auto px-6 md:px-8" aria-labelledby="services-headline">
         
         {/* Page Header */}

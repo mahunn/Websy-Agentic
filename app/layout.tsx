@@ -35,7 +35,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`h-full antialiased scroll-smooth ${inter.variable}`}>
+    <html lang="en" className={`h-full antialiased scroll-smooth ${inter.variable}`} suppressHydrationWarning>
       <head>
         {process.env.NEXT_PUBLIC_META_PIXEL_ID && (
           <>
@@ -69,7 +69,7 @@ export default function RootLayout({
           </>
         )}
       </head>
-      <body className="min-h-full flex flex-col bg-white text-gray-900 pt-[56px] sm:pt-[60px] md:pt-[64px]">
+      <body className="min-h-full flex flex-col bg-white text-gray-900" suppressHydrationWarning>
         <Navbar />
         <div className="flex-grow">{children}</div>
 
@@ -82,7 +82,7 @@ export default function RootLayout({
 
             {/* Column 1: Brand */}
             <div>
-              <Link href="/" className="inline-flex mb-5" aria-label="Websy — go to homepage">
+              <Link href="/" className="inline-flex items-center mb-5 hover:opacity-85 transition-opacity" aria-label="Websy.bd — go to homepage">
                 <Image
                   src="/logo.svg"
                   alt="Websy logo"
@@ -90,9 +90,12 @@ export default function RootLayout({
                   height={36}
                   className="block h-9 w-auto"
                 />
+                <span className="text-[14.5px] font-bold text-white lowercase select-none ml-[-12px] self-end mb-[1.5px]">
+                  .bd
+                </span>
               </Link>
               <p className="text-[14px] leading-[1.49] tracking-[0.28px] text-[#9dabad] max-w-[28ch]">
-                Premium websites for small businesses that want to compete with the big ones.
+                Premium websites for e-commerce brands, portfolios, and growing businesses.
               </p>
             </div>
 
@@ -107,24 +110,40 @@ export default function RootLayout({
                     href="/services"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Services
+                    E-Commerce Websites
                   </Link>
                 </li>
                 <li>
                   <Link
-                    href="/work"
+                    href="/services"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Projects
+                    Portfolio Websites
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
+                  >
+                    Business Websites
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/services"
+                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
+                  >
+                    Website Optimization
                   </Link>
                 </li>
               </ul>
             </nav>
 
-            {/* Column 3: Case Studies */}
+            {/* Column 3: Case Studies / Projects */}
             <nav aria-label="Footer work links">
               <h3 className="text-[12px] font-medium uppercase tracking-[0.72px] text-white mb-5">
-                Case Studies
+                Projects
               </h3>
               <ul className="space-y-3">
                 <li>
@@ -134,7 +153,7 @@ export default function RootLayout({
                     rel="noopener noreferrer"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Henley Zone ↗
+                    Henley Zone
                   </a>
                 </li>
                 <li>
@@ -144,17 +163,27 @@ export default function RootLayout({
                     rel="noopener noreferrer"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Glamora Beige ↗
+                    Glamora Beige
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://mahinahmad.com"
+                    href="https://mahinahmad.netlify.app"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Mahin Ahmad ↗
+                    Mahin Ahmad
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://mahinahmad.netlify.app"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
+                  >
+                    mahinahmad.com
                   </a>
                 </li>
               </ul>
@@ -163,23 +192,33 @@ export default function RootLayout({
             {/* Column 4: Contact */}
             <nav aria-label="Footer contact links">
               <h3 className="text-[12px] font-medium uppercase tracking-[0.72px] text-white mb-5">
-                Get in Touch
+                Contact
               </h3>
               <ul className="space-y-3">
                 <li>
-                  <Link
-                    href="/contact"
+                  <a
+                    href="mailto:info@websy.bd"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    Get a Website
-                  </Link>
+                    info@websy.bd
+                  </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:hello@websy.dev"
+                    href="tel:+8801828034555"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
                   >
-                    hello@websy.dev
+                    01828034555
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/profile.php?id=61590418449990"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
+                  >
+                    Facebook Page
                   </a>
                 </li>
               </ul>
@@ -190,40 +229,52 @@ export default function RootLayout({
           {/* Legal row */}
           <div className="max-w-7xl mx-auto pt-8 border-t border-[#1e2c31] flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[13px] text-[#52525b]">
-              &copy; 2026 Websy. All rights reserved.
+              &copy; 2026 Websy.bd. All rights reserved.
             </p>
 
             {/* Social Icons */}
             <div className="flex items-center gap-6">
               <a
-                href="#"
+                href="https://www.facebook.com/profile.php?id=61590418449990"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-[#52525b] hover:text-white transition-colors duration-200"
-                aria-label="Websy on Twitter/X"
+                aria-label="Websy on Facebook"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L2.25 2.25h6.966l4.259 5.628 4.769-5.628Zm-1.161 17.52h1.833L7.084 4.126H5.117Z" />
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
                 </svg>
               </a>
-              <a
-                href="#"
-                className="text-[#52525b] hover:text-white transition-colors duration-200"
-                aria-label="Websy on Instagram"
+              <Link
+                href="/contact"
+                className="text-xs text-[#9dabad] hover:text-white transition-colors duration-200 font-semibold"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round">
-                  <rect x="2" y="2" width="20" height="20" rx="5" />
-                  <circle cx="12" cy="12" r="4" />
-                  <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-                </svg>
-              </a>
-              <a
-                href="#"
-                className="text-[#52525b] hover:text-white transition-colors duration-200"
-                aria-label="Websy on LinkedIn"
+                Websy Column Links:
+              </Link>
+              <Link
+                href="/"
+                className="text-[13px] text-[#52525b] hover:text-white transition-colors"
               >
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 23.2 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-                </svg>
-              </a>
+                Home
+              </Link>
+              <Link
+                href="/services"
+                className="text-[13px] text-[#52525b] hover:text-white transition-colors"
+              >
+                Services
+              </Link>
+              <Link
+                href="/work"
+                className="text-[13px] text-[#52525b] hover:text-white transition-colors"
+              >
+                Projects
+              </Link>
+              <Link
+                href="/about"
+                className="text-[13px] text-[#52525b] hover:text-white transition-colors"
+              >
+                Team
+              </Link>
             </div>
           </div>
         </footer>

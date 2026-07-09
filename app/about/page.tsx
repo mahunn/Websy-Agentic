@@ -28,7 +28,7 @@ export default function About() {
   ];
 
   return (
-    <main id="main-content" className="bg-white py-16 md:py-24">
+    <main id="main-content" className="bg-white pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24">
       <section className="max-w-7xl mx-auto px-6 md:px-8" aria-labelledby="about-headline">
         
         {/* Page Header */}
