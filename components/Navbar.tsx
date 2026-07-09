@@ -39,9 +39,7 @@ export default function Navbar() {
     ? isLightPage
       ? 'border-gray-200/50'
       : 'border-white/10'
-    : isLightPage
-    ? 'border-gray-200/80'
-    : 'border-zinc-800/40';
+    : 'border-transparent';
 
   const bgClass = scrolled
     ? isLightPage
@@ -59,8 +57,8 @@ export default function Navbar() {
       }`}
     >
       <div
-        className={`w-full max-w-7xl mx-auto border transition-all duration-300 pointer-events-auto ${
-          scrolled ? 'rounded-2xl shadow-lg' : 'rounded-none border-b'
+        className={`w-full max-w-7xl mx-auto transition-all duration-300 pointer-events-auto ${
+          scrolled ? 'border rounded-2xl shadow-lg' : 'border-0 rounded-none'
         } ${borderClass} ${bgClass}`}
       >
         <nav
