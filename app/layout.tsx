@@ -196,6 +196,14 @@ export default function RootLayout({
               </h3>
               <ul className="space-y-3">
                 <li>
+                  <Link
+                    href="/contact"
+                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
+                  >
+                    Contact Page
+                  </Link>
+                </li>
+                <li>
                   <a
                     href="mailto:info@websy.bd"
                     className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
@@ -232,25 +240,8 @@ export default function RootLayout({
               &copy; 2026 Websy.bd. All rights reserved.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-6">
-              <a
-                href="https://www.facebook.com/profile.php?id=61590418449990"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[#52525b] hover:text-white transition-colors duration-200"
-                aria-label="Websy on Facebook"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
-                </svg>
-              </a>
-              <Link
-                href="/contact"
-                className="text-xs text-[#9dabad] hover:text-white transition-colors duration-200 font-semibold"
-              >
-                Websy Column Links:
-              </Link>
+            {/* Links and Socials */}
+            <div className="flex flex-wrap items-center justify-center gap-6">
               <Link
                 href="/"
                 className="text-[13px] text-[#52525b] hover:text-white transition-colors"
@@ -275,6 +266,24 @@ export default function RootLayout({
               >
                 Team
               </Link>
+              <Link
+                href="/contact"
+                className="text-[13px] text-[#52525b] hover:text-white transition-colors"
+              >
+                Contact
+              </Link>
+              <span className="w-px h-3 bg-[#1e2c31] hidden sm:inline" />
+              <a
+                href="https://www.facebook.com/profile.php?id=61590418449990"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#52525b] hover:text-white transition-colors duration-200"
+                aria-label="Websy on Facebook"
+              >
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/>
+                </svg>
+              </a>
             </div>
           </div>
         </footer>
