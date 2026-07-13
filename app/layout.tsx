@@ -176,16 +176,6 @@ export default function RootLayout({
                     Mahin Ahmad
                   </a>
                 </li>
-                <li>
-                  <a
-                    href="https://mahinahmad.netlify.app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[14px] text-[#9dabad] hover:text-white transition-colors duration-200"
-                  >
-                    mahinahmad.com
-                  </a>
-                </li>
               </ul>
             </nav>
 

@@ -8,6 +8,7 @@ import {
   FiUser,
   FiBriefcase,
   FiArrowRight,
+  FiArrowDown,
   FiCheck,
   FiSmartphone,
   FiMonitor,
@@ -552,64 +553,52 @@ export default function Home() {
           </div>
 
           {/* Bottom Stats Strip */}
-          <div className="mt-12 md:mt-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-gray-100 pt-12 md:pt-16">
-            
+          <div className="mt-8 md:mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 border-t border-gray-100 pt-8 md:pt-10">
+
             {/* Stat 1: 100% */}
-            <div className="bg-[#fbfbf5] border border-gray-200/60 rounded-2xl p-6 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-3xl md:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>100%</span>
-                <span className="text-[9px] font-bold text-pink-accent bg-rose-50 border border-rose-100/50 rounded-md px-2 py-0.5 uppercase tracking-wider">
+            <div className="bg-white border border-gray-200/70 rounded-2xl p-5 hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-3xl sm:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>100%</span>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                   No Templates
                 </span>
               </div>
-              <h4 className="text-xs font-bold text-[#0B1220] mb-1">Custom Engineered</h4>
-              <p className="text-[11px] text-[#667085] leading-relaxed">
-                Handcrafted code built from scratch for maximum speed, security, and conversion.
-              </p>
+              <h4 className="text-sm font-extrabold text-[#0B1220]">Custom Engineered</h4>
             </div>
 
             {/* Stat 2: 3-7d */}
-            <div className="bg-[#fbfbf5] border border-gray-200/60 rounded-2xl p-6 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-3xl md:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>3–7d</span>
-                <span className="text-[9px] font-bold text-purple-600 bg-purple-50 border border-purple-100/50 rounded-md px-2 py-0.5 uppercase tracking-wider">
+            <div className="bg-white border border-gray-200/70 rounded-2xl p-5 hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-3xl sm:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>3–7d</span>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                   Fast Delivery
                 </span>
               </div>
-              <h4 className="text-xs font-bold text-[#0B1220] mb-1">Average Turnaround</h4>
-              <p className="text-[11px] text-[#667085] leading-relaxed">
-                Go from initial concept to a fully functional live website in less than a week.
-              </p>
+              <h4 className="text-sm font-extrabold text-[#0B1220]">Average Turnaround</h4>
             </div>
 
             {/* Stat 3: 24h */}
-            <div className="bg-[#fbfbf5] border border-gray-200/60 rounded-2xl p-6 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-3xl md:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>24h</span>
-                <span className="text-[9px] font-bold text-emerald-600 bg-emerald-50 border border-emerald-100/50 rounded-md px-2 py-0.5 uppercase tracking-wider">
+            <div className="bg-white border border-gray-200/70 rounded-2xl p-5 hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-3xl sm:text-4xl font-black text-[#0B1220] tracking-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>24h</span>
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                   SLA Support
                 </span>
               </div>
-              <h4 className="text-xs font-bold text-[#0B1220] mb-1">Response Guarantee</h4>
-              <p className="text-[11px] text-[#667085] leading-relaxed">
-                Direct developer communication. We resolve support queries in record time.
-              </p>
+              <h4 className="text-sm font-extrabold text-[#0B1220]">Response Guarantee</h4>
             </div>
 
             {/* Stat 4: 5★ */}
-            <div className="bg-[#fbfbf5] border border-gray-200/60 rounded-2xl p-6 hover:shadow-md transition-shadow duration-300">
-              <div className="flex items-baseline justify-between mb-3">
-                <span className="text-3xl md:text-4xl font-black text-[#0B1220] tracking-tight flex items-center gap-1" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+            <div className="bg-white border border-gray-200/70 rounded-2xl p-5 hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
+              <div className="flex items-baseline justify-between mb-2">
+                <span className="text-3xl sm:text-4xl font-black text-[#0B1220] tracking-tight flex items-center gap-1" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
                   5.0<span className="text-amber-500 text-2xl">★</span>
                 </span>
-                <span className="text-[9px] font-bold text-amber-600 bg-amber-50 border border-amber-100/50 rounded-md px-2 py-0.5 uppercase tracking-wider">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                   Top Rated
                 </span>
               </div>
-              <h4 className="text-xs font-bold text-[#0B1220] mb-1">Client Satisfaction</h4>
-              <p className="text-[11px] text-[#667085] leading-relaxed">
-                Trusted by local brands to build highly optimized high-converting storefronts.
-              </p>
+              <h4 className="text-sm font-extrabold text-[#0B1220]">Client Satisfaction</h4>
             </div>
 
           </div>
@@ -620,68 +609,94 @@ export default function Home() {
 
 
       {/* ── SECTION 6: Process ─────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-[#F8FAFC] border-t border-gray-100" aria-label="Our workflow process">
+      <section className="py-12 md:py-20 bg-[#F8FAFC] border-t border-gray-100" aria-label="Our workflow process">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
 
           {/* Section Header */}
-          <div className="max-w-3xl mb-16 md:mb-20">
-            <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-3">
+          <div className="max-w-3xl mb-10 md:mb-12">
+            <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-2">
               Our Workflow
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-5 leading-[1.1]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+            <h2 className="text-2xl md:text-4xl font-extrabold text-[#0B1220] tracking-tight leading-[1.1]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
               How we build your website
             </h2>
           </div>
 
-          {/* Process Timeline */}
-          <div className="relative grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+          {/* Process Timeline - Vertical Layout */}
+          <div className="max-w-xl mx-auto flex flex-col gap-4 relative z-10">
 
-            {/* Desktop Connector Line */}
-            <div className="hidden md:block absolute top-7 left-12 right-12 h-px bg-gray-200 z-0" aria-hidden="true" />
+            {[
+              {
+                num: "01",
+                title: "Discover",
+                text: "Goal mapping & design strategy.",
+                icon: FiSearch,
+                color: "bg-[#F8FAFC] text-gray-500 border-gray-200/60 group-hover:bg-soft-pink group-hover:text-pink-accent group-hover:border-[#FCE7EF]",
+              },
+              {
+                num: "02",
+                title: "Design",
+                text: "Craft custom visual interfaces.",
+                icon: FiMonitor,
+                color: "bg-[#F8FAFC] text-gray-500 border-gray-200/60 group-hover:bg-soft-pink group-hover:text-pink-accent group-hover:border-[#FCE7EF]",
+              },
+              {
+                num: "03",
+                title: "Develop",
+                text: "Build with fast, clean code.",
+                icon: FiCpu,
+                color: "bg-[#F8FAFC] text-gray-500 border-gray-200/60 group-hover:bg-soft-pink group-hover:text-pink-accent group-hover:border-[#FCE7EF]",
+              },
+              {
+                num: "04",
+                title: "Launch",
+                text: "Optimize, deploy & hand over.",
+                icon: FiTrendingUp,
+                color: "bg-[#F8FAFC] text-gray-500 border-gray-200/60 group-hover:bg-soft-pink group-hover:text-pink-accent group-hover:border-[#FCE7EF]",
+              },
+            ].map((step) => {
+              const IconComponent = step.icon;
+              return (
+                <div
+                  key={step.num}
+                  className="relative group flex items-center justify-between bg-white border border-[#E5E7EB] rounded-2xl p-4 sm:p-5 hover:shadow-md hover:border-pink-accent/20 transition-all duration-300 gap-4"
+                >
+                  <div className="flex items-center gap-4">
+                    {/* Icon Block */}
+                    <div className={`w-11 h-11 rounded-xl border flex items-center justify-center shrink-0 ${step.color}`}>
+                      <IconComponent className="w-5 h-5" />
+                    </div>
 
-            {/* Step 1 */}
-            <div className="relative z-10 flex flex-col items-start bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-gray-100 md:border-0 shadow-sm md:shadow-none">
-              <div className="w-14 h-14 rounded-full bg-[#0B1220] border-4 border-white text-white text-lg font-bold flex items-center justify-center mb-5 shadow-sm">
-                01
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">Discover</h3>
-              <p className="text-xs text-[#667085] leading-relaxed max-w-[220px]">
-                We understand your business, audience, goals, and website requirements.
-              </p>
-            </div>
+                    {/* Text Details */}
+                    <div>
+                      <h3 className="text-sm sm:text-base font-extrabold text-[#111827] mb-0.5">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs text-[#667085] leading-relaxed font-semibold">
+                        {step.text}
+                      </p>
+                    </div>
+                  </div>
 
-            {/* Step 2 */}
-            <div className="relative z-10 flex flex-col items-start bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-gray-100 md:border-0 shadow-sm md:shadow-none">
-              <div className="w-14 h-14 rounded-full bg-[#0B1220] border-4 border-white text-white text-lg font-bold flex items-center justify-center mb-5 shadow-sm">
-                02
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">Design</h3>
-              <p className="text-xs text-[#667085] leading-relaxed max-w-[220px]">
-                We create a clean, premium interface focused on trust, clarity, and conversion.
-              </p>
-            </div>
+                  {/* Step tag */}
+                  <span className="text-[10px] font-bold text-gray-300 tracking-wider shrink-0 uppercase">
+                    Step {step.num}
+                  </span>
 
-            {/* Step 3 */}
-            <div className="relative z-10 flex flex-col items-start bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-gray-100 md:border-0 shadow-sm md:shadow-none">
-              <div className="w-14 h-14 rounded-full bg-[#0B1220] border-4 border-white text-white text-lg font-bold flex items-center justify-center mb-5 shadow-sm">
-                03
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">Develop</h3>
-              <p className="text-xs text-[#667085] leading-relaxed max-w-[220px]">
-                We build a fast, responsive website using clean and scalable code.
-              </p>
-            </div>
-
-            {/* Step 4 */}
-            <div className="relative z-10 flex flex-col items-start bg-white md:bg-transparent p-6 md:p-0 rounded-2xl border border-gray-100 md:border-0 shadow-sm md:shadow-none">
-              <div className="w-14 h-14 rounded-full bg-[#0B1220] border-4 border-white text-white text-lg font-bold flex items-center justify-center mb-5 shadow-sm">
-                04
-              </div>
-              <h3 className="text-lg font-bold text-[#111827] mb-2">Launch</h3>
-              <p className="text-xs text-[#667085] leading-relaxed max-w-[220px]">
-                We test, optimize, publish, and hand over the final website.
-              </p>
-            </div>
+                  {/* Connection Arrow pointing down to the next card */}
+                  {step.num !== "04" && (
+                    <div className="absolute -bottom-4.5 left-[38px] sm:left-[42px] -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none">
+                      <div className="w-[1.5px] h-3 bg-gradient-to-b from-gray-200 to-gray-300/40 group-hover:from-pink-accent/50 group-hover:to-pink-accent/20 transition-all duration-300" />
+                      <div className="w-5 h-5 rounded-full bg-white border border-gray-200 group-hover:border-pink-accent/30 flex items-center justify-center shadow-sm text-gray-400 group-hover:text-pink-accent transition-all duration-200 -mt-0.5">
+                        <svg className="w-2.5 h-2.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" strokeLinejoin="round">
+                          <path d="M6 9l6 6 6-6" />
+                        </svg>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              );
+            })}
 
           </div>
         </div>
@@ -694,7 +709,7 @@ export default function Home() {
           {/* Section Header */}
           <div className="max-w-3xl mb-16 md:mb-20">
             <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-3">
-              Pricing Options
+              Website Packages
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-5 leading-[1.1]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
               Choose the website your business needs
@@ -714,10 +729,7 @@ export default function Home() {
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
                   For creators &amp; personal brands
                 </p>
-                <div className="mb-6 flex items-baseline">
-                  <span className="text-3xl font-extrabold text-[#111827]">৳3,999</span>
-                  <span className="text-xs text-[#667085] ml-1.5 font-normal">starting from</span>
-                </div>
+                <div className="mb-4 flex items-baseline" />
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-4 mb-8">
                   {['Home page', 'About section', 'Projects or services', 'Contact form', 'Mobile responsive design'].map(item => (
@@ -743,10 +755,7 @@ export default function Home() {
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
                   For brand campaigns &amp; sales
                 </p>
-                <div className="mb-6 flex items-baseline">
-                  <span className="text-3xl font-extrabold text-[#111827]">৳6,999</span>
-                  <span className="text-xs text-[#667085] ml-1.5 font-normal">starting from</span>
-                </div>
+                <div className="mb-4 flex items-baseline" />
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-4 mb-8">
                   {['Minimalist editorial layout', 'High-converting sales structure', 'Checkout and admin panel', 'SEO & speed optimization', 'Mobile-first responsive build'].map(item => (
@@ -775,10 +784,7 @@ export default function Home() {
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
                   For online store brands
                 </p>
-                <div className="mb-6 flex items-baseline">
-                  <span className="text-3xl font-extrabold text-[#111827]">৳12,999</span>
-                  <span className="text-xs text-[#667085] ml-1.5 font-normal">starting from</span>
-                </div>
+                <div className="mb-4 flex items-baseline" />
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-4 mb-8">
                   {['Product pages', 'Cart & checkout flow', 'Payment-ready structure', 'Mobile shopping experience', 'Full admin panel setup'].map(item => (
@@ -896,50 +902,47 @@ export default function Home() {
       <FAQSection />
 
       {/* ── SECTION 10: Final CTA ──────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-white border-t border-gray-100" aria-label="Final call to action">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      <section className="py-12 md:py-16 bg-white border-t border-gray-100" aria-label="Final call to action">
+        <div className="max-w-5xl mx-auto px-6 md:px-8">
 
-          {/* Inner Navy Block */}
-          <div className="bg-[#0B1220] rounded-[32px] p-8 md:p-16 text-center relative overflow-hidden shadow-xl">
-            {/* Ambient Background Gradient Tints */}
-            <div className="absolute inset-0 pointer-events-none opacity-20 bg-gradient-to-tr from-pink-500 via-transparent to-purple-500" />
-
-            <div className="relative z-10 max-w-2xl mx-auto">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight mb-4 leading-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-                Ready to launch a website that works?
+          {/* Inner Light-Themed Block */}
+          <div className="bg-[#F8FAFC] border border-gray-200/60 rounded-[24px] p-8 sm:p-10 md:p-12 text-center relative overflow-hidden shadow-sm">
+            <div className="relative z-10 max-w-xl mx-auto">
+              <h2 className="text-2xl md:text-4xl font-extrabold text-[#0B1220] tracking-tight mb-3 leading-tight" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                Ready to build your website?
               </h2>
-              <p className="text-sm md:text-base text-zinc-300 leading-relaxed mb-8 font-normal">
-                Tell us about your business and Websy will help you turn it into a premium, fast, and conversion-focused website.
+              <p className="text-xs sm:text-sm text-gray-500 leading-relaxed mb-6 font-semibold">
+                Tell us about your project and we'll handle the rest.
               </p>
 
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-8">
                 <Link
                   href="/contact"
-                  className="w-full sm:w-auto inline-flex items-center justify-center bg-white hover:bg-gray-100 text-[#0B1220] text-sm font-bold py-3.5 px-8 rounded-full transition-colors duration-200 shadow-sm"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-[#0B1220] hover:bg-[#1b2538] text-white text-xs sm:text-sm font-extrabold py-3.5 px-8 rounded-full transition-all duration-200 shadow-sm"
                 >
                   Start Your Project
                 </Link>
                 <Link
                   href="/work"
-                  className="w-full sm:w-auto inline-flex items-center justify-center border border-zinc-600 hover:border-zinc-400 text-white text-sm font-semibold py-3.5 px-8 rounded-full transition-colors duration-200"
+                  className="w-full sm:w-auto inline-flex items-center justify-center border border-gray-300 hover:border-gray-400 text-gray-800 hover:text-gray-950 text-xs sm:text-sm font-semibold py-3.5 px-8 rounded-full transition-all duration-200"
                 >
                   View Live Work
                 </Link>
               </div>
 
               {/* Direct Contacts Row */}
-              <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 pt-8 border-t border-zinc-800 text-zinc-400 text-xs font-semibold">
-                <a href="mailto:info@websy.bd" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <FiMail className="w-4 h-4 text-pink-accent" />
+              <div className="flex flex-wrap items-center justify-center gap-5 sm:gap-6 pt-6 border-t border-gray-200/70 text-gray-500 text-[11px] font-bold">
+                <a href="mailto:info@websy.bd" className="flex items-center gap-1.5 hover:text-[#0B1220] transition-colors">
+                  <FiMail className="w-3.5 h-3.5 text-pink-accent" />
                   info@websy.bd
                 </a>
-                <a href="tel:+8801828034555" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <FiPhone className="w-4 h-4 text-pink-accent" />
+                <a href="tel:+8801828034555" className="flex items-center gap-1.5 hover:text-[#0B1220] transition-colors">
+                  <FiPhone className="w-3.5 h-3.5 text-pink-accent" />
                   01828034555
                 </a>
-                <a href="https://www.facebook.com/profile.php?id=61590418449990" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-                  <FiFacebook className="w-4 h-4 text-pink-accent" />
+                <a href="https://www.facebook.com/profile.php?id=61590418449990" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-[#0B1220] transition-colors">
+                  <FiFacebook className="w-3.5 h-3.5 text-pink-accent" />
                   Facebook Page
                 </a>
               </div>
