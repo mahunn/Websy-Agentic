@@ -1,368 +1,352 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-@import url('https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@800,700,500,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 @import "tailwindcss";
 
-/* ─── Google Fonts ─────────────────────────────────────────────────── */
-
-/* ─── Tailwind Theme Tokens ─────────────────────────────────────────── */
+/* ─── Tailwind CSS v4 Theme Tokens ─────────────────────────────────── */
 @theme {
-  /* Canvas */
-  --color-canvas-night:          #000000;
-  --color-canvas-night-elevated: #0a0a0a;
-  --color-surface-dark:          #1e2c31;
-  --color-canvas-light:          #ffffff;
-  --color-canvas-cream:          #fbfbf5;
+  /* Typography */
+  --font-display: 'Plus Jakarta Sans', var(--font-display), sans-serif;
+  --font-sans: 'Geist', var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Brand ink */
-  --color-ink:       #000000;
-  --color-on-dark:   #ffffff;
+  /* Obsidian Dark Palette */
+  --color-obsidian-base: #0C0D0E;
+  --color-obsidian-surface: #141619;
+  --color-obsidian-elevated: #1E2024;
+  --color-obsidian-highlight: #272A30;
 
-  /* Accents */
-  --color-aloe:      #c1fbd4;
-  --color-pistachio: #d4f9e0;
+  /* Primary Accent: Burnt Ember / Terracotta */
+  --color-ember: #E25C38;
+  --color-ember-hover: #EA6C48;
+  --color-ember-dark: #C04826;
+  --color-ember-glow: rgba(226, 92, 56, 0.15);
 
-  /* Shade ladder */
-  --color-shade-30: #d4d4d8;
-  --color-shade-40: #a1a1aa;
-  --color-shade-50: #71717a;
-  --color-shade-60: #52525b;
-  --color-shade-70: #3f3f46;
+  /* Subdued High-End Borders */
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-medium: rgba(255, 255, 255, 0.14);
+  --color-border-strong: rgba(255, 255, 255, 0.22);
+  --color-border-ember: rgba(226, 92, 56, 0.35);
 
-  /* Hairlines */
-  --color-hairline-light: #e4e4e7;
-  --color-hairline-dark:  #1e2c31;
+  /* Typography / Text Tones */
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+  --color-text-muted: #A1A1AA;
+  --color-text-subtle: #64748B;
 
-  /* Cool link tones (dark pages) */
-  --color-link-cool-1: #9dabad;
-  --color-link-cool-2: #9797a2;
-  --color-link-cool-3: #bdbdca;
-  --color-link-mint:   #99b3ad;
-
-  /* Legacy compat – red brand accent on light pages */
-  --color-primary:       #E11D48;
-  --color-primary-hover: #BE123C;
-
-  /* Websy Design System Accents & Colors */
-  --color-primary-navy:  #0B1220;
-  --color-text-navy:     #111827;
-  --color-muted-text:    #667085;
-  --color-pink-accent:   #E73463;
-  --color-soft-pink:     #FCE7EF;
-  --color-purple-accent: #7C3AED;
-  --color-light-bg:      #F8FAFC;
-  --color-custom-border: #E5E7EB;
+  /* Backwards-compatible aliases */
+  --color-canvas-night: #0C0D0E;
+  --color-canvas-night-elevated: #141619;
+  --color-surface-dark: #141619;
+  --color-primary: #E25C38;
+  --color-primary-hover: #EA6C48;
+  --color-primary-navy: #0C0D0E;
 }
 
-/* ─── CSS Custom Properties (raw values for inline use) ─────────────── */
+/* ─── CSS Custom Properties (Raw values for utility & inline use) ─── */
 :root {
-  --canvas-night:          #000000;
-  --canvas-night-elevated: #0a0a0a;
-  --surface-dark:          #1e2c31;
-  --canvas-light:          #ffffff;
-  --canvas-cream:          #fbfbf5;
-  --ink:                   #000000;
-  --on-dark:               #ffffff;
-  --aloe:                  #c1fbd4;
-  --pistachio:             #d4f9e0;
-  --shade-30:              #d4d4d8;
-  --shade-40:              #a1a1aa;
-  --shade-50:              #71717a;
-  --shade-60:              #52525b;
-  --shade-70:              #3f3f46;
-  --hairline-light:        #e4e4e7;
-  --hairline-dark:         #1e2c31;
-  --link-cool-1:           #9dabad;
-  --link-cool-2:           #9797a2;
-  --link-mint:             #99b3ad;
+  /* Obsidian Theme Canvas & Surfaces */
+  --bg-base: #0C0D0E;
+  --bg-surface: #141619;
+  --bg-elevated: #1E2024;
+  --bg-highlight: #272A30;
 
-  /* Websy custom properties */
-  --primary-navy:          #0B1220;
-  --text-navy:             #111827;
-  --muted-text:            #667085;
-  --pink-accent:           #E73463;
-  --soft-pink:             #FCE7EF;
-  --purple-accent:         #7C3AED;
-  --light-bg:              #F8FAFC;
-  --custom-border:         #E5E7EB;
+  /* Burnt Ember / Terracotta Primary Accent */
+  --accent-ember: #E25C38;
+  --accent-ember-hover: #EA6C48;
+  --accent-ember-dark: #C04826;
+  --accent-ember-glow: rgba(226, 92, 56, 0.15);
 
-  /* Elevation shadows */
-  --shadow-1: 0 1px 2px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.04);
-  --shadow-2: 0 0 0 1px rgba(255,255,255,0.08), 0 1px 3px rgba(0,0,0,0.3), 0 5px 10px rgba(0,0,0,0.2);
-  --shadow-3: 0 8px 8px rgba(0,0,0,0.1), 0 4px 4px rgba(0,0,0,0.1), 0 2px 2px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.08);
-  --shadow-4: 0 25px 50px -12px rgba(0,0,0,0.25);
+  /* Hairline Borders */
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-medium: rgba(255, 255, 255, 0.14);
+  --border-strong: rgba(255, 255, 255, 0.22);
+  --border-ember: rgba(226, 92, 56, 0.35);
+
+  /* Slate & Zinc Text */
+  --text-primary: #F8FAFC;
+  --text-secondary: #94A3B8;
+  --text-muted: #A1A1AA;
+  --text-subtle: #64748B;
+
+  /* Font Families */
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Elevation Shadows */
+  --shadow-obsidian-sm: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --shadow-obsidian-md: 0 4px 14px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-obsidian-lg: 0 12px 36px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  --shadow-ember-glow: 0 0 24px -4px rgba(226, 92, 56, 0.3);
 }
 
-/* ─── Base ──────────────────────────────────────────────────────────── */
+/* ─── Global Base & Reset ─────────────────────────────────────────── */
 html {
-  font-feature-settings: "ss03";
+  font-family: var(--font-sans);
   scroll-behavior: smooth;
   color-scheme: dark;
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-feature-settings: "ss03";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: var(--canvas-night);
-  color: var(--on-dark);
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
 }
 
-/* ─── Typography helpers ────────────────────────────────────────────── */
-
-/* Display sizes — thin weight (330 simulated via 300) */
-.display-xxl {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: clamp(56px, 7vw, 96px);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: 0.025em;
-  font-feature-settings: "ss03";
-}
-.display-xl {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: clamp(44px, 5.5vw, 70px);
-  font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-}
-.display-lg {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: clamp(36px, 4.5vw, 55px);
-  font-weight: 300;
-  line-height: 1.16;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-}
-.display-md {
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 300;
-  line-height: 1.14;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
+/* Crisp Text Selection */
+::selection {
+  background-color: rgba(226, 92, 56, 0.28);
+  color: #FFFFFF;
 }
 
-/* Eyebrow caps */
-.eyebrow-cap {
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 1.2;
-  letter-spacing: 0.06em;
+/* Custom Obsidian Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0C0D0E;
+}
+::-webkit-scrollbar-thumb {
+  background: #272A30;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F424A;
+}
+
+/* ─── Typography Utility Classes ─────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.025em;
+}
+
+.font-sans {
+  font-family: var(--font-sans);
+}
+
+/* Display Headline Scales */
+.headline-hero {
+  font-family: var(--font-display);
+  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: var(--text-primary);
+}
+
+.headline-section {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--text-primary);
+}
+
+.headline-card {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 2vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+}
+
+/* Eyebrow Label */
+.eyebrow-ember {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  font-feature-settings: "ss03";
+  color: var(--accent-ember);
 }
 
-/* ─── Button System ─────────────────────────────────────────────────── */
+/* ─── Bento Grid & Obsidian Surfaces ──────────────────────────────── */
+.card-obsidian {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-obsidian-sm);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
 
-/* button-outline-on-dark: cinematic hero CTA */
-.btn-outline-dark {
+.card-obsidian:hover {
+  background-color: var(--bg-elevated);
+  border-color: var(--border-medium);
+  box-shadow: var(--shadow-obsidian-md);
+}
+
+.card-obsidian-active {
+  background-color: var(--bg-elevated);
+  border-color: var(--border-medium);
+}
+
+.card-obsidian-ember {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 1rem;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-obsidian-ember:hover {
+  border-color: var(--border-ember);
+  box-shadow: 0 0 20px -2px rgba(226, 92, 56, 0.15);
+}
+
+/* ─── Button & CTA System ─────────────────────────────────────────── */
+.btn-ember {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: transparent;
-  color: #ffffff;
-  border: 1.5px solid #ffffff;
+  gap: 0.5rem;
+  background-color: var(--accent-ember);
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  padding: 12px 26px;
-  font-size: 16px;
-  font-weight: 420;
-  line-height: 1.5;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-  transition: background 200ms ease, color 200ms ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 12px -2px rgba(226, 92, 56, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   white-space: nowrap;
 }
-.btn-outline-dark:hover {
-  background: rgba(255,255,255,0.08);
+
+.btn-ember:hover {
+  background-color: var(--accent-ember-hover);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 20px 0px rgba(226, 92, 56, 0.55);
+  transform: translateY(-1px);
 }
 
-/* button-primary-pill: solid black on light surfaces */
-.btn-primary {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #000000;
-  color: #ffffff;
-  border: none;
-  border-radius: 9999px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 420;
-  line-height: 1.5;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-  transition: background 200ms ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn-primary:hover {
-  background: var(--shade-70);
-}
-
-/* button-aloe-pill: featured CTA (transactional) */
-.btn-aloe {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--aloe);
-  color: #000000;
-  border: none;
-  border-radius: 9999px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 420;
-  line-height: 1.5;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-  transition: filter 200ms ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn-aloe:hover {
-  filter: brightness(0.94);
-}
-
-/* button-outline-on-light */
-.btn-outline-light {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: transparent;
-  color: #000000;
-  border: 1px solid #000000;
-  border-radius: 9999px;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 420;
-  line-height: 1.5;
-  letter-spacing: 0;
-  font-feature-settings: "ss03";
-  transition: background 200ms ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-.btn-outline-light:hover {
-  background: rgba(0,0,0,0.05);
-}
-
-/* ─── Pills / Tags ──────────────────────────────────────────────────── */
-.pill-mint {
-  display: inline-flex;
-  align-items: center;
-  background: var(--aloe);
-  color: #000000;
-  border-radius: 9999px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-feature-settings: "ss03";
-}
-.pill-shade {
-  display: inline-flex;
-  align-items: center;
-  background: var(--shade-30);
-  color: #000000;
-  border-radius: 9999px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-feature-settings: "ss03";
-}
-.pill-dark {
-  display: inline-flex;
-  align-items: center;
-  background: rgba(255,255,255,0.08);
-  color: rgba(255,255,255,0.65);
-  border: 1px solid rgba(255,255,255,0.1);
-  border-radius: 9999px;
-  padding: 4px 12px;
-  font-size: 12px;
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-feature-settings: "ss03";
-}
-
-/* ─── Elevation Utilities ────────────────────────────────────────────── */
-.elevation-1 { box-shadow: var(--shadow-1); }
-.elevation-2 { box-shadow: var(--shadow-2); }
-.elevation-3 { box-shadow: var(--shadow-3); }
-.elevation-4 { box-shadow: var(--shadow-4); }
-
-/* ─── Reveal Scroll Animations ───────────────────────────────────────── */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-  transition:
-    opacity 480ms cubic-bezier(0.16, 1, 0.3, 1),
-    transform 480ms cubic-bezier(0.16, 1, 0.3, 1);
-}
-.reveal.is-visible {
-  opacity: 1;
+.btn-ember:active {
+  background-color: var(--accent-ember-dark);
   transform: translateY(0);
 }
-.reveal--delay-1 { transition-delay: 80ms; }
-.reveal--delay-2 { transition-delay: 160ms; }
-.reveal--delay-3 { transition-delay: 240ms; }
-.reveal--delay-4 { transition-delay: 320ms; }
 
-/* ─── Dark-track hairlines / surfaces ──────────────────────────────── */
-.surface-night {
-  background: var(--canvas-night);
-  color: var(--on-dark);
-}
-.surface-night-elevated {
-  background: var(--canvas-night-elevated);
-  color: var(--on-dark);
-}
-.surface-dark-teal {
-  background: var(--surface-dark);
-  color: var(--on-dark);
-}
-
-/* ─── Light-track surfaces ──────────────────────────────────────────── */
-.surface-cream {
-  background: var(--canvas-cream);
-  color: var(--ink);
-}
-.surface-pistachio {
-  background: var(--pistachio);
-  color: var(--ink);
+.btn-obsidian {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--border-subtle);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+.btn-obsidian:hover {
+  background-color: var(--bg-elevated);
+  border-color: var(--border-medium);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.btn-obsidian:active {
+  transform: translateY(0);
+}
+
+/* ─── Badges & Tags ───────────────────────────────────────────────── */
+.badge-ember {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: rgba(226, 92, 56, 0.1);
+  color: var(--accent-ember);
+  border: 1px solid rgba(226, 92, 56, 0.22);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-obsidian {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: var(--bg-surface);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+/* ─── Ambient Glows & Accents ─────────────────────────────────────── */
+.glow-ember-subtle {
+  background: radial-gradient(circle at center, rgba(226, 92, 56, 0.12) 0%, transparent 70%);
+}
+
+.glow-ember-intense {
+  background: radial-gradient(circle at center, rgba(226, 92, 56, 0.22) 0%, transparent 65%);
+}
+
+/* Grid background pattern */
+.bg-grid-pattern {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+.bg-grid-pattern-dense {
+  background-size: 24px 24px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+}
+
+/* ─── Scrollbar Utility ───────────────────────────────────────────── */
 .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
-/* Hide scrollbar for IE, Edge and Firefox */
 .scrollbar-none {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* ─── Marquee / Infinite Scroll ──────────────────────────────────────── */
+/* ─── Marquee & Pulse Animations ──────────────────────────────────── */
 @keyframes marquee {
   0%   { transform: translateX(0); }
   100% { transform: translateX(-50%); }
 }
+
 .animate-marquee {
   animation: marquee 35s linear infinite;
 }
+
 .animate-marquee-reverse {
   animation: marquee 40s linear infinite reverse;
 }
 
-@keyframes pulse-dot {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.4; }
+@keyframes pulse-ember {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 0 0 rgba(226, 92, 56, 0.4);
+  }
+  50% {
+    opacity: 0.8;
+    box-shadow: 0 0 0 6px rgba(226, 92, 56, 0);
+  }
 }
-.animate-pulse-dot {
-  animation: pulse-dot 2s ease-in-out infinite;
+
+.animate-pulse-ember {
+  animation: pulse-ember 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

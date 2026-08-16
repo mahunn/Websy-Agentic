@@ -3,6 +3,10 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Services from '@/components/Services';
+import Works from '@/components/Works';
+import AboutTeam from '@/components/AboutTeam';
+import Pricing from '@/components/Pricing';
 import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiGit, SiJavascript, SiFigma, SiMongodb, SiSupabase } from 'react-icons/si';
 import {
   FiUser,
@@ -21,8 +25,14 @@ import {
   FiTrendingUp,
   FiSearch,
   FiGithub,
-  FiFacebook
+  FiFacebook,
+  FiShield,
+  FiClock,
+  FiLayers,
+  FiAward,
+  FiZap
 } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 // ── Custom SVGs/Images for Client Logos ─────────────────────────────
 interface LogoProps {
@@ -67,171 +77,111 @@ export default function Home() {
   const [activeCard, setActiveCard] = useState(3);
 
   return (
-    <main id="main-content" className="bg-white pt-[56px] sm:pt-[60px] md:pt-[64px]">
-
-      {/* ── Hero ──────────────────────────────────────────────────── */}
+    <main id="main-content" className="bg-white">
+      {/* ── Hero (Musemind 1:1 Architecture) ─────────────────────────── */}
       <section
-        className="relative overflow-hidden min-h-0 lg:min-h-[90vh] flex items-center"
+        className="relative overflow-hidden bg-[#F3F4F7] min-h-0 lg:min-h-[92vh] flex flex-col justify-between pt-[70px] sm:pt-[84px] md:pt-[92px]"
         aria-labelledby="hero-headline"
       >
-        {/* Subtle radial tint */}
+        {/* Soft architectural window daylight & studio ambient shadows */}
         <div
           className="absolute inset-0 pointer-events-none z-0"
           aria-hidden="true"
           style={{
             background:
-              'radial-gradient(ellipse 70% 80% at 100% 50%, rgba(225,29,72,0.045) 0%, transparent 65%),' +
-              'radial-gradient(ellipse 60% 60% at 0% 100%, rgba(243,244,246,0.6) 0%, transparent 60%)',
+              'radial-gradient(ellipse 75% 65% at 90% 25%, rgba(226,92,56,0.04) 0%, transparent 60%),' +
+              'radial-gradient(ellipse 65% 55% at 15% 15%, rgba(255,255,255,0.95) 0%, transparent 65%),' +
+              'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(243,244,247,0.8) 50%, rgba(235,237,242,0.9) 100%)',
           }}
         />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 md:px-8 w-full pt-6 pb-10 sm:py-20 lg:py-28">
+        {/* Diagonal architectural window shadow casting */}
+        <div
+          className="absolute inset-0 pointer-events-none z-0 opacity-40"
+          style={{
+            backgroundImage:
+              'linear-gradient(120deg, transparent 35%, rgba(0,0,0,0.015) 38%, transparent 42%, transparent 55%, rgba(0,0,0,0.02) 60%, transparent 68%)',
+          }}
+        />
 
-          {/*
-            Layout strategy:
-            • Mobile (< lg): flex-col, order-1/2/3 controls render order:
-                1. Copy  (badge + headline + paragraph)
-                2. Cards (full-bleed staggered vertical stack)
-                3. CTAs  (buttons + social proof)
-            • Desktop (lg+): 2-col grid.
-                Left col  = Zone 1 wrapper (copy → CTA, flex-col)
-                Right col = Desktop absolute card stack
-          */}
-          <div className="flex flex-col lg:grid lg:grid-cols-2 lg:gap-12 xl:gap-16 lg:items-center">
+        {/* Bottom smooth white fadeout (matches Musemind 1:1) */}
+        <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
 
-            {/* ─────────────────────────────────────────────────────────
-                LEFT COLUMN WRAPPER — desktop col 1
-                On desktop: flex-col so copy flows above CTAs naturally.
-                On mobile: `contents` dissolves the wrapper so Zone 1 and
-                Zone 3 children participate directly in the flex-col order.
-                ───────────────────────────────────────────────────────── */}
-            <div className="contents lg:flex lg:flex-col lg:justify-center">
+        <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 w-full pt-8 sm:pt-14 pb-20 sm:pb-24 lg:py-24 flex-grow flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center w-full">
 
-              {/* ══ ZONE 1 — Badge · Headline · Paragraph
-                  Mobile order-1: renders first
-                  Desktop: first child in left flex-col                  */}
-              <div className="hidden lg:flex lg:flex-col lg:items-start lg:order-none">
-                {/* Headline — desktop only (lg+) */}
-                <h1
-                  id="hero-headline"
-                  className="hidden lg:block text-left text-gray-900 mb-5 md:mb-7 text-[56px] lg:text-[76px] tracking-tight leading-[1.0]"
-                  style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontFeatureSettings: '"ss03"' }}
+            {/* ── Left Column: Musemind 1:1 Editorial Layout ───────────────── */}
+            <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-3xl">
+              {/* Main Heading — Guaranteed 2-line bold editorial hierarchy (1:1 Musemind) */}
+              <h1
+                id="hero-headline"
+                className="text-[#111111] font-display font-extrabold text-[34px] sm:text-[46px] md:text-[54px] lg:text-[60px] xl:text-[68px] tracking-[-0.035em] leading-[1.08]"
+              >
+                <span className="block">Bangladesh&apos;s Leading</span>
+                <span className="block">Website Making Agency</span>
+              </h1>
+
+              {/* Subheading */}
+              <p className="text-[#4B5563] font-sans font-normal text-base sm:text-lg md:text-[20px] leading-[1.58] max-w-[540px]">
+                Websy is a global Web development agency. Helping brands redefine experiences and empower business growth.
+              </p>
+
+              {/* Actions & Clutch Social Proof (1:1 with Musemind) */}
+              <div className="flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-7 pt-1 w-full sm:w-auto">
+                <Link
+                  href="/contact"
+                  id="hero-cta-contact"
+                  className="inline-flex items-center justify-center bg-[#111111] hover:bg-[#262626] text-white rounded-full px-8 py-4 text-[15.5px] font-medium transition-all duration-200 shadow-sm hover:shadow active:scale-[0.99] whitespace-nowrap"
                 >
-                  We build websites<br />
-                  that{' '}
-                  <span className="relative inline-block">
-                    <span
-                      className="relative z-10 font-normal"
-                      style={{
-                        background: 'linear-gradient(135deg, #E11D48 0%, #fb7185 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}
-                    >
-                      boost sales.
-                    </span>
-                    <span className="absolute left-0 -bottom-3.5 w-full h-[16px] pointer-events-none">
-                      <svg className="w-full h-full text-[#E11D48]" viewBox="0 0 100 15" preserveAspectRatio="none" fill="none">
-                        <path d="M3 14.5 C 30 3.0, 70 2.5, 97 6.0" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
-                        <path d="M2 8.5 C 35 8.0, 65 9.0, 88 12.0" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeOpacity="0.9" />
-                      </svg>
-                    </span>
-                  </span>
-                </h1>
-              </div>
+                  Contact us
+                </Link>
 
-              {/* Mobile Headline — on mobile appears after cards (order-2) */}
-              <div className="order-2 lg:hidden mt-6 flex flex-col items-center">
-                <h1
-                  id="hero-headline"
-                  className="text-center text-gray-900 mb-5 md:mb-7 text-[32px] sm:text-[44px] tracking-tight leading-[1.1]"
-                  style={{ fontFamily: "'Cabinet Grotesk', sans-serif", fontWeight: 800, fontFeatureSettings: '"ss03"' }}
-                >
-                  We build websites<br />
-                  that{' '}
-                  <span className="relative inline-block">
-                    <span
-                      className="relative z-10 font-normal"
-                      style={{
-                        background: 'linear-gradient(135deg, #E11D48 0%, #fb7185 100%)',
-                        WebkitBackgroundClip: 'text',
-                        WebkitTextFillColor: 'transparent',
-                        backgroundClip: 'text',
-                      }}
-                    >
-                      boost sales.
-                    </span>
-                    <span className="absolute left-0 -bottom-2 md:-bottom-3.5 w-full h-[12px] md:h-[16px] pointer-events-none">
-                      <svg
-                        className="w-full h-full text-[#E11D48]"
-                        viewBox="0 0 100 15"
-                        preserveAspectRatio="none"
-                        fill="none"
-                      >
-                        <path d="M3 14.5 C 30 3.0, 70 2.5, 97 6.0" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" />
-                        <path d="M2 8.5 C 35 8.0, 65 9.0, 88 12.0" stroke="currentColor" strokeWidth="3.2" strokeLinecap="round" strokeOpacity="0.9" />
-                      </svg>
-                    </span>
-                  </span>
-                </h1>
-              </div>
-
-              {/* ══ ZONE 3 — CTA Buttons · Social Proof (order-3 on mobile) */}
-              <div className="order-3 lg:order-none mt-6 lg:mt-0 flex flex-col items-center lg:items-start">
-                {/* CTA row */}
-                <div className="flex flex-col sm:flex-row sm:items-center gap-4 w-full sm:w-auto">
-                  <Link
-                    href="/contact"
-                    id="hero-cta-primary"
-                    className="inline-flex items-center justify-center bg-gray-900 hover:bg-gray-800 text-white text-sm sm:text-base font-medium py-3.5 px-7 rounded-full transition-all duration-200 shadow-lg shadow-gray-900/15 hover:-translate-y-[1px] w-full sm:w-auto whitespace-nowrap"
-                  >
-                    Launch Your Project
-                  </Link>
-                  <Link
-                    href="/work"
-                    id="hero-cta-secondary"
-                    className="inline-flex items-center justify-center border border-gray-300 hover:border-gray-400 text-gray-700 hover:text-gray-900 text-sm sm:text-base font-medium py-3.5 px-7 rounded-full transition-all duration-200 hover:-translate-y-[1px] w-full sm:w-auto whitespace-nowrap"
-                  >
-                    Explore Live Work
-                    <svg className="ml-2 w-4 h-4 flex-shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                      <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                {/* Clutch Rating Badge */}
+                <div className="flex items-center gap-3.5">
+                  {/* Authentic Clutch 'C' logo with coral dot */}
+                  <div className="w-10 h-10 rounded-full bg-white border border-neutral-200/90 shadow-sm flex items-center justify-center shrink-0">
+                    <svg className="w-5 h-5" viewBox="0 0 32 32" fill="none" aria-label="Clutch">
+                      <path
+                        d="M16 8C11.58 8 8 11.58 8 16s3.58 8 8 8c3.4 0 6.3-2.12 7.4-5.1h-3.3c-.8 1.3-2.3 2.1-4.1 2.1-2.7 0-4.9-2.2-4.9-4.9s2.2-4.9 4.9-4.9c1.8 0 3.3.8 4.1 2.1h3.3C22.3 10.12 19.4 8 16 8z"
+                        fill="#111111"
+                      />
+                      <circle cx="21" cy="16" r="2.2" fill="#FF3D2E" />
                     </svg>
-                  </Link>
-                </div>
-
-                {/* Social proof */}
-                <div className="flex items-center justify-center lg:justify-start gap-3 mt-4 md:mt-8">
-                  <span className="text-[10px] sm:text-[11px] font-semibold uppercase tracking-[0.08em] text-gray-400">
-                    Trusted by
-                  </span>
-                  <div className="w-px h-3 bg-gray-200 flex-shrink-0" />
-                  <div className="flex -space-x-2">
-                    <HenleyLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 3 }} />
-                    <GlamoraLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 2 }} />
-                    <MahinLogo className="w-6 h-6 sm:w-8 sm:h-8 border-2 border-white shadow-md" style={{ zIndex: 1 }} />
                   </div>
-                  <span className="text-[11px] sm:text-[12px] text-gray-300 font-normal italic select-none">
-                    & more
-                  </span>
+
+                  <div className="flex flex-col justify-center">
+                    <div className="flex items-center gap-1.5 leading-none">
+                      <span className="text-[17px] sm:text-[18px] font-bold text-[#111111] leading-none">4.9</span>
+                      <div className="flex items-center gap-0.5" aria-label="Rated 4.9 out of 5 stars on Clutch">
+                        {[...Array(5)].map((_, i) => (
+                          <svg
+                            key={i}
+                            className="w-4 h-4 fill-[#FF3D2E] text-[#FF3D2E]"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                            aria-hidden="true"
+                          >
+                            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          </svg>
+                        ))}
+                      </div>
+                    </div>
+                    <span className="text-[12px] text-[#71717A] font-normal leading-tight mt-1">Based on 47 Clutch reviews</span>
+                  </div>
                 </div>
               </div>
+            </div>
 
-            </div>{/* /left desktop column */}
-
-            {/* ══ ZONE 2 — Mobile Mockup Stack (< lg only)
-                order-1: renders at the top on mobile.
-                Absolute overlapping stack with fixed height so it has room to breathe.
-                lg:hidden hides it on desktop (desktop stack below handles it). */}
+            {/* ══ Mobile Mockup Stack (< lg only) ────────────────────── */}
             <div
-              className="order-1 lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-4 mb-4"
+              className="lg:hidden w-auto sm:w-full -mx-1 sm:mx-auto sm:max-w-[440px] mt-8 mb-4"
               aria-hidden="true"
             >
-              <div className="relative h-[290px] px-0 sm:px-4">
+              <div className="relative h-[300px] px-0 sm:px-4">
 
                 {/* Mobile Card 1 — Mahin portfolio (back left) */}
                 <div
-                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-neutral-900/30' : 'shadow-md border-gray-100/80'}`}
                   style={{ top: '0%', left: '0%', transform: activeCard === 1 ? 'rotate(-8deg) scale(1.04)' : 'rotate(-8deg) scale(0.92)', zIndex: activeCard === 1 ? 20 : 1, opacity: 1 }}
                   onClick={() => setActiveCard(1)}
                 >
@@ -247,7 +197,7 @@ export default function Home() {
 
                 {/* Mobile Card 2 — Henley e-commerce (middle right) */}
                 <div
-                  className={`absolute w-[65%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-neutral-900/30' : 'shadow-md border-gray-100/80'}`}
                   style={{ top: '9%', right: '0%', transform: activeCard === 2 ? 'rotate(8deg) scale(1.04)' : 'rotate(8deg) scale(0.92)', zIndex: activeCard === 2 ? 20 : (activeCard === 3 ? 10 : 1), opacity: 1 }}
                   onClick={() => setActiveCard(2)}
                 >
@@ -263,7 +213,7 @@ export default function Home() {
 
                 {/* Mobile Card 3 — Glamora · Landing Page (front center) */}
                 <div
-                  className={`absolute w-[72%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100/80'}`}
+                  className={`absolute w-[76%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)] border-neutral-900/30' : 'shadow-md border-gray-100/80'}`}
                   style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.04)' : 'translateX(-50%) rotate(-1deg) scale(0.92)', zIndex: activeCard === 3 ? 20 : 10, opacity: 1 }}
                   onClick={() => setActiveCard(3)}
                 >
@@ -281,17 +231,25 @@ export default function Home() {
               </div>
             </div>
 
-            {/* ══ Desktop Mockup Stack (lg+ only)
-                Absolute-positioned overlapping cards — untouched from original.
-                hidden on mobile so no layout interference with the mobile stack. */}
+            {/* ══ Desktop Mockup Stack (lg+ only) ────────────────────── */}
             <div
-              className="hidden lg:flex w-full relative items-center justify-center h-[520px] xl:h-[580px]"
+              className="hidden lg:flex lg:col-span-5 xl:col-span-5 w-full relative items-center justify-center h-[540px] xl:h-[600px]"
               aria-hidden="true"
             >
+              {/* Subtle 3D Studio Architectural Steps & Light Caustics */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background:
+                    'radial-gradient(ellipse 65% 55% at 50% 50%, rgba(255,255,255,0.85) 0%, transparent 70%),' +
+                    'radial-gradient(circle at 60% 40%, rgba(226,92,56,0.05) 0%, transparent 60%)',
+                }}
+              />
+
               {/* Card 1 — Mahin portfolio (back, tilted left) */}
               <div
-                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
-                style={{ top: '4%', left: '0%', transform: activeCard === 1 ? 'rotate(-4deg) scale(1.02)' : 'rotate(-4deg) scale(0.91)', zIndex: activeCard === 1 ? 3 : 1 }}
+                className={`absolute w-[72%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.22)] border-neutral-900/25 scale-[1.03]' : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 scale-[0.93]'}`}
+                style={{ top: '4%', left: '0%', transform: 'rotate(-5deg)', zIndex: activeCard === 1 ? 3 : 1 }}
                 onClick={() => setActiveCard(1)}
               >
                 <Image
@@ -305,8 +263,8 @@ export default function Home() {
 
               {/* Card 2 — Henley e-commerce (middle right, slight tilt) */}
               <div
-                className={`absolute w-[62%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
-                style={{ top: '11%', right: '0%', transform: activeCard === 2 ? 'rotate(4deg) scale(1.02)' : 'rotate(4deg) scale(0.91)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                className={`absolute w-[72%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.22)] border-neutral-900/25 scale-[1.03]' : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 scale-[0.93]'}`}
+                style={{ top: '12%', right: '0%', transform: 'rotate(5deg)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
                 onClick={() => setActiveCard(2)}
               >
                 <Image
@@ -320,8 +278,8 @@ export default function Home() {
 
               {/* Card 3 — Glamora landing page (front, centred, upright) */}
               <div
-                className={`absolute w-[68%] rounded-2xl overflow-hidden border transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.25)] border-primary/20' : 'shadow-md border-gray-100'}`}
-                style={{ bottom: '2%', left: '50%', transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.02)' : 'translateX(-50%) rotate(-1deg) scale(0.91)', zIndex: activeCard === 3 ? 3 : 2 }}
+                className={`absolute w-[78%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_36px_72px_-12px_rgba(0,0,0,0.25)] border-neutral-900/30 scale-[1.03]' : 'shadow-[0_20px_40px_rgba(0,0,0,0.1)] border-gray-200/90 scale-[0.93]'}`}
+                style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 3 : 2 }}
                 onClick={() => setActiveCard(3)}
               >
                 <Image
@@ -333,149 +291,278 @@ export default function Home() {
                   priority
                 />
               </div>
-
-              {/* Ambient glow */}
-              <div
-                className="absolute inset-0 pointer-events-none rounded-3xl"
-                style={{
-                  background: 'radial-gradient(ellipse 65% 65% at 55% 50%, rgba(225,29,72,0.07) 0%, transparent 70%)',
-                  zIndex: 0,
-                }}
-              />
             </div>
 
           </div>
         </div>
+      </section>
 
-        {/* Scroll indicator */}
-        <div className="hidden lg:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center pointer-events-none" aria-hidden="true">
-          <div className="w-px h-12" style={{ background: 'linear-gradient(to bottom, #d1d5db, transparent)' }} />
+      {/* ── Brand Logos Trust Strip (Musemind 1:1) ────────────────── */}
+      <section className="bg-white pt-8 pb-12 relative z-20" aria-label="Trusted brands">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <p className="text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.22em] text-[#111111] text-center mb-8">
+            TRUSTED BY 50+ BANGLADESHI &amp; GLOBAL BRANDS
+          </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-75 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+              <Image src="/henleyzone-logo-v2.png" alt="Henley Zone" width={28} height={28} className="rounded-full object-cover" />
+              <span>HENLEY ZONE</span>
+            </div>
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+              <Image src="/glamora-logo.png" alt="Glamora" width={28} height={28} className="rounded-full object-cover" />
+              <span>GLAMORA</span>
+            </div>
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+              <Image src="/mahinahmad-logo-v2.png" alt="Mahin Ahmad" width={28} height={28} className="rounded-full object-cover bg-black p-0.5" />
+              <span>MAHIN AHMAD</span>
+            </div>
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+              <span className="w-7 h-7 rounded-full bg-neutral-900 text-white text-xs flex items-center justify-center font-bold">F</span>
+              <span>FLESHPOTS</span>
+            </div>
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+              <span className="w-7 h-7 rounded-full bg-neutral-900 text-white text-xs flex items-center justify-center font-bold">J</span>
+              <span>JHT HUB</span>
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* ── SECTION 2: Core Capabilities & Bento Grid (Step 3) ──────── */}
+      <Services />
 
-
-      {/* ── SECTION 2: Featured Projects ───────────────────────────── */}
-      <section className="py-20 md:py-28 bg-[#F8FAFC] border-t border-gray-100" aria-label="Featured projects">
+      {/* ── SECTION 1.5: Engineering Authority & Standards Strip ───────────────────────────── */}
+      <section className="bg-white border-y border-gray-200/70 py-8 relative z-20">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 divide-y md:divide-y-0 md:divide-x divide-gray-100">
+            <div className="flex items-start gap-4 pt-4 md:pt-0">
+              <div className="w-10 h-10 rounded-xl bg-rose-50 text-pink-accent flex items-center justify-center shrink-0">
+                <FiAward className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#0B1220] mb-0.5">Senior Developers Only</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Your project is architected and built directly by senior full-stack developers with zero agency middlemen.
+                </p>
+              </div>
+            </div>
 
-          {/* Section Header */}
-          <div className="max-w-3xl mb-16 md:mb-20">
+            <div className="flex items-start gap-4 pt-4 md:pt-0 md:pl-8">
+              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
+                <FiShield className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#0B1220] mb-0.5">International Standards</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Adhering to ISO 27001 data security, GDPR compliance, sub-1s Core Web Vitals, and 100% clean custom code.
+                </p>
+              </div>
+            </div>
+
+            <div className="flex items-start gap-4 pt-4 md:pt-0 md:pl-8">
+              <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0">
+                <FiClock className="w-5 h-5" />
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-[#0B1220] mb-0.5">Rapid 24–48h SLA Delivery</h4>
+                <p className="text-xs text-gray-500 leading-relaxed">
+                  Fast-turnaround ad landing pages and agile store delivery with direct WhatsApp communication.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 1.8: What's stopping your business from shipping? ───────────────────────────── */}
+      <section className="py-16 md:py-24 bg-white border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="bg-[#0B1220] rounded-3xl p-8 sm:p-12 md:p-16 text-white relative overflow-hidden shadow-xl">
+            <div className="relative z-10 max-w-3xl">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 block mb-3">
+                Execution Bottlenecks Solved
+              </span>
+              <h2 
+                className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-5 leading-tight"
+                style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
+              >
+                What’s stopping your store from scaling?
+              </h2>
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed mb-8 font-normal">
+                Too many websites fail not because of product quality, but because of slow mobile load times, high-friction checkout forms, lost ad tracking, and agency delays. Our senior engineers step in, eliminate execution gaps, and deliver high-converting websites built to generate revenue.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <h4 className="text-xs font-bold text-white mb-1">⚡ Sub-1s Checkout</h4>
+                  <p className="text-[11px] text-gray-400">Never lose an ad visitor to slow loading pages.</p>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <h4 className="text-xs font-bold text-white mb-1">🎯 1-Click Order Forms</h4>
+                  <p className="text-[11px] text-gray-400">bKash &amp; COD forms built for instant customer buy-in.</p>
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-2xl p-4">
+                  <h4 className="text-xs font-bold text-white mb-1">🔒 Zero Builder Fees</h4>
+                  <p className="text-[11px] text-gray-400">100% custom code with zero recurring platform lock-in.</p>
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center bg-white text-[#0B1220] hover:bg-rose-50 hover:text-pink-accent text-xs sm:text-sm font-extrabold py-3.5 px-8 rounded-full transition-all duration-200 shadow-sm"
+                >
+                  Start Your Project
+                </Link>
+                <Link
+                  href="/industries"
+                  className="inline-flex items-center justify-center border border-white/20 hover:border-white/50 text-white text-xs sm:text-sm font-semibold py-3.5 px-6 rounded-full transition-all duration-200"
+                >
+                  Explore Industry Solutions →
+                </Link>
+              </div>
+            </div>
+            
+            {/* Ambient background glow */}
+            <div 
+              className="absolute -right-20 -bottom-20 w-[450px] h-[450px] rounded-full pointer-events-none"
+              style={{ background: 'radial-gradient(circle, rgba(225,29,72,0.18) 0%, transparent 70%)' }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 3: Selected Works & Interactive Filtering (Step 4) ── */}
+      <Works />
+
+      {/* ── SECTION 4: Pricing & Project Scope Calculator (Step 6) ───── */}
+      <Pricing />
+
+      {/* ── SECTION 3.5: Commercial Engagement Models (Like Pleron Labs) ───────────────────────────── */}
+      <section className="py-20 md:py-28 bg-[#F8FAFC] border-t border-gray-100" aria-label="Engagement models">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          
+          <div className="max-w-3xl mb-16">
             <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-3">
-              Case Studies
+              Partnership Structures
             </span>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-5 leading-[1.1]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-              Recent websites built by Websy
+            <h2 
+              className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-4 leading-tight"
+              style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
+            >
+              Three flexible engagement models
             </h2>
-            <p className="text-base md:text-lg text-[#667085] leading-relaxed max-w-2xl font-normal">
-              Real projects designed with clean visuals, fast performance, and business-focused user experience.
+            <p className="text-base md:text-lg text-gray-500 font-normal leading-relaxed">
+              Structured engagement models designed to match different business stages, ad campaigns, and agency scaling needs.
             </p>
           </div>
 
-          {/* Grid Layout */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
-
-            {/* Project 1: Henley Zone */}
-            <article className="group flex flex-col bg-white border border-gray-200/80 rounded-[24px] overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 border-b border-gray-100">
-                <Image
-                  src="/henley-mockup-1-cropped.png"
-                  alt="Henley Zone e-commerce preview"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                />
-              </div>
-              <div className="p-8 flex flex-col justify-between flex-grow min-h-[220px]">
-                <div>
-                  <span className="text-[9px] font-bold text-pink-accent bg-rose-50 border border-rose-100/60 rounded-full px-3 py-1 uppercase tracking-wider block w-max mb-3">
-                    E-Commerce Website
-                  </span>
-                  <h3 className="text-xl font-bold text-[#111827] mb-2">Henley Zone</h3>
-                  <p className="text-sm text-[#667085] leading-relaxed mb-6 font-normal">
-                    A modern storefront experience built for product discovery and smooth shopping.
-                  </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Model 1: Fixed Scope */}
+            <div className="bg-white border border-gray-200/80 rounded-3xl p-8 shadow-sm hover:shadow-xl hover:border-pink-accent/20 transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-rose-50 text-pink-accent flex items-center justify-center mb-6">
+                  <FiZap className="w-6 h-6" />
                 </div>
-                <a
-                  href="https://henleyzone.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3 px-5 rounded-full transition-all duration-200 w-full sm:w-auto shadow-sm"
-                >
-                  View Project
-                </a>
+                <span className="text-[10px] font-bold text-pink-accent uppercase tracking-wider block mb-2">Turnkey Delivery</span>
+                <h3 className="text-xl font-bold text-[#0B1220] mb-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                  Fixed-Scope Project
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-6 font-normal">
+                  Ideal for new product launches, ad campaign landing pages, and complete e-commerce builds with predetermined specs and clear deadlines.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Guaranteed 24–48h or 3–7d delivery', 'Transparent milestone payments', '100% full source code ownership', 'Staging preview approval before launch'].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-xs text-gray-600 font-medium">
+                      <FiCheck className="text-pink-accent w-3.5 h-3.5 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </article>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3 px-6 rounded-full transition-all duration-200 shadow-sm w-full text-center"
+              >
+                Start Fixed Project
+              </Link>
+            </div>
 
-            {/* Project 2: Glamora Beige */}
-            <article className="group flex flex-col bg-white border border-gray-200/80 rounded-[24px] overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 border-b border-gray-100">
-                <Image
-                  src="/glamora-mockup.png"
-                  alt="Glamora Beige landing page preview"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                />
+            {/* Model 2: Monthly Care Retainer */}
+            <div className="bg-white border-2 border-[#0B1220] rounded-3xl p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+              <div className="absolute top-0 right-0 bg-[#0B1220] text-white text-[9px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl">
+                Continuous Growth
               </div>
-              <div className="p-8 flex flex-col justify-between flex-grow min-h-[220px]">
-                <div>
-                  <span className="text-[9px] font-bold text-pink-accent bg-rose-50 border border-rose-100/60 rounded-full px-3 py-1 uppercase tracking-wider block w-max mb-3">
-                    Brand Landing Page
-                  </span>
-                  <h3 className="text-xl font-bold text-[#111827] mb-2">Glamora Beige</h3>
-                  <p className="text-sm text-[#667085] leading-relaxed mb-6 font-normal">
-                    A refined landing page experience designed for elegance, clarity, and trust.
-                  </p>
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-gray-100 text-gray-900 flex items-center justify-center mb-6">
+                  <FiTrendingUp className="w-6 h-6" />
                 </div>
-                <a
-                  href="https://glamora-beige.vercel.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3 px-5 rounded-full transition-all duration-200 w-full sm:w-auto shadow-sm"
-                >
-                  View Project
-                </a>
+                <span className="text-[10px] font-bold text-pink-accent uppercase tracking-wider block mb-2">Dedicated Dev Support</span>
+                <h3 className="text-xl font-bold text-[#0B1220] mb-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                  Store Care &amp; Growth Retainer
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-6 font-normal">
+                  Ongoing developer power for growing stores running continuous ads. Monthly new landing pages, speed tuning, and conversion optimization.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['Monthly new promotional landing pages', 'Continuous sub-1s speed & SEO audits', 'Priority bug fixes & inventory updates', 'A/B testing & checkout improvements'].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-xs text-gray-900 font-bold">
+                      <FiCheck className="text-[#0B1220] w-3.5 h-3.5 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </article>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-pink-accent hover:bg-pink-600 text-white text-xs font-bold py-3 px-6 rounded-full transition-all duration-200 shadow-sm w-full text-center"
+              >
+                Inquire Care Retainer
+              </Link>
+            </div>
 
-            {/* Project 3: Mahin Ahmad */}
-            <article className="group flex flex-col bg-white border border-gray-200/80 rounded-[24px] overflow-hidden hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300">
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 border-b border-gray-100">
-                <Image
-                  src="/mahin-mockup.png"
-                  alt="Mahin Ahmad portfolio preview"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  sizes="(max-width: 768px) 100vw, 400px"
-                />
-              </div>
-              <div className="p-8 flex flex-col justify-between flex-grow min-h-[220px]">
-                <div>
-                  <span className="text-[9px] font-bold text-pink-accent bg-rose-50 border border-rose-100/60 rounded-full px-3 py-1 uppercase tracking-wider block w-max mb-3">
-                    Portfolio Website
-                  </span>
-                  <h3 className="text-xl font-bold text-[#111827] mb-2">Mahin Ahmad</h3>
-                  <p className="text-sm text-[#667085] leading-relaxed mb-6 font-normal">
-                    A personal portfolio built to showcase work, skills, and professional credibility.
-                  </p>
+            {/* Model 3: White-Label Agency */}
+            <div className="bg-white border border-gray-200/80 rounded-3xl p-8 shadow-sm hover:shadow-xl hover:border-pink-accent/20 transition-all duration-300 flex flex-col justify-between">
+              <div>
+                <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center mb-6">
+                  <FiShield className="w-6 h-6" />
                 </div>
-                <a
-                  href="https://mahinahmad.netlify.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3 px-5 rounded-full transition-all duration-200 w-full sm:w-auto shadow-sm"
-                >
-                  View Project
-                </a>
+                <span className="text-[10px] font-bold text-pink-accent uppercase tracking-wider block mb-2">For Creative Agencies</span>
+                <h3 className="text-xl font-bold text-[#0B1220] mb-3" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                  100% Anonymous White-Label
+                </h3>
+                <p className="text-xs text-gray-500 leading-relaxed mb-6 font-normal">
+                  Scale your agency’s capabilities without hiring expensive in-house full-time staff. We build behind the scenes under strict NDA.
+                </p>
+                <ul className="space-y-2.5 mb-8">
+                  {['100% anonymous execution under your brand', 'Legally backed NDA & client protection', 'On-demand scaling in 48 hours', 'Direct Slack / WhatsApp communication'].map((f) => (
+                    <li key={f} className="flex items-start gap-2 text-xs text-gray-600 font-medium">
+                      <FiCheck className="text-pink-accent w-3.5 h-3.5 shrink-0 mt-0.5" />
+                      <span>{f}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </article>
+              <a
+                href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20an%20agency%20white-label%20partnership."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs font-bold py-3 px-6 rounded-full transition-all duration-200 shadow-sm w-full text-center"
+              >
+                <FaWhatsapp className="w-4 h-4" />
+                <span>Partner on WhatsApp</span>
+              </a>
+            </div>
 
           </div>
+
         </div>
       </section>
 
-
+      {/* ── SECTION 4: About Us & Team (Step 5) ────────────────────────── */}
+      <AboutTeam />
 
       {/* ── SECTION 4: Why Choose Websy ────────────────────────────── */}
       <section className="py-12 md:py-32 bg-white border-t border-gray-100 overflow-hidden" aria-label="Why choose us">
@@ -709,30 +796,44 @@ export default function Home() {
           {/* Section Header */}
           <div className="max-w-3xl mb-16 md:mb-20">
             <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-3">
-              Website Packages
+              Pricing &amp; Packages
             </span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-5 leading-[1.1]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-              Choose the website your business needs
+              Transparent packages built for your stage
             </h2>
             <p className="text-base md:text-lg text-[#667085] leading-relaxed max-w-2xl font-normal">
-              Start with the type of website you need. We’ll guide the structure, design, and build from there.
+              Whether you are testing a single product on Facebook ads or scaling a multi-category brand, we have an exact package ready for you.
             </p>
           </div>
 
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
-            {/* Package 1: Portfolio Website */}
-            <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
+            {/* Package 1: Ad Campaign Landing Page (Low Budget ৳3.5k–৳5k) */}
+            <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
               <div>
-                <h3 className="text-xl font-bold text-[#111827] mb-2">Portfolio Website</h3>
-                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
-                  For creators &amp; personal brands
+                <div className="flex items-center justify-between gap-2 mb-2">
+                  <h3 className="text-xl font-bold text-[#111827]">Ad Landing Page</h3>
+                  <span className="text-[10px] font-extrabold text-emerald-600 bg-emerald-50 border border-emerald-100 px-2.5 py-0.5 rounded-full uppercase">
+                    24–48h Delivery
+                  </span>
+                </div>
+                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
+                  For single viral products &amp; ad sellers
                 </p>
-                <div className="mb-4 flex items-baseline" />
+                <div className="mb-4 flex items-baseline gap-1">
+                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳3,499</span>
+                  <span className="text-xs text-gray-400 font-normal">– ৳4,999</span>
+                </div>
                 <div className="h-px bg-gray-100 mb-6" />
-                <ul className="space-y-4 mb-8">
-                  {['Home page', 'About section', 'Projects or services', 'Contact form', 'Mobile responsive design'].map(item => (
+                <ul className="space-y-3.5 mb-8">
+                  {[
+                    '1-Click Cash on Delivery + bKash order form',
+                    'Sub-1s mobile load speed (<800ms)',
+                    'Meta (Facebook) & TikTok Pixel setup',
+                    'Instant order alert directly to WhatsApp',
+                    'Mobile-first high conversion copywriting'
+                  ].map(item => (
                     <li key={item} className="flex items-center gap-3 text-xs text-[#667085] font-semibold">
                       <FiCheck className="text-pink-accent w-4 h-4 shrink-0" />
                       {item}
@@ -744,50 +845,34 @@ export default function Home() {
                 href="/contact"
                 className="w-full inline-flex items-center justify-center border border-[#0B1220] hover:bg-[#0B1220] hover:text-white text-[#0B1220] text-xs font-bold py-3.5 px-6 rounded-full transition-all duration-200"
               >
-                Request Quote
+                Launch Campaign Page
               </Link>
             </div>
 
-            {/* Package 2: Landing Page */}
-            <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-all duration-300">
-              <div>
-                <h3 className="text-xl font-bold text-[#111827] mb-2">Landing Page</h3>
-                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
-                  For brand campaigns &amp; sales
-                </p>
-                <div className="mb-4 flex items-baseline" />
-                <div className="h-px bg-gray-100 mb-6" />
-                <ul className="space-y-4 mb-8">
-                  {['Minimalist editorial layout', 'High-converting sales structure', 'Checkout and admin panel', 'SEO & speed optimization', 'Mobile-first responsive build'].map(item => (
-                    <li key={item} className="flex items-center gap-3 text-xs text-[#667085] font-semibold">
-                      <FiCheck className="text-pink-accent w-4 h-4 shrink-0" />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <Link
-                href="/contact"
-                className="w-full inline-flex items-center justify-center border border-[#0B1220] hover:bg-[#0B1220] hover:text-white text-[#0B1220] text-xs font-bold py-3.5 px-6 rounded-full transition-all duration-200"
-              >
-                Request Quote
-              </Link>
-            </div>
-
-            {/* Package 3: E-Commerce Website (Most Popular Highlighted) */}
-            <div className="group bg-white border-2 border-[#0B1220] rounded-3xl p-8 flex flex-col justify-between shadow-md relative overflow-hidden">
+            {/* Package 2: Standard E-Commerce Store (Medium Budget ৳12k–৳18k - Most Popular) */}
+            <div className="group bg-white border-2 border-[#0B1220] rounded-3xl p-8 flex flex-col justify-between shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#0B1220] text-white text-[9px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl">
                 Most Popular
               </div>
               <div>
-                <h3 className="text-xl font-bold text-[#111827] mb-2">E-Commerce Website</h3>
-                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-4">
-                  For online store brands
+                <h3 className="text-xl font-bold text-[#111827] mb-2">Standard E-Commerce</h3>
+                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
+                  For growing clothing &amp; online brands
                 </p>
-                <div className="mb-4 flex items-baseline" />
+                <div className="mb-4 flex items-baseline gap-1">
+                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳14,999</span>
+                  <span className="text-xs text-gray-400 font-normal">avg. (৳12k–৳18k)</span>
+                </div>
                 <div className="h-px bg-gray-100 mb-6" />
-                <ul className="space-y-4 mb-8">
-                  {['Product pages', 'Cart & checkout flow', 'Payment-ready structure', 'Mobile shopping experience', 'Full admin panel setup'].map(item => (
+                <ul className="space-y-3.5 mb-8">
+                  {[
+                    'Multi-product catalog & category layout',
+                    'Dynamic cart & frictionless checkout',
+                    'Full order & inventory admin panel',
+                    'Customer invoice generator & order alerts',
+                    'Mobile-first conversion-tested UX',
+                    'Free admin training & product setup'
+                  ].map(item => (
                     <li key={item} className="flex items-center gap-3 text-xs text-[#111827] font-bold">
                       <FiCheck className="text-[#0B1220] w-4 h-4 shrink-0" />
                       {item}
@@ -799,11 +884,224 @@ export default function Home() {
                 href="/contact"
                 className="w-full inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
               >
-                Request Quote
+                Build Your Store
+              </Link>
+            </div>
+
+            {/* Package 3: Custom E-Commerce & Platform (৳25k–৳50k+) */}
+            <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
+              <div>
+                <h3 className="text-xl font-bold text-[#111827] mb-2">Custom Platform</h3>
+                <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
+                  For scaled brands &amp; custom workflows
+                </p>
+                <div className="mb-4 flex items-baseline gap-1">
+                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳25,000</span>
+                  <span className="text-xs text-gray-400 font-normal">– ৳50,000+</span>
+                </div>
+                <div className="h-px bg-gray-100 mb-6" />
+                <ul className="space-y-3.5 mb-8">
+                  {[
+                    'Custom Next.js full-stack architecture',
+                    'Automated Courier API (Steadfast/Pathao)',
+                    'Online payment gateways (SSLCommerz/bKash)',
+                    'Custom admin dashboard & sales analytics',
+                    '100% code ownership & zero monthly fees',
+                    'High-traffic load optimization'
+                  ].map(item => (
+                    <li key={item} className="flex items-center gap-3 text-xs text-[#667085] font-semibold">
+                      <FiCheck className="text-pink-accent w-4 h-4 shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <Link
+                href="/contact"
+                className="w-full inline-flex items-center justify-center border border-[#0B1220] hover:bg-[#0B1220] hover:text-white text-[#0B1220] text-xs font-bold py-3.5 px-6 rounded-full transition-all duration-200"
+              >
+                Engineer Custom Store
               </Link>
             </div>
 
           </div>
+
+          {/* Custom Solutions & Future expansion Banner */}
+          <div className="mt-12 bg-gradient-to-r from-[#0B1220] via-gray-900 to-[#1e293b] rounded-3xl p-7 sm:p-9 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md border border-gray-800">
+            <div className="text-center sm:text-left">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-rose-400 block mb-1">
+                Beyond E-Commerce
+              </span>
+              <h3 className="text-lg sm:text-xl font-bold mb-1.5 text-white" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                Looking for a custom portfolio, corporate site, or web app?
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-300 max-w-xl font-normal leading-relaxed">
+                We engineer bespoke personal brands, agency portals, and full-stack software applications tailored to your business logic.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center bg-white text-[#0B1220] hover:bg-rose-50 hover:text-pink-accent text-xs font-bold py-3.5 px-7 rounded-full transition-all duration-200 shrink-0 whitespace-nowrap shadow-sm"
+            >
+              Discuss Custom Project →
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── SECTION 7.5: Zero-Risk Client Guarantee & Trial ───────────────────────────── */}
+      <section className="py-20 md:py-28 bg-[#F8FAFC] border-t border-gray-100" aria-label="Zero risk guarantee">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="bg-white border border-gray-200/80 rounded-3xl p-8 sm:p-12 md:p-16 shadow-md relative overflow-hidden">
+            <div className="max-w-3xl">
+              <span className="text-[10px] font-extrabold uppercase tracking-widest text-pink-accent block mb-2">
+                100% Client Protection
+              </span>
+              <h2 
+                className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-4 leading-tight"
+                style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
+              >
+                Not convinced? Test us with absolute zero risk.
+              </h2>
+              <p className="text-sm sm:text-base text-gray-500 leading-relaxed mb-8">
+                We eliminate the risk of hiring developers. We build your initial project on a private staging server first. If you're not 100% satisfied with the speed, design, and user experience, walk away with no obligations.
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
+                <div className="bg-[#F8FAFC] border border-gray-200/70 rounded-2xl p-5">
+                  <div className="w-8 h-8 rounded-lg bg-rose-50 text-pink-accent flex items-center justify-center font-bold text-xs mb-3">
+                    01
+                  </div>
+                  <h4 className="text-sm font-extrabold text-[#0B1220] mb-1">Staging Preview First</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Test live forms, mobile responsiveness, and speed before final payment.
+                  </p>
+                </div>
+
+                <div className="bg-[#F8FAFC] border border-gray-200/70 rounded-2xl p-5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xs mb-3">
+                    02
+                  </div>
+                  <h4 className="text-sm font-extrabold text-[#0B1220] mb-1">100% Code Transfer</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Full GitHub repository and cloud hosting transfer with zero vendor lock-in.
+                  </p>
+                </div>
+
+                <div className="bg-[#F8FAFC] border border-gray-200/70 rounded-2xl p-5">
+                  <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xs mb-3">
+                    03
+                  </div>
+                  <h4 className="text-sm font-extrabold text-[#0B1220] mb-1">24–48h SLA Delivery</h4>
+                  <p className="text-xs text-gray-500 leading-relaxed">
+                    Fast turnaround for campaign ad pages so you launch your ads on schedule.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center gap-4">
+                <Link
+                  href="/contact"
+                  className="w-full sm:w-auto inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs sm:text-sm font-bold py-3.5 px-8 rounded-full transition-all duration-200 shadow-sm"
+                >
+                  Start Risk-Free Project
+                </Link>
+                <a
+                  href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20a%20risk-free%20website%20build."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-7 rounded-full transition-all duration-200 shadow-sm"
+                >
+                  <FaWhatsapp className="w-4 h-4" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SECTION 7.8: Client Reviews & Testimonials ───────────────────────────── */}
+      <section className="py-20 md:py-28 bg-white border-t border-gray-100" aria-label="Client testimonials">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          
+          <div className="max-w-3xl mb-16 text-center mx-auto">
+            <span className="text-[11px] font-bold tracking-[0.15em] text-pink-accent uppercase block mb-3">
+              Proven Outcomes
+            </span>
+            <h2 
+              className="text-3xl md:text-5xl font-extrabold text-[#0B1220] tracking-tight mb-4 leading-tight"
+              style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
+            >
+              Trusted by store owners &amp; creators
+            </h2>
+            <p className="text-base text-gray-500 font-normal leading-relaxed">
+              Here is what founders and brand managers say about building with Websy.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            {/* Review 1 */}
+            <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                  ★★★★★
+                </div>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal mb-6">
+                  "Websy delivered our online fashion store in just 5 days. The mobile cart speed is instant and our Facebook ads conversion rate jumped significantly. Zero technical headaches."
+                </p>
+              </div>
+              <div className="pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                <HenleyLogo className="w-9 h-9 border" />
+                <div>
+                  <h4 className="text-xs font-bold text-gray-900">Henley Zone</h4>
+                  <span className="text-[10px] text-gray-400">E-Commerce Brand</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 2 */}
+            <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                  ★★★★★
+                </div>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal mb-6">
+                  "Our campaign landing page loads in under a second and looks like an international editorial magazine. The 1-click cash-on-delivery form made ordering effortless for customers."
+                </p>
+              </div>
+              <div className="pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                <GlamoraLogo className="w-9 h-9 border" />
+                <div>
+                  <h4 className="text-xs font-bold text-gray-900">Glamora Beige</h4>
+                  <span className="text-[10px] text-gray-400">Luxury Lifestyle Brand</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Review 3 */}
+            <div className="bg-[#F8FAFC] border border-gray-200/80 rounded-3xl p-8 flex flex-col justify-between shadow-sm">
+              <div>
+                <div className="flex items-center gap-1 text-amber-500 text-sm mb-4">
+                  ★★★★★
+                </div>
+                <p className="text-xs sm:text-sm text-gray-700 leading-relaxed font-normal mb-6">
+                  "Working with senior engineers directly made all the difference. Clean Next.js architecture, zero bloat, and complete ownership of the source code. Highly recommended."
+                </p>
+              </div>
+              <div className="pt-4 border-t border-gray-200/60 flex items-center gap-3">
+                <MahinLogo className="w-9 h-9 border" />
+                <div>
+                  <h4 className="text-xs font-bold text-gray-900">Mahin Ahmad</h4>
+                  <span className="text-[10px] text-gray-400">Full-Stack Platform</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
         </div>
       </section>
 
@@ -962,28 +1260,28 @@ function FAQSection() {
 
   const faqs = [
     {
-      q: "Do you build e-commerce websites?",
-      a: "Yes. We build product pages, cart flows, checkout-ready interfaces, and mobile-first storefronts."
+      q: "Can you build a single-product landing page for Facebook / TikTok ads?",
+      a: "Yes! We build high-converting 1-product landing pages with instant Cash on Delivery and bKash order forms, starting at ৳3,499 with rapid 24–48h delivery."
     },
     {
-      q: "Do you build portfolio websites?",
-      a: "Yes. We design personal portfolio websites for professionals, creators, freelancers, and businesses."
+      q: "How do I manage orders and products on my store?",
+      a: "You receive a clean, easy-to-use admin dashboard. You can add or edit products, view new customer orders in real-time, track inventory, and download customer data in one click."
     },
     {
-      q: "Will my website be mobile-friendly?",
-      a: "Yes. Every Websy website is designed and developed to work smoothly across desktop, tablet, and mobile."
+      q: "Can you integrate bKash, Nagad, and local couriers?",
+      a: "Yes. We support manual bKash/Nagad & Cash on Delivery workflows, as well as automated merchant payment gateways (SSLCommerz/bKash) and courier APIs (Steadfast, Pathao, RedX)."
     },
     {
-      q: "Do I own the website code?",
-      a: "Yes. Websy focuses on clean builds and full code ownership so you are not locked into unnecessary builders."
+      q: "Are there any monthly subscription fees like Shopify or Wix?",
+      a: "No. You get 100% code ownership with zero monthly builder lock-in fees. Your website is deployed on fast, modern cloud infrastructure."
     },
     {
-      q: "Can you redesign my existing website?",
-      a: "Yes. We can improve the design, structure, speed, and user experience of an existing website."
+      q: "Do you also build personal portfolios, business sites, and custom web apps?",
+      a: "Yes! While we specialize heavily in high-converting e-commerce, our engineering team builds custom portfolios, corporate websites, and full-stack web applications."
     },
     {
-      q: "How can I contact Websy?",
-      a: "You can contact Websy by email at info@websy.bd or by phone at 01828034555."
+      q: "How fast will my website load on mobile?",
+      a: "Every Websy website is performance-engineered with Next.js to achieve sub-1-second mobile load times, ensuring maximum conversion and lower ad costs."
     }
   ];
 

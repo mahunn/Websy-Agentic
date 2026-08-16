@@ -1,99 +1,135 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import AboutTeam from '@/components/AboutTeam';
+import { 
+  ShieldCheck, 
+  CheckCircle2, 
+  ArrowRight, 
+  Zap, 
+  Code2, 
+  Layers, 
+  Clock, 
+  Award,
+  Sparkles
+} from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
-export default function About() {
-  const team = [
+export const metadata = {
+  title: "About Us & Team | Websy",
+  description: "Meet the engineering and design minds behind Websy. We build high-converting e-commerce storefronts, Meta Pixel CAPI tracking, and automated courier API workflows."
+};
+
+export default function AboutPage() {
+  const values = [
     {
-      name: "Mahin Ahmad",
-      role: "Founder & Full-Stack Developer",
-      desc: "The one building the code and steering the ship. Mahin focuses on custom full-stack development and making sure every project actually drives real business results.",
-      image: "/mahin.jpg",
+      title: "Senior Engineers Only",
+      desc: "Zero junior handoffs or agency account manager friction. You work directly with experienced software engineers who write the production code.",
+      badge: "Zero Bureaucracy"
     },
     {
-      name: "Kamrul Hasan",
-      role: "Backend & Security Lead",
-      desc: "The guardian of the servers. Kamrul builds the complex backend systems and keeps our clients' websites and data completely locked down and secure.",
-      image: "/kamrul.jpg",
+      title: "Performance Over Fluff",
+      desc: "We don't build generic bloated templates. Every millisecond of load time is optimized for sub-second checkout conversion.",
+      badge: "Core Web Vitals"
     },
     {
-      name: "Nokib Al Hasan",
-      role: "Brand & Content Manager",
-      desc: "The creative mind behind how things look and feel. Nokib crafts the brand identities and digital content that make our clients stand out from the crowd.",
-      image: "/nokib.jpg",
-    },
-    {
-      name: "Tania Akter",
-      role: "Lead Copywriter",
-      desc: "Words matter. Tania writes the clear, punchy website copy that actually gets visitors to click, sign up, and buy.",
-      image: "/tania.jpg",
-    },
-    {
-      name: "Samin Ahmed",
-      role: "Quality Assurance (QA)",
-      desc: "Nothing goes live without Samin's approval. He hunts down bugs and tests every single feature to make sure your site works flawlessly on every device.",
-      image: "/samin.jpg",
-    },
+      title: "100% Code Ownership",
+      desc: "No proprietary platform lock-in or recurring monthly builder subscriptions. You own 100% of your source code on GitHub.",
+      badge: "Zero Platform Fees"
+    }
   ];
 
   return (
-    <main id="main-content" className="bg-white pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24">
-      <section className="max-w-7xl mx-auto px-6 md:px-8" aria-labelledby="about-headline">
-        
-        {/* Page Header */}
-        <header className="mb-16 max-w-3xl">
-          <h1
-            id="about-headline"
-            className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-5 leading-tight"
-            style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
-          >
-            Meet our team members
-          </h1>
-          <p className="text-base md:text-lg text-gray-500 font-normal leading-relaxed max-w-2xl">
-            We are independent developers, building lightning-fast web applications to help local businesses scale.
-          </p>
-        </header>
+    <main id="main-content" className="pt-[70px] sm:pt-[84px] md:pt-[92px] bg-white">
+      
+      {/* ── Main About & Team Section ── */}
+      <AboutTeam />
 
-        {/* 5-Column responsive grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6" role="list" aria-label="Websy team members">
-          {team.map((member) => (
-            <article
-              key={member.name}
-              className="group flex flex-col bg-white border border-gray-200/85 rounded-2xl p-6 hover:border-primary/20 hover:shadow-md hover:shadow-primary/5 transition-all duration-300"
-              role="listitem"
-            >
-              {/* Profile image or placeholder using initials */}
-              <div className="relative w-full aspect-square rounded-xl bg-gray-50 flex items-center justify-center border border-gray-200/60 mb-6 group-hover:border-primary/20 transition-colors duration-300 overflow-hidden">
-                {member.image ? (
-                  <Image
-                    src={member.image}
-                    alt={`${member.name} — ${member.role}`}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 250px"
-                  />
-                ) : (
-                  <span className="text-2xl font-light text-gray-400 uppercase select-none tracking-wider group-hover:text-primary transition-colors duration-300">
-                    {member.name.split(' ').map(n => n[0]).join('')}
+      {/* ── Studio Values & Philosophy ── */}
+      <section className="py-20 sm:py-28 bg-white border-t border-neutral-200/80" aria-label="Studio values">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          
+          <div className="max-w-3xl mb-14">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-sm mb-4">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#111111]">
+                HOW WE OPERATE
+              </span>
+            </div>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#111111] tracking-tight leading-[1.1]">
+              Uncompromising standards for modern commerce
+            </h2>
+            <p className="text-[#52525B] text-base sm:text-lg leading-relaxed mt-4">
+              Built for forward-thinking brand founders who understand that page speed, automated logistics, and pristine ad tracking are the backbone of profitability.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {values.map((v, i) => (
+              <div 
+                key={i}
+                className="bg-[#FBFBFA] border border-neutral-200/80 rounded-3xl p-8 flex flex-col justify-between hover:shadow-lg hover:border-neutral-300 transition-all duration-300 group"
+              >
+                <div>
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 px-3 py-1 rounded-full inline-block mb-4">
+                    {v.badge}
                   </span>
-                )}
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight mb-3">
+                    {v.title}
+                  </h3>
+                  <p className="text-[#52525B] text-sm sm:text-base leading-relaxed">
+                    {v.desc}
+                  </p>
+                </div>
               </div>
+            ))}
+          </div>
 
-              <h2 className="text-base font-semibold text-gray-900 mb-1 group-hover:text-primary transition-colors duration-300">
-                {member.name}
-              </h2>
-              
-              <p className="text-xs font-semibold text-gray-400 tracking-wide uppercase mb-3">
-                {member.role}
-              </p>
-              
-              <p className="text-xs text-gray-500 leading-relaxed font-normal">
-                {member.desc}
-              </p>
-            </article>
-          ))}
         </div>
-
       </section>
+
+      {/* ── Bottom Direct Contact Banner ── */}
+      <section className="py-16 sm:py-20 bg-[#F6F7F9] border-t border-neutral-200/80">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          <div className="bg-[#111111] text-white rounded-3xl p-8 sm:p-12 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-xl">
+            <div className="max-w-2xl relative z-10">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E25C38] mb-3">
+                <Sparkles className="w-4 h-4" /> Ready to collaborate?
+              </span>
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-3">
+                Schedule an engineering discovery session today.
+              </h3>
+              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
+                Connect directly with lead architect Mahin Ahmad to review your e-commerce requirements, courier integrations, and conversion goals.
+              </p>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0 relative z-10 w-full sm:w-auto">
+              <a
+                href="https://wa.me/8801828034555?text=Hi%20Mahin!%20I'd%20like%20to%20discuss%20an%20e-commerce%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
+              >
+                <FaWhatsapp className="w-4 h-4" />
+                <span>Chat on WhatsApp</span>
+              </a>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center bg-white text-[#111111] hover:bg-neutral-100 text-xs sm:text-sm font-semibold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
+              >
+                Book Consultation
+              </Link>
+            </div>
+
+            {/* Ambient Ember Glow */}
+            <div 
+              className="absolute -right-20 -bottom-20 w-[400px] h-[400px] rounded-full pointer-events-none" 
+              style={{ background: 'radial-gradient(circle, rgba(226,92,56,0.16) 0%, transparent 70%)' }}
+            />
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }

@@ -5,17 +5,19 @@ import { FaWhatsapp, FaFacebook } from 'react-icons/fa';
 import { FiMail, FiPhone, FiCheck } from 'react-icons/fi';
 
 const projectTypesMap: Record<string, string> = {
-  ecommerce: 'Small E-Commerce Store',
-  landing: 'Landing Page',
-  portfolio: 'Portfolio',
-  local: 'Local Business',
+  'landing-ad': 'Single-Product / Campaign Landing Page (৳3k–৳5k)',
+  'ecommerce-store': 'Standard E-Commerce Store (৳10k–৳20k)',
+  'custom-ecommerce': 'Advanced Custom E-Commerce & Platform (৳20k–৳50k)',
+  'redesign-speed': 'Store Redesign & Speed Optimization',
+  'portfolio-brand': 'Portfolio / Personal Brand Website',
+  'custom-app': 'Custom Full-Stack Web Application',
 };
 
 const budgetsMap: Record<string, string> = {
-  'under-5k': 'Less than ৳5,000 (Landing Pages)',
-  '10k-20k': '৳10,000 - ৳20,000 (Standard E-Commerce)',
-  '20k-50k': '৳20,000 - ৳50,000 (Advanced E-Commerce)',
-  '50k-plus': '৳50,000+ (Enterprise Custom)',
+  '3k-5k': '৳3,000 - ৳5,000 (Campaign Landing Page / Single Product)',
+  '10k-20k': '৳10,000 - ৳20,000 (Standard E-Commerce Store)',
+  '20k-50k': '৳20,000 - ৳50,000 (Advanced Custom Store / Platform)',
+  '50k-plus': '৳50,000+ (Enterprise & Scaled Web App)',
 };
 
 export default function Contact() {
@@ -63,9 +65,15 @@ export default function Contact() {
 
     // Track lead conversion event for Meta (Facebook) Pixel
     if (typeof window !== 'undefined' && (window as any).fbq) {
+      const valueMap: Record<string, number> = {
+        '3k-5k': 3999,
+        '10k-20k': 14999,
+        '20k-50k': 34999,
+        '50k-plus': 60000,
+      };
       (window as any).fbq('track', 'Lead', {
         content_name: formData.projectType,
-        value: formData.budget === 'under-5k' ? 3999 : (formData.budget === '10k-20k' ? 9999 : 25000),
+        value: valueMap[formData.budget] || 5000,
         currency: 'BDT'
       });
     }
@@ -100,9 +108,15 @@ export default function Contact() {
 
     // Track lead conversion event for Meta (Facebook) Pixel when contacting via WhatsApp
     if (typeof window !== 'undefined' && (window as any).fbq) {
+      const valueMap: Record<string, number> = {
+        '3k-5k': 3999,
+        '10k-20k': 14999,
+        '20k-50k': 34999,
+        '50k-plus': 60000,
+      };
       (window as any).fbq('track', 'Lead', {
         content_name: formData.projectType || 'WhatsApp Start',
-        value: formData.budget === 'under-5k' ? 3999 : (formData.budget === '10k-20k' ? 9999 : 25000),
+        value: valueMap[formData.budget] || 5000,
         currency: 'BDT',
         content_category: 'WhatsApp Contact'
       });
@@ -132,11 +146,11 @@ export default function Contact() {
                 className="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight mb-5 leading-[1.15]"
                 style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
               >
-                Let's build something <span className="text-pink-accent">great</span> together.
+                Let's build a store that <span className="text-pink-accent">boosts sales</span>.
               </h1>
 
               <p className="text-sm md:text-base text-gray-500 font-normal leading-relaxed mb-8 max-w-sm">
-                Tell us about your project, or reach out directly.
+                From high-speed ৳3k–৳5k campaign landing pages to complete custom e-commerce stores, tell us what you need.
               </p>
 
               {/* Direct Contact Cards */}
@@ -151,7 +165,7 @@ export default function Contact() {
                     <FiMail className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block mb-0.5">Email Us</span>
+                    <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block mb-0.5">Direct Email</span>
                     <span className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-pink-accent transition-colors duration-200">info@websy.bd</span>
                   </div>
                 </a>
@@ -167,6 +181,22 @@ export default function Contact() {
                   <div>
                     <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block mb-0.5">Call or SMS</span>
                     <span className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-pink-accent transition-colors duration-200">018280-34555</span>
+                  </div>
+                </a>
+
+                {/* WhatsApp Quick Chat Card */}
+                <a
+                  href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20a%20website%20project."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-4 bg-white border border-gray-200/70 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-emerald-100 transition-all duration-300"
+                >
+                  <div className="w-11 h-11 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover:scale-105 transition-transform duration-300">
+                    <FaWhatsapp className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase font-bold text-gray-400 tracking-wider block mb-0.5">Instant WhatsApp</span>
+                    <span className="text-sm sm:text-base font-bold text-gray-900 group-hover:text-emerald-600 transition-colors duration-200">+880 1828-034555</span>
                   </div>
                 </a>
 
@@ -193,11 +223,11 @@ export default function Contact() {
             <div className="border-t border-gray-200/50 pt-5 mt-4 flex flex-wrap gap-4 text-xs font-semibold text-gray-400">
               <div className="flex items-center gap-1.5">
                 <FiCheck className="text-emerald-500 w-4 h-4" />
-                <span>24h Response</span>
+                <span>24–48h Quick Delivery Available</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <FiCheck className="text-emerald-500 w-4 h-4" />
-                <span>Direct Developer Access</span>
+                <span>bKash / Nagad / COD Ready</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <FiCheck className="text-emerald-500 w-4 h-4" />
@@ -264,11 +294,13 @@ export default function Contact() {
                           onChange={(e) => setFormData({ ...formData, projectType: e.target.value })}
                           className="w-full bg-[#F8FAFC] text-gray-900 border border-gray-200 rounded-xl px-4 py-2.5 min-h-[44px] appearance-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-pink-accent/10 focus:border-pink-accent font-semibold text-sm"
                         >
-                          <option value="" disabled className="text-gray-400">Select a service…</option>
-                          <option value="ecommerce">Small E-Commerce Store</option>
-                          <option value="landing">Landing Page</option>
-                          <option value="portfolio">Portfolio</option>
-                          <option value="local">Local Business</option>
+                          <option value="" disabled className="text-gray-400">Select what you need…</option>
+                          <option value="landing-ad">Single-Product / Ad Campaign Landing Page (৳3k–৳5k)</option>
+                          <option value="ecommerce-store">Standard E-Commerce Store (৳10k–৳20k)</option>
+                          <option value="custom-ecommerce">Advanced Custom E-Commerce & Platform (৳20k–৳50k)</option>
+                          <option value="redesign-speed">Store Redesign & Speed Optimization</option>
+                          <option value="portfolio-brand">Portfolio / Personal Brand Website</option>
+                          <option value="custom-app">Custom Full-Stack Web Application</option>
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" aria-hidden="true">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -291,11 +323,11 @@ export default function Contact() {
                           onChange={(e) => setFormData({ ...formData, budget: e.target.value })}
                           className="w-full bg-[#F8FAFC] text-gray-900 border border-gray-200 rounded-xl px-4 py-2.5 min-h-[44px] appearance-none transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-pink-accent/10 focus:border-pink-accent font-semibold text-sm"
                         >
-                          <option value="" disabled className="text-gray-400">Select a budget tier…</option>
-                          <option value="under-5k">Less than ৳5,000 (Landing Pages)</option>
+                          <option value="" disabled className="text-gray-400">Select budget tier…</option>
+                          <option value="3k-5k">৳3,000 - ৳5,000 (1-Product / Campaign Page)</option>
                           <option value="10k-20k">৳10,000 - ৳20,000 (Standard E-Commerce)</option>
-                          <option value="20k-50k">৳20,000 - ৳50,000 (Advanced E-Commerce)</option>
-                          <option value="50k-plus">৳50,000+ (Enterprise Custom)</option>
+                          <option value="20k-50k">৳20,000 - ৳50,000 (Advanced Custom Store / App)</option>
+                          <option value="50k-plus">৳50,000+ (Enterprise Custom Platform)</option>
                         </select>
                         <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-gray-400" aria-hidden="true">
                           <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
