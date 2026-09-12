@@ -25,9 +25,8 @@ interface PricingTier {
   name: string;
   badge?: string;
   isPopular?: boolean;
-  priceBdt: number | null;
-  priceUsd: number | null;
-  priceLabel?: string;
+  valueTitle: string;
+  valueSubtitle: string;
   target: string;
   deliverables: string[];
   cta: string;
@@ -37,8 +36,7 @@ interface PricingTier {
 interface CalculatorAddon {
   id: string;
   name: string;
-  priceBdt: number;
-  priceUsd: number;
+  timelineLabel: string;
   timelineDays: number;
   desc: string;
   icon: React.ElementType;
@@ -52,10 +50,10 @@ interface FAQItem {
 const pricingTiers: PricingTier[] = [
   {
     id: 'starter',
-    name: 'Starter Landing / Single Product',
-    priceBdt: 15000,
-    priceUsd: 150,
-    target: 'Single product launches, personal branding, and high-converting ad landing pages.',
+    name: 'Starter Campaign / Single Product',
+    valueTitle: 'Budget-Friendly',
+    valueSubtitle: 'Zero Monthly App Fees • 1-Time Setup',
+    target: 'Single product launches, personal branding, and high-converting ad landing pages engineered for maximum ROAS on a lean budget.',
     deliverables: [
       'High-speed Next.js landing page (<1s load time)',
       'Basic Meta Pixel event setup',
@@ -71,9 +69,9 @@ const pricingTiers: PricingTier[] = [
     name: 'Growth Commerce',
     badge: 'RECOMMENDED FOR BRANDS',
     isPopular: true,
-    priceBdt: 35000,
-    priceUsd: 350,
-    target: 'Full apparel, fragrance, beauty, and homeware digital storefronts.',
+    valueTitle: 'Cost-Effective All-In-One',
+    valueSubtitle: 'Full Turnkey Ownership • No Hidden Fees',
+    target: 'Full apparel, fragrance, beauty, and homeware digital storefronts built to scale without expensive monthly SaaS apps.',
     deliverables: [
       'Full e-commerce catalog & category management',
       'Automated Courier API Sync (Pathao / Steadfast / RedX auto-dispatch)',
@@ -88,10 +86,9 @@ const pricingTiers: PricingTier[] = [
   {
     id: 'enterprise',
     name: 'Enterprise Custom Engine',
-    priceBdt: null,
-    priceUsd: null,
-    priceLabel: 'Custom Quote',
-    target: 'High-volume brands needing multi-warehouse logistics and custom ERP sync.',
+    valueTitle: 'Tailored Architecture',
+    valueSubtitle: 'Lean Studio Rates • Dedicated Engineering',
+    target: 'High-volume brands needing multi-warehouse logistics, custom ERP sync, and dedicated engineering.',
     deliverables: [
       'Multi-language interfaces (English / Bangla dual UI)',
       'Custom courier routing logic & warehouse split dispatch',
@@ -108,8 +105,7 @@ const calculatorAddons: CalculatorAddon[] = [
   {
     id: 'courier-api',
     name: 'Pathao / Steadfast / RedX Automated Courier API Integration',
-    priceBdt: 5000,
-    priceUsd: 50,
+    timelineLabel: '+1 Day Turnaround',
     timelineDays: 1,
     desc: 'Zero-touch order dispatch with instant consignment creation and live tracking sync.',
     icon: Truck
@@ -117,8 +113,7 @@ const calculatorAddons: CalculatorAddon[] = [
   {
     id: 'meta-capi',
     name: 'Server-Side Meta CAPI & Pixel Setup (100% Match Quality)',
-    priceBdt: 4000,
-    priceUsd: 40,
+    timelineLabel: '+1 Day Turnaround',
     timelineDays: 1,
     desc: 'Ad-blocker proof event tracking bypassing iOS 14.5+ tracking loss for maximum ROAS.',
     icon: Activity
@@ -126,8 +121,7 @@ const calculatorAddons: CalculatorAddon[] = [
   {
     id: 'abandoned-recovery',
     name: 'Abandoned Cart WhatsApp & SMS Recovery Workflow',
-    priceBdt: 3500,
-    priceUsd: 35,
+    timelineLabel: '+1 Day Turnaround',
     timelineDays: 1,
     desc: 'Automated webhook triggers that recapture lost checkout visitors via WhatsApp.',
     icon: MessageSquare
@@ -135,8 +129,7 @@ const calculatorAddons: CalculatorAddon[] = [
   {
     id: 'multi-lang',
     name: 'Multi-Language (English / Bangla Dual Interface)',
-    priceBdt: 4000,
-    priceUsd: 40,
+    timelineLabel: '+2 Days Turnaround',
     timelineDays: 2,
     desc: 'Seamless zero-latency language switcher with localized currency and checkout copy.',
     icon: Globe
@@ -163,7 +156,6 @@ const faqs: FAQItem[] = [
 ];
 
 export default function Pricing() {
-  const [currency, setCurrency] = useState<'BDT' | 'USD'>('BDT');
   const [selectedBaseTier, setSelectedBaseTier] = useState<string>('starter');
   const [selectedAddons, setSelectedAddons] = useState<string[]>(['courier-api', 'meta-capi']);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
@@ -182,17 +174,8 @@ export default function Pricing() {
 
   // Calculation logic
   const currentBase = pricingTiers.find((t) => t.id === selectedBaseTier) || pricingTiers[0];
-  const basePrice = currency === 'BDT' ? (currentBase.priceBdt || 0) : (currentBase.priceUsd || 0);
 
-  const addonsTotal = selectedAddons.reduce((acc, addonId) => {
-    const found = calculatorAddons.find((a) => a.id === addonId);
-    if (!found) return acc;
-    return acc + (currency === 'BDT' ? found.priceBdt : found.priceUsd);
-  }, 0);
-
-  const totalCalculated = basePrice + addonsTotal;
-
-  const totalDays = 3 + selectedAddons.reduce((acc, addonId) => {
+  const totalDays = 2 + selectedAddons.reduce((acc, addonId) => {
     const found = calculatorAddons.find((a) => a.id === addonId);
     return acc + (found ? found.timelineDays : 0);
   }, 0);
@@ -204,7 +187,7 @@ export default function Pricing() {
     .join(', ');
 
   const whatsappMessage = encodeURIComponent(
-    `Hi Websy! I configured a custom project on your scope calculator:\n• Base Tier: ${currentBase.name}\n• Add-ons: ${addonNames || 'None'}\n• Estimated Total: ${currency === 'BDT' ? '৳' : '$'}${totalCalculated.toLocaleString()}\n\nI would like to discuss next steps.`
+    `Hi Websy! I configured a custom project on your scope estimator:\n• Base Tier: ${currentBase.name}\n• Add-ons: ${addonNames || 'None'}\n• Estimated Turnaround: ${totalDays}–${totalDays + 2} Days\n\nI would like to discuss an affordable quote.`
   );
 
   return (
@@ -215,14 +198,14 @@ export default function Pricing() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
 
-        {/* ── Section Header (Musemind Style) ─────────────────────────── */}
+        {/* ── Section Header ─────────────────────────────────────────── */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 sm:mb-18">
           <div className="max-w-3xl">
             {/* Small tracked pill badge */}
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/90 shadow-sm mb-5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
               <span className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#111111]">
-                TRANSPARENT INVESTMENT
+                LEAN &amp; ACCESSIBLE
               </span>
             </div>
 
@@ -231,41 +214,22 @@ export default function Pricing() {
               id="pricing-headline"
               className="text-[#111111] font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[50px] tracking-[-0.03em] leading-[1.08]"
             >
-              Predictable Pricing for High-Performance Commerce
+              Affordable Engineering for High-Growth Brands
             </h2>
 
             {/* Subtitle */}
             <p className="text-[#52525B] font-sans font-normal text-base sm:text-lg md:text-[20px] leading-[1.58] mt-4">
-              Choose a battle-tested tier or customize your exact stack with automated courier integrations, server-side tracking, and multi-language support.
+              Choose a battle-tested tier or customize your exact stack with automated courier integrations, server-side tracking, and multi-language support. Zero recurring platform fees.
             </p>
           </div>
 
-          {/* Currency Switcher */}
-          <div className="flex items-center bg-white p-1 rounded-full border border-neutral-200/90 shadow-xs self-start md:self-end">
-            <button
-              onClick={() => setCurrency('BDT')}
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer ${
-                currency === 'BDT'
-                  ? 'bg-[#111111] text-white shadow-sm'
-                  : 'text-neutral-600 hover:text-neutral-900'
-              }`}
-            >
-              ৳ BDT
-            </button>
-            <button
-              onClick={() => setCurrency('USD')}
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer ${
-                currency === 'USD'
-                  ? 'bg-[#111111] text-white shadow-sm'
-                  : 'text-neutral-600 hover:text-neutral-900'
-              }`}
-            >
-              $ USD
-            </button>
+          <div className="inline-flex items-center gap-2 bg-emerald-50 border border-emerald-200 px-4 py-2 rounded-full text-xs font-bold text-emerald-700 shadow-xs self-start md:self-end">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <span>100% Custom Ownership • No Monthly App Fees</span>
           </div>
         </div>
 
-        {/* ── 3-Tier Core Pricing Cards Grid ───────────────────────────── */}
+        {/* ── 3-Tier Core Cards Grid ─────────────────────────────────── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20 sm:mb-24 items-stretch">
           {pricingTiers.map((tier) => (
             <div
@@ -291,22 +255,14 @@ export default function Pricing() {
                   {tier.target}
                 </p>
 
-                {/* Price Display */}
-                <div className="pb-6 mb-6 border-b border-neutral-100 flex items-baseline gap-2">
-                  {tier.priceBdt !== null ? (
-                    <>
-                      <span className="text-3xl sm:text-4xl lg:text-[42px] font-display font-extrabold text-[#111111]">
-                        {currency === 'BDT' ? `৳${tier.priceBdt.toLocaleString()}` : `$${tier.priceUsd}`}
-                      </span>
-                      <span className="text-xs font-semibold text-neutral-400 uppercase tracking-wider">
-                        / One-time
-                      </span>
-                    </>
-                  ) : (
-                    <span className="text-3xl sm:text-4xl font-display font-extrabold text-[#111111]">
-                      {tier.priceLabel}
-                    </span>
-                  )}
+                {/* Value / Affordability Positioning Banner */}
+                <div className="pb-6 mb-6 border-b border-neutral-100">
+                  <span className="text-2xl sm:text-3xl font-display font-extrabold text-[#111111] block">
+                    {tier.valueTitle}
+                  </span>
+                  <span className="text-xs font-semibold text-emerald-600 uppercase tracking-wider block mt-1">
+                    {tier.valueSubtitle}
+                  </span>
                 </div>
 
                 {/* Deliverables Checklist */}
@@ -341,18 +297,18 @@ export default function Pricing() {
           ))}
         </div>
 
-        {/* ── Interactive Project Scope Calculator (FleexStudio Feature) ─ */}
+        {/* ── Interactive Project Scope & Timeline Estimator ─────────── */}
         <div className="bg-white border border-neutral-200/80 rounded-3xl p-8 sm:p-12 mb-20 sm:mb-24 shadow-sm">
           <div className="max-w-3xl mb-8">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-100 border border-neutral-200/80 text-[#111111] text-xs font-bold uppercase tracking-wider mb-3">
               <Calculator className="w-3.5 h-3.5 text-[#E25C38]" />
-              Interactive Scope Estimator
+              Interactive Scope &amp; Timeline Estimator
             </div>
             <h3 className="text-2xl sm:text-3xl font-display font-bold text-[#111111] tracking-tight">
-              Customize Your Custom Engineering Stack
+              Configure Your Custom Project Requirements
             </h3>
             <p className="text-[#52525B] text-sm sm:text-base mt-2">
-              Select your required baseline store package and toggle optional infrastructure integrations to get an instant scope calculation.
+              Select your required baseline store package and toggle optional infrastructure integrations to get an instant timeline and scope estimate.
             </p>
           </div>
 
@@ -378,8 +334,8 @@ export default function Pricing() {
                       {tier.target}
                     </div>
                   </div>
-                  <div className="font-display font-extrabold text-base shrink-0 ml-3">
-                    {currency === 'BDT' ? `৳${tier.priceBdt?.toLocaleString()}` : `$${tier.priceUsd}`}
+                  <div className="font-display font-extrabold text-xs uppercase px-2.5 py-1 rounded-lg bg-white/10 text-emerald-400 shrink-0 ml-3">
+                    {tier.valueTitle}
                   </div>
                 </button>
               ))}
@@ -394,7 +350,6 @@ export default function Pricing() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {calculatorAddons.map((addon) => {
                 const isChecked = selectedAddons.includes(addon.id);
-                const AddonIcon = addon.icon;
                 return (
                   <div
                     key={addon.id}
@@ -417,7 +372,7 @@ export default function Pricing() {
                           {addon.name}
                         </span>
                         <span className="text-xs font-extrabold text-[#E25C38] shrink-0 font-mono">
-                          +{currency === 'BDT' ? `৳${addon.priceBdt.toLocaleString()}` : `$${addon.priceUsd}`}
+                          {addon.timelineLabel}
                         </span>
                       </div>
                       <p className="text-xs text-[#52525B] mt-1 leading-relaxed">
@@ -430,20 +385,20 @@ export default function Pricing() {
             </div>
           </div>
 
-          {/* Live Total Estimator Bar */}
+          {/* Live Scope Estimator Bar */}
           <div className="bg-[#0C0D0E] text-white rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-lg border border-white/[0.08]">
             <div>
               <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider block mb-1">
-                Estimated Project Total
+                Custom Project Scope
               </span>
               <div className="flex items-baseline gap-3">
-                <span className="text-3xl sm:text-4xl font-display font-extrabold text-white">
-                  {currency === 'BDT' ? `৳${totalCalculated.toLocaleString()}` : `$${totalCalculated.toLocaleString()}`}
-                </span>
-                <span className="text-xs text-zinc-400 font-medium">
-                  • Estimated Delivery: {totalDays}–{totalDays + 3} Days
+                <span className="text-2xl sm:text-3xl lg:text-4xl font-display font-extrabold text-white">
+                  Affordable Fixed Quote
                 </span>
               </div>
+              <p className="text-xs text-emerald-400 font-semibold mt-1">
+                ✓ 100% Code Ownership • Zero Monthly Software Subscriptions • Estimated Delivery: {totalDays}–{totalDays + 2} Days
+              </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
@@ -454,19 +409,19 @@ export default function Pricing() {
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
               >
                 <FaWhatsapp className="w-4 h-4" />
-                <span>Lock Estimate on WhatsApp</span>
+                <span>Get Affordable Quote on WhatsApp</span>
               </a>
               <Link
                 href="/contact"
                 className="inline-flex items-center justify-center bg-white text-[#111111] hover:bg-neutral-100 text-xs sm:text-sm font-semibold py-3.5 px-6 rounded-full transition-all duration-200"
               >
-                Proceed with Scope
+                Request Proposal
               </Link>
             </div>
           </div>
         </div>
 
-        {/* ── FAQ Accordion (Musemind Clean Style) ────────────────────── */}
+        {/* ── FAQ Accordion ───────────────────────────────────────────── */}
         <div className="max-w-3xl mx-auto">
           <div className="text-center mb-12">
             <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-[#E25C38] mb-2">

@@ -7,16 +7,16 @@ import { FaWhatsapp } from 'react-icons/fa';
 interface BasePackage {
   id: string;
   name: string;
-  price: number;
   timeline: string;
   tag: string;
+  tierLabel: string;
   icon: any;
 }
 
 interface Addon {
   id: string;
   name: string;
-  price: number;
+  timelineDays: number;
   desc: string;
 }
 
@@ -24,25 +24,25 @@ const basePackages: BasePackage[] = [
   {
     id: 'campaign',
     name: '1-Product Ad Landing Page',
-    price: 3499,
     timeline: '24–48 Hours',
     tag: 'Single Product & FB Ads',
+    tierLabel: 'Affordable Fast-Track',
     icon: FiZap,
   },
   {
     id: 'ecommerce',
     name: 'Standard E-Commerce Store',
-    price: 14999,
     timeline: '3–5 Days',
     tag: 'Multi-Product Store + Admin',
+    tierLabel: 'Cost-Effective All-In-One',
     icon: FiShoppingBag,
   },
   {
     id: 'custom',
     name: 'Custom Scaled Platform',
-    price: 29999,
     timeline: '7–12 Days',
     tag: 'Bespoke Next.js Web App',
+    tierLabel: 'Tailored Architecture',
     icon: FiLayers,
   },
 ];
@@ -50,33 +50,33 @@ const basePackages: BasePackage[] = [
 const addonsList: Addon[] = [
   {
     id: 'courier',
-    name: 'Automated Courier API (Steadfast / Pathao / RedX)',
-    price: 2500,
-    desc: '1-Click parcel booking and tracking sync',
+    name: 'Steadfast / Pathao Automated Courier API',
+    timelineDays: 1,
+    desc: 'Automated parcel consignment generation & live order tracking status sync.',
   },
   {
-    id: 'gateway',
-    name: 'Merchant Payment Gateway (SSLCommerz / bKash)',
-    price: 3000,
-    desc: 'Automated online card & mobile wallet payments',
+    id: 'payment',
+    name: 'SSLCommerz / bKash Direct Merchant Gateway',
+    timelineDays: 1,
+    desc: 'Instant online card, mobile banking, and automated bKash payment verification.',
   },
   {
-    id: 'pixel',
-    name: 'Meta Pixel & TikTok CAPI Tracking Setup',
-    price: 1500,
-    desc: 'Accurate event tracking for ad campaign ROAS',
+    id: 'video-reel',
+    name: 'Video Showcase Reels & Photo Review Feed',
+    timelineDays: 1,
+    desc: 'Mobile-first video unboxing reels with verified photo review testimonial feed.',
   },
   {
-    id: 'bilingual',
-    name: 'Multi-Language Support (Bangla + English)',
-    price: 2000,
-    desc: 'Instant language toggle for broader reach',
+    id: 'speed-boost',
+    name: 'Sub-800ms Core Web Vitals Optimization',
+    timelineDays: 1,
+    desc: 'Turbocharged static caching, image AVIF compression, and zero CLS layout shifts.',
   },
 ];
 
 export default function CostEstimator() {
   const [selectedBase, setSelectedBase] = useState<string>('campaign');
-  const [selectedAddons, setSelectedAddons] = useState<string[]>(['pixel']);
+  const [selectedAddons, setSelectedAddons] = useState<string[]>(['courier']);
 
   const currentBase = basePackages.find((p) => p.id === selectedBase) || basePackages[0];
 
@@ -88,25 +88,16 @@ export default function CostEstimator() {
     }
   };
 
-  const addonsTotal = selectedAddons.reduce((acc, addonId) => {
-    const found = addonsList.find((a) => a.id === addonId);
-    return acc + (found ? found.price : 0);
-  }, 0);
-
-  const totalEstimate = currentBase.price + addonsTotal;
-
-  // Generate pre-filled WhatsApp message
   const selectedAddonNames = selectedAddons
     .map((id) => addonsList.find((a) => a.id === id)?.name)
     .filter(Boolean)
     .join(', ');
 
-  const whatsappMessage = `Hi Websy! I calculated an estimate for my project:
-- Package: ${currentBase.name} (৳${currentBase.price.toLocaleString()})
-${selectedAddonNames ? `- Add-ons: ${selectedAddonNames}\n` : ''}- Estimated Total: ৳${totalEstimate.toLocaleString()}
-- Timeline: ${currentBase.timeline}
+  const whatsappMessage = `Hi Websy! I configured a custom project on your scope estimator:
+- Package: ${currentBase.name} (${currentBase.tierLabel})
+${selectedAddonNames ? `- Add-ons: ${selectedAddonNames}\n` : ''}- Timeline: ${currentBase.timeline}
 
-I'd like to discuss and get started.`;
+I would like to discuss an affordable quote.`;
 
   const encodedWhatsApp = encodeURIComponent(whatsappMessage);
   const whatsappUrl = `https://wa.me/8801828034555?text=${encodedWhatsApp}`;
@@ -116,7 +107,7 @@ I'd like to discuss and get started.`;
       
       {/* Step 1: Base Selection */}
       <div className="mb-8">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-pink-accent block mb-2">
+        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E25C38] block mb-2">
           Step 1: Choose Website Scope
         </span>
         <h3 className="text-xl sm:text-2xl font-bold text-[#0B1220] mb-4" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
@@ -151,11 +142,11 @@ I'd like to discuss and get started.`;
                   <p className="text-xs text-gray-500 mb-3">{pkg.tag}</p>
                 </div>
                 <div className="pt-3 border-t border-gray-200/60 flex items-baseline justify-between">
-                  <span className="text-lg font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-                    ৳{pkg.price.toLocaleString()}
+                  <span className="text-sm font-extrabold text-emerald-600">
+                    {pkg.tierLabel}
                   </span>
                   {isSelected && (
-                    <span className="text-[11px] font-bold text-pink-accent flex items-center gap-1">
+                    <span className="text-[11px] font-bold text-[#E25C38] flex items-center gap-1">
                       <FiCheck className="w-3.5 h-3.5" /> Selected
                     </span>
                   )}
@@ -166,16 +157,16 @@ I'd like to discuss and get started.`;
         </div>
       </div>
 
-      {/* Step 2: Addons Selection */}
-      <div className="mb-8">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-pink-accent block mb-2">
-          Step 2: Optional Features &amp; Integrations
+      {/* Step 2: Add-ons */}
+      <div className="mb-10">
+        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E25C38] block mb-2">
+          Step 2: Select Integrations &amp; Workflows
         </span>
         <h3 className="text-lg sm:text-xl font-bold text-[#0B1220] mb-4" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-          Enhance your store with automation
+          Enhance your conversion &amp; fulfillment architecture
         </h3>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
           {addonsList.map((addon) => {
             const isChecked = selectedAddons.includes(addon.id);
             return (
@@ -184,21 +175,25 @@ I'd like to discuss and get started.`;
                 onClick={() => toggleAddon(addon.id)}
                 className={`p-4 rounded-xl border transition-all duration-200 cursor-pointer flex items-start gap-3 select-none ${
                   isChecked
-                    ? 'border-pink-accent/40 bg-rose-50/30 ring-1 ring-pink-accent/20'
-                    : 'border-gray-200 bg-white hover:bg-gray-50/60'
+                    ? 'border-[#0B1220] bg-gray-50/80 shadow-xs'
+                    : 'border-gray-200 bg-white hover:border-gray-300'
                 }`}
               >
-                <div className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
-                  isChecked ? 'bg-pink-accent border-pink-accent text-white' : 'border-gray-300 bg-white'
-                }`}>
-                  {isChecked && <FiCheck className="w-3.5 h-3.5 stroke-[3]" />}
+                <div
+                  className={`w-5 h-5 rounded-md border flex items-center justify-center shrink-0 mt-0.5 transition-colors ${
+                    isChecked ? 'bg-[#0B1220] border-[#0B1220] text-white' : 'border-gray-300 bg-white'
+                  }`}
+                >
+                  {isChecked && <FiCheck className="w-3.5 h-3.5" />}
                 </div>
-                <div className="flex-grow">
+                <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between gap-2">
-                    <span className="text-xs font-bold text-gray-900">{addon.name}</span>
-                    <span className="text-xs font-extrabold text-pink-accent whitespace-nowrap">+৳{addon.price.toLocaleString()}</span>
+                    <h5 className="text-xs sm:text-sm font-bold text-[#0B1220]">{addon.name}</h5>
+                    <span className="text-xs font-bold text-emerald-600 whitespace-nowrap">
+                      Included Fast-Track
+                    </span>
                   </div>
-                  <p className="text-[11px] text-gray-500 mt-0.5">{addon.desc}</p>
+                  <p className="text-[11px] text-gray-500 mt-0.5 leading-normal">{addon.desc}</p>
                 </div>
               </div>
             );
@@ -206,42 +201,33 @@ I'd like to discuss and get started.`;
         </div>
       </div>
 
-      {/* Step 3: Total Summary & Actions */}
-      <div className="pt-6 border-t border-gray-200 bg-gray-50 -mx-6 -mb-6 sm:-mx-10 sm:-mb-10 p-6 sm:p-8 rounded-b-3xl flex flex-col md:flex-row items-center justify-between gap-6">
+      {/* Summary Box */}
+      <div className="bg-[#0B1220] rounded-2xl p-6 sm:p-7 text-white flex flex-col md:flex-row md:items-center justify-between gap-5 shadow-lg">
         <div>
-          <span className="text-[10px] font-extrabold uppercase tracking-widest text-gray-400 block mb-0.5">
-            Estimated Project Investment &amp; SLA
+          <span className="text-[10px] font-bold uppercase tracking-widest text-emerald-400 block mb-1">
+            ESTIMATED PROJECT SCOPE
           </span>
-          <div className="flex items-baseline gap-3">
-            <span className="text-3xl sm:text-4xl font-black text-[#0B1220]" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
-              ৳{totalEstimate.toLocaleString()}
+          <div className="flex items-baseline gap-2">
+            <span className="text-2xl sm:text-3xl font-black text-white" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+              Affordable Fixed Quote
             </span>
-            <span className="text-xs font-bold text-emerald-600 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-              Estimated Delivery: {currentBase.timeline}
-            </span>
+            <span className="text-xs text-gray-400">/ One-time setup</span>
           </div>
-          <p className="text-[11px] text-gray-500 mt-1">
-            Includes 100% code ownership, mobile optimization, and zero recurring builder fees.
+          <p className="text-xs text-gray-300 mt-1">
+            ✓ Turnaround: {currentBase.timeline} • Zero monthly software subscriptions • 100% custom code ownership
           </p>
         </div>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto">
+        <div className="flex items-center gap-3">
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm whitespace-nowrap cursor-pointer"
+            className="flex-1 sm:flex-none inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-xl transition-all duration-200 shadow-md cursor-pointer whitespace-nowrap"
           >
             <FaWhatsapp className="w-4 h-4" />
-            <span>Lock Quote on WhatsApp</span>
-          </a>
-          <a
-            href={`mailto:info@websy.bd?subject=Project%20Estimate%20Inquiry&body=${encodeURIComponent(whatsappMessage)}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center bg-[#0B1220] hover:bg-gray-800 text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm whitespace-nowrap"
-          >
-            <span>Email Quote</span>
-            <FiArrowRight className="ml-1.5 w-3.5 h-3.5" />
+            <span>Discuss on WhatsApp</span>
+            <FiArrowRight className="w-3.5 h-3.5" />
           </a>
         </div>
       </div>

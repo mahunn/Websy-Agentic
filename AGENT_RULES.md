@@ -12,7 +12,7 @@ To maintain an authentic, elite agency aesthetic, all code and design contributi
 | :--- | :--- | :--- |
 | ❌ **Purple / Cyan "AI Glows"** | Cheap, generic SaaS template trope | **Dark Obsidian (`#0C0D0E`) + Burnt Ember (`#E25C38`)** with subtle ambient light |
 | ❌ **Uniform 3-Column Equal Cards** | Boring, lazy layout with zero visual hierarchy | **Asymmetric Bento Grids** (e.g., 8/4 splits, hero-featured row spans, density variance) |
-| ❌ **Placeholder Buzzwords** ("Unlock Growth", "Supercharge", "Next-Gen") | Empty corporate fluff that destroys trust | **Concrete, high-impact copy** with real metrics ("1.1s LCP", "৳3.5k–৳15k", "Zero WP bloat") |
+| ❌ **Placeholder Buzzwords** ("Unlock Growth", "Supercharge", "Next-Gen") | Empty corporate fluff that destroys trust | **Concrete, high-impact copy** with real metrics ("1.1s LCP", "Affordable fixed quote", "Zero WP bloat") |
 | ❌ **Abstract Floating 3D Donut Shapes** | Dated, uninformative visual noise | **Bespoke architectural diagrams, live UI previews, metrics monitors, code snippets** |
 | ❌ **Unreadable Low-Contrast Text** | Poor accessibility and unrefined typography | **High-contrast hierarchy**: Pure Crisp `#F8FAFC`, Slate `#94A3B8`, Muted Zinc `#A1A1AA` |
 

@@ -127,12 +127,12 @@ export default function RootLayout({
               <ul className="space-y-2.5 text-xs text-[#94A3B8]">
                 <li>
                   <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Ad Landing Pages (৳3.5k)
+                    Ad Campaign Landing Pages
                   </Link>
                 </li>
                 <li>
                   <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Full E-Commerce (৳15k)
+                    Full-Stack E-Commerce Stores
                   </Link>
                 </li>
                 <li>

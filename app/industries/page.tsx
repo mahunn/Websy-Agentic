@@ -57,7 +57,7 @@ const industries: Industry[] = [
     id: 'campaigns',
     title: 'Ad Campaign & 1-Product Funnels',
     category: 'Viral & Performance',
-    badge: 'Starts at ৳3,499 • 24–48h',
+    badge: 'Affordable Fast-Track • 24–48h',
     desc: 'Laser-focused, ultra-fast single product landing pages designed specifically for Facebook, Instagram, and TikTok advertising campaigns to maximize ad ROAS.',
     features: [
       'Sub-1s mobile page speed (<800ms load)',
@@ -223,7 +223,7 @@ export default function IndustriesPage() {
             Websites engineered for your exact business niche.
           </h1>
           <p className="text-base md:text-lg text-gray-500 font-normal leading-relaxed">
-            Whether you need a fast ৳3,499 ad campaign landing page, a multi-product clothing brand store, an Islamic lifestyle funnel, or a bespoke corporate web platform, we build systems tailored to your industry.
+            Whether you need a fast, affordable ad campaign landing page, a multi-product clothing brand store, an Islamic lifestyle funnel, or a bespoke corporate web platform, we build systems tailored to your industry.
           </p>
         </header>
 

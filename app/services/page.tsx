@@ -31,9 +31,9 @@ export default function ServicesPage() {
   const serviceTiers = [
     {
       id: "landing",
-      badge: "From ৳3,499 • 24–48h SLA Delivery",
+      badge: "Affordable Fast-Track • 24–48h Delivery",
       title: "Ad Campaign & 1-Product Funnels",
-      desc: "Laser-focused, ultra-fast sales landing pages designed specifically for Facebook, Instagram, and TikTok advertising campaigns to drive immediate conversions.",
+      desc: "Laser-focused, ultra-fast sales landing pages designed specifically for Facebook, Instagram, and TikTok advertising campaigns to drive immediate conversions on a lean budget.",
       bullets: [
         "1-Click Cash on Delivery & bKash checkout drawer",
         "Sub-1s mobile page speed (<650ms Core Web Vitals)",
@@ -48,12 +48,12 @@ export default function ServicesPage() {
         { name: "আড়ম্বর শৈলী (Ethnic Fashion)", url: "https://arambarsaili.vercel.app/" },
         { name: "অঙ্গবিলাস (Dark Luxury Apparel)", url: "https://ongobilash.vercel.app/" }
       ],
-      cta: "Launch ৳3.5k Campaign Page",
+      cta: "Launch Campaign Storefront",
       accent: "#E25C38"
     },
     {
       id: "ecommerce",
-      badge: "৳12,000 – ৳18,000 • Complete Store",
+      badge: "Cost-Effective All-In-One • Complete Store",
       title: "Custom Brand E-Commerce Storefronts",
       desc: "Full-featured online stores built for clothing, home decor, beauty, electronics, and lifestyle brands. Engineered for smooth browsing, easy catalog management, and high checkout conversion.",
       bullets: [
@@ -73,9 +73,9 @@ export default function ServicesPage() {
     },
     {
       id: "fullstack",
-      badge: "৳25,000 – ৳50,000+ • Enterprise Scale",
+      badge: "Tailored Architecture • Enterprise Scale",
       title: "Full-Stack Custom Web Applications & Courier Systems",
-      desc: "Bespoke Next.js web applications, client portals, automated courier workflows, and enterprise management tools built around your exact business requirements.",
+      desc: "Bespoke Next.js web applications, client portals, automated courier workflows, and enterprise management tools built around your exact business requirements at lean studio rates.",
       bullets: [
         "Steadfast, Pathao & RedX automated consignment dispatch API",
         "Merchant payment gateways (SSLCommerz, bKash Merchant, Nagad Direct)",

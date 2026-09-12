@@ -64,11 +64,11 @@ const GlamoraLogo = ({ className = "w-5 h-5", style }: LogoProps) => (
 
 const MahinLogo = ({ className = "w-5 h-5", style }: LogoProps) => (
   <Image
-    src="/mahinahmad-logo-v2.png"
+    src="/mahin-ahmad.jpg"
     alt="Mahin logo"
     width={32}
     height={32}
-    className={`rounded-full border border-gray-100/50 overflow-hidden shrink-0 object-cover bg-black p-[3px] ${className}`}
+    className={`rounded-full border border-gray-100/50 overflow-hidden shrink-0 object-cover object-[center_20%] ${className}`}
     style={style}
   />
 );
@@ -314,7 +314,7 @@ export default function Home() {
               <span>GLAMORA</span>
             </div>
             <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
-              <Image src="/mahinahmad-logo-v2.png" alt="Mahin Ahmad" width={28} height={28} className="rounded-full object-cover bg-black p-0.5" />
+              <Image src="/mahin-ahmad.jpg" alt="Mahin Ahmad" width={28} height={28} className="rounded-full object-cover object-[center_20%]" />
               <span>MAHIN AHMAD</span>
             </div>
             <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
@@ -809,7 +809,7 @@ export default function Home() {
           {/* Cards Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
 
-            {/* Package 1: Ad Campaign Landing Page (Low Budget ৳3.5k–৳5k) */}
+            {/* Package 1: Ad Campaign Landing Page (Affordable Fast-Track) */}
             <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
               <div>
                 <div className="flex items-center justify-between gap-2 mb-2">
@@ -821,9 +821,13 @@ export default function Home() {
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
                   For single viral products &amp; ad sellers
                 </p>
-                <div className="mb-4 flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳3,499</span>
-                  <span className="text-xs text-gray-400 font-normal">– ৳4,999</span>
+                <div className="mb-4">
+                  <span className="text-xl sm:text-2xl font-black text-gray-900 block" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                    Affordable Fast-Track
+                  </span>
+                  <span className="text-xs text-emerald-600 font-semibold">
+                    Zero monthly software fees • 1-time setup
+                  </span>
                 </div>
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-3.5 mb-8">
@@ -849,7 +853,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Package 2: Standard E-Commerce Store (Medium Budget ৳12k–৳18k - Most Popular) */}
+            {/* Package 2: Standard E-Commerce Store (Cost-Effective All-In-One - Most Popular) */}
             <div className="group bg-white border-2 border-[#0B1220] rounded-3xl p-8 flex flex-col justify-between shadow-lg relative overflow-hidden">
               <div className="absolute top-0 right-0 bg-[#0B1220] text-white text-[9px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-bl-xl">
                 Most Popular
@@ -859,9 +863,13 @@ export default function Home() {
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
                   For growing clothing &amp; online brands
                 </p>
-                <div className="mb-4 flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳14,999</span>
-                  <span className="text-xs text-gray-400 font-normal">avg. (৳12k–৳18k)</span>
+                <div className="mb-4">
+                  <span className="text-xl sm:text-2xl font-black text-gray-900 block" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                    Cost-Effective All-In-One
+                  </span>
+                  <span className="text-xs text-emerald-600 font-semibold">
+                    Full turnkey store • 100% custom code ownership
+                  </span>
                 </div>
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-3.5 mb-8">
@@ -888,16 +896,20 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Package 3: Custom E-Commerce & Platform (৳25k–৳50k+) */}
+            {/* Package 3: Custom E-Commerce & Platform (Tailored Architecture) */}
             <div className="group bg-white border border-[#E5E7EB] rounded-3xl p-8 flex flex-col justify-between shadow-sm hover:shadow-md hover:border-pink-accent/20 transition-all duration-300">
               <div>
                 <h3 className="text-xl font-bold text-[#111827] mb-2">Custom Platform</h3>
                 <p className="text-xs text-pink-accent font-semibold tracking-wide uppercase mb-3">
                   For scaled brands &amp; custom workflows
                 </p>
-                <div className="mb-4 flex items-baseline gap-1">
-                  <span className="text-2xl sm:text-3xl font-black text-gray-900" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>৳25,000</span>
-                  <span className="text-xs text-gray-400 font-normal">– ৳50,000+</span>
+                <div className="mb-4">
+                  <span className="text-xl sm:text-2xl font-black text-gray-900 block" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
+                    Tailored Architecture
+                  </span>
+                  <span className="text-xs text-emerald-600 font-semibold">
+                    Lean studio pricing • Custom logistics &amp; APIs
+                  </span>
                 </div>
                 <div className="h-px bg-gray-100 mb-6" />
                 <ul className="space-y-3.5 mb-8">
@@ -1261,7 +1273,7 @@ function FAQSection() {
   const faqs = [
     {
       q: "Can you build a single-product landing page for Facebook / TikTok ads?",
-      a: "Yes! We build high-converting 1-product landing pages with instant Cash on Delivery and bKash order forms, starting at ৳3,499 with rapid 24–48h delivery."
+      a: "Yes! We build high-converting 1-product landing pages with instant Cash on Delivery and bKash order forms at an extremely affordable, budget-friendly rate with rapid 24–48h delivery."
     },
     {
       q: "How do I manage orders and products on my store?",

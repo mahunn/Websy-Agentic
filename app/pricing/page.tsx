@@ -4,8 +4,8 @@ import { ShieldCheck, Sparkles, ArrowRight, Zap, CheckCircle2 } from 'lucide-rea
 import { FaWhatsapp } from 'react-icons/fa';
 
 export const metadata = {
-  title: "Transparent Pricing & Scope Calculator | Websy",
-  description: "Explore transparent pricing tiers and calculate your custom Next.js e-commerce project scope with automated courier APIs, Meta CAPI, and zero platform fees."
+  title: "Affordable E-Commerce Packages & Scope Estimator | Websy",
+  description: "Explore affordable Next.js e-commerce packages and estimate your custom project scope with automated courier APIs, Meta CAPI, and zero recurring platform fees."
 };
 
 export default function PricingPage() {
@@ -26,19 +26,19 @@ export default function PricingPage() {
                 Talk directly with our lead full-stack engineer.
               </h3>
               <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-                Have specific multi-warehouse courier logic, ERP inventory syncing, or custom merchant gateway requirements? We architect custom solutions under transparent fixed contracts.
+                Have specific multi-warehouse courier logic, ERP inventory syncing, or custom merchant gateway requirements? We architect custom solutions under transparent fixed contracts with lean studio rates.
               </p>
             </div>
 
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0 relative z-10 w-full sm:w-auto">
               <a
-                href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20a%20custom%20e-commerce%20project%20quote."
+                href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20an%20affordable%20custom%20e-commerce%20project%20quote."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
               >
                 <FaWhatsapp className="w-4 h-4" />
-                <span>Quote on WhatsApp</span>
+                <span>Discuss on WhatsApp</span>
               </a>
               <Link
                 href="/contact"

@@ -2,25 +2,16 @@
 
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { 
-  ShieldCheck, 
   Truck, 
   TrendingUp, 
   Globe, 
-  ArrowUpRight, 
-  Sparkles,
-  CheckCircle2,
-  Code2,
-  Layers,
-  Zap,
   Activity
 } from 'lucide-react';
 import { 
   FaGithub, 
   FaLinkedinIn, 
-  FaXTwitter, 
-  FaDribbble 
+  FaWhatsapp 
 } from 'react-icons/fa6';
 
 interface TeamMember {
@@ -28,13 +19,14 @@ interface TeamMember {
   role: string;
   bio: string;
   image: string;
+  objectPosition?: string;
   skills: string[];
-  links: {
+  isContactable?: boolean;
+  links?: {
+    whatsapp?: string;
+    portfolio?: string;
     github?: string;
     linkedin?: string;
-    twitter?: string;
-    portfolio?: string;
-    dribbble?: string;
   };
 }
 
@@ -42,13 +34,16 @@ const teamMembers: TeamMember[] = [
   {
     name: 'Mahin Ahmad',
     role: 'Founder & Lead Full-Stack Architect',
-    bio: 'Specializing in Next.js commerce architectures, courier API webhooks, and performance optimization.',
-    image: '/mahin.jpg',
+    bio: 'Specializing in Next.js commerce architectures, courier API webhooks, and sub-second performance optimization.',
+    image: '/mahin-ahmad.jpg',
+    objectPosition: 'center 20%',
     skills: ['Next.js', 'Courier APIs', 'System Design', 'TypeScript'],
+    isContactable: true,
     links: {
+      whatsapp: 'https://wa.me/8801828034555?text=Hi%20Mahin!%20I\'d%20like%20to%20discuss%20an%20e-commerce%20project.',
+      portfolio: 'https://mahinahmad.netlify.app',
       github: 'https://github.com/mahinahmad',
-      linkedin: 'https://linkedin.com',
-      portfolio: 'https://mahinahmad.netlify.app'
+      linkedin: 'https://linkedin.com'
     }
   },
   {
@@ -56,22 +51,32 @@ const teamMembers: TeamMember[] = [
     role: 'Lead Brand & UI/UX Designer',
     bio: 'Crafting bespoke design systems, high-converting checkout flows, and luxury brand visual identities.',
     image: '/tania.jpg',
-    skills: ['Figma', 'Design Systems', 'Conversion UX', 'Design Systems'],
-    links: {
-      linkedin: 'https://linkedin.com',
-      dribbble: 'https://dribbble.com'
-    }
+    objectPosition: 'center',
+    skills: ['Figma', 'Conversion UX', 'Design Systems', 'Brand Identity']
   },
   {
     name: 'Kamrul Hasan',
-    role: 'Meta Ads & CAPI Tracking Specialist',
-    bio: 'Configuring server-side tracking, custom pixel funnels, and abandoned cart recovery systems.',
+    role: 'Backend & Security Lead',
+    bio: 'Architecting robust server backends, database security, and automated order fulfillment pipelines.',
     image: '/kamrul.jpg',
-    skills: ['Meta CAPI', 'Analytics', 'ROAS Optimization', 'Google Tag Manager'],
-    links: {
-      linkedin: 'https://linkedin.com',
-      twitter: 'https://twitter.com'
-    }
+    objectPosition: 'center 15%',
+    skills: ['Node.js', 'Database Security', 'Cloud Ops', 'API Routing']
+  },
+  {
+    name: 'Nokib Al Hasan',
+    role: 'Brand & Creative Director',
+    bio: 'Crafting luxury visual brand identities, conversion packaging graphics, and high-impact digital content.',
+    image: '/nokib.jpg',
+    objectPosition: 'center 20%',
+    skills: ['Brand Identity', 'Creative Direction', 'Visual Systems', 'Graphic Design']
+  },
+  {
+    name: 'Samin Ahmed',
+    role: 'Quality Assurance & CRO Lead',
+    bio: 'Testing cross-device responsiveness, Core Web Vitals speed benchmarks, and payment gateway reliability.',
+    image: '/samin.jpg',
+    objectPosition: 'center 20%',
+    skills: ['Core Web Vitals', 'Device QA', 'CRO Testing', 'Automated Testing']
   }
 ];
 
@@ -113,17 +118,15 @@ export default function AboutTeam() {
 
       <div className="max-w-7xl mx-auto px-6 md:px-8 relative z-10">
 
-        {/* ── Studio Narrative Header (Musemind Style) ─────────────────── */}
+        {/* ── Studio Narrative Header ─────────────────── */}
         <div className="max-w-3xl mb-14 sm:mb-18">
-          {/* Small tracked pill badge */}
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/90 shadow-sm mb-5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/90 shadow-xs mb-5">
             <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
             <span className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#111111]">
               WHO WE ARE
             </span>
           </div>
 
-          {/* Heading */}
           <h2 
             id="about-headline"
             className="text-[#111111] font-display font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-[50px] tracking-[-0.03em] leading-[1.08]"
@@ -131,7 +134,6 @@ export default function AboutTeam() {
             A Focused Team Engineering High-Yield Digital Commerce
           </h2>
 
-          {/* Subtitle */}
           <p className="text-[#52525B] font-sans font-normal text-base sm:text-lg md:text-[20px] leading-[1.58] mt-5">
             Websy operates as a lean, agile digital studio. We bridge the gap between bespoke visual design and complex backend logistics, empowering e-commerce brands to scale effortlessly.
           </p>
@@ -168,7 +170,7 @@ export default function AboutTeam() {
           })}
         </div>
 
-        {/* ── Team Showcase (FleexStudio Card Style) ───────────────────── */}
+        {/* ── Team Showcase (5 Members Grid with Compact Images) ───────── */}
         <div>
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -181,48 +183,58 @@ export default function AboutTeam() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5 items-stretch">
             {teamMembers.map((member) => (
               <article 
                 key={member.name}
-                className="bg-white border border-neutral-200/80 rounded-3xl p-6 sm:p-7 hover:shadow-xl hover:border-neutral-300 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white border border-neutral-200/80 rounded-3xl p-5 sm:p-6 hover:shadow-xl hover:border-neutral-300 transition-all duration-300 flex flex-col justify-between group"
               >
-                <div>
-                  {/* Portrait with Aspect Ratio & Zoom Hover */}
-                  <div className="relative aspect-[4/5] rounded-2xl overflow-hidden bg-neutral-100 mb-6 border border-neutral-200/70">
-                    <Image
-                      src={member.image}
-                      alt={`${member.name} — ${member.role}`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, 400px"
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-
-                    {/* Gradient overlay on hover */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+                <div className="flex-1 flex flex-col">
+                  {/* Top Row: Small Avatar & Status Badge */}
+                  <div className="flex items-start justify-between gap-3 mb-4">
+                    <div className="relative w-16 h-16 sm:w-18 sm:h-18 rounded-2xl overflow-hidden bg-neutral-100 border border-neutral-200/80 shrink-0 shadow-xs group-hover:border-[#E25C38]/40 transition-all duration-300">
+                      <Image
+                        src={member.image}
+                        alt={`${member.name} — ${member.role}`}
+                        fill
+                        sizes="72px"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        style={{ objectPosition: member.objectPosition || 'center' }}
+                      />
+                    </div>
+                    {member.isContactable ? (
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 px-2.5 py-1 rounded-full shrink-0">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38] animate-pulse" />
+                        Founder
+                      </span>
+                    ) : (
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 bg-neutral-100/80 px-2 py-0.5 rounded-full shrink-0">
+                        Core Lead
+                      </span>
+                    )}
                   </div>
 
                   {/* Member Name & Role */}
-                  <div className="mb-3">
-                    <h4 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight group-hover:text-[#E25C38] transition-colors">
+                  <div className="mb-2.5">
+                    <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] tracking-tight group-hover:text-[#E25C38] transition-colors leading-snug">
                       {member.name}
                     </h4>
-                    <p className="text-xs sm:text-sm font-semibold text-neutral-500 uppercase tracking-wider mt-1">
+                    <p className="text-[11px] font-bold text-neutral-500 uppercase tracking-wider mt-1">
                       {member.role}
                     </p>
                   </div>
 
                   {/* Bio */}
-                  <p className="text-[#52525B] text-sm leading-relaxed mb-5">
+                  <p className="text-[#52525B] text-xs sm:text-[13px] leading-relaxed mb-4 flex-1">
                     {member.bio}
                   </p>
 
                   {/* Skill Badges */}
-                  <div className="flex flex-wrap gap-1.5 mb-6">
+                  <div className="flex flex-wrap gap-1 mt-auto pt-2">
                     {member.skills.map((skill, sIdx) => (
                       <span 
                         key={sIdx}
-                        className="text-[11px] font-semibold text-neutral-700 bg-neutral-100 border border-neutral-200/80 px-2.5 py-0.5 rounded-md"
+                        className="text-[10.5px] font-semibold text-neutral-700 bg-neutral-100 border border-neutral-200/80 px-2 py-0.5 rounded-md"
                       >
                         {skill}
                       </span>
@@ -230,70 +242,65 @@ export default function AboutTeam() {
                   </div>
                 </div>
 
-                {/* Social & Portfolio Links Bar */}
-                <div className="pt-4 border-t border-neutral-100 flex items-center justify-between">
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-neutral-400">
-                    Connect
-                  </span>
+                {/* Social & Contact Bar — ONLY for Mahin Ahmad */}
+                {member.isContactable && member.links ? (
+                  <div className="pt-4 mt-5 border-t border-neutral-100 flex items-center justify-between">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">
+                      Reach Out
+                    </span>
 
-                  <div className="flex items-center gap-2">
-                    {member.links.github && (
-                      <a
-                        href={member.links.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#111111] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
-                        aria-label={`${member.name} GitHub profile`}
-                      >
-                        <FaGithub className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {member.links.linkedin && (
-                      <a
-                        href={member.links.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#0A66C2] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
-                        aria-label={`${member.name} LinkedIn profile`}
-                      >
-                        <FaLinkedinIn className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {member.links.twitter && (
-                      <a
-                        href={member.links.twitter}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#111111] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
-                        aria-label={`${member.name} X profile`}
-                      >
-                        <FaXTwitter className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {member.links.dribbble && (
-                      <a
-                        href={member.links.dribbble}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#EA4C89] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
-                        aria-label={`${member.name} Dribbble portfolio`}
-                      >
-                        <FaDribbble className="w-3.5 h-3.5" />
-                      </a>
-                    )}
-                    {member.links.portfolio && (
-                      <a
-                        href={member.links.portfolio}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-neutral-100 hover:bg-[#E25C38] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
-                        aria-label={`${member.name} Portfolio website`}
-                      >
-                        <Globe className="w-4 h-4" />
-                      </a>
-                    )}
+                    <div className="flex items-center gap-1.5">
+                      {member.links.whatsapp && (
+                        <a
+                          href={member.links.whatsapp}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-7 h-7 rounded-full bg-[#25D366]/10 text-[#25D366] hover:bg-[#25D366] hover:text-white flex items-center justify-center transition-all duration-200 shadow-xs"
+                          title="Chat with Mahin on WhatsApp"
+                          aria-label="Chat with Mahin on WhatsApp"
+                        >
+                          <FaWhatsapp className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      {member.links.portfolio && (
+                        <a
+                          href={member.links.portfolio}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#E25C38] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
+                          title="Mahin's Portfolio Website"
+                          aria-label="Mahin Ahmad Portfolio Website"
+                        >
+                          <Globe className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      {member.links.github && (
+                        <a
+                          href={member.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#111111] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
+                          title="Mahin's GitHub Profile"
+                          aria-label="Mahin Ahmad GitHub Profile"
+                        >
+                          <FaGithub className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                      {member.links.linkedin && (
+                        <a
+                          href={member.links.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-7 h-7 rounded-full bg-neutral-100 hover:bg-[#0A66C2] hover:text-white text-neutral-700 flex items-center justify-center transition-all duration-200"
+                          title="Mahin's LinkedIn Profile"
+                          aria-label="Mahin Ahmad LinkedIn Profile"
+                        >
+                          <FaLinkedinIn className="w-3.5 h-3.5" />
+                        </a>
+                      )}
+                    </div>
                   </div>
-                </div>
+                ) : null}
               </article>
             ))}
           </div>
@@ -303,3 +310,4 @@ export default function AboutTeam() {
     </section>
   );
 }
+

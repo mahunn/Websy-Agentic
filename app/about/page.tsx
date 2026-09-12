@@ -95,9 +95,24 @@ export default function AboutPage() {
               <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E25C38] mb-3">
                 <Sparkles className="w-4 h-4" /> Ready to collaborate?
               </span>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-3">
+              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
                 Schedule an engineering discovery session today.
               </h3>
+              <div className="flex items-center gap-3.5 mb-4">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E25C38]/40 shrink-0">
+                  <Image
+                    src="/mahin-ahmad.jpg"
+                    alt="Mahin Ahmad — Founder & Lead Full-Stack Architect"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="48px"
+                  />
+                </div>
+                <div>
+                  <h4 className="text-sm font-bold text-white leading-tight">Mahin Ahmad</h4>
+                  <p className="text-xs text-zinc-400">Founder &amp; Lead Full-Stack Architect</p>
+                </div>
+              </div>
               <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
                 Connect directly with lead architect Mahin Ahmad to review your e-commerce requirements, courier integrations, and conversion goals.
               </p>

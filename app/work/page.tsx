@@ -1,602 +1,529 @@
 "use client";
 
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  SiNextdotjs,
-  SiReact,
-  SiTailwindcss,
-  SiNodedotjs,
-  SiTypescript,
-  SiJavascript,
-  SiGit,
-  SiVercel
-} from "react-icons/si";
-import {
-  FiExternalLink,
-  FiZap,
-  FiCheckCircle,
-  FiShoppingBag,
-  FiLayers,
-  FiTrendingUp,
-  FiClock,
-  FiShield,
-  FiArrowRight,
-  FiSmartphone
-} from "react-icons/fi";
-import { FaWhatsapp, FaFacebookMessenger } from "react-icons/fa";
+import { 
+  ArrowUpRight, 
+  Sparkles, 
+  ExternalLink,
+  Zap,
+  CheckCircle2,
+  ShieldCheck,
+  Send
+} from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 type ProjectCategory = 'all' | 'landing' | 'fullstack';
 
-interface Project {
+interface CaseStudy {
   id: string;
-  category: 'landing' | 'fullstack';
   title: string;
+  category: 'landing' | 'fullstack';
   categoryLabel: string;
-  categoryBadgeColor: string;
-  niche: string;
-  url: string;
-  displayUrl: string;
-  image: string;
-  hoverImage?: string;
   desc: string;
-  metrics: string[];
-  features: string[];
-  stack: { name: string; icon: React.ComponentType<{ className?: string }>; color: string }[];
-  featured?: boolean;
+  image: string;
+  url: string;
+  tags: string[];
+  layout: 'full' | 'half';
+  bgGradient?: string;
+  deviceType?: 'browser' | 'mobile' | 'canvas';
 }
 
-const projects: Project[] = [
+const caseStudies: CaseStudy[] = [
   {
     id: "fleshpots",
-    category: "fullstack",
     title: "FLESHPOTS Official Storefront",
+    category: "fullstack",
     categoryLabel: "Full-Stack Store • 148K+ Community",
-    categoryBadgeColor: "text-rose-600 bg-rose-50 border-rose-200",
-    niche: "Aesthetic Living & Modern Kitchenware",
+    desc: "A full-scale, dynamic e-commerce platform engineered for a 148K+ follower community. Features live multi-category catalogs, limited-time Display Sell countdown deals, instant cart drawer, and automated Messenger order routing.",
+    image: "/fleshpots-screenshot.png",
     url: "https://fleshpots.vercel.app/",
-    displayUrl: "fleshpots.vercel.app",
-    image: "/fleshpots-mockup.jpg",
-    desc: "A full-scale, dynamic e-commerce web platform engineered for a 148K+ follower community. Features live multi-category catalogs, limited-time 'Display Sell Deals' countdown timers, instant cart drawer, video unboxing showcase reels, and automated Facebook Messenger order routing.",
-    metrics: [
-      "🌸 148K+ Follower Social Proof",
-      "⚡ Sub-1s Dynamic Storefront",
-      "🛒 Live Cart Drawer & Wishlist",
-      "🔥 Flash Deal Urgency Timer"
-    ],
-    features: [
-      "Display Sell flash sale section with real-time countdown timer",
-      "Multi-category product collection filter (Kitchen, Gadgets, Living, Personal)",
-      "Direct 1-click 'Order on FB Messenger' dynamic deep-linking",
-      "Mobile-optimized customer unboxing review feed & trust grid"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" },
-      { name: "Vercel", icon: SiVercel, color: "text-black" }
-    ],
-    featured: true
+    tags: ["Full-Stack Store", "148K+ Community", "Live Cart Drawer", "Flash Deals", "Sub-680ms Speed"],
+    layout: "full",
+    bgGradient: "from-[#17191D] via-[#121417] to-[#0D0E10]",
+    deviceType: "browser"
   },
   {
     id: "arambarsaili",
-    category: "landing",
     title: "আড়ম্বর শৈলী (Arambar Saili)",
+    category: "landing",
     categoryLabel: "High-Converting D2C Landing Page",
-    categoryBadgeColor: "text-amber-800 bg-amber-50 border-amber-200",
-    niche: "Ethnic Fashion & Premium Gowns",
+    desc: "High-converting ethnic fashion funnel with interactive color/size variant switchers, automated Inside/Outside Dhaka delivery calculation, and frictionless COD checkout.",
+    image: "/arambarsaili-screenshot.png",
     url: "https://arambarsaili.vercel.app/",
-    displayUrl: "arambarsaili.vercel.app",
-    image: "/arambarsaili-mockup.jpg",
-    desc: "An ultra-fast, high-converting product sales funnel crafted for ethnic fashion ad campaigns. Includes interactive color & size variant selector, real-time dynamic total calculations with Inside/Outside Dhaka delivery zones, frictionless 1-click Cash on Delivery form, and WhatsApp order flow.",
-    metrics: [
-      "⚡ <700ms Load Speed",
-      "👗 Multi-Variant Color/Size Picker",
-      "💵 Instant Cash on Delivery Form",
-      "📲 WhatsApp Direct Order"
-    ],
-    features: [
-      "Interactive color swatch & size chip selector (M, L, XL, XXL)",
-      "Automated live delivery fee calculator (Inside vs Outside Dhaka)",
-      "Bilingual Bengali/English conversion-tuned typography",
-      "Verified customer review testimonials & interactive FAQ accordion"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Vercel", icon: SiVercel, color: "text-black" }
-    ],
-    featured: true
+    tags: ["Ethnic Fashion", "D2C Funnel", "Cash on Delivery", "Sub-650ms Speed"],
+    layout: "half",
+    bgGradient: "from-[#191815] to-[#0E0E0D]"
   },
   {
     id: "jhthub",
-    category: "landing",
     title: "JHT HUB (প্রিমিয়াম আতর কম্বো)",
+    category: "landing",
     categoryLabel: "Islamic Lifestyle & Halal E-Commerce",
-    categoryBadgeColor: "text-emerald-800 bg-emerald-50 border-emerald-200",
-    niche: "Halal Fragrances & Attar Combos",
+    desc: "High-impact Islamic lifestyle landing page with 3-tier value combo deals, countdown urgency ticker, scent profile breakdown, and 1-click mobile order placement.",
+    image: "/jhthub-screenshot.png",
     url: "https://jhthub.vercel.app/",
-    displayUrl: "jhthub.vercel.app",
-    image: "/jhthub-mockup.jpg",
-    desc: "A purpose-built Islamic lifestyle e-commerce landing page optimized for high-volume Meta ad conversion. Highlights a 3-tier combo package selector (Best Deal 10-piece, Trial 5-piece, Mega 20-piece), live urgency countdown ticker, interactive fragrance scent breakdown, and authentic Islamic trust seals.",
-    metrics: [
-      "🎁 3-Tier Bundle Value Selector",
-      "⏱ Urgency Countdown Ticker",
-      "🌿 Scent Notes Breakdown (Arabian & Perfume)",
-      "🛡️ 100% Halal Certified Trust Badging"
-    ],
-    features: [
-      "Multi-tier bundle upsell selector with discount comparison",
-      "Scent profile guide comparing Arabian vs Modern Perfume notes",
-      "No advance payment Cash on Delivery checkout form with validation",
-      "Sticky bottom bar on mobile for instant frictionless conversion"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Vercel", icon: SiVercel, color: "text-black" }
-    ],
-    featured: true
+    tags: ["Islamic Lifestyle", "3-Tier Combo", "Urgency Timer", "Frictionless COD"],
+    layout: "half",
+    bgGradient: "from-[#141A16] to-[#0C100D]"
   },
   {
     id: "ongobilash",
-    category: "landing",
     title: "অঙ্গবিলাস (Ango Bilash)",
+    category: "landing",
     categoryLabel: "Dark Luxury Mode Landing Page",
-    categoryBadgeColor: "text-emerald-400 bg-emerald-950/80 border-emerald-800",
-    niche: "Dark Aesthetic Luxury Apparel",
+    desc: "Sleek dark-emerald luxury fashion landing page with instant swatch toggle, automated courier delivery sync, and direct WhatsApp VIP order flow.",
+    image: "/ongobilash-screenshot.png",
     url: "https://ongobilash.vercel.app/",
-    displayUrl: "ongobilash.vercel.app",
-    image: "/ongobilash-mockup.jpg",
-    desc: "A sleek, dark emerald-themed landing page designed to capture high-intent luxury buyers. Features rich visual depth, interactive color variants with image previews, live order summary cart calculation, and streamlined one-page Cash on Delivery checkout.",
-    metrics: [
-      "🌙 Dark Emerald Luxury Theme",
-      "🎯 High-ROAS Meta & TikTok Funnel",
-      "🚚 Dynamic Delivery Charge Sync",
-      "📱 Mobile Bottom Sticky CTA"
-    ],
-    features: [
-      "High-contrast dark mode aesthetic tailored for premium luxury dresses",
-      "Instant color selection with high-res product swatch toggle",
-      "Automated delivery calculation with zero advance deposit required",
-      "Direct phone call and WhatsApp quick order triggers"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Vercel", icon: SiVercel, color: "text-black" }
-    ]
+    tags: ["Dark Luxury Mode", "Emerald Aesthetics", "Instant Swatch", "WhatsApp Order", "Courier Sync"],
+    layout: "full",
+    bgGradient: "from-[#101815] via-[#0E1411] to-[#0A0D0C]",
+    deviceType: "browser"
   },
   {
     id: "henleyzone",
+    title: "Henley Zone Creator Store",
     category: "fullstack",
-    title: "Henley Zone Store",
     categoryLabel: "Full E-Commerce Platform",
-    categoryBadgeColor: "text-pink-accent bg-rose-50 border-rose-100",
-    niche: "Premium Apparel & Fashion Storefront",
-    url: "https://henleyzone.com",
-    displayUrl: "henleyzone.com",
+    desc: "High-converting creator brand hub engineered for apparel drops and personal brand client acquisition with instant consultation scheduling.",
     image: "/henley-mockup-1-cropped.png",
-    hoverImage: "/henley-mockup2.png",
-    desc: "A full-featured modern online store for a premium fashion brand. Built for maximum speed, mobile-first product discovery, category exploration, dynamic cart drawer, and frictionless checkout.",
-    metrics: [
-      "⚡ Sub-1s Cart Transition",
-      "📱 98 Mobile PageSpeed",
-      "👕 Multi-Collection Catalog",
-      "🔒 Secure Instant Checkout"
-    ],
-    features: [
-      "Custom product catalog with high-resolution image zoom & galleries",
-      "Smooth cart drawer state with instant order totals",
-      "Custom brand typography and modern layout system",
-      "Optimized Core Web Vitals for top search engine visibility"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Node.js", icon: SiNodedotjs, color: "text-[#339933]" }
-    ]
+    url: "https://henleyzone.com",
+    tags: ["Creator Store", "Custom Landing Page", "Meta Ads Tracking", "3.2x ROAS"],
+    layout: "half",
+    bgGradient: "from-[#15171C] to-[#0E0F12]"
   },
   {
     id: "glamora",
+    title: "Glamora Luxe Apparel",
     category: "landing",
-    title: "Glamora Beige",
     categoryLabel: "Minimalist Brand Campaign",
-    categoryBadgeColor: "text-amber-700 bg-amber-50 border-amber-100",
-    niche: "Minimalist Luxury & Cosmetics",
-    url: "https://glamora-beige.vercel.app",
-    displayUrl: "glamora-beige.vercel.app",
+    desc: "High-speed clothing store with instant size variations, dynamic Inside/Outside Dhaka courier calculator, and one-click COD order confirmation.",
     image: "/glamora-mockup.png",
-    hoverImage: "/glamora-mockup2.png",
-    desc: "A minimalist, high-converting landing page for a luxury lifestyle brand. Built specifically to maximize Meta & TikTok ad campaign conversion with editorial whitespace and clean typography.",
-    metrics: [
-      "⚡ <750ms Initial Load",
-      "🎯 High Conversion UX",
-      "✨ Editorial Minimalist Design",
-      "📱 Ultra-Responsive Fluid Layout"
-    ],
-    features: [
-      "Editorial aesthetics that build brand authority and trust immediately",
-      "Lightweight assets engineered for near-instant mobile load times",
-      "Frictionless conversion points optimized for paid ad traffic",
-      "Meta Pixel & Google Analytics integration for accurate tracking"
-    ],
-    stack: [
-      { name: "React", icon: SiReact, color: "text-[#61DAFB]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "JavaScript", icon: SiJavascript, color: "text-[#F7DF1E]" },
-      { name: "Git", icon: SiGit, color: "text-[#F05032]" }
-    ]
+    url: "https://glamora-beige.vercel.app",
+    tags: ["Apparel", "Steadfast API Sync", "Sub-1s Mobile Checkout", "+38% Conversion"],
+    layout: "half",
+    bgGradient: "from-[#1A1816] to-[#0F0E0D]"
   },
   {
     id: "mahin",
+    title: "Mahin Ahmad Architecture Platform",
     category: "fullstack",
-    title: "Mahin Ahmad Platform",
-    categoryLabel: "Portfolio & Web App",
-    categoryBadgeColor: "text-blue-700 bg-blue-50 border-blue-100",
-    niche: "Digital Portfolio & Systems",
-    url: "https://mahinahmad.netlify.app",
-    displayUrl: "mahinahmad.com",
+    categoryLabel: "Full-Stack Architecture & Systems",
+    desc: "Custom developer platform showcasing full-stack Next.js commerce architectures, courier webhook pipelines, and sub-second performance benchmarks.",
     image: "/mahin-mockup.png",
-    hoverImage: "/mahin-mockup2.png",
-    desc: "A clean personal portfolio and developer platform built to showcase technical projects with editorial precision, zero layout shift, and interactive depth.",
-    metrics: [
-      "⚡ 100% Core Web Vitals",
-      "🔒 Zero Layout Shift",
-      "💻 Developer Platform",
-      "🚀 Modern Micro-Animations"
-    ],
-    features: [
-      "Bespoke interactive project explorer with fluid transitions",
-      "Ultra-strict TypeScript architecture with rock-solid type safety",
-      "Custom responsive design system tailored for desktop and mobile",
-      "SEO and social graph optimization for high digital presence"
-    ],
-    stack: [
-      { name: "Next.js", icon: SiNextdotjs, color: "text-gray-900" },
-      { name: "TypeScript", icon: SiTypescript, color: "text-[#3178C6]" },
-      { name: "Tailwind CSS", icon: SiTailwindcss, color: "text-[#06B6D4]" },
-      { name: "Git", icon: SiGit, color: "text-[#F05032]" }
-    ]
+    url: "https://mahinahmad.netlify.app",
+    tags: ["Next.js Platform", "API Webhooks", "System Architecture", "Zero Vendor Lock-in"],
+    layout: "full",
+    bgGradient: "from-[#16181D] via-[#111317] to-[#0C0D10]",
+    deviceType: "browser"
   }
 ];
 
-export default function Work() {
+export default function WorkPage() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
 
-  const filteredProjects = projects.filter(project => {
+  // Inquiry Form State (Matching Image 2)
+  const [fullName, setFullName] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [email, setEmail] = useState('');
+  const [serviceRequired, setServiceRequired] = useState('Campaign Landing Page');
+  const [projectBudget, setProjectBudget] = useState('Budget-Friendly / Starter');
+  const [projectDetails, setProjectDetails] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  const filteredStudies = caseStudies.filter(item => {
     if (selectedCategory === 'all') return true;
-    return project.category === selectedCategory;
+    return item.category === selectedCategory;
   });
 
   const counts = {
-    all: projects.length,
-    landing: projects.filter(p => p.category === 'landing').length,
-    fullstack: projects.filter(p => p.category === 'fullstack').length
+    all: caseStudies.length,
+    landing: caseStudies.filter(c => c.category === 'landing').length,
+    fullstack: caseStudies.filter(c => c.category === 'fullstack').length
+  };
+
+  const handleInquirySubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormSubmitted(true);
+
+    const message = `Hello Mahin! I'd like to submit an inquiry from Websy Case Study page:
+- Name: ${fullName}
+- Brand / Company: ${companyName || 'Not specified'}
+- Email: ${email}
+- Service: ${serviceRequired}
+- Budget Tier: ${projectBudget}
+- Details: ${projectDetails || 'None provided'}`;
+
+    const whatsappUrl = `https://wa.me/8801828034555?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
-    <main id="main-content" className="bg-white pt-[72px] sm:pt-[84px] md:pt-[96px] pb-16 md:pb-24">
-      {/* ── Page Header ───────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 mb-12 md:mb-16" aria-labelledby="work-headline">
-        <header className="text-center max-w-3xl mx-auto">
-          <div className="mb-4">
-            <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-pink-accent bg-rose-50 border border-rose-100 rounded-full px-4 py-1.5 shadow-xs">
-              <span className="w-1.5 h-1.5 rounded-full bg-pink-accent animate-pulse" />
-              Live Portfolio • Proven Track Record
+    <main id="main-content" className="bg-[#0C0D0E] text-white min-h-screen pt-[70px] sm:pt-[84px] md:pt-[92px]">
+      
+      {/* ── 1. Musemind-Style Header ─────────────────────────────────── */}
+      <section className="pt-14 sm:pt-20 pb-12 sm:pb-16 max-w-7xl mx-auto px-6 md:px-8" aria-labelledby="case-studies-heading">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.05] border border-white/10 shadow-xs mb-6">
+            <span className="w-2 h-2 rounded-full bg-[#E25C38] animate-pulse" />
+            <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-neutral-300">
+              OUR CASE STUDIES
             </span>
           </div>
-          <h1
-            id="work-headline"
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-gray-900 mb-5 leading-tight"
-            style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
+
+          <h1 
+            id="case-studies-heading"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-display font-extrabold text-white tracking-[-0.03em] leading-[1.05]"
           >
-            Diversified Experience.<br />
-            <span className="bg-gradient-to-r from-pink-accent via-rose-500 to-amber-600 bg-clip-text text-transparent">
-              Real Live Results.
-            </span>
+            Our Case Study
           </h1>
-          <p className="text-base sm:text-lg text-gray-600 font-normal leading-relaxed max-w-2xl mx-auto">
-            From high-conversion <span className="font-semibold text-gray-900">৳3.5k campaign landing pages</span> across fashion, Islamic lifestyle, and viral gadgets to <span className="font-semibold text-gray-900">148K+ community e-commerce platforms</span>. Every project below is live and engineered for maximum conversion.
+
+          <p className="text-neutral-400 font-sans font-normal text-base sm:text-lg md:text-[20px] leading-[1.55] mt-5 max-w-2xl">
+            A curated selection of high-yield e-commerce storefronts, high-converting D2C campaign funnels, and custom architectures engineered for real business growth.
           </p>
+        </div>
 
-          {/* ── Category Filter Tabs ─────────────────────────────────── */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 mt-8 p-1.5 bg-gray-100/80 border border-gray-200/80 rounded-2xl max-w-xl mx-auto">
-            <button
-              onClick={() => setSelectedCategory('all')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                selectedCategory === 'all'
-                  ? 'bg-white text-gray-900 shadow-sm border border-gray-200/60'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-              }`}
-            >
-              <span>All Projects</span>
-              <span className={`text-[11px] px-2 py-0.5 rounded-full font-extrabold ${selectedCategory === 'all' ? 'bg-pink-accent text-white' : 'bg-gray-200/80 text-gray-700'}`}>
-                {counts.all}
-              </span>
-            </button>
+        {/* ── Category Filter Pills ──────────────────────────────────── */}
+        <div className="flex flex-wrap items-center gap-2.5 mt-10" role="tablist" aria-label="Filter case studies">
+          <button
+            onClick={() => setSelectedCategory('all')}
+            role="tab"
+            aria-selected={selectedCategory === 'all'}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+              selectedCategory === 'all'
+                ? 'bg-white text-[#0C0D0E] shadow-sm'
+                : 'bg-white/[0.06] text-neutral-400 hover:text-white hover:bg-white/[0.12] border border-white/[0.06]'
+            }`}
+          >
+            <span>All Projects</span>
+            <span className={`text-[11px] px-2 py-0.2 rounded-full font-bold ${
+              selectedCategory === 'all' ? 'bg-[#0C0D0E] text-white' : 'bg-white/10 text-neutral-300'
+            }`}>
+              {counts.all}
+            </span>
+          </button>
 
-            <button
-              onClick={() => setSelectedCategory('landing')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                selectedCategory === 'landing'
-                  ? 'bg-white text-gray-900 shadow-sm border border-gray-200/60'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-              }`}
-            >
-              <span>Landing Pages</span>
-              <span className={`text-[11px] px-2 py-0.5 rounded-full font-extrabold ${selectedCategory === 'landing' ? 'bg-pink-accent text-white' : 'bg-gray-200/80 text-gray-700'}`}>
-                {counts.landing}
-              </span>
-            </button>
+          <button
+            onClick={() => setSelectedCategory('landing')}
+            role="tab"
+            aria-selected={selectedCategory === 'landing'}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+              selectedCategory === 'landing'
+                ? 'bg-white text-[#0C0D0E] shadow-sm'
+                : 'bg-white/[0.06] text-neutral-400 hover:text-white hover:bg-white/[0.12] border border-white/[0.06]'
+            }`}
+          >
+            <span>Campaign Landing Pages</span>
+            <span className={`text-[11px] px-2 py-0.2 rounded-full font-bold ${
+              selectedCategory === 'landing' ? 'bg-[#0C0D0E] text-white' : 'bg-white/10 text-neutral-300'
+            }`}>
+              {counts.landing}
+            </span>
+          </button>
 
-            <button
-              onClick={() => setSelectedCategory('fullstack')}
-              className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all duration-200 cursor-pointer ${
-                selectedCategory === 'fullstack'
-                  ? 'bg-white text-gray-900 shadow-sm border border-gray-200/60'
-                  : 'text-gray-600 hover:text-gray-900 hover:bg-white/50'
-              }`}
-            >
-              <span>Full-Stack &amp; Stores</span>
-              <span className={`text-[11px] px-2 py-0.5 rounded-full font-extrabold ${selectedCategory === 'fullstack' ? 'bg-pink-accent text-white' : 'bg-gray-200/80 text-gray-700'}`}>
-                {counts.fullstack}
-              </span>
-            </button>
-          </div>
-        </header>
+          <button
+            onClick={() => setSelectedCategory('fullstack')}
+            role="tab"
+            aria-selected={selectedCategory === 'fullstack'}
+            className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-200 cursor-pointer flex items-center gap-2 ${
+              selectedCategory === 'fullstack'
+                ? 'bg-white text-[#0C0D0E] shadow-sm'
+                : 'bg-white/[0.06] text-neutral-400 hover:text-white hover:bg-white/[0.12] border border-white/[0.06]'
+            }`}
+          >
+            <span>Full-Stack Platforms</span>
+            <span className={`text-[11px] px-2 py-0.2 rounded-full font-bold ${
+              selectedCategory === 'fullstack' ? 'bg-[#0C0D0E] text-white' : 'bg-white/10 text-neutral-300'
+            }`}>
+              {counts.fullstack}
+            </span>
+          </button>
+        </div>
       </section>
 
-      {/* ── Portfolio Grid ─────────────────────────────────────────── */}
-      <section className="max-w-7xl mx-auto px-6 md:px-8 mb-24 md:mb-32">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <article
-              key={project.id}
-              className="group flex flex-col bg-white border border-gray-200/90 rounded-3xl overflow-hidden hover:border-pink-accent/40 hover:shadow-2xl hover:shadow-pink-accent/5 hover:-translate-y-1.5 transition-all duration-300 flex-grow"
-              aria-label={`${project.title} — ${project.niche}`}
-            >
-              {/* Image Preview Container */}
-              <div className="relative w-full aspect-[16/10] overflow-hidden bg-gray-100 border-b border-gray-100">
-                <Image
-                  src={project.image}
-                  alt={`${project.title} live preview`}
-                  fill
-                  className={`object-cover object-top transition-all duration-500 ${
-                    project.hoverImage ? 'group-hover:opacity-0 group-hover:scale-105' : 'group-hover:scale-105'
-                  }`}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                  priority={project.featured}
-                />
-                {project.hoverImage && (
-                  <Image
-                    src={project.hoverImage}
-                    alt={`${project.title} secondary preview`}
-                    fill
-                    className="object-cover object-top transition-all duration-500 opacity-0 group-hover:opacity-100 group-hover:scale-105"
-                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 400px"
-                  />
-                )}
+      {/* ── 2. Asymmetric Case Study Showcase Feed (Musemind Layout) ─── */}
+      <section className="max-w-7xl mx-auto px-6 md:px-8 pb-24 sm:pb-32" aria-label="Projects list">
+        <div className="flex flex-col gap-16 sm:gap-20">
 
-                {/* Top Badge Overlay */}
-                <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none z-10">
-                  <span className={`text-[10px] font-extrabold uppercase tracking-wider px-3 py-1 rounded-full border shadow-xs backdrop-blur-md ${project.categoryBadgeColor}`}>
-                    {project.categoryLabel}
-                  </span>
-                  <span className="text-[10px] font-bold text-gray-700 bg-white/90 backdrop-blur-md border border-gray-200/70 rounded-full px-2.5 py-0.5 shadow-xs flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                    LIVE
-                  </span>
-                </div>
-              </div>
+          {filteredStudies.map((study) => {
+            const isFull = study.layout === 'full';
 
-              {/* Card Body */}
-              <div className="p-6 sm:p-7 flex flex-col flex-grow bg-[#FAFAF9] justify-between">
-                <div>
-                  <div className="mb-2">
-                    <span className="text-[11px] font-bold text-gray-500 uppercase tracking-wider block">
-                      {project.niche}
-                    </span>
-                    <h2 
-                      className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight mt-0.5"
-                      style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
-                    >
-                      {project.title}
-                    </h2>
+            return (
+              <article 
+                key={study.id}
+                className="group flex flex-col"
+              >
+                {/* Visual Canvas Card */}
+                <div 
+                  className={`w-full rounded-3xl overflow-hidden border border-white/[0.08] p-4 sm:p-7 md:p-10 transition-all duration-500 group-hover:border-white/20 bg-gradient-to-b ${study.bgGradient || 'from-[#141619] to-[#0E1012]'} relative`}
+                >
+                  {/* Aspect Ratio Container */}
+                  <div className={`relative w-full ${isFull ? 'aspect-[16/10] sm:aspect-[16/9] md:aspect-[21/10]' : 'aspect-[16/11] sm:aspect-[4/3]'} rounded-2xl overflow-hidden shadow-2xl bg-black/40 border border-white/[0.06]`}>
+                    <Image
+                      src={study.image}
+                      alt={`${study.title} preview`}
+                      fill
+                      className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      sizes={isFull ? "(max-width: 1280px) 100vw, 1280px" : "(max-width: 768px) 100vw, 640px"}
+                      priority={study.id === 'fleshpots'}
+                    />
+
+                    {/* Subtle gradient vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                   </div>
+                </div>
 
-                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-4">
-                    {project.desc}
-                  </p>
-
-                  {/* Metrics Pills */}
-                  <div className="flex flex-wrap gap-1.5 mb-4">
-                    {project.metrics.map((metric, idx) => (
-                      <span
-                        key={idx}
-                        className="text-[10.5px] font-bold text-gray-700 bg-white border border-gray-200/90 rounded-lg px-2.5 py-1 shadow-2xs"
-                      >
-                        {metric}
+                {/* Case Study Meta Information (Below Card) */}
+                <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                  <div className="max-w-3xl">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs font-bold uppercase tracking-wider text-[#E25C38]">
+                        {study.categoryLabel}
                       </span>
-                    ))}
-                  </div>
+                    </div>
 
-                  {/* Key Features Bullets */}
-                  <div className="space-y-1.5 mb-5 pt-3 border-t border-gray-200/60">
-                    <p className="text-[10px] font-extrabold uppercase tracking-wider text-gray-400">
-                      Conversion Architecture:
+                    <div className="flex items-center justify-between gap-3">
+                      <h2 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight group-hover:text-[#E25C38] transition-colors">
+                        <a href={study.url} target="_blank" rel="noopener noreferrer">
+                          {study.title}
+                        </a>
+                      </h2>
+                      <a
+                        href={study.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-neutral-400 hover:text-white transition-colors p-1 shrink-0"
+                        aria-label={`Open ${study.title} in new window`}
+                      >
+                        <ArrowUpRight className="w-5 h-5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </a>
+                    </div>
+
+                    <p className="text-neutral-400 text-sm sm:text-base leading-relaxed mt-2.5">
+                      {study.desc}
                     </p>
-                    <ul className="space-y-1">
-                      {project.features.slice(0, 2).map((feat, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-1.5 text-[11.5px] text-gray-600 leading-snug">
-                          <FiCheckCircle className="text-pink-accent w-3.5 h-3.5 shrink-0 mt-0.5" />
-                          <span>{feat}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
 
-                {/* Footer / Stack & CTA */}
-                <div className="pt-4 border-t border-gray-200/60 flex flex-col gap-3 mt-auto">
-                  {/* Tech Stack */}
-                  <div className="flex items-center justify-between">
-                    <span className="text-[9.5px] tracking-widest text-gray-400 uppercase font-bold">TECH STACK:</span>
-                    <div className="flex items-center gap-2">
-                      {project.stack.map((item, sIdx) => {
-                        const Icon = item.icon;
-                        return (
-                          <span key={sIdx} title={item.name} className="transition-transform duration-200 hover:-translate-y-0.5">
-                            <Icon className={`w-4 h-4 ${item.color}`} />
-                          </span>
-                        );
-                      })}
+                    {/* Pill Tags */}
+                    <div className="flex flex-wrap gap-2 mt-4">
+                      {study.tags.map((tag, tIdx) => (
+                        <span 
+                          key={tIdx}
+                          className="text-[11.5px] font-medium text-neutral-300 bg-white/[0.04] border border-white/[0.08] px-3 py-1 rounded-full"
+                        >
+                          {tag}
+                        </span>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Direct Link Action */}
+                  {/* Direct Link Button */}
+                  <div className="shrink-0 pt-2">
+                    <a
+                      href={study.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-white/[0.08] hover:bg-white text-neutral-200 hover:text-[#0C0D0E] text-xs font-bold py-3 px-5 rounded-full transition-all duration-200 border border-white/10"
+                    >
+                      <span>Visit Live Store</span>
+                      <ExternalLink className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+
+        </div>
+      </section>
+
+      {/* ── 3. Inquiry CTA Section (Musemind Image 2 Layout) ─────────── */}
+      <section className="bg-[#EAECF0] text-[#111111] py-20 sm:py-28 border-t border-neutral-300" aria-labelledby="inquiry-heading">
+        <div className="max-w-7xl mx-auto px-6 md:px-8">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+            
+            {/* Left Column: Heading, Pitch & Mahin Ahmad Profile Card */}
+            <div className="lg:col-span-5">
+              <h2 
+                id="inquiry-heading"
+                className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#111111] tracking-[-0.03em] leading-[1.1]"
+              >
+                Have a project idea in mind? Let&apos;s get started
+              </h2>
+
+              <p className="text-[#52525B] font-sans text-base sm:text-lg leading-relaxed mt-5">
+                We&apos;ll schedule a discovery call to review your e-commerce requirements, courier integrations, and conversion goals. After discovery sessions, we&apos;ll send a proposal, and upon approval, we&apos;ll get started.
+              </p>
+
+              {/* Mahin Ahmad Profile Card (Matching Image 2 Rasel Ahmed Card) */}
+              <div className="mt-10 sm:mt-12 pt-8 border-t border-neutral-300/80 flex items-center gap-4">
+                <div className="relative w-18 h-18 sm:w-20 sm:h-20 rounded-2xl overflow-hidden bg-neutral-200 border border-neutral-300/90 shadow-sm shrink-0">
+                  <Image
+                    src="/mahin-ahmad.jpg"
+                    alt="Mahin Ahmad — Founder & Lead Full-Stack Architect"
+                    fill
+                    className="object-cover object-[center_20%]"
+                    sizes="80px"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111]">
+                    Mahin Ahmad
+                  </h3>
+                  <p className="text-xs sm:text-[13px] font-semibold text-neutral-600 mt-0.5">
+                    Founder &amp; Lead Full-Stack Architect
+                  </p>
                   <a
-                    href={project.url}
+                    href="https://wa.me/8801828034555?text=Hi%20Mahin!%20I'd%20like%20to%20discuss%20a%20new%20project."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 bg-[#0B1220] hover:bg-gray-800 text-white text-xs font-bold py-3 px-5 rounded-2xl transition-all duration-200 shadow-sm hover:shadow-md group/btn w-full"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-[#E25C38] hover:text-[#c44927] mt-1.5 transition-colors"
                   >
-                    <span>View Live Site ({project.displayUrl})</span>
-                    <FiExternalLink className="w-3.5 h-3.5 transition-transform duration-200 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                    <span>Direct WhatsApp Chat</span>
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* ── Vast Experience & Niche Matrix ─────────────────────────── */}
-      <section className="bg-gradient-to-b from-gray-50 via-white to-gray-50 border-y border-gray-200 py-16 md:py-24" aria-labelledby="experience-headline">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          
-          <header className="mb-16 text-center max-w-3xl mx-auto">
-            <div className="mb-3">
-              <span className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-pink-accent bg-rose-50 border border-rose-100 rounded-full px-4 py-1.5">
-                Vast Domain Expertise
-              </span>
-            </div>
-            <h2
-              id="experience-headline"
-              className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4 leading-tight"
-              style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
-            >
-              Tailored Landing Pages For Every Niche
-            </h2>
-            <p className="text-sm md:text-base text-gray-500 font-normal leading-relaxed">
-              We don&apos;t use generic templates. Every landing page is custom-architected around the specific buying psychology and fulfillment requirements of your business category.
-            </p>
-          </header>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            
-            {/* Niche 1: Ethnic & Fashion Drops */}
-            <div className="group flex flex-col p-7 bg-white border border-gray-200/90 rounded-3xl hover:border-pink-accent/30 hover:shadow-xl hover:shadow-pink-accent/5 transition-all duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-amber-50 border border-amber-100 flex items-center justify-center text-amber-700 mb-5 font-bold text-lg">
-                👗
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Ethnic &amp; Gown Fashion</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 flex-grow">
-                Multi-color variant switchers, size charts (M to XXL), high-res fabric zoom, and instant bilingual Cash on Delivery checkouts.
-              </p>
-              <div className="pt-3 border-t border-gray-100 text-[11px] font-bold text-pink-accent flex items-center gap-1">
-                <span>See: Arambar Saili &amp; Ango Bilash</span>
-              </div>
             </div>
 
-            {/* Niche 2: Islamic & Halal Lifestyle */}
-            <div className="group flex flex-col p-7 bg-white border border-gray-200/90 rounded-3xl hover:border-pink-accent/30 hover:shadow-xl hover:shadow-pink-accent/5 transition-all duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 mb-5 font-bold text-lg">
-                🌿
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Islamic &amp; Halal Products</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 flex-grow">
-                Value combo bundle selectors, scent profile breakdowns, Islamic trust citations, and urgency countdown deals.
-              </p>
-              <div className="pt-3 border-t border-gray-100 text-[11px] font-bold text-pink-accent flex items-center gap-1">
-                <span>See: JHT HUB (Attar Combo)</span>
-              </div>
-            </div>
+            {/* Right Column: Floating Clean Inquiry Form Card (Image 2) */}
+            <div className="lg:col-span-7">
+              <div className="bg-white rounded-3xl p-8 sm:p-10 md:p-12 shadow-xl border border-neutral-200/80">
+                <form onSubmit={handleInquirySubmit} className="space-y-6">
+                  
+                  {/* Full Name */}
+                  <div>
+                    <label htmlFor="inquiry-fullName" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="inquiry-fullName"
+                      required
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Jane Cooper"
+                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm"
+                    />
+                  </div>
 
-            {/* Niche 3: Aesthetic Kitchen & Lifestyle */}
-            <div className="group flex flex-col p-7 bg-white border border-gray-200/90 rounded-3xl hover:border-pink-accent/30 hover:shadow-xl hover:shadow-pink-accent/5 transition-all duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-rose-50 border border-rose-100 flex items-center justify-center text-rose-600 mb-5 font-bold text-lg">
-                🌸
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Modern Living &amp; Gadgets</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 flex-grow">
-                148K+ community storefronts, Display Sell flash deals, video unboxing reels, cart drawer, and direct FB Messenger ordering.
-              </p>
-              <div className="pt-3 border-t border-gray-100 text-[11px] font-bold text-pink-accent flex items-center gap-1">
-                <span>See: FLESHPOTS Storefront</span>
-              </div>
-            </div>
+                  {/* Company Name & Email */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="inquiry-companyName" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                        Company / Brand Name
+                      </label>
+                      <input
+                        type="text"
+                        id="inquiry-companyName"
+                        value={companyName}
+                        onChange={(e) => setCompanyName(e.target.value)}
+                        placeholder="Ex. Organic Essentials"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="inquiry-email" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                        Email Address *
+                      </label>
+                      <input
+                        type="email"
+                        id="inquiry-email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm"
+                      />
+                    </div>
+                  </div>
 
-            {/* Niche 4: Meta & TikTok Ad Campaign Funnels */}
-            <div className="group flex flex-col p-7 bg-white border border-gray-200/90 rounded-3xl hover:border-pink-accent/30 hover:shadow-xl hover:shadow-pink-accent/5 transition-all duration-300">
-              <div className="w-12 h-12 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-600 mb-5 font-bold text-lg">
-                🎯
-              </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">High-ROAS Ad Funnels</h3>
-              <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-4 flex-grow">
-                Sub-800ms load times, verified Meta Pixel &amp; TikTok Pixel tracking, 1-Click order confirmation, and zero cart abandonment.
-              </p>
-              <div className="pt-3 border-t border-gray-100 text-[11px] font-bold text-pink-accent flex items-center gap-1">
-                <span>See: Glamora Beige &amp; All Funnels</span>
+                  {/* Service Required & Project Budget */}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                      <label htmlFor="inquiry-service" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                        Service required *
+                      </label>
+                      <select
+                        id="inquiry-service"
+                        value={serviceRequired}
+                        onChange={(e) => setServiceRequired(e.target.value)}
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm"
+                      >
+                        <option value="Campaign Landing Page">Single-Product Campaign Landing Page</option>
+                        <option value="Full-Stack E-Commerce Store">Full-Stack E-Commerce Store</option>
+                        <option value="Custom Web Application">Custom Web Application / Platform</option>
+                        <option value="Speed & CRO Optimization">Speed &amp; CRO Optimization</option>
+                        <option value="Courier API & Ad Pixel Setup">Courier API &amp; Ad Pixel Setup</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label htmlFor="inquiry-budget" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                        Project budget tier *
+                      </label>
+                      <select
+                        id="inquiry-budget"
+                        value={projectBudget}
+                        onChange={(e) => setProjectBudget(e.target.value)}
+                        className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm"
+                      >
+                        <option value="Budget-Friendly / Starter">Budget-Friendly / Starter Tier</option>
+                        <option value="Cost-Effective Growth">Cost-Effective Growth Store</option>
+                        <option value="Tailored Scaled Platform">Tailored Scaled Platform</option>
+                        <option value="Seeking Best Affordable Quote">Looking for Best Affordable Quote</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  {/* Project Details */}
+                  <div>
+                    <label htmlFor="inquiry-details" className="block text-xs font-bold text-neutral-700 uppercase tracking-wider mb-2">
+                      Project details
+                    </label>
+                    <textarea
+                      id="inquiry-details"
+                      rows={3}
+                      value={projectDetails}
+                      onChange={(e) => setProjectDetails(e.target.value)}
+                      placeholder="Tell us about your brand, target audience, or requirements..."
+                      className="w-full px-4 py-3.5 rounded-xl bg-white border border-neutral-300 text-neutral-900 placeholder-neutral-400 focus:outline-none focus:border-[#111111] focus:ring-1 focus:ring-[#111111] transition-all text-sm resize-none"
+                    />
+                  </div>
+
+                  {/* Submit Button */}
+                  <button
+                    type="submit"
+                    className="w-full py-4 px-6 rounded-2xl bg-[#111111] hover:bg-[#222222] text-white font-bold text-sm sm:text-base transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <span>Send inquiry</span>
+                    <Send className="w-4 h-4" />
+                  </button>
+
+                  {/* Direct Contact Alternative (Image 2) */}
+                  <p className="text-center text-xs sm:text-sm text-neutral-500 pt-2">
+                    Not interested to submit the form?{' '}
+                    <a
+                      href="https://wa.me/8801828034555?text=Hi%20Mahin!%20I'd%20like%20to%20book%20a%20discovery%20call%20directly."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-700 hover:text-emerald-800 font-bold underline underline-offset-2 transition-colors inline-flex items-center gap-1"
+                    >
+                      <FaWhatsapp className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>Book A Call Directly</span>
+                    </a>
+                  </p>
+
+                </form>
               </div>
             </div>
 
           </div>
 
-          {/* Bottom CTA Card */}
-          <div className="mt-16 p-8 md:p-12 bg-[#0B1220] rounded-3xl text-white flex flex-col md:flex-row items-center justify-between gap-8 shadow-2xl">
-            <div className="max-w-2xl">
-              <span className="text-[11px] font-bold tracking-widest text-pink-accent uppercase block mb-2">
-                Launch With Websy
-              </span>
-              <h3 
-                className="text-2xl md:text-4xl font-bold tracking-tight mb-3"
-                style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}
-              >
-                Ready to launch your high-converting landing page or storefront?
-              </h3>
-              <p className="text-sm md:text-base text-gray-400 font-normal leading-relaxed">
-                Launch a ৳3,499 campaign landing page in 24–48 hours or build a full custom store. We handle design, copywriting, coding, and pixel setup.
-              </p>
-            </div>
-
-            <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center bg-pink-accent hover:bg-rose-600 text-white text-xs sm:text-sm font-extrabold py-3.5 px-7 rounded-2xl transition-all duration-200 shadow-md shadow-pink-accent/20 w-full sm:w-auto text-center"
-              >
-                Start Your Project
-              </Link>
-              <a
-                href="https://wa.me/8801828034555?text=Hello%20Websy!%20I%20saw%20your%20live%20portfolio%20and%20want%20to%20build%20a%20landing%20page/store."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-2xl transition-all duration-200 w-full sm:w-auto text-center"
-              >
-                <FaWhatsapp className="w-4 h-4" />
-                <span>WhatsApp Us</span>
-              </a>
-            </div>
-          </div>
-
         </div>
       </section>
+
     </main>
   );
 }
