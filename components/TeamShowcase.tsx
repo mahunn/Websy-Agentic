@@ -48,8 +48,8 @@ export const teamMembers: TeamMember[] = [
     role: 'Founder & Lead Full-Stack Architect',
     roleShort: 'Lead Architect & Founder',
     bio: 'Specializing in sub-second Next.js commerce flagships, Meta Pixel CAPI server-side tracking, and automated courier webhook pipelines (Pathao, Steadfast).',
-    image: '/mahin-ahmad.jpg',
-    objectPosition: 'center 18%',
+    image: '/mahin-suit.jpg',
+    objectPosition: 'center 15%',
     skills: ['Next.js 15', 'Courier APIs', 'Meta CAPI', 'System Architecture', 'TypeScript'],
     isFounder: true,
     links: {

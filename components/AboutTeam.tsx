@@ -36,8 +36,8 @@ const teamMembers: TeamMember[] = [
     name: 'Mahin Ahmad',
     role: 'Founder & Lead Architect',
     bio: 'Specializing in high-yield Next.js commerce, courier API automation, and sub-second performance.',
-    image: '/mahin-ahmad.jpg',
-    objectPosition: 'center 20%',
+    image: '/mahin-suit.jpg',
+    objectPosition: 'center 15%',
     skills: ['Next.js', 'Courier APIs', 'System Design'],
     isFounder: true,
     links: {
