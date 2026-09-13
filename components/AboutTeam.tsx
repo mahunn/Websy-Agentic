@@ -48,14 +48,6 @@ const teamMembers: TeamMember[] = [
     }
   },
   {
-    name: 'Tania Akter',
-    role: 'Lead UI/UX Designer',
-    bio: 'Crafting bespoke design systems, high-converting product showcases, and luxury D2C brand visuals.',
-    image: '/tania.jpg',
-    objectPosition: 'center',
-    skills: ['Figma', 'Design Systems', 'Checkout UX']
-  },
-  {
     name: 'Kamrul Hasan',
     role: 'Backend & Security Lead',
     bio: 'Architecting resilient edge backends, courier webhooks, and secure automated payment pipelines.',
@@ -180,7 +172,7 @@ export default function AboutTeam() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 items-stretch">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-stretch">
             {teamMembers.map((member) => (
               <article 
                 key={member.name}

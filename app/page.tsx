@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight, ArrowRight, Check } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
+import TeamShowcase from '@/components/TeamShowcase';
 
 export default function Home() {
   const [activeCard, setActiveCard] = useState<number>(3);
@@ -612,7 +613,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 5. Minimal Direct Consultation Banner ───────────────────── */}
+      {/* ── 5. Team Showcase (Direct Access to Engineers) ───────────── */}
+      <TeamShowcase />
+
+      {/* ── 6. Minimal Direct Consultation Banner ───────────────────── */}
       <section className="py-12 sm:py-16 bg-[#FAFAFA]" aria-label="Consultation CTA">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-gray-200 shadow-2xs mb-4">

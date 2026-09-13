@@ -14,6 +14,7 @@ import {
   FiMessageSquare,
   FiMapPin
 } from 'react-icons/fi';
+import TeamShowcase from '@/components/TeamShowcase';
 
 const topics = [
   { id: 'landing', label: '🚀 Campaign Landing Page', msg: 'Hi Mahin! I need a fast-track single-product campaign landing page with courier sync.' },
@@ -273,6 +274,11 @@ export default function Contact() {
           </div>
         </div>
 
+      </div>
+
+      {/* ── Direct Access to Engineers & Designers Showcase ── */}
+      <div className="w-full mt-16 sm:mt-24 border-t border-gray-200">
+        <TeamShowcase />
       </div>
     </main>
   );
