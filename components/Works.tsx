@@ -36,6 +36,18 @@ const allProjects: ProjectItem[] = [
     bgGradient: 'from-[#17191D] via-[#121417] to-[#0D0E10]'
   },
   {
+    id: 'tiarashop',
+    title: 'TIARA (লুক্স আবায়া ও শালীন ফ্যাশন কালেকশন)',
+    category: 'Fashion & Apparel',
+    categoryLabel: 'Full-Stack Store • Luxury Modest Fashion',
+    tags: ['Full-Stack E-Commerce', 'Bexi Boil Hijabs', 'Multi-Variant Drawer', 'Steadfast Sync', '<580ms Speed'],
+    desc: 'High-converting full-stack modest fashion storefront engineered with Next.js for Bangladesh. Features instant multi-variant prayer hijab selectors, automated district delivery calculations, and frictionless Cash on Delivery checkout.',
+    image: '/tiara-cover.png',
+    url: 'https://tiarashop.vercel.app/',
+    layout: 'full',
+    bgGradient: 'from-[#1B1115] via-[#140D10] to-[#0D080A]'
+  },
+  {
     id: 'arambarsaili',
     title: 'আড়ম্বর শৈলী (Arambar Saili)',
     category: 'Fashion & Apparel',

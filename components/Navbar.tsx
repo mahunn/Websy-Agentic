@@ -11,7 +11,6 @@ const navLinks = [
   { label: 'About Us', href: '/about' },
   { label: 'Work', href: '/work' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Industries', href: '/industries' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -34,9 +33,6 @@ export default function Navbar() {
   const isLightPage =
     pathname === '/' ||
     pathname === '/services' ||
-    pathname === '/industries' ||
-    pathname === '/work' ||
-    pathname === '/about' ||
     pathname === '/pricing' ||
     pathname === '/contact' ||
     pathname === '/terms-and-conditions' ||

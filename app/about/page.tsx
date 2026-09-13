@@ -39,26 +39,26 @@ export default function AboutPage() {
   ];
 
   return (
-    <main id="main-content" className="pt-[70px] sm:pt-[84px] md:pt-[92px] bg-white">
+    <main id="main-content" className="pt-[70px] sm:pt-[84px] md:pt-[92px] bg-[#060D1F] text-white">
       
       {/* ── Main About & Team Section ── */}
       <AboutTeam />
 
       {/* ── Studio Values & Philosophy ── */}
-      <section className="py-20 sm:py-28 bg-white border-t border-neutral-200/80" aria-label="Studio values">
+      <section className="py-20 sm:py-28 bg-[#08122A] border-t border-blue-500/15" aria-label="Studio values">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           
           <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-sm mb-4">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1F44] border border-blue-400/25 shadow-sm mb-4">
               <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#111111]">
+              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
                 HOW WE OPERATE
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-[#111111] tracking-tight leading-[1.1]">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-[1.1]">
               Uncompromising standards for modern commerce
             </h2>
-            <p className="text-[#52525B] text-base sm:text-lg leading-relaxed mt-4">
+            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mt-4">
               Built for forward-thinking brand founders who understand that page speed, automated logistics, and pristine ad tracking are the backbone of profitability.
             </p>
           </div>
@@ -67,16 +67,16 @@ export default function AboutPage() {
             {values.map((v, i) => (
               <div 
                 key={i}
-                className="bg-[#FBFBFA] border border-neutral-200/80 rounded-3xl p-8 flex flex-col justify-between hover:shadow-lg hover:border-neutral-300 transition-all duration-300 group"
+                className="bg-[#0B1939]/80 border border-blue-400/20 rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl hover:border-blue-400/40 hover:bg-[#0E204A]/90 transition-all duration-300 group"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 px-3 py-1 rounded-full inline-block mb-4">
+                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 border border-[#E25C38]/20 px-3 py-1 rounded-full inline-block mb-4">
                     {v.badge}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight mb-3">
+                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white tracking-tight mb-3">
                     {v.title}
                   </h3>
-                  <p className="text-[#52525B] text-sm sm:text-base leading-relaxed">
+                  <p className="text-slate-300/85 text-sm sm:text-base leading-relaxed">
                     {v.desc}
                   </p>
                 </div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Bottom Direct Contact Banner ── */}
-      <section className="py-16 sm:py-20 bg-[#F6F7F9] border-t border-neutral-200/80">
+      <section className="py-16 sm:py-20 bg-[#060D1F] border-t border-blue-500/15">
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="bg-[#111111] text-white rounded-3xl p-8 sm:p-12 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-xl">
             <div className="max-w-2xl relative z-10">

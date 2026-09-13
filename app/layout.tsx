@@ -93,7 +93,7 @@ export default function RootLayout({
           className="bg-[#0C0D0E] border-t border-white/[0.08] pt-16 pb-12 px-6 md:px-8 text-[#94A3B8]"
           role="contentinfo"
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 lg:gap-8 mb-14">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-14">
 
             {/* Column 1: Brand & Contact Info */}
             <div className="lg:col-span-1">
@@ -153,41 +153,7 @@ export default function RootLayout({
               </ul>
             </nav>
 
-            {/* Column 3: Industries */}
-            <nav aria-label="Footer industries links">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#F8FAFC] mb-4 font-display">
-                Industries
-              </h3>
-              <ul className="space-y-2.5 text-xs text-[#94A3B8]">
-                <li>
-                  <Link href="/industries" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    E-Commerce &amp; Retail
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/industries" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Facebook &amp; TikTok Ad Sellers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/industries" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Fashion &amp; Luxury Lifestyle
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/industries" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Startups &amp; MVPs
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/industries" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Logistics &amp; Courier Systems
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-
-            {/* Column 4: Work & Company */}
+            {/* Column 3: Work & Company */}
             <nav aria-label="Footer work links">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#F8FAFC] mb-4 font-display">
                 Work &amp; Company
@@ -195,17 +161,17 @@ export default function RootLayout({
               <ul className="space-y-2.5 text-xs text-[#94A3B8]">
                 <li>
                   <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
+                    TIARA Modest Fashion
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
                     Henley Zone Store
                   </Link>
                 </li>
                 <li>
                   <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Glamora Beige Page
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Mahin Ahmad Platform
+                    Glamora Luxe Store
                   </Link>
                 </li>
                 <li>

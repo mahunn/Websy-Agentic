@@ -106,16 +106,16 @@ const caseStudies: CaseStudy[] = [
     bgGradient: "from-[#1A1816] to-[#0F0E0D]"
   },
   {
-    id: "mahin",
-    title: "Mahin Ahmad Architecture Platform",
+    id: "tiara",
+    title: "TIARA (প্রিমিয়াম আবায়া ও শালীন ফ্যাশন কালেকশন)",
     category: "fullstack",
-    categoryLabel: "Full-Stack Architecture & Systems",
-    desc: "Custom developer platform showcasing full-stack Next.js commerce architectures, courier webhook pipelines, and sub-second performance benchmarks.",
-    image: "/mahin-mockup.png",
-    url: "https://mahinahmad.netlify.app",
-    tags: ["Next.js Platform", "API Webhooks", "System Architecture", "Zero Vendor Lock-in"],
+    categoryLabel: "Full-Stack E-Commerce Storefront",
+    desc: "Luxury modest fashion and prayer hijab e-commerce platform engineered with Next.js, featuring real-time product variant swatches, automated district delivery calculations, and sub-second checkout.",
+    image: "/tiara-cover.png",
+    url: "https://tiarashop.vercel.app/",
+    tags: ["Modest Fashion", "Full-Stack E-Commerce", "Multi-Variant Checkout", "Courier API Sync"],
     layout: "full",
-    bgGradient: "from-[#16181D] via-[#111317] to-[#0C0D10]",
+    bgGradient: "from-[#1B1115] via-[#140D10] to-[#0D080A]",
     deviceType: "browser"
   }
 ];

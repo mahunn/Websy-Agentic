@@ -73,6 +73,17 @@ const MahinLogo = ({ className = "w-5 h-5", style }: LogoProps) => (
   />
 );
 
+const TiaraLogo = ({ className = "h-7 sm:h-8 w-auto", style }: LogoProps) => (
+  <Image
+    src="/tiara-logo.png"
+    alt="TIARA"
+    width={90}
+    height={38}
+    className={`object-contain ${className}`}
+    style={style}
+  />
+);
+
 export default function Home() {
   const [activeCard, setActiveCard] = useState(3);
 
@@ -108,21 +119,21 @@ export default function Home() {
         <div className="absolute inset-x-0 bottom-0 h-44 sm:h-56 bg-gradient-to-t from-white via-white/80 to-transparent pointer-events-none z-10" />
 
         <div className="relative z-20 max-w-7xl mx-auto px-6 md:px-8 w-full pt-8 sm:pt-14 pb-20 sm:pb-24 lg:py-24 flex-grow flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 xl:gap-16 items-center w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center w-full">
 
             {/* ── Left Column: Musemind 1:1 Editorial Layout ───────────────── */}
-            <div className="lg:col-span-7 xl:col-span-7 flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-3xl">
+            <div className="lg:col-span-6 xl:col-span-6 flex flex-col items-start text-left space-y-6 md:space-y-8 max-w-2xl">
               {/* Main Heading — Guaranteed 2-line bold editorial hierarchy (1:1 Musemind) */}
               <h1
                 id="hero-headline"
-                className="text-[#111111] font-display font-extrabold text-[34px] sm:text-[46px] md:text-[54px] lg:text-[60px] xl:text-[68px] tracking-[-0.035em] leading-[1.08]"
+                className="text-[#111111] font-display font-extrabold text-[34px] sm:text-[46px] md:text-[52px] lg:text-[48px] xl:text-[60px] 2xl:text-[66px] tracking-[-0.035em] leading-[1.08]"
               >
                 <span className="block">Bangladesh&apos;s Leading</span>
                 <span className="block">Website Making Agency</span>
               </h1>
 
               {/* Subheading */}
-              <p className="text-[#4B5563] font-sans font-normal text-base sm:text-lg md:text-[20px] leading-[1.58] max-w-[540px]">
+              <p className="text-[#4B5563] font-sans font-normal text-base sm:text-lg md:text-[19px] leading-[1.58] max-w-[500px]">
                 Websy is a global Web development agency. Helping brands redefine experiences and empower business growth.
               </p>
 
@@ -233,7 +244,7 @@ export default function Home() {
 
             {/* ══ Desktop Mockup Stack (lg+ only) ────────────────────── */}
             <div
-              className="hidden lg:flex lg:col-span-5 xl:col-span-5 w-full relative items-center justify-center h-[540px] xl:h-[600px]"
+              className="hidden lg:flex lg:col-span-6 xl:col-span-6 w-full relative items-center justify-center h-[540px] xl:h-[600px]"
               aria-hidden="true"
             >
               {/* Subtle 3D Studio Architectural Steps & Light Caustics */}
@@ -246,10 +257,19 @@ export default function Home() {
                 }}
               />
 
-              {/* Card 1 — Mahin portfolio (back, tilted left) */}
+              {/* Card 1 — Mahin portfolio (top-left, tilted left, 1st depth / back) */}
               <div
-                className={`absolute w-[72%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 1 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.22)] border-neutral-900/25 scale-[1.03]' : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 scale-[0.93]'}`}
-                style={{ top: '4%', left: '0%', transform: 'rotate(-5deg)', zIndex: activeCard === 1 ? 3 : 1 }}
+                className={`absolute w-[68%] xl:w-[66%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${
+                  activeCard === 1
+                    ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.24)] border-neutral-900/30'
+                    : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 hover:shadow-xl hover:border-gray-300'
+                }`}
+                style={{
+                  top: '2%',
+                  left: '-2%',
+                  transform: activeCard === 1 ? 'rotate(-6deg) scale(1.03)' : 'rotate(-6deg) scale(0.95)',
+                  zIndex: activeCard === 1 ? 30 : 1,
+                }}
                 onClick={() => setActiveCard(1)}
               >
                 <Image
@@ -261,10 +281,19 @@ export default function Home() {
                 />
               </div>
 
-              {/* Card 2 — Henley e-commerce (middle right, slight tilt) */}
+              {/* Card 2 — Henley e-commerce (top-right, tilted right, 2nd depth / middle) */}
               <div
-                className={`absolute w-[72%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 2 ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.22)] border-neutral-900/25 scale-[1.03]' : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 scale-[0.93]'}`}
-                style={{ top: '12%', right: '0%', transform: 'rotate(5deg)', zIndex: activeCard === 2 ? 3 : (activeCard === 3 ? 2 : 1) }}
+                className={`absolute w-[68%] xl:w-[66%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${
+                  activeCard === 2
+                    ? 'shadow-[0_32px_64px_-12px_rgba(0,0,0,0.24)] border-neutral-900/30'
+                    : 'shadow-[0_16px_36px_rgba(0,0,0,0.08)] border-gray-200/80 hover:shadow-xl hover:border-gray-300'
+                }`}
+                style={{
+                  top: '8%',
+                  right: '-2%',
+                  transform: activeCard === 2 ? 'rotate(6deg) scale(1.03)' : 'rotate(6deg) scale(0.95)',
+                  zIndex: activeCard === 2 ? 30 : 2,
+                }}
                 onClick={() => setActiveCard(2)}
               >
                 <Image
@@ -276,10 +305,19 @@ export default function Home() {
                 />
               </div>
 
-              {/* Card 3 — Glamora landing page (front, centred, upright) */}
+              {/* Card 3 — Glamora landing page (front center laptop, upright) */}
               <div
-                className={`absolute w-[78%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${activeCard === 3 ? 'shadow-[0_36px_72px_-12px_rgba(0,0,0,0.25)] border-neutral-900/30 scale-[1.03]' : 'shadow-[0_20px_40px_rgba(0,0,0,0.1)] border-gray-200/90 scale-[0.93]'}`}
-                style={{ bottom: '2%', left: '50%', transform: 'translateX(-50%) rotate(-1deg)', zIndex: activeCard === 3 ? 3 : 2 }}
+                className={`absolute w-[84%] xl:w-[82%] rounded-3xl overflow-hidden border bg-white transition-all duration-300 cursor-pointer ${
+                  activeCard === 3
+                    ? 'shadow-[0_36px_72px_-12px_rgba(0,0,0,0.28)] border-neutral-900/35'
+                    : 'shadow-[0_20px_40px_rgba(0,0,0,0.12)] border-gray-200/90 hover:shadow-2xl hover:border-gray-300'
+                }`}
+                style={{
+                  bottom: '1%',
+                  left: '50%',
+                  transform: activeCard === 3 ? 'translateX(-50%) rotate(-1deg) scale(1.03)' : 'translateX(-50%) rotate(-1deg) scale(0.96)',
+                  zIndex: activeCard === 3 ? 30 : 15,
+                }}
                 onClick={() => setActiveCard(3)}
               >
                 <Image
@@ -304,24 +342,29 @@ export default function Home() {
             TRUSTED BY 50+ BANGLADESHI &amp; GLOBAL BRANDS
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-75 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-300">
-            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
-              <Image src="/henleyzone-logo-v2.png" alt="Henley Zone" width={28} height={28} className="rounded-full object-cover" />
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 transition-all duration-300">
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800 hover:opacity-85 transition-opacity">
+              <Image src="/henleyzone-logo-v2.png" alt="Henley Zone" width={30} height={30} className="rounded-full object-cover" />
               <span>HENLEY ZONE</span>
             </div>
-            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
-              <Image src="/glamora-logo.png" alt="Glamora" width={28} height={28} className="rounded-full object-cover" />
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800 hover:opacity-85 transition-opacity">
+              <Image src="/glamora-logo.png" alt="Glamora" width={30} height={30} className="rounded-full object-cover" />
               <span>GLAMORA</span>
             </div>
-            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
-              <Image src="/mahin-ahmad.jpg" alt="Mahin Ahmad" width={28} height={28} className="rounded-full object-cover object-[center_20%]" />
-              <span>MAHIN AHMAD</span>
+            <div className="flex items-center hover:opacity-85 transition-opacity">
+              <Image
+                src="/tiara-logo.png"
+                alt="TIARA"
+                width={115}
+                height={48}
+                className="h-9 sm:h-10 md:h-[42px] w-auto object-contain translate-y-2 sm:translate-y-2.5"
+              />
             </div>
-            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800 hover:opacity-85 transition-opacity">
               <span className="w-7 h-7 rounded-full bg-neutral-900 text-white text-xs flex items-center justify-center font-bold">F</span>
               <span>FLESHPOTS</span>
             </div>
-            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800">
+            <div className="flex items-center gap-2.5 font-display font-bold text-lg text-neutral-800 hover:opacity-85 transition-opacity">
               <span className="w-7 h-7 rounded-full bg-neutral-900 text-white text-xs flex items-center justify-center font-bold">J</span>
               <span>JHT HUB</span>
             </div>
@@ -416,10 +459,10 @@ export default function Home() {
                   Start Your Project
                 </Link>
                 <Link
-                  href="/industries"
+                  href="/work"
                   className="inline-flex items-center justify-center border border-white/20 hover:border-white/50 text-white text-xs sm:text-sm font-semibold py-3.5 px-6 rounded-full transition-all duration-200"
                 >
-                  Explore Industry Solutions →
+                  Explore Live Stores →
                 </Link>
               </div>
             </div>

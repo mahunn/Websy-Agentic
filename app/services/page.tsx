@@ -85,7 +85,7 @@ export default function ServicesPage() {
       ],
       liveExamples: [
         { name: "FLESHPOTS Platform (148K+ Audience)", url: "https://fleshpots.vercel.app/" },
-        { name: "Mahin Ahmad Developer Platform", url: "https://mahinahmad.netlify.app" }
+        { name: "TIARA Store (Luxury Modest Fashion)", url: "https://tiarashop.vercel.app/" }
       ],
       cta: "Engineer Custom Architecture",
       accent: "#0C0D0E"
