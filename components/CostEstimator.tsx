@@ -107,7 +107,7 @@ I would like to discuss an affordable quote.`;
       
       {/* Step 1: Base Selection */}
       <div className="mb-8">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E25C38] block mb-2">
+        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#DC2626] block mb-2">
           Step 1: Choose Website Scope
         </span>
         <h3 className="text-xl sm:text-2xl font-bold text-[#0B1220] mb-4" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>
@@ -146,7 +146,7 @@ I would like to discuss an affordable quote.`;
                     {pkg.tierLabel}
                   </span>
                   {isSelected && (
-                    <span className="text-[11px] font-bold text-[#E25C38] flex items-center gap-1">
+                    <span className="text-[11px] font-bold text-[#DC2626] flex items-center gap-1">
                       <FiCheck className="w-3.5 h-3.5" /> Selected
                     </span>
                   )}
@@ -159,7 +159,7 @@ I would like to discuss an affordable quote.`;
 
       {/* Step 2: Add-ons */}
       <div className="mb-10">
-        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#E25C38] block mb-2">
+        <span className="text-[10px] font-extrabold uppercase tracking-widest text-[#DC2626] block mb-2">
           Step 2: Select Integrations &amp; Workflows
         </span>
         <h3 className="text-lg sm:text-xl font-bold text-[#0B1220] mb-4" style={{ fontFamily: "'Cabinet Grotesk', sans-serif" }}>

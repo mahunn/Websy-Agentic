@@ -1,82 +1,72 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import AboutTeam from '@/components/AboutTeam';
-import { 
-  ShieldCheck, 
-  CheckCircle2, 
-  ArrowRight, 
-  Zap, 
-  Code2, 
-  Layers, 
-  Clock, 
-  Award,
-  Sparkles
-} from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
 export const metadata = {
-  title: "About Us & Team | Websy",
+  title: "About Us & Engineering Team | Websy",
   description: "Meet the engineering and design minds behind Websy. We build high-converting e-commerce storefronts, Meta Pixel CAPI tracking, and automated courier API workflows."
 };
 
-export default function AboutPage() {
-  const values = [
-    {
-      title: "Senior Engineers Only",
-      desc: "Zero junior handoffs or agency account manager friction. You work directly with experienced software engineers who write the production code.",
-      badge: "Zero Bureaucracy"
-    },
-    {
-      title: "Performance Over Fluff",
-      desc: "We don't build generic bloated templates. Every millisecond of load time is optimized for sub-second checkout conversion.",
-      badge: "Core Web Vitals"
-    },
-    {
-      title: "100% Code Ownership",
-      desc: "No proprietary platform lock-in or recurring monthly builder subscriptions. You own 100% of your source code on GitHub.",
-      badge: "Zero Platform Fees"
-    }
-  ];
+const studioValues = [
+  {
+    title: "Senior Specialists Only",
+    badge: "Zero Bureaucracy",
+    desc: "No junior handoffs or account managers. You collaborate directly with experienced engineers who architect and ship your production code."
+  },
+  {
+    title: "Performance Over Bloat",
+    badge: "Sub-800ms LCP",
+    desc: "Every millisecond counts on paid ad traffic. We optimize Core Web Vitals to eliminate bounce rates and maximize checkout completions."
+  },
+  {
+    title: "100% Code Ownership",
+    badge: "Zero Platform Fees",
+    desc: "No monthly Shopify app subscriptions or fragile WordPress plugins. You own all custom source code on your own GitHub repository."
+  }
+];
 
+export default function AboutPage() {
   return (
-    <main id="main-content" className="pt-[70px] sm:pt-[84px] md:pt-[92px] bg-[#060D1F] text-white">
+    <main id="main-content" className="pt-[70px] sm:pt-[84px] md:pt-[92px] bg-[#F8FAFC]">
       
-      {/* ── Main About & Team Section ── */}
+      {/* ── Main About & Team Component ── */}
       <AboutTeam />
 
-      {/* ── Studio Values & Philosophy ── */}
-      <section className="py-20 sm:py-28 bg-[#08122A] border-t border-blue-500/15" aria-label="Studio values">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
+      {/* ── Studio Operating Principles (3 Essential Values) ── */}
+      <section className="py-12 sm:py-20 bg-white border-t border-gray-200/80" aria-label="Studio Operating Principles">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
-          <div className="max-w-3xl mb-14">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0E1F44] border border-blue-400/25 shadow-sm mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
-              <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-blue-200">
+          <div className="text-center max-w-xl mx-auto mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-50 border border-gray-200 shadow-2xs mb-2.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+              <span className="text-[11px] font-mono font-bold uppercase tracking-wider text-[#111111]">
                 HOW WE OPERATE
               </span>
             </div>
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-[1.1]">
-              Uncompromising standards for modern commerce
+            <h2 className="text-2xl sm:text-4xl font-display font-extrabold text-[#111111] tracking-tight leading-[1.14]">
+              Uncompromising Standards
             </h2>
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed mt-4">
-              Built for forward-thinking brand founders who understand that page speed, automated logistics, and pristine ad tracking are the backbone of profitability.
+            <p className="text-xs sm:text-sm text-neutral-600 mt-2">
+              Engineered for brand founders who treat page speed and automated logistics as core revenue drivers.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {values.map((v, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6">
+            {studioValues.map((v, i) => (
               <div 
                 key={i}
-                className="bg-[#0B1939]/80 border border-blue-400/20 rounded-3xl p-8 flex flex-col justify-between hover:shadow-xl hover:border-blue-400/40 hover:bg-[#0E204A]/90 transition-all duration-300 group"
+                className="bg-[#F8FAFC] border border-gray-200/90 rounded-2xl sm:rounded-3xl p-5 sm:p-6 flex flex-col justify-between shadow-2xs"
               >
                 <div>
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 border border-[#E25C38]/20 px-3 py-1 rounded-full inline-block mb-4">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#DC2626] bg-red-50 border border-red-100 px-2.5 py-0.5 rounded-full inline-block mb-3">
                     {v.badge}
                   </span>
-                  <h3 className="text-xl sm:text-2xl font-display font-bold text-white tracking-tight mb-3">
+                  <h3 className="text-base sm:text-lg font-display font-bold text-[#111111] tracking-tight mb-1.5">
                     {v.title}
                   </h3>
-                  <p className="text-slate-300/85 text-sm sm:text-base leading-relaxed">
+                  <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed">
                     {v.desc}
                   </p>
                 </div>
@@ -87,60 +77,56 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ── Bottom Direct Contact Banner ── */}
-      <section className="py-16 sm:py-20 bg-[#060D1F] border-t border-blue-500/15">
-        <div className="max-w-7xl mx-auto px-6 md:px-8">
-          <div className="bg-[#111111] text-white rounded-3xl p-8 sm:p-12 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-xl">
-            <div className="max-w-2xl relative z-10">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E25C38] mb-3">
-                <Sparkles className="w-4 h-4" /> Ready to collaborate?
-              </span>
-              <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">
-                Schedule an engineering discovery session today.
-              </h3>
-              <div className="flex items-center gap-3.5 mb-4">
-                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-[#E25C38]/40 shrink-0">
+      {/* ── Direct Collaboration Hero Banner (Clean Light Bento) ── */}
+      <section className="py-12 sm:py-16 bg-[#F8FAFC] border-t border-gray-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-6 relative overflow-hidden">
+            
+            <div className="max-w-lg">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-emerald-500/40 shrink-0">
                   <Image
                     src="/mahin-ahmad.jpg"
-                    alt="Mahin Ahmad — Founder & Lead Full-Stack Architect"
+                    alt="Mahin Ahmad — Founder & Lead Architect"
                     fill
                     className="object-cover object-[center_20%]"
                     sizes="48px"
                   />
                 </div>
                 <div>
-                  <h4 className="text-sm font-bold text-white leading-tight">Mahin Ahmad</h4>
-                  <p className="text-xs text-zinc-400">Founder &amp; Lead Full-Stack Architect</p>
+                  <h4 className="text-base font-bold text-[#111111] leading-tight font-display">Mahin Ahmad</h4>
+                  <p className="text-xs text-emerald-600 font-semibold">Founder &amp; Lead Architect</p>
                 </div>
               </div>
-              <p className="text-zinc-400 text-sm sm:text-base leading-relaxed">
-                Connect directly with lead architect Mahin Ahmad to review your e-commerce requirements, courier integrations, and conversion goals.
+
+              <h3 className="text-xl sm:text-2xl font-display font-extrabold text-[#111111] tracking-tight mb-1.5">
+                Ready to engineer your web flagship?
+              </h3>
+              <p className="text-neutral-600 text-xs sm:text-sm leading-relaxed">
+                Connect directly with lead architect Mahin Ahmad to discuss your product niche and courier workflows.
               </p>
             </div>
 
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 shrink-0 relative z-10 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 shrink-0 w-full md:w-auto">
               <a
                 href="https://wa.me/8801828034555?text=Hi%20Mahin!%20I'd%20like%20to%20discuss%20an%20e-commerce%20project."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs sm:text-sm font-bold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
+                className="inline-flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs sm:text-sm font-bold py-3 px-5 rounded-full transition-all shadow-sm whitespace-nowrap"
               >
                 <FaWhatsapp className="w-4 h-4" />
-                <span>Chat on WhatsApp</span>
+                <span>Discuss on WhatsApp</span>
               </a>
+
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center bg-white text-[#111111] hover:bg-neutral-100 text-xs sm:text-sm font-semibold py-3.5 px-6 rounded-full transition-all duration-200 shadow-sm"
+                className="inline-flex items-center justify-center gap-1.5 bg-[#111111] hover:bg-black text-white text-xs sm:text-sm font-semibold py-3 px-5 rounded-full transition-all shadow-sm whitespace-nowrap"
               >
-                Book Consultation
+                <span>Contact Us</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
-            {/* Ambient Ember Glow */}
-            <div 
-              className="absolute -right-20 -bottom-20 w-[400px] h-[400px] rounded-full pointer-events-none" 
-              style={{ background: 'radial-gradient(circle, rgba(226,92,56,0.16) 0%, transparent 70%)' }}
-            />
           </div>
         </div>
       </section>

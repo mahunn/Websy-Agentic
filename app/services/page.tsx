@@ -49,7 +49,7 @@ export default function ServicesPage() {
         { name: "অঙ্গবিলাস (Dark Luxury Apparel)", url: "https://ongobilash.vercel.app/" }
       ],
       cta: "Launch Campaign Storefront",
-      accent: "#E25C38"
+      accent: "#DC2626"
     },
     {
       id: "ecommerce",
@@ -104,7 +104,7 @@ export default function ServicesPage() {
           
           <div className="max-w-3xl mb-14 sm:mb-18">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-neutral-100 border border-neutral-200/90 shadow-sm mb-4">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
               <span className="text-[11px] font-bold uppercase tracking-[0.2em] text-[#111111]">
                 TRANSPARENT PRICING &amp; TIERS
               </span>
@@ -124,7 +124,7 @@ export default function ServicesPage() {
                 className="bg-[#FBFBFA] border border-neutral-200/80 rounded-3xl p-7 sm:p-9 flex flex-col justify-between hover:shadow-xl hover:border-neutral-300 transition-all duration-300 group"
               >
                 <div>
-                  <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 px-3 py-1 rounded-full mb-4">
+                  <span className="inline-block text-[11px] font-bold uppercase tracking-wider text-[#DC2626] bg-[#DC2626]/10 px-3 py-1 rounded-full mb-4">
                     {tier.badge}
                   </span>
                   <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight mb-3">
@@ -137,7 +137,7 @@ export default function ServicesPage() {
                   <div className="space-y-3 mb-8 pt-4 border-t border-neutral-200/60">
                     {tier.bullets.map((bullet, idx) => (
                       <div key={idx} className="flex items-start gap-2.5 text-xs text-neutral-700 leading-snug">
-                        <FiCheck className="w-4 h-4 text-[#E25C38] shrink-0 mt-0.5" />
+                        <FiCheck className="w-4 h-4 text-[#DC2626] shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </div>
                     ))}
@@ -187,7 +187,7 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto px-6 md:px-8">
           <div className="bg-[#111111] text-white rounded-3xl p-8 sm:p-12 md:p-14 flex flex-col md:flex-row items-center justify-between gap-8 relative overflow-hidden shadow-xl">
             <div className="max-w-2xl relative z-10">
-              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E25C38] mb-3">
+              <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#DC2626] mb-3">
                 <FiShield className="w-4 h-4" /> Agency White-Label &amp; Bespoke Builds
               </span>
               <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold tracking-tight mb-3">

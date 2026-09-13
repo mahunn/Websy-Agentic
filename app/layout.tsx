@@ -21,13 +21,13 @@ const geist = Geist({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#0C0D0E",
+  themeColor: "#FFFFFF",
 };
 
 export const metadata: Metadata = {
-  title: "Websy — Premium Websites for E-commerce & Beyond",
+  title: "Websy — Bangladesh's Leading Website Making Agency",
   description:
-    "Websy builds premium websites for small e-commerce businesses, high-converting landing pages, and professional portfolio sites.",
+    "Websy builds high-performance e-commerce stores, high-converting campaign landing pages, and custom web platforms.",
   icons: {
     icon: [
       { url: "/favicon.svg", type: "image/svg+xml" },
@@ -45,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`h-full dark antialiased scroll-smooth ${plusJakartaSans.variable} ${geist.variable}`}
+      className={`h-full antialiased scroll-smooth ${plusJakartaSans.variable} ${geist.variable}`}
       suppressHydrationWarning
     >
       <head>
@@ -82,135 +82,116 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className="min-h-full flex flex-col bg-[#0C0D0E] text-[#F8FAFC] font-sans antialiased selection:bg-[#E25C38]/25 selection:text-white"
+        className="min-h-full flex flex-col bg-white text-[#111111] font-sans antialiased selection:bg-red-500/20 selection:text-red-600"
         suppressHydrationWarning
       >
         <Navbar />
         <div className="flex-grow">{children}</div>
 
-        {/* ── Footer — Obsidian Dark Track ─────────────────────────── */}
+        {/* ── Footer — Minimalist Mobile-First Editorial ────────────── */}
         <footer
-          className="bg-[#0C0D0E] border-t border-white/[0.08] pt-16 pb-12 px-6 md:px-8 text-[#94A3B8]"
+          className="bg-[#FAFAFA] border-t border-gray-200/80 pt-12 sm:pt-16 pb-10 px-4 sm:px-6 md:px-8 text-[#52525B]"
           role="contentinfo"
         >
-          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8 mb-14">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-12">
 
             {/* Column 1: Brand & Contact Info */}
             <div className="lg:col-span-1">
-              <Link href="/" className="inline-flex items-center mb-4 hover:opacity-85 transition-opacity" aria-label="Websy.bd — go to homepage">
+              <Link href="/" className="inline-flex items-center mb-3 hover:opacity-85 transition-opacity" aria-label="Websy.bd — go to homepage">
                 <Image
-                  src="/logo.svg"
+                  src="/logo-dark.svg"
                   alt="Websy logo"
-                  width={120}
-                  height={36}
-                  className="block h-9 w-auto"
+                  width={115}
+                  height={34}
+                  className="block h-7 sm:h-8 w-auto"
                 />
-                <span className="text-[14.5px] font-bold text-white lowercase select-none ml-[-12px] self-end mb-[1.5px]">
+                <span className="text-[13px] sm:text-[14px] font-bold text-[#111111] lowercase select-none ml-[-11px] self-end mb-[1px]">
                   .bd
                 </span>
               </Link>
-              <p className="text-xs text-[#94A3B8] leading-relaxed mb-4">
-                Engineering high-performance e-commerce stores, campaign landing pages, and bespoke web platforms.
+              <p className="text-xs text-[#71717A] leading-relaxed mb-4 max-w-sm">
+                Engineering high-converting e-commerce storefronts, campaign landing pages, and custom web applications.
               </p>
-              <div className="text-xs text-[#94A3B8] space-y-1.5 pt-2 border-t border-white/[0.08]">
-                <p><span className="text-[#F8FAFC] font-medium">Email:</span> <a href="mailto:info@websy.bd" className="hover:text-[#E25C38] transition-colors">info@websy.bd</a></p>
-                <p><span className="text-[#F8FAFC] font-medium">Phone:</span> +880 1828-034555</p>
-                <p><span className="text-[#F8FAFC] font-medium">Location:</span> Dhaka &amp; Chattogram, Bangladesh</p>
+              <div className="text-xs text-[#52525B] space-y-1 pt-2 border-t border-gray-200/80">
+                <p><span className="text-[#111111] font-semibold">WhatsApp:</span> +880 1828-034555</p>
+                <p><span className="text-[#111111] font-semibold">Email:</span> <a href="mailto:info@websy.bd" className="hover:text-[#DC2626] transition-colors">info@websy.bd</a></p>
+                <p><span className="text-[#111111] font-semibold">Location:</span> Dhaka &amp; Chattogram, Bangladesh</p>
               </div>
             </div>
 
-            {/* Column 2: Services */}
-            <nav aria-label="Footer services links">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#F8FAFC] mb-4 font-display">
-                Services
+            {/* Column 2: Navigation */}
+            <nav aria-label="Footer navigation">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-3 font-display">
+                Navigation
               </h3>
-              <ul className="space-y-2.5 text-xs text-[#94A3B8]">
+              <ul className="space-y-2 text-xs text-[#52525B]">
                 <li>
-                  <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Ad Campaign Landing Pages
+                  <Link href="/" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Home
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Full-Stack E-Commerce Stores
+                  <Link href="/work" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Selected Works
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Custom Web Applications
+                  <Link href="/pricing" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Simple Pricing
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Agency White-Labeling
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Speed &amp; CRO Optimization
+                  <Link href="/contact" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Contact Us
                   </Link>
                 </li>
               </ul>
             </nav>
 
-            {/* Column 3: Work & Company */}
-            <nav aria-label="Footer work links">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#F8FAFC] mb-4 font-display">
-                Work &amp; Company
+            {/* Column 3: Flagship Stores */}
+            <nav aria-label="Footer portfolio links">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-3 font-display">
+                Featured Stores
               </h3>
-              <ul className="space-y-2.5 text-xs text-[#94A3B8]">
+              <ul className="space-y-2 text-xs text-[#52525B]">
                 <li>
-                  <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
+                  <a href="https://fleshpots.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-[#DC2626] inline-block transition-colors">
+                    FLESHPOTS (148K+ Community)
+                  </a>
+                </li>
+                <li>
+                  <a href="https://tiarashop.vercel.app/" target="_blank" rel="noopener noreferrer" className="hover:text-[#DC2626] inline-block transition-colors">
                     TIARA Modest Fashion
-                  </Link>
+                  </a>
                 </li>
                 <li>
-                  <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Henley Zone Store
-                  </Link>
+                  <a href="https://henleyzone.com" target="_blank" rel="noopener noreferrer" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Henley Zone Creator Store
+                  </a>
                 </li>
                 <li>
-                  <Link href="/work" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Glamora Luxe Store
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/about" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Engineering Team
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Schedule Discovery Call
-                  </Link>
+                  <a href="https://glamora-beige.vercel.app" target="_blank" rel="noopener noreferrer" className="hover:text-[#DC2626] inline-block transition-colors">
+                    Glamora Luxe Apparel
+                  </a>
                 </li>
               </ul>
             </nav>
 
-            {/* Column 5: Legal & Connect */}
-            <nav aria-label="Footer legal and connect links">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-[#F8FAFC] mb-4 font-display">
-                Legal &amp; Connect
+            {/* Column 4: Direct Connect */}
+            <nav aria-label="Footer direct connection">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-[#111111] mb-3 font-display">
+                Direct Connect
               </h3>
-              <ul className="space-y-2.5 text-xs text-[#94A3B8]">
-                <li>
-                  <Link href="/terms-and-conditions" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/privacy-policy" className="hover:text-[#F8FAFC] hover:translate-x-0.5 inline-block transition-all duration-200">
-                    Privacy Policy
-                  </Link>
-                </li>
+              <ul className="space-y-2.5 text-xs text-[#52525B]">
                 <li>
                   <a
                     href="https://wa.me/8801828034555?text=Hi%20Websy!%20I'd%20like%20to%20discuss%20a%20website%20project."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-emerald-400 hover:text-emerald-300 font-semibold transition-colors duration-200 inline-flex items-center gap-1.5"
+                    className="inline-flex items-center gap-1.5 font-bold text-emerald-600 hover:text-emerald-700 transition-colors"
                   >
-                    <span>● WhatsApp 24/7</span>
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>WhatsApp 24/7 Fast-Track</span>
                   </a>
                 </li>
                 <li>
@@ -218,29 +199,39 @@ export default function RootLayout({
                     href="https://www.facebook.com/profile.php?id=61590418449990"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-[#F8FAFC] transition-colors duration-200"
+                    className="hover:text-[#111111] transition-colors inline-block"
                   >
                     Facebook Page
                   </a>
+                </li>
+                <li>
+                  <Link href="/terms-and-conditions" className="hover:text-[#111111] transition-colors inline-block">
+                    Terms &amp; Conditions
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/privacy-policy" className="hover:text-[#111111] transition-colors inline-block">
+                    Privacy Policy
+                  </Link>
                 </li>
               </ul>
             </nav>
 
           </div>
 
-          {/* Legal bottom row */}
-          <div className="max-w-7xl mx-auto pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#94A3B8]">
+          {/* Legal bottom bar */}
+          <div className="max-w-7xl mx-auto pt-6 border-t border-gray-200/80 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-[#71717A]">
             <p>
-              &copy; 2026 Websy Digital Studio (Websy.bd). 100% custom code • Zero vendor lock-in.
+              &copy; 2026 Websy Digital Studio (Websy.bd). 100% Custom Code.
             </p>
-            <div className="flex items-center gap-6">
-              <Link href="/terms-and-conditions" className="hover:text-[#F8FAFC] transition-colors">
-                Terms
+            <div className="flex items-center gap-5">
+              <Link href="/work" className="hover:text-[#111111] transition-colors">
+                Works
               </Link>
-              <Link href="/privacy-policy" className="hover:text-[#F8FAFC] transition-colors">
-                Privacy
+              <Link href="/pricing" className="hover:text-[#111111] transition-colors">
+                Pricing
               </Link>
-              <Link href="/contact" className="hover:text-[#F8FAFC] transition-colors">
+              <Link href="/contact" className="hover:text-[#111111] transition-colors">
                 Contact
               </Link>
             </div>

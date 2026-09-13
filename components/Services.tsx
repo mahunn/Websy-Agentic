@@ -67,7 +67,7 @@ export default function Services() {
         <div className="max-w-3xl mb-14 sm:mb-18">
           {/* Small tracked pill badge */}
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white border border-neutral-200/90 shadow-sm mb-5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38]" />
+            <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
             <span className="text-[11.5px] font-bold uppercase tracking-[0.2em] text-[#111111]">
               OUR CORE CAPABILITIES
             </span>
@@ -99,8 +99,8 @@ export default function Services() {
                   <Truck className="w-6 h-6" />
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#E25C38] bg-[#E25C38]/10 px-3 py-1 rounded-full">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#E25C38] animate-ping" />
+                  <span className="inline-flex items-center gap-1.5 text-[12px] font-semibold text-[#DC2626] bg-[#DC2626]/10 px-3 py-1 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626] animate-ping" />
                     Live Webhook Automation
                   </span>
                 </div>
@@ -141,7 +141,7 @@ export default function Services() {
                 {/* Window chrome header */}
                 <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/[0.08] text-xs text-zinc-500">
                   <div className="flex items-center gap-1.5">
-                    <span className="w-2.5 h-2.5 rounded-full bg-[#E25C38]" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-[#DC2626]" />
                     <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
                     <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
                     <span className="ml-2 font-mono text-[11px] text-zinc-400">POST /api/v1/courier/dispatch</span>
@@ -163,7 +163,7 @@ export default function Services() {
                     <span className="text-[#94A3B8]">&quot;courier&quot;:</span> <span className="text-amber-300">&quot;{currentCourier.name}&quot;</span>,
                   </div>
                   <div className="pl-4">
-                    <span className="text-[#94A3B8]">&quot;tracking_id&quot;:</span> <span className="text-[#E25C38] font-bold">&quot;{currentCourier.trackingPrefix}&quot;</span>,
+                    <span className="text-[#94A3B8]">&quot;tracking_id&quot;:</span> <span className="text-[#DC2626] font-bold">&quot;{currentCourier.trackingPrefix}&quot;</span>,
                   </div>
                   <div className="pl-4">
                     <span className="text-[#94A3B8]">&quot;status&quot;:</span> <span className="text-emerald-400">&quot;parcel_dispatched&quot;</span>,
@@ -184,15 +184,15 @@ export default function Services() {
             {/* Bottom Key Feature Checklist */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-neutral-100 text-xs text-neutral-600 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Instant Consignment Push</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Live SMS &amp; WhatsApp Tracking</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Automatic COD Reconciliation</span>
               </div>
             </div>
@@ -249,15 +249,15 @@ export default function Services() {
             {/* Bullet Points */}
             <div className="space-y-2.5 pt-4 border-t border-neutral-100 text-xs text-neutral-600 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Bypasses iOS 14.5+ &amp; Brave Ad Blockers</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Incomplete Checkout Form Capture</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Custom ROAS &amp; LTV Reporting</span>
               </div>
             </div>
@@ -271,7 +271,7 @@ export default function Services() {
                 <div className="w-12 h-12 rounded-2xl bg-neutral-100/80 border border-neutral-200/70 flex items-center justify-center text-[#111111] group-hover:bg-[#111111] group-hover:text-white transition-colors duration-300">
                   <ShoppingBag className="w-6 h-6" />
                 </div>
-                <span className="text-[11px] font-bold uppercase tracking-wider text-[#E25C38] bg-[#E25C38]/10 px-2.5 py-1 rounded-full">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-[#DC2626] bg-[#DC2626]/10 px-2.5 py-1 rounded-full">
                   &lt;650ms Speed
                 </span>
               </div>
@@ -312,7 +312,7 @@ export default function Services() {
                   <span className="font-bold text-[#111111]">{niches[activeNiche].name}</span>
                   <span className="text-emerald-600 font-semibold">{niches[activeNiche].metric}</span>
                 </div>
-                <div className="text-[11.5px] text-[#E25C38] font-medium mb-2">
+                <div className="text-[11.5px] text-[#DC2626] font-medium mb-2">
                   {niches[activeNiche].conversion}
                 </div>
                 <div className="flex flex-wrap gap-1">
@@ -328,11 +328,11 @@ export default function Services() {
             {/* Sub-feature Footer */}
             <div className="pt-4 border-t border-neutral-100 text-xs text-neutral-600 font-medium space-y-2">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>1-Click Cash on Delivery Drawer</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Sub-second Core Web Vitals</span>
               </div>
             </div>
@@ -431,15 +431,15 @@ export default function Services() {
             {/* Bottom Key Points */}
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-6 mt-6 border-t border-neutral-100 text-xs text-neutral-600 font-medium">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Zero-Latency Language Switching</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>District-Wise Automated Shipping</span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#E25C38] shrink-0" />
+                <CheckCircle2 className="w-4 h-4 text-[#DC2626] shrink-0" />
                 <span>Multi-Currency Geo-Detection</span>
               </div>
             </div>
@@ -450,7 +450,7 @@ export default function Services() {
         {/* ── Bottom Section CTA Banner ─────────────────────────────── */}
         <div className="mt-14 sm:mt-18 bg-[#111111] rounded-3xl p-8 sm:p-12 text-white flex flex-col md:flex-row md:items-center justify-between gap-8 relative overflow-hidden shadow-xl">
           <div className="relative z-10 max-w-2xl">
-            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#E25C38] mb-3">
+            <span className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-[#DC2626] mb-3">
               <Sparkles className="w-4 h-4" /> Ready to upgrade your commerce stack?
             </span>
             <h3 className="text-2xl sm:text-3xl md:text-4xl font-display font-extrabold tracking-tight mb-3">

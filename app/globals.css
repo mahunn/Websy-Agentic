@@ -7,83 +7,97 @@
   --font-display: 'Plus Jakarta Sans', var(--font-display), sans-serif;
   --font-sans: 'Geist', var(--font-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Obsidian Dark Palette */
-  --color-obsidian-base: #0C0D0E;
-  --color-obsidian-surface: #141619;
-  --color-obsidian-elevated: #1E2024;
-  --color-obsidian-highlight: #272A30;
+  /* Pure Neutral Canvas & Surfaces (White / Light Mode Foundation) */
+  --color-canvas-white: #FFFFFF;
+  --color-canvas-subtle: #F8FAFC;
+  --color-canvas-elevated: #F1F5F9;
 
-  /* Primary Accent: Burnt Ember / Terracotta */
-  --color-ember: #E25C38;
-  --color-ember-hover: #EA6C48;
-  --color-ember-dark: #C04826;
-  --color-ember-glow: rgba(226, 92, 56, 0.15);
+  /* Deep Black & Dark Accents */
+  --color-black-base: #111111;
+  --color-black-card: #18181B;
+  --color-black-elevated: #27272A;
 
-  /* Subdued High-End Borders */
-  --color-border-subtle: rgba(255, 255, 255, 0.08);
-  --color-border-medium: rgba(255, 255, 255, 0.14);
-  --color-border-strong: rgba(255, 255, 255, 0.22);
-  --color-border-ember: rgba(226, 92, 56, 0.35);
+  /* Primary Accent: Crisp Red (Strict Red / White / Black Theme) */
+  --color-red-primary: #DC2626;
+  --color-red-hover: #EF4444;
+  --color-red-dark: #B91C1C;
+  --color-red-glow: rgba(220, 38, 38, 0.15);
+
+  /* Aliased for full backward compatibility (eliminates orange) */
+  --color-ember: #DC2626;
+  --color-ember-hover: #EF4444;
+  --color-ember-dark: #B91C1C;
+  --color-ember-glow: rgba(220, 38, 38, 0.15);
+
+  /* Clean Borders */
+  --color-border-subtle: rgba(0, 0, 0, 0.08);
+  --color-border-medium: rgba(0, 0, 0, 0.15);
+  --color-border-strong: rgba(0, 0, 0, 0.25);
+  --color-border-red: rgba(220, 38, 38, 0.35);
 
   /* Typography / Text Tones */
-  --color-text-primary: #F8FAFC;
-  --color-text-secondary: #94A3B8;
-  --color-text-muted: #A1A1AA;
-  --color-text-subtle: #64748B;
+  --color-text-primary: #111111;
+  --color-text-secondary: #52525B;
+  --color-text-muted: #71717A;
+  --color-text-subtle: #A1A1AA;
 
   /* Backwards-compatible aliases */
-  --color-canvas-night: #0C0D0E;
-  --color-canvas-night-elevated: #141619;
-  --color-surface-dark: #141619;
-  --color-primary: #E25C38;
-  --color-primary-hover: #EA6C48;
-  --color-primary-navy: #0C0D0E;
+  --color-canvas-night: #111111;
+  --color-canvas-night-elevated: #18181B;
+  --color-surface-dark: #18181B;
+  --color-primary: #DC2626;
+  --color-primary-hover: #EF4444;
+  --color-primary-navy: #111111;
 }
 
 /* ─── CSS Custom Properties (Raw values for utility & inline use) ─── */
 :root {
-  /* Obsidian Theme Canvas & Surfaces */
-  --bg-base: #0C0D0E;
-  --bg-surface: #141619;
-  --bg-elevated: #1E2024;
-  --bg-highlight: #272A30;
+  --bg-base: #FFFFFF;
+  --bg-surface: #F8FAFC;
+  --bg-elevated: #F1F5F9;
+  --bg-dark: #111111;
 
-  /* Burnt Ember / Terracotta Primary Accent */
-  --accent-ember: #E25C38;
-  --accent-ember-hover: #EA6C48;
-  --accent-ember-dark: #C04826;
-  --accent-ember-glow: rgba(226, 92, 56, 0.15);
+  /* Crisp Red Accent (NO orange) */
+  --accent-red: #DC2626;
+  --accent-red-hover: #EF4444;
+  --accent-red-dark: #B91C1C;
+  --accent-red-glow: rgba(220, 38, 38, 0.15);
+
+  /* Aliased for backward compatibility */
+  --accent-ember: #DC2626;
+  --accent-ember-hover: #EF4444;
+  --accent-ember-dark: #B91C1C;
+  --accent-ember-glow: rgba(220, 38, 38, 0.15);
 
   /* Hairline Borders */
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-medium: rgba(255, 255, 255, 0.14);
-  --border-strong: rgba(255, 255, 255, 0.22);
-  --border-ember: rgba(226, 92, 56, 0.35);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-medium: rgba(0, 0, 0, 0.14);
+  --border-strong: rgba(0, 0, 0, 0.22);
+  --border-red: rgba(220, 38, 38, 0.35);
 
-  /* Slate & Zinc Text */
-  --text-primary: #F8FAFC;
-  --text-secondary: #94A3B8;
-  --text-muted: #A1A1AA;
-  --text-subtle: #64748B;
+  /* Text Tones */
+  --text-primary: #111111;
+  --text-secondary: #52525B;
+  --text-muted: #71717A;
+  --text-subtle: #A1A1AA;
 
   /* Font Families */
   --font-display: 'Plus Jakarta Sans', sans-serif;
   --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
-  /* Elevation Shadows */
-  --shadow-obsidian-sm: 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
-  --shadow-obsidian-md: 0 4px 14px rgba(0, 0, 0, 0.5), 0 1px 2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  --shadow-obsidian-lg: 0 12px 36px rgba(0, 0, 0, 0.65), 0 2px 6px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  --shadow-ember-glow: 0 0 24px -4px rgba(226, 92, 56, 0.3);
+  /* Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-medium: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-floating: 0 12px 32px rgba(0, 0, 0, 0.12), 0 2px 6px rgba(0, 0, 0, 0.04);
 }
 
 /* ─── Global Base & Reset ─────────────────────────────────────────── */
 html {
   font-family: var(--font-sans);
   scroll-behavior: smooth;
-  color-scheme: dark;
-  background-color: var(--bg-base);
-  color: var(--text-primary);
+  color-scheme: light;
+  background-color: #FFFFFF;
+  color: #111111;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -91,32 +105,32 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--bg-base);
-  color: var(--text-primary);
+  background-color: #FFFFFF;
+  color: #111111;
   min-height: 100vh;
   overflow-x: hidden;
 }
 
-/* Crisp Text Selection */
+/* Crisp Red Text Selection */
 ::selection {
-  background-color: rgba(226, 92, 56, 0.28);
-  color: #FFFFFF;
+  background-color: rgba(220, 38, 38, 0.18);
+  color: #111111;
 }
 
-/* Custom Obsidian Scrollbar */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
 }
 ::-webkit-scrollbar-track {
-  background: #0C0D0E;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #272A30;
+  background: #CBD5E1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #3F424A;
+  background: #94A3B8;
 }
 
 /* ─── Typography Utility Classes ─────────────────────────────────── */
@@ -133,103 +147,162 @@ body {
 .headline-hero {
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5.5vw, 4.5rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.05;
   letter-spacing: -0.035em;
-  color: var(--text-primary);
+  color: #111111;
 }
 
 .headline-section {
   font-family: var(--font-display);
   font-size: clamp(2rem, 3.5vw, 3rem);
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.025em;
-  color: var(--text-primary);
+  color: #111111;
 }
 
 .headline-card {
   font-family: var(--font-display);
   font-size: clamp(1.25rem, 2vw, 1.625rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.02em;
-  color: var(--text-primary);
+  color: #111111;
 }
 
 /* Eyebrow Label */
+.eyebrow-red {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #DC2626;
+}
+
 .eyebrow-ember {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: var(--accent-ember);
+  color: #DC2626;
 }
 
-/* ─── Bento Grid & Obsidian Surfaces ──────────────────────────────── */
+/* ─── Bento Grid & Surfaces ──────────────────────────────── */
+.card-clean {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-subtle);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-clean:hover {
+  border-color: rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Backwards-compatible card aliases */
 .card-obsidian {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 1rem;
-  box-shadow: var(--shadow-obsidian-sm);
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
+  box-shadow: var(--shadow-subtle);
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-obsidian:hover {
-  background-color: var(--bg-elevated);
-  border-color: var(--border-medium);
-  box-shadow: var(--shadow-obsidian-md);
-}
-
-.card-obsidian-active {
-  background-color: var(--bg-elevated);
-  border-color: var(--border-medium);
+  border-color: rgba(0, 0, 0, 0.16);
+  box-shadow: var(--shadow-medium);
 }
 
 .card-obsidian-ember {
-  background-color: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1.25rem;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card-obsidian-ember:hover {
-  border-color: var(--border-ember);
-  box-shadow: 0 0 20px -2px rgba(226, 92, 56, 0.15);
+  border-color: #DC2626;
+  box-shadow: 0 0 20px -2px rgba(220, 38, 38, 0.12);
 }
 
 /* ─── Button & CTA System ─────────────────────────────────────────── */
+.btn-pill-black {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #111111;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-pill-black:hover {
+  background-color: #000000;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-pill-red {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #DC2626;
+  color: #FFFFFF;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: 9999px;
+  box-shadow: 0 2px 8px rgba(220, 38, 38, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.btn-pill-red:hover {
+  background-color: #EF4444;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
+}
+
+/* Aliased for backward compatibility */
 .btn-ember {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: var(--accent-ember);
+  background-color: #111111;
   color: #FFFFFF;
   font-weight: 600;
   font-size: 0.9375rem;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 0 12px -2px rgba(226, 92, 56, 0.4);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .btn-ember:hover {
-  background-color: var(--accent-ember-hover);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 20px 0px rgba(226, 92, 56, 0.55);
+  background-color: #000000;
   transform: translateY(-1px);
-}
-
-.btn-ember:active {
-  background-color: var(--accent-ember-dark);
-  transform: translateY(0);
 }
 
 .btn-obsidian {
@@ -237,80 +310,79 @@ body {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  font-weight: 500;
+  background-color: #FFFFFF;
+  color: #111111;
+  font-weight: 600;
   font-size: 0.9375rem;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
-  border: 1px solid var(--border-subtle);
+  border: 1px solid rgba(0, 0, 0, 0.12);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   cursor: pointer;
   white-space: nowrap;
 }
 
 .btn-obsidian:hover {
-  background-color: var(--bg-elevated);
-  border-color: var(--border-medium);
-  color: #FFFFFF;
+  background-color: #F8FAFC;
+  border-color: rgba(0, 0, 0, 0.2);
   transform: translateY(-1px);
 }
 
-.btn-obsidian:active {
-  transform: translateY(0);
-}
-
 /* ─── Badges & Tags ───────────────────────────────────────────────── */
-.badge-ember {
+.badge-red {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background-color: rgba(226, 92, 56, 0.1);
-  color: var(--accent-ember);
-  border: 1px solid rgba(226, 92, 56, 0.22);
+  background-color: rgba(220, 38, 38, 0.08);
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.badge-obsidian {
+.badge-ember {
   display: inline-flex;
   align-items: center;
   gap: 0.375rem;
-  background-color: var(--bg-surface);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
+  background-color: rgba(220, 38, 38, 0.08);
+  color: #DC2626;
+  border: 1px solid rgba(220, 38, 38, 0.2);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: #F8FAFC;
+  color: #52525B;
+  border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 9999px;
   padding: 0.25rem 0.75rem;
   font-size: 0.75rem;
   font-weight: 500;
 }
 
-/* ─── Ambient Glows & Accents ─────────────────────────────────────── */
-.glow-ember-subtle {
-  background: radial-gradient(circle at center, rgba(226, 92, 56, 0.12) 0%, transparent 70%);
-}
-
-.glow-ember-intense {
-  background: radial-gradient(circle at center, rgba(226, 92, 56, 0.22) 0%, transparent 65%);
-}
-
-/* Grid background pattern */
-.bg-grid-pattern {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-}
-
-.bg-grid-pattern-dense {
-  background-size: 24px 24px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+.badge-obsidian {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background-color: #F8FAFC;
+  color: #52525B;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
 }
 
 /* ─── Scrollbar Utility ───────────────────────────────────────────── */
@@ -336,17 +408,21 @@ body {
   animation: marquee 40s linear infinite reverse;
 }
 
-@keyframes pulse-ember {
+@keyframes pulse-red {
   0%, 100% {
     opacity: 1;
-    box-shadow: 0 0 0 0 rgba(226, 92, 56, 0.4);
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4);
   }
   50% {
     opacity: 0.8;
-    box-shadow: 0 0 0 6px rgba(226, 92, 56, 0);
+    box-shadow: 0 0 0 6px rgba(220, 38, 38, 0);
   }
 }
 
+.animate-pulse-red {
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
 .animate-pulse-ember {
-  animation: pulse-ember 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation: pulse-red 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
