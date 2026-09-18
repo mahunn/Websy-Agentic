@@ -88,100 +88,63 @@ export default function TeamShowcase() {
   return (
     <section 
       id="team" 
-      className="py-16 sm:py-24 bg-[#060D1F] text-white relative overflow-hidden"
+      className="py-20 sm:py-28 bg-[#0A0A0A] text-white relative border-t border-b border-black"
       aria-labelledby="team-headline"
     >
-      {/* ── Studio Stage Lighting (Royal Blue + Deep Red Ambient Glow) ── */}
-      <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-5xl h-[550px] pointer-events-none"
-        style={{
-          background: 'radial-gradient(circle at 50% 20%, rgba(29, 78, 216, 0.35) 0%, rgba(14, 38, 102, 0.18) 50%, transparent 75%)',
-        }}
-      />
-      <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[750px] h-[350px] rounded-full blur-[130px] pointer-events-none opacity-30"
-        style={{ background: 'rgba(37, 99, 235, 0.3)' }}
-      />
-      <div 
-        className="absolute -bottom-20 right-1/4 w-[380px] h-[300px] rounded-full blur-[140px] pointer-events-none opacity-20"
-        style={{ background: 'rgba(220, 38, 38, 0.3)' }}
-      />
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* ── 1. Top Capsule Badge with Red Accent Line ─────────────── */}
-        <div className="flex flex-col items-center text-center mb-8 sm:mb-12">
-          <div className="relative inline-flex items-center justify-center mb-4">
-            <div className="relative px-5 sm:px-7 py-1.5 sm:py-2 rounded-full bg-[#0B1838]/90 border border-blue-400/35 backdrop-blur-md shadow-[0_0_20px_rgba(59,130,246,0.25)]">
-              <span className="text-[10.5px] sm:text-xs font-bold uppercase tracking-[0.25em] text-blue-200">
-                DIRECT ACCESS TO SENIOR ARCHITECTS
-              </span>
-              {/* Red illuminated curved highlight line */}
-              <div className="absolute -bottom-[1px] left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-[#DC2626] to-transparent shadow-[0_0_8px_#DC2626]" />
-            </div>
+        {/* ── 1. Minimal Header ─────────────── */}
+        <div className="flex flex-col items-center text-center mb-12 sm:mb-16">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono font-bold uppercase tracking-[0.2em] text-gray-300 mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626]" />
+            <span>DIRECT ACCESS TO LEAD ARCHITECTS</span>
           </div>
 
           <h2 
             id="team-headline"
-            className="text-2xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-[1.12] max-w-3xl"
+            className="text-3xl sm:text-4xl md:text-5xl font-display font-extrabold text-white tracking-tight leading-[1.15] max-w-2xl"
           >
-            Direct Access to the Engineers &amp; Designers <br className="hidden sm:inline" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-slate-200">
-              Building Your Digital Flagship
-            </span>
+            Direct Access to the Engineers <br className="hidden sm:inline" />
+            Building Your Flagship.
           </h2>
 
-          <p className="text-slate-300/90 font-sans text-xs sm:text-base max-w-2xl mt-3 leading-relaxed">
+          <p className="text-gray-400 font-sans text-sm sm:text-base max-w-xl mt-5 leading-relaxed">
             Zero junior handoffs, account managers, or telephone games. You collaborate directly with experienced software engineers and conversion specialists.
           </p>
         </div>
 
-        {/* ── 2. The 4-Card Studio Portrait Gallery (Mobile & Desktop) ─ */}
-        <div className="mt-6 mb-10">
+        {/* ── 2. The 4-Card Minimalist Portrait Gallery ─ */}
+        <div className="mb-12">
           
           {/* Mobile: Horizontal Swipe / Snap Deck (< md) */}
-          <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-3 pb-4 pt-1 px-1 no-scrollbar scroll-smooth">
+          <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 px-1 no-scrollbar scroll-smooth">
             {teamMembers.map((member) => {
               const isSelected = member.id === selectedMemberId;
               return (
                 <div
                   key={member.id}
                   onClick={() => setSelectedMemberId(member.id)}
-                  className={`snap-center shrink-0 w-[220px] h-[350px] rounded-2xl overflow-hidden relative cursor-pointer transition-all duration-300 border ${
+                  className={`snap-center shrink-0 w-[240px] h-[360px] rounded-2xl overflow-hidden relative cursor-pointer transition-all duration-500 border ${
                     isSelected 
-                      ? 'border-[#DC2626] shadow-[0_12px_32px_rgba(220,38,38,0.25)] scale-[1.02]' 
-                      : 'border-blue-400/20 hover:border-blue-400/40 shadow-md'
+                      ? 'border-white/20' 
+                      : 'border-white/5 opacity-80 hover:opacity-100'
                   }`}
                 >
-                  {/* Portrait Image */}
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    sizes="220px"
-                    className="object-cover transition-transform duration-500"
+                    sizes="240px"
+                    className="object-cover"
                     style={{ objectPosition: member.objectPosition || 'center 20%' }}
                   />
-
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060D1F] via-[#060D1F]/30 to-transparent" />
-
-                  {/* Founder Pill Badge */}
-                  {member.isFounder && (
-                    <div className="absolute top-3.5 left-1/2 -translate-x-1/2 z-20">
-                      <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#DC2626] text-white text-[10px] font-mono font-extrabold uppercase tracking-wider shadow-sm">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        FOUNDER
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Member Name Label */}
-                  <div className="absolute bottom-3 left-3 right-3 z-20 text-center">
-                    <p className="font-display font-bold text-sm text-white truncate drop-shadow-sm">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  
+                  <div className="absolute bottom-4 left-4 right-4 z-20">
+                    <p className="font-display font-bold text-lg text-white truncate">
                       {member.name}
                     </p>
-                    <p className="text-[10.5px] font-mono text-blue-200 truncate">
+                    <p className="text-xs font-mono text-gray-400 mt-1 truncate">
                       {member.roleShort}
                     </p>
                   </div>
@@ -190,55 +153,36 @@ export default function TeamShowcase() {
             })}
           </div>
 
-          {/* Desktop: 4-Card Elevated Arch Grid (md+) */}
-          <div className="hidden md:grid md:grid-cols-4 gap-4 lg:gap-6 max-w-5xl mx-auto items-end pt-4 pb-2">
-            {teamMembers.map((member, idx) => {
+          {/* Desktop: 4-Card Clean Grid (md+) */}
+          <div className="hidden md:grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            {teamMembers.map((member) => {
               const isSelected = member.id === selectedMemberId;
-              const isMahin = member.isFounder;
 
               return (
                 <div
                   key={member.id}
                   onClick={() => setSelectedMemberId(member.id)}
-                  className={`rounded-3xl overflow-hidden relative cursor-pointer transition-all duration-300 border ${
-                    isMahin 
-                      ? 'h-[430px] lg:h-[460px] -translate-y-3 shadow-2xl' 
-                      : 'h-[380px] lg:h-[400px] shadow-lg hover:-translate-y-1'
-                  } ${
+                  className={`rounded-2xl overflow-hidden relative cursor-pointer transition-all duration-500 border h-[420px] ${
                     isSelected 
-                      ? 'border-[#DC2626] ring-2 ring-[#DC2626]/40 shadow-[0_20px_45px_rgba(220,38,38,0.28)]' 
-                      : 'border-blue-400/25 hover:border-blue-400/50'
+                      ? 'border-white/25 ring-4 ring-white/5 shadow-2xl scale-[1.02]' 
+                      : 'border-white/5 opacity-80 hover:opacity-100 hover:border-white/15'
                   }`}
                 >
-                  {/* Portrait Photo */}
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
                     sizes="(max-width: 1024px) 25vw, 280px"
-                    className="object-cover transition-transform duration-700 hover:scale-105"
+                    className="object-cover"
                     style={{ objectPosition: member.objectPosition || 'center 18%' }}
                   />
-
-                  {/* Gentle Gradient Darkening */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#060D1F] via-[#060D1F]/20 to-transparent" />
-
-                  {/* Founder Badge on Mahin Ahmad's Card */}
-                  {isMahin && (
-                    <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20">
-                      <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#DC2626] text-white text-[10.5px] font-mono font-extrabold uppercase tracking-widest shadow-md">
-                        <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                        FOUNDER
-                      </span>
-                    </div>
-                  )}
-
-                  {/* Bottom Text Pill */}
-                  <div className="absolute bottom-4 left-3 right-3 z-20 text-center">
-                    <p className="font-display font-bold text-base text-white drop-shadow-sm truncate">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent" />
+                  
+                  <div className="absolute bottom-5 left-5 right-5 z-20">
+                    <p className="font-display font-bold text-lg text-white truncate">
                       {member.name}
                     </p>
-                    <p className="text-[11px] font-mono text-blue-200 mt-0.5 truncate">
+                    <p className="text-xs font-mono text-gray-400 mt-1 truncate">
                       {member.roleShort}
                     </p>
                   </div>
@@ -246,68 +190,53 @@ export default function TeamShowcase() {
               );
             })}
           </div>
-
-          {/* Mobile Dot Indicators */}
-          <div className="flex md:hidden items-center justify-center gap-2 mt-3">
-            {teamMembers.map((m) => (
-              <button
-                key={m.id}
-                onClick={() => setSelectedMemberId(m.id)}
-                className={`h-1.5 rounded-full transition-all duration-300 ${
-                  m.id === selectedMemberId 
-                    ? 'w-6 bg-[#DC2626]' 
-                    : 'w-1.5 bg-white/20'
-                }`}
-                aria-label={`Select ${m.name}`}
-              />
-            ))}
-          </div>
         </div>
 
-        {/* ── 3. Selected Member Spotlight & Direct Channels ─────────── */}
-        <div className="max-w-3xl mx-auto">
-          <div className="bg-[#0A1633]/90 border border-blue-500/25 rounded-2xl sm:rounded-3xl p-5 sm:p-7 backdrop-blur-xl shadow-xl relative overflow-hidden">
+        {/* ── 3. Selected Member Premium Profile Card ─────────── */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-[#111111] border border-white/10 rounded-3xl p-6 sm:p-10 shadow-2xl relative overflow-hidden">
             
-            {/* Corner Decorative Accent */}
-            <div 
-              className="absolute -top-12 -right-12 w-36 h-36 rounded-full pointer-events-none"
-              style={{ background: 'radial-gradient(circle, rgba(220, 38, 38, 0.15) 0%, transparent 70%)' }}
-            />
-
-            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-5 relative z-10">
-              <div className="flex items-start gap-4">
-                {/* Micro Thumbnail */}
-                <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-xl overflow-hidden border border-blue-400/40 shrink-0 shadow-md">
-                  <Image
-                    src={activeMember.image}
-                    alt={activeMember.name}
-                    fill
-                    sizes="56px"
-                    className="object-cover"
-                    style={{ objectPosition: activeMember.objectPosition || 'center 18%' }}
-                  />
-                </div>
-
-                <div>
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-lg sm:text-xl font-display font-extrabold text-white tracking-tight">
-                      {activeMember.name}
-                    </h3>
-                    <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#DC2626] bg-red-500/10 border border-red-500/30 px-2 py-0.5 rounded-full">
-                      {activeMember.isFounder ? 'Founder' : 'Senior Specialist'}
+            <div className="flex flex-col md:flex-row items-start justify-between gap-8 relative z-10">
+              
+              {/* Left Content */}
+              <div className="flex-1">
+                <div className="flex items-center gap-3 mb-3">
+                  <h3 className="text-2xl sm:text-3xl font-display font-bold text-white tracking-tight">
+                    {activeMember.name}
+                  </h3>
+                  {activeMember.isFounder && (
+                    <span className="text-[10px] font-mono font-bold uppercase tracking-widest text-[#DC2626] bg-[#DC2626]/10 px-2.5 py-1 rounded-md">
+                      Founder
                     </span>
-                  </div>
-                  <p className="text-xs font-semibold text-blue-200/90 uppercase tracking-wider mt-0.5">
-                    {activeMember.role}
-                  </p>
-                  <p className="text-slate-300 text-xs sm:text-sm leading-relaxed mt-2 max-w-lg">
-                    {activeMember.bio}
-                  </p>
+                  )}
+                </div>
+                
+                <p className="text-sm font-mono text-gray-400 uppercase tracking-widest mb-4">
+                  {activeMember.role}
+                </p>
+                
+                <p className="text-gray-300 text-sm sm:text-base leading-relaxed max-w-xl mb-8">
+                  {activeMember.bio}
+                </p>
+
+                {/* Technical Skills Badges */}
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-gray-500 mr-2">
+                    Core Stack
+                  </span>
+                  {activeMember.skills.map((skill, sIdx) => (
+                    <span 
+                      key={sIdx}
+                      className="text-[11px] font-mono font-medium text-gray-300 bg-white/5 border border-white/10 px-3 py-1 rounded-full"
+                    >
+                      {skill}
+                    </span>
+                  ))}
                 </div>
               </div>
 
-              {/* Action Buttons / Socials */}
-              <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto pt-2 sm:pt-0 border-t sm:border-t-0 border-white/10">
+              {/* Right Content (Actions) */}
+              <div className="flex flex-col gap-3 w-full md:w-auto shrink-0 md:pl-8 md:border-l border-white/10">
                 {activeMember.isFounder && activeMember.links ? (
                   <>
                     {activeMember.links.whatsapp && (
@@ -315,9 +244,9 @@ export default function TeamShowcase() {
                         href={activeMember.links.whatsapp}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BD5A] text-white text-xs font-bold py-2.5 px-4 rounded-full transition-all shadow-sm whitespace-nowrap"
+                        className="inline-flex items-center justify-center gap-2 bg-white hover:bg-gray-100 text-black text-sm font-bold py-3.5 px-6 rounded-full transition-all w-full"
                       >
-                        <FaWhatsapp className="w-3.5 h-3.5" />
+                        <FaWhatsapp className="w-4 h-4" />
                         <span>Chat WhatsApp</span>
                       </a>
                     )}
@@ -326,10 +255,10 @@ export default function TeamShowcase() {
                         href={activeMember.links.portfolio}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-1.5 bg-white/10 hover:bg-white/20 text-white text-xs font-semibold py-2.5 px-3.5 rounded-full transition-colors border border-white/15"
+                        className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/5 text-white border border-white/20 text-sm font-semibold py-3.5 px-6 rounded-full transition-colors w-full"
                       >
-                        <Globe className="w-3.5 h-3.5" />
-                        <span>Portfolio</span>
+                        <Globe className="w-4 h-4 text-gray-400" />
+                        <span>View Portfolio</span>
                       </a>
                     )}
                     {activeMember.links.github && (
@@ -337,36 +266,21 @@ export default function TeamShowcase() {
                         href={activeMember.links.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors border border-white/15"
-                        title="GitHub"
-                        aria-label="GitHub Profile"
+                        className="inline-flex items-center justify-center gap-2 bg-transparent hover:bg-white/5 text-white border border-white/20 text-sm font-semibold py-3.5 px-6 rounded-full transition-colors w-full"
                       >
-                        <FaGithub className="w-3.5 h-3.5" />
+                        <FaGithub className="w-4 h-4 text-gray-400" />
+                        <span>GitHub Profile</span>
                       </a>
                     )}
                   </>
                 ) : (
-                  <div className="flex items-center gap-1.5 text-xs text-blue-200/80 bg-blue-950/60 px-3 py-1.5 rounded-full border border-blue-400/20">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-[#DC2626]" />
-                    <span>Direct Senior Lead</span>
+                  <div className="flex flex-col items-center justify-center h-full p-4 bg-white/5 rounded-2xl border border-white/10 text-center">
+                    <CheckCircle2 className="w-6 h-6 text-[#DC2626] mb-2" />
+                    <span className="text-sm font-semibold text-white">In-House Expert</span>
+                    <span className="text-xs text-gray-400 mt-1">Dedicated to your project</span>
                   </div>
                 )}
               </div>
-            </div>
-
-            {/* Technical Skills Badges */}
-            <div className="mt-4 pt-3 border-t border-white/[0.08] flex flex-wrap items-center gap-1.5">
-              <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 mr-1.5">
-                Core Stack:
-              </span>
-              {activeMember.skills.map((skill, sIdx) => (
-                <span 
-                  key={sIdx}
-                  className="text-[10px] font-mono font-medium text-blue-100 bg-[#0E204A] border border-blue-400/25 px-2 py-0.5 rounded-md"
-                >
-                  {skill}
-                </span>
-              ))}
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import Script from "next/script";
+import ChatWidget from "@/components/ChatWidget";
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -237,6 +238,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+        <ChatWidget />
       </body>
     </html>
   );
