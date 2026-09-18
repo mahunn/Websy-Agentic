@@ -15,6 +15,7 @@ interface CaseStudy {
   categoryLabel: string;
   desc: string;
   image: string;
+  screenshots?: { label: string; src: string }[];
   url: string;
   tags: string[];
   metrics: string;
@@ -28,7 +29,12 @@ const caseStudies: CaseStudy[] = [
     category: "saas",
     categoryLabel: "AI Web Platform • Next.js SaaS",
     desc: "Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track daily streaks, and visualize learning trajectories.",
-    image: "/pathly-screenshot.png",
+    image: "/pathly-dashboard.png",
+    screenshots: [
+      { label: "Dashboard", src: "/pathly-dashboard.png" },
+      { label: "Weekly Planner", src: "/pathly-planner.png" },
+      { label: "Community", src: "/pathly-community.png" }
+    ],
     url: "https://pathlyai-tracker.netlify.app/",
     tags: ["Next.js SaaS", "AI Progress Engine", "Habit Tracking", "Supabase Edge"],
     metrics: "AI Study Sync • <500ms Edge LCP",
@@ -117,6 +123,9 @@ const caseStudies: CaseStudy[] = [
 
 export default function WorkPage() {
   const [selectedCategory, setSelectedCategory] = useState<ProjectCategory>('all');
+  const [activeScreenshots, setActiveScreenshots] = useState<Record<string, string>>({
+    pathly: '/pathly-dashboard.png'
+  });
 
   const filteredStudies = caseStudies.filter(item => {
     if (selectedCategory === 'all') return true;
@@ -238,16 +247,18 @@ export default function WorkPage() {
 
         {/* ── Case Studies Grid (Clean Editorial Cards) ─────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 mb-14 sm:mb-18 items-stretch">
-          {filteredStudies.map((study) => (
+          {filteredStudies.map((study) => {
+            const currentImg = activeScreenshots[study.id] || study.image;
+            return (
             <article 
               key={study.id}
               className="bg-white border border-gray-200/90 hover:border-gray-300 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
                 {/* Visual Preview Frame */}
-                <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-4 relative">
+                <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-2.5 relative">
                   <Image
-                    src={study.image}
+                    src={currentImg}
                     alt={`${study.title} live preview`}
                     fill
                     className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
@@ -255,6 +266,29 @@ export default function WorkPage() {
                     priority={study.id === 'pathly' || study.id === 'fleshpots'}
                   />
                 </div>
+
+                {/* Screenshot Switcher for multi-screen projects */}
+                {study.screenshots && study.screenshots.length > 1 && (
+                  <div className="flex items-center gap-1.5 mb-3">
+                    {study.screenshots.map((s) => {
+                      const isActive = currentImg === s.src;
+                      return (
+                        <button
+                          key={s.src}
+                          type="button"
+                          onClick={() => setActiveScreenshots(prev => ({ ...prev, [study.id]: s.src }))}
+                          className={`text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                            isActive
+                              ? 'bg-[#111111] text-white font-semibold shadow-2xs'
+                              : 'bg-neutral-100 text-neutral-600 hover:text-black hover:bg-neutral-200'
+                          }`}
+                        >
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
 
                 {/* Metadata & Title */}
                 <div className="mb-2">
@@ -305,7 +339,8 @@ export default function WorkPage() {
                 </a>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
 
         {/* ── Minimalist Direct Consultation Card (Mobile First) ─────── */}

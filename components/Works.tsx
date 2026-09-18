@@ -14,6 +14,7 @@ interface ProjectItem {
   tags: string[];
   desc: string;
   image: string;
+  screenshots?: { label: string; src: string }[];
   url: string;
 }
 
@@ -26,7 +27,12 @@ const allProjects: ProjectItem[] = [
     metrics: 'AI Study Sync • <500ms Edge LCP',
     tags: ['Next.js SaaS', 'AI Progress Engine', 'Habit Tracking', 'Supabase Edge'],
     desc: 'Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track daily streaks, and visualize learning trajectories.',
-    image: '/pathly-screenshot.png',
+    image: '/pathly-dashboard.png',
+    screenshots: [
+      { label: 'Dashboard', src: '/pathly-dashboard.png' },
+      { label: 'Weekly Planner', src: '/pathly-planner.png' },
+      { label: 'Community', src: '/pathly-community.png' }
+    ],
     url: 'https://pathlyai-tracker.netlify.app/'
   },
   {
@@ -98,6 +104,9 @@ type CategoryType = typeof categories[number];
 
 export default function Works() {
   const [activeCategory, setActiveCategory] = useState<CategoryType>('All');
+  const [activeScreenshots, setActiveScreenshots] = useState<Record<string, string>>({
+    pathly: '/pathly-dashboard.png'
+  });
 
   const filteredProjects = activeCategory === 'All' 
     ? allProjects 
@@ -167,23 +176,48 @@ export default function Works() {
 
         {/* ── Project Showcase 2-Column Responsive Grid ──────────────── */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 items-stretch mb-12">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project) => {
+            const currentImg = activeScreenshots[project.id] || project.image;
+            return (
             <article 
               key={project.id}
               className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group"
             >
               <div>
                 {/* Visual Preview Frame */}
-                <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-4 relative">
+                <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 mb-2.5 relative">
                   <Image
-                    src={project.image}
-                    alt={`${project.title} live storefront preview`}
+                    src={currentImg}
+                    alt={`${project.title} live preview`}
                     fill
                     sizes="(max-width: 768px) 100vw, 560px"
                     className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     priority={project.id === 'pathly' || project.id === 'fleshpots'}
                   />
                 </div>
+
+                {/* Screenshot Switcher for multi-screen projects */}
+                {project.screenshots && project.screenshots.length > 1 && (
+                  <div className="flex items-center gap-1.5 mb-3">
+                    {project.screenshots.map((s) => {
+                      const isActive = currentImg === s.src;
+                      return (
+                        <button
+                          key={s.src}
+                          type="button"
+                          onClick={() => setActiveScreenshots(prev => ({ ...prev, [project.id]: s.src }))}
+                          className={`text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                            isActive
+                              ? 'bg-[#111111] text-white font-semibold shadow-2xs'
+                              : 'bg-neutral-100 text-neutral-600 hover:text-black hover:bg-neutral-200'
+                          }`}
+                        >
+                          {s.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
 
                 {/* Meta & Title */}
                 <div className="mb-2">
@@ -234,7 +268,8 @@ export default function Works() {
                 </a>
               </div>
             </article>
-          ))}
+            );
+          })}
         </div>
 
       </div>

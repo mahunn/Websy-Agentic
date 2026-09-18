@@ -9,6 +9,7 @@ import TeamShowcase from '@/components/TeamShowcase';
 
 export default function Home() {
   const [activeCard, setActiveCard] = useState<number>(3);
+  const [pathlyImage, setPathlyImage] = useState<string>('/pathly-dashboard.png');
 
   return (
     <main id="main-content" className="bg-white selection:bg-red-500/20 selection:text-red-600">
@@ -325,9 +326,9 @@ export default function Home() {
             
             {/* Project 1: Pathly AI Tracker (Latest Flagship) */}
             <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-2.5">
                 <Image
-                  src="/pathly-screenshot.png"
+                  src={pathlyImage}
                   alt="Pathly AI Progress Tracker"
                   fill
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
@@ -335,6 +336,29 @@ export default function Home() {
                   priority
                 />
               </div>
+
+              {/* Real Screenshot Switcher */}
+              <div className="flex items-center gap-1.5 mb-3">
+                {[
+                  { label: 'Dashboard', src: '/pathly-dashboard.png' },
+                  { label: 'Weekly Planner', src: '/pathly-planner.png' },
+                  { label: 'Community', src: '/pathly-community.png' }
+                ].map((tab) => (
+                  <button
+                    key={tab.src}
+                    type="button"
+                    onClick={() => setPathlyImage(tab.src)}
+                    className={`text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                      pathlyImage === tab.src
+                        ? 'bg-[#111111] text-white font-semibold shadow-2xs'
+                        : 'bg-neutral-100 text-neutral-600 hover:text-black hover:bg-neutral-200'
+                    }`}
+                  >
+                    {tab.label}
+                  </button>
+                ))}
+              </div>
+
               <div className="flex items-center justify-between gap-2 mb-1">
                 <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
                   AI Web Platform • Next.js SaaS
