@@ -58,15 +58,30 @@ Language Rule: ALWAYS reply in the exact same language the user uses. IMPORTANT:
 Rule: If a customer asks a highly technical or specific question that you are unsure of, do not make up an answer.
 Strategy: Honestly say you need to check with Mahin or the engineering team, and ask for their WhatsApp number so we can get back to them with the correct answer.`;
 
+    // Normalize messages to the new Vercel AI SDK parts format
+    const normalizedMessages = messages.map((m: any) => {
+      if (m.content && (!m.parts || m.parts.length === 0)) {
+        return {
+          ...m,
+          parts: [{ type: 'text', text: m.content }],
+          content: undefined // Remove the deprecated string content
+        };
+      }
+      return m;
+    });
+
     const result = streamText({
       model: google('gemini-1.5-flash'),
       system: systemPrompt,
-      messages: await convertToModelMessages(messages),
+      messages: await convertToModelMessages(normalizedMessages),
     });
 
     return result.toUIMessageStreamResponse();
-  } catch (error) {
+  } catch (error: any) {
     console.error('Chat API Error:', error);
-    return new Response('An error occurred during chat processing.', { status: 500 });
+    return new Response(JSON.stringify({ error: error.message || String(error), stack: error.stack }), { 
+      status: 500,
+      headers: { 'Content-Type': 'application/json' }
+    });
   }
 }
