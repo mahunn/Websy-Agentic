@@ -11,7 +11,6 @@ export default function ChatWidget() {
   const [input, setInput] = useState('');
   
   const { messages, setMessages, sendMessage, status } = useChat({
-    api: '/api/chat',
     initialMessages: [
       {
         id: 'welcome-message',
