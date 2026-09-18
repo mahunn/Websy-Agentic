@@ -56,8 +56,8 @@ export default function ChatWidget() {
       {
         id: 'welcome-message',
         role: 'assistant',
-        content: 'Hi there! I am Mahin Ahmad from Team Websy. How can I help you today?',
-      }
+        parts: [{ type: 'text', text: 'Hi there! I am Mahin Ahmad from Team Websy. How can I help you today?' }]
+      } as any
     ]);
   }, [setMessages]);
 
