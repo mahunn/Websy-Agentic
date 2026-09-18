@@ -15,10 +15,12 @@ export default function ChatWidget() {
   const isLoading = status === 'submitted' || status === 'streaming';
   
   const getMessageText = (m: any) => {
-    if (m.content) return m.content;
-    if (m.parts && m.parts.length > 0) {
-      const textPart = m.parts.find((p: any) => p.type === 'text');
-      if (textPart) return textPart.text;
+    if (typeof m.content === 'string' && m.content) return m.content;
+    if (Array.isArray(m.parts) && m.parts.length > 0) {
+      return m.parts
+        .filter((p: any) => p.type === 'text' && p.text)
+        .map((p: any) => p.text)
+        .join('');
     }
     return '';
   };
@@ -140,20 +142,24 @@ export default function ChatWidget() {
 
               {/* Messages */}
               <div className="flex-1 overflow-y-auto p-3.5 sm:p-4 space-y-3 sm:space-y-4 bg-[#F9FAFB]">
-                {messages.map((m) => (
-                  <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                    {m.role === 'assistant' && (
-                      <Image src="/mahin.jpg" alt="Avatar" width={28} height={28} className="rounded-full mr-1.5 sm:mr-2 self-end mb-1 w-6 h-6 sm:w-7 sm:h-7 object-cover object-[center_30%]" />
-                    )}
-                    <div className={`max-w-[85%] px-3.5 py-2.5 sm:px-4 sm:py-3 text-[12.5px] sm:text-[13px] leading-relaxed shadow-sm ${
-                      m.role === 'user' 
-                        ? 'bg-[#E11D48] text-white rounded-2xl rounded-br-sm' 
-                        : 'bg-white text-gray-800 border border-gray-200 rounded-2xl rounded-bl-sm whitespace-pre-wrap'
-                    }`}>
-                      {getMessageText(m)}
+                {messages.map((m) => {
+                  const text = getMessageText(m);
+                  if (!text && m.role === 'assistant') return null;
+                  return (
+                    <div key={m.id} className={`flex ${m.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                      {m.role === 'assistant' && (
+                        <Image src="/mahin.jpg" alt="Avatar" width={28} height={28} className="rounded-full mr-1.5 sm:mr-2 self-end mb-1 w-6 h-6 sm:w-7 sm:h-7 object-cover object-[center_30%]" />
+                      )}
+                      <div className={`max-w-[85%] px-3.5 py-2.5 sm:px-4 sm:py-3 text-[12.5px] sm:text-[13px] leading-relaxed shadow-sm ${
+                        m.role === 'user' 
+                          ? 'bg-[#E11D48] text-white rounded-2xl rounded-br-sm' 
+                          : 'bg-white text-gray-800 border border-gray-200 rounded-2xl rounded-bl-sm whitespace-pre-wrap'
+                      }`}>
+                        {text}
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
                 {isLoading && (
                   <div className="flex justify-start">
                     <Image src="/mahin.jpg" alt="Avatar" width={28} height={28} className="rounded-full mr-1.5 sm:mr-2 self-end mb-1 w-6 h-6 sm:w-7 sm:h-7 object-cover object-[center_30%]" />

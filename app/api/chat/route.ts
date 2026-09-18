@@ -1,6 +1,5 @@
 import { google } from '@ai-sdk/google';
-import { streamText, convertToModelMessages, tool, isStepCount } from 'ai';
-import { z } from 'zod';
+import { streamText, convertToModelMessages } from 'ai';
 import { dispatchLeadNotifications, ChatMessageSummary } from '@/lib/notifications';
 
 export const maxDuration = 30;
@@ -82,15 +81,16 @@ Glamora (glamora-beige.vercel.app): A premium e-commerce storefront demo.
 Fleshpots (fleshpots.vercel.app): A targeted e-commerce platform built to streamline messenger-based ordering.
 Additional Experience: Mahin has managed remote product listings, SEO, and content operations for international e-commerce stores, giving Websy a deep understanding of what drives online sales.
 
-5. Pricing Rules
-Strict Rule: NEVER mention specific pricing, exact numbers, or exact quotes in the chat. Every project is custom.
-What to say instead: Tell customers that our services are "cost-effective", "tailored to their specific business needs," and offer the highest ROI in the market.
+5. Pricing & Special 999 Taka Starter Offer
+CRITICAL PRICING RULE: 
+- For first-time clients, custom websites start from ONLY 999 Taka (BDT)!
+- Why 999 Taka: Explain that this special introductory deal allows businesses to try out Websy's premium engineering and service with zero risk.
+- For Larger / Advanced Projects: Complete e-commerce platforms with automated courier webhooks and custom multi-page flagships are custom-quoted based on project scope, but always cost-effective. Ask for their WhatsApp number so Mahin can share an exact proposal.
 
 6. Lead Capture & Conversions
 Goal: Capture contact information for serious inquiries.
 Strategy: If a visitor seems genuinely interested in starting a project or seeing a live demo, gently ask for their phone number or WhatsApp number so Mahin can personally send them a proper proposal or arrange a 10-minute discovery call.
-Strict Rule: Do not force it. Only ask if it naturally fits the conversation.
-CRITICAL: When a visitor provides their phone number, WhatsApp number, or email, call the 'captureLead' tool immediately to record their details, then reply warmly confirming Mahin will follow up.
+When contact is provided: If the user provides their phone number, WhatsApp, or email, confirm that Mahin and Team Websy have received their inquiry and will reach out to them on WhatsApp/email shortly.
 
 7. Conversational Style & Languages
 Length: KEEP IT VERY SHORT AND SIMPLE. Maximum 1 to 2 very short sentences per reply. No long paragraphs, no bullet points, no essays.
@@ -102,46 +102,25 @@ Language Rule: ALWAYS reply in the exact same language the user uses. IMPORTANT:
 Rule: If a customer asks a highly technical or specific question that you are unsure of, do not make up an answer.
 Strategy: Honestly say you need to check with Mahin or the engineering team, and ask for their WhatsApp number so we can get back to them with the correct answer.`;
 
+    // Select the fastest, high-quota model (gemini-3.5-flash-lite) for instant sub-second responses without 429 quota exhaustion
+    const modelName = process.env.GEMINI_MODEL || 'gemini-3.5-flash-lite';
+
     const result = streamText({
-      model: google('gemini-3.6-flash'),
+      model: google(modelName),
       system: systemPrompt,
       messages: await convertToModelMessages(normalizedMessages),
-      tools: {
-        captureLead: tool({
-          description: 'Call this whenever a user shares their phone number, WhatsApp number, or email address.',
-          inputSchema: z.object({
-            clientName: z.string().optional().describe('The name of the visitor if known or mentioned'),
-            phone: z.string().optional().describe('The phone number or WhatsApp number provided'),
-            email: z.string().optional().describe('The email address provided'),
-            projectSummary: z.string().describe('A concise 1-2 sentence summary of what the client wants or discussed'),
-          }),
-          execute: async ({ clientName, phone, email, projectSummary }) => {
-            leadCapturedViaTool = true;
-            console.log('[AI Tool: captureLead] Executed with:', { clientName, phone, email, projectSummary });
-
-            // Asynchronously dispatch notifications
-            dispatchLeadNotifications({
-              clientName,
-              phone: phone || (validPhones && validPhones[0]) || undefined,
-              email: email || (detectedEmails && detectedEmails[0]) || undefined,
-              projectSummary,
-              conversationHistory: simplifiedHistory,
-            });
-
-            return { status: 'recorded', note: 'Lead forwarded to Mahin Ahmad.' };
-          },
-        }),
-      },
-      stopWhen: isStepCount(2),
-      onFinish: async () => {
-        // Fallback: If Gemini did not trigger the tool but the visitor provided a phone or email
-        if (!leadCapturedViaTool && (validPhones?.length || detectedEmails?.length)) {
-          console.log('[Lead Capture Fallback] Detected contact info in user message without tool call. Triggering dispatch.');
+      onFinish: async ({ text }) => {
+        // Asynchronously dispatch lead alerts when phone or email is detected
+        if (validPhones?.length || detectedEmails?.length) {
+          console.log('[Lead Capture Pipeline] Contact detected in conversation. Dispatching alerts...');
           dispatchLeadNotifications({
             phone: validPhones?.[0],
             email: detectedEmails?.[0],
-            projectSummary: `Visitor provided contact in message: "${lastUserMessage}". See transcript below.`,
-            conversationHistory: simplifiedHistory,
+            projectSummary: `Visitor inquiry: "${lastUserMessage}". AI response: "${text}"`,
+            conversationHistory: [
+              ...simplifiedHistory,
+              { role: 'assistant', content: text }
+            ],
           });
         }
       },
