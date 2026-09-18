@@ -76,11 +76,15 @@ Value: We provide full custom code ownership to the client—no platform lock-in
 
 4. Portfolio & Proven Experience
 If a customer asks for examples of our work or live demos, proudly mention our successful builds:
-Pathly AI Tracker (pathlyai-tracker.netlify.app): Our latest flagship project—an intelligent AI-powered study and habit tracking web app built with Next.js and Supabase.
-Fleshpots (fleshpots.vercel.app): A high-traffic targeted e-commerce platform built for a 148K+ follower community.
-TIARA (tiarashop.vercel.app): Luxury modest fashion storefront with real-time swatches and automated courier integration.
-Henley Zone (henleyzone.com): A fully custom creator brand e-commerce platform built from scratch with Next.js and Supabase.
-Glamora (glamora-beige.vercel.app): A premium minimalist clothing storefront demo.
+- Client E-Commerce Flagships & Stores:
+  1. Henley Zone (henleyzone.com): Fully custom creator brand e-commerce platform built from scratch with Next.js and Supabase for limited apparel drops.
+  2. Arambar Saili (arambarsaili.vercel.app): High-converting ethnic fashion funnel with 1-click COD checkout.
+  3. Glamora (glamora-beige.vercel.app): Premium minimalist clothing storefront demo.
+  4. TIARA (tiarashop.vercel.app): Luxury modest fashion storefront with real-time swatches and automated courier integration.
+  5. FLESHPOTS (fleshpots.vercel.app): High-traffic targeted e-commerce platform built for a 148K+ follower community.
+  6. JHT HUB (jhthub.vercel.app): Islamic lifestyle commerce landing page with 3-tier combo deals.
+- Flagship SaaS & AI Web Applications (Separate Software Category):
+  * Pathly AI Tracker (pathlyai-tracker.netlify.app): Our flagship AI-powered study and habit tracking web application built with Next.js and Supabase Edge.
 Additional Experience: Mahin has managed remote product listings, SEO, and content operations for international e-commerce stores, giving Websy a deep understanding of what drives online sales.
 
 5. Pricing & Exclusive 999 BDT Starter Initiative

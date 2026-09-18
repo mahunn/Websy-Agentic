@@ -41,16 +41,37 @@ const caseStudies: CaseStudy[] = [
     featured: true
   },
   {
-    id: "fleshpots",
-    title: "FLESHPOTS Official Storefront",
+    id: "henleyzone",
+    title: "Henley Zone Creator Store",
     category: "fullstack",
-    categoryLabel: "Full-Stack Store • 148K+ Community",
-    desc: "Engineered for 148K+ community. Features live multi-category catalogs, instant slide-out cart drawer, and automated order routing.",
-    image: "/fleshpots-screenshot.png",
-    url: "https://fleshpots.vercel.app/",
-    tags: ["Full-Stack Store", "Live Cart Drawer", "Flash Deals", "Sub-680ms Speed"],
-    metrics: "148K+ Community • <680ms LCP",
-    featured: true
+    categoryLabel: "Creator Apparel & Brand Store",
+    desc: "High-converting creator brand hub engineered for limited apparel drops and personal brand client acquisition with instant consultation scheduling.",
+    image: "/henley-mockup-1-cropped.png",
+    url: "https://henleyzone.com",
+    tags: ["Creator Store", "Custom Landing Page", "Meta CAPI Tracking", "3.2x ROAS"],
+    metrics: "Apparel Drops • 3.2x ROAS"
+  },
+  {
+    id: "arambarsaili",
+    title: "আড়ম্বর শৈলী (Arambar Saili)",
+    category: "landing",
+    categoryLabel: "High-Converting D2C Funnel",
+    desc: "High-converting ethnic fashion funnel with interactive size/color switches, Dhaka delivery calculation, and 1-click COD checkout.",
+    image: "/arambarsaili-screenshot.png",
+    url: "https://arambarsaili.vercel.app/",
+    tags: ["Ethnic Fashion", "D2C Funnel", "Cash on Delivery", "Sub-650ms Speed"],
+    metrics: "Single-Product Funnel • High ROAS"
+  },
+  {
+    id: "glamora",
+    title: "Glamora Luxe Apparel",
+    category: "landing",
+    categoryLabel: "Minimalist Brand Campaign",
+    desc: "High-speed clothing landing page with instant size variations, dynamic courier fee calculator, and 1-click mobile order confirmation.",
+    image: "/glamora-mockup.png",
+    url: "https://glamora-beige.vercel.app",
+    tags: ["Apparel", "Steadfast Sync", "Sub-1s Checkout", "+38% Conversion"],
+    metrics: "Sub-1s Checkout • +38% Conv"
   },
   {
     id: "tiara",
@@ -65,15 +86,16 @@ const caseStudies: CaseStudy[] = [
     featured: true
   },
   {
-    id: "arambarsaili",
-    title: "আড়ম্বর শৈলী (Arambar Saili)",
-    category: "landing",
-    categoryLabel: "High-Converting D2C Funnel",
-    desc: "High-converting ethnic fashion funnel with interactive size/color switches, Dhaka delivery calculation, and 1-click COD checkout.",
-    image: "/arambarsaili-screenshot.png",
-    url: "https://arambarsaili.vercel.app/",
-    tags: ["Ethnic Fashion", "D2C Funnel", "Cash on Delivery", "Sub-650ms Speed"],
-    metrics: "Single-Product Funnel • High ROAS"
+    id: "fleshpots",
+    title: "FLESHPOTS Official Storefront",
+    category: "fullstack",
+    categoryLabel: "Full-Stack Store • 148K+ Community",
+    desc: "Engineered for 148K+ community. Features live multi-category catalogs, instant slide-out cart drawer, and automated order routing.",
+    image: "/fleshpots-screenshot.png",
+    url: "https://fleshpots.vercel.app/",
+    tags: ["Full-Stack Store", "Live Cart Drawer", "Flash Deals", "Sub-680ms Speed"],
+    metrics: "148K+ Community • <680ms LCP",
+    featured: true
   },
   {
     id: "jhthub",
@@ -96,28 +118,6 @@ const caseStudies: CaseStudy[] = [
     url: "https://ongobilash.vercel.app/",
     tags: ["Dark Luxury Mode", "Emerald Visuals", "Instant Swatch", "WhatsApp Order"],
     metrics: "VIP Checkout • Steadfast Sync"
-  },
-  {
-    id: "henleyzone",
-    title: "Henley Zone Creator Store",
-    category: "fullstack",
-    categoryLabel: "Creator Apparel & Brand Store",
-    desc: "High-converting creator brand hub engineered for limited apparel drops and personal brand client acquisition with instant consultation scheduling.",
-    image: "/henley-mockup-1-cropped.png",
-    url: "https://henleyzone.com",
-    tags: ["Creator Store", "Custom Landing Page", "Meta CAPI Tracking", "3.2x ROAS"],
-    metrics: "Apparel Drops • 3.2x ROAS"
-  },
-  {
-    id: "glamora",
-    title: "Glamora Luxe Apparel",
-    category: "landing",
-    categoryLabel: "Minimalist Brand Campaign",
-    desc: "High-speed clothing landing page with instant size variations, dynamic courier fee calculator, and 1-click mobile order confirmation.",
-    image: "/glamora-mockup.png",
-    url: "https://glamora-beige.vercel.app",
-    tags: ["Apparel", "Steadfast Sync", "Sub-1s Checkout", "+38% Conversion"],
-    metrics: "Sub-1s Checkout • +38% Conv"
   }
 ];
 
@@ -249,6 +249,94 @@ export default function WorkPage() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7 mb-14 sm:mb-18 items-stretch">
           {filteredStudies.map((study) => {
             const currentImg = activeScreenshots[study.id] || study.image;
+
+            if (study.id === 'pathly') {
+              return (
+                <article
+                  key={study.id}
+                  className="col-span-1 md:col-span-2 bg-[#0E1013] text-white border border-neutral-800 rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-xl relative overflow-hidden group"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center relative z-10">
+                    <div className="lg:col-span-5 flex flex-col justify-between space-y-4">
+                      <div>
+                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-700 text-[10.5px] font-mono font-bold uppercase text-red-400 mb-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626] animate-pulse" />
+                          <span>FLAGSHIP AI &amp; SAAS PLATFORM</span>
+                        </div>
+                        <h2 className="text-xl sm:text-2xl lg:text-3xl font-display font-extrabold text-white tracking-tight">
+                          <a href={study.url} target="_blank" rel="noopener noreferrer">
+                            {study.title}
+                          </a>
+                        </h2>
+                        <p className="text-xs sm:text-sm text-neutral-400 mt-2 leading-relaxed font-sans">
+                          {study.desc}
+                        </p>
+                      </div>
+
+                      <div className="flex flex-wrap gap-1.5">
+                        {study.tags.map((tag, idx) => (
+                          <span
+                            key={idx}
+                            className="text-[10px] font-mono font-medium text-neutral-300 bg-neutral-900 border border-neutral-700 px-2 py-0.5 rounded-md"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="pt-2 flex flex-wrap items-center gap-3">
+                        <a
+                          href={study.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 bg-white hover:bg-neutral-100 text-[#111111] font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all shadow-md"
+                        >
+                          <span>Launch Live Platform</span>
+                          <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+                        </a>
+                        <span className="text-xs font-mono font-medium text-emerald-400 flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          Live in Production
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-7 flex flex-col">
+                      <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-black border border-neutral-800 mb-2.5 relative shadow-xl">
+                        <Image
+                          src={currentImg}
+                          alt={`${study.title} preview`}
+                          fill
+                          sizes="(max-width: 1024px) 100vw, 680px"
+                          className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.01]"
+                          priority
+                        />
+                      </div>
+
+                      {study.screenshots && (
+                        <div className="flex flex-wrap items-center gap-1.5">
+                          {study.screenshots.map((s) => (
+                            <button
+                              key={s.src}
+                              type="button"
+                              onClick={() => setActiveScreenshots(prev => ({ ...prev, [study.id]: s.src }))}
+                              className={`text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md transition-all cursor-pointer ${
+                                currentImg === s.src
+                                  ? 'bg-white text-[#111111] font-semibold shadow-2xs'
+                                  : 'bg-neutral-900 text-neutral-400 hover:text-white hover:bg-neutral-800 border border-neutral-800'
+                              }`}
+                            >
+                              {s.label}
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </article>
+              );
+            }
+
             return (
             <article 
               key={study.id}

@@ -321,175 +321,364 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* 4 Core Showcase Cards (Mobile-first stack, 2-col on tablet/desktop) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10">
+          {/* ── Distinct Category: Flagship AI & SaaS Platform (Pathly) ── */}
+          <div className="mb-12 sm:mb-16">
+            <div className="bg-[#0E1013] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 border border-neutral-800 shadow-xl relative overflow-hidden group">
+              {/* Subtle background ambient glow */}
+              <div 
+                className="absolute top-0 right-0 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none"
+                aria-hidden="true" 
+              />
+              
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+                
+                {/* Left Column: Product Narrative & Specs */}
+                <div className="lg:col-span-5 flex flex-col justify-between space-y-4 sm:space-y-5">
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neutral-900 border border-neutral-700 text-[11px] font-mono font-bold uppercase text-red-400 mb-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#DC2626] animate-pulse" />
+                      <span>FLAGSHIP AI &amp; SAAS PLATFORM</span>
+                    </div>
+
+                    <h3 className="text-2xl sm:text-3xl font-display font-extrabold text-white tracking-tight leading-tight">
+                      Pathly — AI Progress Tracker
+                    </h3>
+                    <p className="text-xs sm:text-sm text-neutral-400 mt-2.5 leading-relaxed font-sans">
+                      Intelligent study and habit tracking web application. Log milestones in plain English — Pathly organizes your progress, tracks streak flames, and maps your journey with sub-second responsiveness.
+                    </p>
+                  </div>
+
+                  {/* Feature Highlights */}
+                  <div className="space-y-2 text-xs text-neutral-300">
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>Natural Language AI Progress Logger</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>Real-Time Streak Engine &amp; Calendar Grid</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>Weekly Visual Time-Blocking Timetable</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>Multiplayer Community Leaderboard</span>
+                    </div>
+                  </div>
+
+                  {/* Tech stack badges */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {['Next.js SaaS', 'Supabase Edge', 'AI Classifier', 'Realtime Sync', '<500ms Edge LCP'].map((t) => (
+                      <span key={t} className="text-[10px] font-mono px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA Button */}
+                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                    <a
+                      href="https://pathlyai-tracker.netlify.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-white hover:bg-neutral-100 text-[#111111] font-bold text-xs sm:text-sm px-5 py-3 rounded-full transition-all shadow-md active:scale-98"
+                    >
+                      <span>Launch Live Platform</span>
+                      <ArrowUpRight className="w-4 h-4 text-[#DC2626]" />
+                    </a>
+                    <span className="text-[11px] font-mono text-emerald-400 flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      Live in Production
+                    </span>
+                  </div>
+                </div>
+
+                {/* Right Column: Interactive Real Screenshot Switcher */}
+                <div className="lg:col-span-7 flex flex-col">
+                  {/* Visual Preview Frame */}
+                  <div className="w-full aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-black border border-neutral-800 relative shadow-2xl mb-3">
+                    <Image
+                      src={pathlyImage}
+                      alt="Pathly AI Progress Tracker Live Interface"
+                      fill
+                      className="object-cover object-top transition-all duration-300"
+                      sizes="(max-width: 1024px) 100vw, 680px"
+                      priority
+                    />
+                  </div>
+
+                  {/* 3-View Real Screenshot Switcher */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-[10px] font-mono uppercase text-neutral-500 mr-1 hidden sm:inline">Views:</span>
+                    {[
+                      { label: '🔥 1. Dashboard', src: '/pathly-dashboard.png' },
+                      { label: '📅 2. Weekly Planner', src: '/pathly-planner.png' },
+                      { label: '🏆 3. Community', src: '/pathly-community.png' }
+                    ].map((tab) => (
+                      <button
+                        key={tab.src}
+                        type="button"
+                        onClick={() => setPathlyImage(tab.src)}
+                        className={`text-[11px] sm:text-xs px-3 py-1.5 rounded-lg transition-all cursor-pointer font-medium ${
+                          pathlyImage === tab.src
+                            ? 'bg-white text-[#111111] font-bold shadow-sm'
+                            : 'bg-neutral-900 text-neutral-400 hover:text-white hover:bg-neutral-800 border border-neutral-800'
+                        }`}
+                      >
+                        {tab.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          {/* ── Client Storefronts & E-Commerce Flagships ───────────── */}
+          <div className="mb-8">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 text-xs font-mono font-bold uppercase text-[#111111] mb-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span>CLIENT STOREFRONTS &amp; FUNNELS</span>
+            </div>
+            <h3 className="text-xl sm:text-2xl font-display font-bold text-[#111111] tracking-tight">
+              High-Converting E-Commerce Flagships
+            </h3>
+          </div>
+
+          {/* Ordered exactly: 1. Henley Zone -> 2. Arambar Saili -> 3. Glamora -> 4. TIARA -> 5. FLESHPOTS -> 6. JHT HUB */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 mb-10">
             
-            {/* Project 1: Pathly AI Tracker (Latest Flagship) */}
-            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-2.5">
-                <Image
-                  src={pathlyImage}
-                  alt="Pathly AI Progress Tracker"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 540px"
-                  priority
-                />
+            {/* Project 1: Henley Zone */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/henley-mockup-1-cropped.png"
+                    alt="Henley Zone Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    Creator Apparel &amp; Drop Store
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  Henley Zone Creator Store
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  High-converting creator brand hub engineered for limited apparel drops and personal brand client acquisition.
+                </p>
               </div>
-
-              {/* Real Screenshot Switcher */}
-              <div className="flex items-center gap-1.5 mb-3">
-                {[
-                  { label: 'Dashboard', src: '/pathly-dashboard.png' },
-                  { label: 'Weekly Planner', src: '/pathly-planner.png' },
-                  { label: 'Community', src: '/pathly-community.png' }
-                ].map((tab) => (
-                  <button
-                    key={tab.src}
-                    type="button"
-                    onClick={() => setPathlyImage(tab.src)}
-                    className={`text-[10px] sm:text-[11px] px-2.5 py-1 rounded-md transition-all cursor-pointer ${
-                      pathlyImage === tab.src
-                        ? 'bg-[#111111] text-white font-semibold shadow-2xs'
-                        : 'bg-neutral-100 text-neutral-600 hover:text-black hover:bg-neutral-200'
-                    }`}
-                  >
-                    {tab.label}
-                  </button>
-                ))}
-              </div>
-
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
-                  AI Web Platform • Next.js SaaS
-                </span>
-                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  Live
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
-                Pathly — AI Progress Tracker
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
-                Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track streaks, and visualize learning trajectories.
-              </p>
-              <a
-                href="https://pathlyai-tracker.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
-              >
-                <span>Visit Platform</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
-              </a>
-            </article>
-
-            {/* Project 2: FLESHPOTS */}
-            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
-                <Image
-                  src="/fleshpots-screenshot.png"
-                  alt="FLESHPOTS Official Store"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 540px"
-                />
-              </div>
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
-                  Full-Stack Store • 148K+ Community
-                </span>
-                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Live
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
-                FLESHPOTS Official Storefront
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
-                High-speed commerce engineered for high traffic with instant cart drawer and automated order routing.
-              </p>
-              <a
-                href="https://fleshpots.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
-              >
-                <span>Visit Store</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
-              </a>
-            </article>
-
-            {/* Project 3: TIARA */}
-            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
-                <Image
-                  src="/tiara-cover.png"
-                  alt="TIARA Store"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 540px"
-                />
-              </div>
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
-                  Luxury Modest Fashion Store
-                </span>
-                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Live
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
-                TIARA (প্রিমিয়াম ফ্যাশন)
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
-                Bespoke modest fashion storefront with real-time color swatches and automated courier delivery sync.
-              </p>
-              <a
-                href="https://tiarashop.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
-              >
-                <span>Visit Store</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
-              </a>
-            </article>
-
-            {/* Project 4: Henley Zone */}
-            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
-                <Image
-                  src="/henley-mockup-1-cropped.png"
-                  alt="Henley Zone Store"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 540px"
-                />
-              </div>
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
-                  Creator Apparel &amp; Drop Store
-                </span>
-                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Live
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
-                Henley Zone Creator Store
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
-                High-converting creator brand hub engineered for limited apparel drops and personal brand client acquisition.
-              </p>
               <a
                 href="https://henleyzone.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
+              >
+                <span>Visit Store</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 2: Arambar Saili */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/arambarsaili-screenshot.png"
+                    alt="আড়ম্বর শৈলী Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    High-Converting D2C Funnel
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  আড়ম্বর শৈলী (Arambar Saili)
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  High-converting ethnic fashion funnel with interactive color/size variant switchers and frictionless 1-click COD checkout.
+                </p>
+              </div>
+              <a
+                href="https://arambarsaili.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
+              >
+                <span>Visit Store</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 3: Glamora */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/glamora-mockup.png"
+                    alt="Glamora Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    Minimalist Campaign Funnel
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  Glamora Luxe Apparel
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  High-speed clothing landing page with instant size variations, courier fee calculator, and 1-click checkout.
+                </p>
+              </div>
+              <a
+                href="https://glamora-beige.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
+              >
+                <span>Visit Store</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 4: TIARA */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/tiara-cover.png"
+                    alt="TIARA Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    Luxury Modest Fashion Store
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  TIARA (প্রিমিয়াম ফ্যাশন)
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  Bespoke modest fashion storefront with real-time color swatches and automated courier delivery sync.
+                </p>
+              </div>
+              <a
+                href="https://tiarashop.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
+              >
+                <span>Visit Store</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 5: FLESHPOTS */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/fleshpots-screenshot.png"
+                    alt="FLESHPOTS Official Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    Full-Stack Store • 148K+ Community
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  FLESHPOTS Official Storefront
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  High-speed commerce engineered for high traffic with instant cart drawer and automated order routing.
+                </p>
+              </div>
+              <a
+                href="https://fleshpots.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
+              >
+                <span>Visit Store</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 6: JHT HUB */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all flex flex-col justify-between group">
+              <div>
+                <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                  <Image
+                    src="/jhthub-screenshot.png"
+                    alt="JHT HUB Store"
+                    fill
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                    sizes="(max-width: 768px) 100vw, 400px"
+                  />
+                </div>
+                <div className="flex items-center justify-between gap-2 mb-1">
+                  <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                    Islamic Lifestyle Commerce
+                  </span>
+                  <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    Live
+                  </span>
+                </div>
+                <h4 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                  JHT HUB (প্রিমিয়াম আতর)
+                </h4>
+                <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                  High-impact lifestyle landing page with 3-tier value combo deals, countdown urgency ticker, and instant COD checkout.
+                </p>
+              </div>
+              <a
+                href="https://jhthub.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-between text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors mt-auto"
               >
                 <span>Visit Store</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
