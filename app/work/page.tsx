@@ -6,12 +6,12 @@ import Link from 'next/link';
 import { ArrowUpRight, ArrowRight } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 
-type ProjectCategory = 'all' | 'landing' | 'fullstack';
+type ProjectCategory = 'all' | 'saas' | 'fullstack' | 'landing';
 
 interface CaseStudy {
   id: string;
   title: string;
-  category: 'landing' | 'fullstack';
+  category: 'landing' | 'fullstack' | 'saas';
   categoryLabel: string;
   desc: string;
   image: string;
@@ -22,6 +22,18 @@ interface CaseStudy {
 }
 
 const caseStudies: CaseStudy[] = [
+  {
+    id: "pathly",
+    title: "Pathly — AI Progress Tracker",
+    category: "saas",
+    categoryLabel: "AI Web Platform • Next.js SaaS",
+    desc: "Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track daily streaks, and visualize learning trajectories.",
+    image: "/pathly-screenshot.png",
+    url: "https://pathlyai-tracker.netlify.app/",
+    tags: ["Next.js SaaS", "AI Progress Engine", "Habit Tracking", "Supabase Edge"],
+    metrics: "AI Study Sync • <500ms Edge LCP",
+    featured: true
+  },
   {
     id: "fleshpots",
     title: "FLESHPOTS Official Storefront",
@@ -113,8 +125,9 @@ export default function WorkPage() {
 
   const counts = {
     all: caseStudies.length,
-    landing: caseStudies.filter(c => c.category === 'landing').length,
-    fullstack: caseStudies.filter(c => c.category === 'fullstack').length
+    saas: caseStudies.filter(c => c.category === 'saas').length,
+    fullstack: caseStudies.filter(c => c.category === 'fullstack').length,
+    landing: caseStudies.filter(c => c.category === 'landing').length
   };
 
   return (
@@ -144,7 +157,7 @@ export default function WorkPage() {
           </h1>
 
           <p className="text-xs sm:text-base text-neutral-600 font-normal leading-relaxed max-w-xl mx-auto">
-            Live Next.js storefronts and high-ROAS campaign funnels engineered with sub-800ms speeds and automated courier sync.
+            Live Next.js storefronts, AI SaaS platforms, and high-ROAS campaign funnels engineered with sub-800ms speeds.
           </p>
 
           {/* ── Category Filter Pills ────────────────────────────────── */}
@@ -168,20 +181,20 @@ export default function WorkPage() {
             </button>
 
             <button
-              onClick={() => setSelectedCategory('landing')}
+              onClick={() => setSelectedCategory('saas')}
               role="tab"
-              aria-selected={selectedCategory === 'landing'}
+              aria-selected={selectedCategory === 'saas'}
               className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 border ${
-                selectedCategory === 'landing'
+                selectedCategory === 'saas'
                   ? 'bg-[#111111] text-white border-[#111111] shadow-xs'
                   : 'bg-white text-neutral-600 border-gray-200 hover:text-black'
               }`}
             >
-              <span>Campaign Landing Pages</span>
+              <span>SaaS & AI Platforms</span>
               <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold ${
-                selectedCategory === 'landing' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
+                selectedCategory === 'saas' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
               }`}>
-                {counts.landing}
+                {counts.saas}
               </span>
             </button>
 
@@ -200,6 +213,24 @@ export default function WorkPage() {
                 selectedCategory === 'fullstack' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
               }`}>
                 {counts.fullstack}
+              </span>
+            </button>
+
+            <button
+              onClick={() => setSelectedCategory('landing')}
+              role="tab"
+              aria-selected={selectedCategory === 'landing'}
+              className={`px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer flex items-center gap-1.5 border ${
+                selectedCategory === 'landing'
+                  ? 'bg-[#111111] text-white border-[#111111] shadow-xs'
+                  : 'bg-white text-neutral-600 border-gray-200 hover:text-black'
+              }`}
+            >
+              <span>Campaign Landing Pages</span>
+              <span className={`text-[10px] px-1.5 py-0.2 rounded-full font-mono font-bold ${
+                selectedCategory === 'landing' ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-600'
+              }`}>
+                {counts.landing}
               </span>
             </button>
           </div>
@@ -221,7 +252,7 @@ export default function WorkPage() {
                     fill
                     className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                     sizes="(max-width: 768px) 100vw, 600px"
-                    priority={study.id === 'fleshpots'}
+                    priority={study.id === 'pathly' || study.id === 'fleshpots'}
                   />
                 </div>
 
@@ -267,9 +298,9 @@ export default function WorkPage() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-gray-100 hover:bg-gray-200 px-3.5 py-1.5 sm:py-2 rounded-xl transition-colors"
-                  aria-label={`Visit live storefront for ${study.title}`}
+                  aria-label={`Visit live preview for ${study.title}`}
                 >
-                  <span>Visit Store</span>
+                  <span>{study.category === 'saas' ? 'Visit App' : 'Visit Store'}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
                 </a>
               </div>

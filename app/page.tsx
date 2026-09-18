@@ -323,7 +323,45 @@ export default function Home() {
           {/* 4 Core Showcase Cards (Mobile-first stack, 2-col on tablet/desktop) */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 mb-10">
             
-            {/* Project 1: FLESHPOTS */}
+            {/* Project 1: Pathly AI Tracker (Latest Flagship) */}
+            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
+              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
+                <Image
+                  src="/pathly-screenshot.png"
+                  alt="Pathly AI Progress Tracker"
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 768px) 100vw, 540px"
+                  priority
+                />
+              </div>
+              <div className="flex items-center justify-between gap-2 mb-1">
+                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
+                  AI Web Platform • Next.js SaaS
+                </span>
+                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  Live
+                </span>
+              </div>
+              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
+                Pathly — AI Progress Tracker
+              </h3>
+              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
+                Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track streaks, and visualize learning trajectories.
+              </p>
+              <a
+                href="https://pathlyai-tracker.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
+              >
+                <span>Visit Platform</span>
+                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
+              </a>
+            </article>
+
+            {/* Project 2: FLESHPOTS */}
             <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
               <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
                 <Image
@@ -360,7 +398,7 @@ export default function Home() {
               </a>
             </article>
 
-            {/* Project 2: TIARA */}
+            {/* Project 3: TIARA */}
             <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
               <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
                 <Image
@@ -397,7 +435,7 @@ export default function Home() {
               </a>
             </article>
 
-            {/* Project 3: Henley Zone */}
+            {/* Project 4: Henley Zone */}
             <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
               <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
                 <Image
@@ -425,43 +463,6 @@ export default function Home() {
               </p>
               <a
                 href="https://henleyzone.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"
-              >
-                <span>Visit Store</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
-              </a>
-            </article>
-
-            {/* Project 4: Glamora Luxe */}
-            <article className="bg-white border border-gray-200/90 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-sm hover:shadow-md transition-all group">
-              <div className="aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 relative mb-4">
-                <Image
-                  src="/glamora-mockup.png"
-                  alt="Glamora Store"
-                  fill
-                  className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
-                  sizes="(max-width: 768px) 100vw, 540px"
-                />
-              </div>
-              <div className="flex items-center justify-between gap-2 mb-1">
-                <span className="text-[11px] font-mono font-bold uppercase text-[#DC2626]">
-                  Minimalist Campaign Funnel
-                </span>
-                <span className="text-[11px] font-mono font-medium text-emerald-600 flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                  Live
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl font-display font-bold text-[#111111] mb-2">
-                Glamora Luxe Apparel
-              </h3>
-              <p className="text-xs sm:text-sm text-neutral-600 mb-4 line-clamp-2">
-                High-speed clothing landing page with instant size variations and frictionless 1-click checkout.
-              </p>
-              <a
-                href="https://glamora-beige.vercel.app"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-neutral-100 hover:bg-neutral-200 px-3.5 py-2 rounded-xl transition-colors"

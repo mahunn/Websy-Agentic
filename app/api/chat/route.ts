@@ -76,9 +76,11 @@ Value: We provide full custom code ownership to the client—no platform lock-in
 
 4. Portfolio & Proven Experience
 If a customer asks for examples of our work or live demos, proudly mention our successful builds:
-Henley Zone (henleyzone.com): A fully custom e-commerce website built from scratch for a clothing business using Next.js and Supabase.
-Glamora (glamora-beige.vercel.app): A premium e-commerce storefront demo.
-Fleshpots (fleshpots.vercel.app): A targeted e-commerce platform built to streamline messenger-based ordering.
+Pathly AI Tracker (pathlyai-tracker.netlify.app): Our latest flagship project—an intelligent AI-powered study and habit tracking web app built with Next.js and Supabase.
+Fleshpots (fleshpots.vercel.app): A high-traffic targeted e-commerce platform built for a 148K+ follower community.
+TIARA (tiarashop.vercel.app): Luxury modest fashion storefront with real-time swatches and automated courier integration.
+Henley Zone (henleyzone.com): A fully custom creator brand e-commerce platform built from scratch with Next.js and Supabase.
+Glamora (glamora-beige.vercel.app): A premium minimalist clothing storefront demo.
 Additional Experience: Mahin has managed remote product listings, SEO, and content operations for international e-commerce stores, giving Websy a deep understanding of what drives online sales.
 
 5. Pricing & Exclusive 999 BDT Starter Initiative

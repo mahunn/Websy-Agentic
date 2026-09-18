@@ -8,7 +8,7 @@ import { ArrowUpRight } from 'lucide-react';
 interface ProjectItem {
   id: string;
   title: string;
-  category: 'Fashion & Apparel' | 'Fragrance & Beauty' | 'Homeware & Utensils';
+  category: 'SaaS & AI Platforms' | 'Fashion & Apparel' | 'Fragrance & Beauty' | 'Homeware & Utensils';
   categoryLabel: string;
   metrics: string;
   tags: string[];
@@ -18,6 +18,17 @@ interface ProjectItem {
 }
 
 const allProjects: ProjectItem[] = [
+  {
+    id: 'pathly',
+    title: 'Pathly — AI Progress Tracker',
+    category: 'SaaS & AI Platforms',
+    categoryLabel: 'AI Web Platform • Next.js SaaS',
+    metrics: 'AI Study Sync • <500ms Edge LCP',
+    tags: ['Next.js SaaS', 'AI Progress Engine', 'Habit Tracking', 'Supabase Edge'],
+    desc: 'Intelligent AI-powered study and habit tracking web app. Log progress in plain language, track daily streaks, and visualize learning trajectories.',
+    image: '/pathly-screenshot.png',
+    url: 'https://pathlyai-tracker.netlify.app/'
+  },
   {
     id: 'fleshpots',
     title: 'FLESHPOTS Official Storefront',
@@ -77,6 +88,7 @@ const allProjects: ProjectItem[] = [
 
 const categories = [
   'All',
+  'SaaS & AI Platforms',
   'Fashion & Apparel',
   'Fragrance & Beauty',
   'Homeware & Utensils'
@@ -169,7 +181,7 @@ export default function Works() {
                     fill
                     sizes="(max-width: 768px) 100vw, 560px"
                     className="object-cover object-top transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                    priority={project.id === 'fleshpots'}
+                    priority={project.id === 'pathly' || project.id === 'fleshpots'}
                   />
                 </div>
 
@@ -217,7 +229,7 @@ export default function Works() {
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#111111] bg-gray-100 hover:bg-gray-200 px-3.5 py-1.5 sm:py-2 rounded-xl transition-colors"
                   aria-label={`Open ${project.title} live storefront`}
                 >
-                  <span>Visit Store</span>
+                  <span>{project.category === 'SaaS & AI Platforms' ? 'Visit App' : 'Visit Store'}</span>
                   <ArrowUpRight className="w-3.5 h-3.5 text-[#DC2626]" />
                 </a>
               </div>
