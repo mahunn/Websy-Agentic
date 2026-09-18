@@ -10,15 +10,7 @@ export default function ChatWidget() {
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   
-  const { messages, setMessages, sendMessage, status } = useChat({
-    initialMessages: [
-      {
-        id: 'welcome-message',
-        role: 'assistant',
-        content: 'Hi there! I am Mahin Ahmad from Team Websy. How can I help you today?',
-      }
-    ]
-  });
+  const { messages, setMessages, sendMessage, status } = useChat();
   
   const isLoading = status === 'submitted' || status === 'streaming';
   
@@ -46,7 +38,7 @@ export default function ChatWidget() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
 
-  // Load from local storage
+  // Load from local storage or set initial message
   useEffect(() => {
     const savedMessages = localStorage.getItem('websy-chat-history');
     if (savedMessages) {
@@ -54,9 +46,19 @@ export default function ChatWidget() {
         const parsed = JSON.parse(savedMessages);
         if (parsed.length > 0) {
           setMessages(parsed);
+          return;
         }
       } catch (e) {}
     }
+    
+    // If no history, set welcome message
+    setMessages([
+      {
+        id: 'welcome-message',
+        role: 'assistant',
+        content: 'Hi there! I am Mahin Ahmad from Team Websy. How can I help you today?',
+      }
+    ]);
   }, [setMessages]);
 
   // Save to local storage
