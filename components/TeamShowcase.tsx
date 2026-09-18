@@ -13,6 +13,9 @@ import {
   FaWhatsapp 
 } from 'react-icons/fa6';
 
+
+
+
 export interface TeamMember {
   id: string;
   name: string;
@@ -81,6 +84,12 @@ export const teamMembers: TeamMember[] = [
   }
 ];
 
+// Order specifically for mobile devices: Mahin -> Kamrul -> Nokib -> Samin
+const mobileOrder = ['mahin', 'kamrul', 'nokib', 'samin'];
+const mobileTeamMembers = mobileOrder
+  .map((id) => teamMembers.find((m) => m.id === id))
+  .filter(Boolean) as TeamMember[];
+
 export default function TeamShowcase() {
   const [selectedMemberId, setSelectedMemberId] = useState<string>('mahin');
   const activeMember = teamMembers.find(m => m.id === selectedMemberId) || teamMembers[1];
@@ -116,9 +125,9 @@ export default function TeamShowcase() {
         {/* ── 2. The 4-Card Minimalist Portrait Gallery ─ */}
         <div className="mb-12">
           
-          {/* Mobile: Horizontal Swipe / Snap Deck (< md) */}
+          {/* Mobile: Horizontal Swipe / Snap Deck (< md) (Order: Mahin -> Kamrul -> Nokib -> Samin) */}
           <div className="flex md:hidden overflow-x-auto snap-x snap-mandatory gap-4 pb-4 pt-1 px-1 no-scrollbar scroll-smooth">
-            {teamMembers.map((member) => {
+            {mobileTeamMembers.map((member) => {
               const isSelected = member.id === selectedMemberId;
               return (
                 <div
